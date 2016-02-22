@@ -22,6 +22,7 @@ fieldset {
 .form__control {
     border-radius: $input-border-radius;
     height: $input-height-base;
+    line-height: $input-height-base;
 
     &.checkbox,
     &.radio {
@@ -46,9 +47,21 @@ fieldset {
 
     &.textarea {
         height: auto;
+        line-height: $line-height-base;
         min-height: 68px;
         padding-top: 11px;
         padding-bottom: 11px;
+    }
+
+    // Disabled and read-only inputs
+    // Note: HTML5 says that inputs under a fieldset > legend:first-child won't be
+    // disabled if the fieldset is disabled. Due to implementation difficulty,
+    // we don't honor that edge case; we style them as disabled anyway.
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        background-color: $input-bg-disabled;
     }
 }
 
@@ -204,4 +217,20 @@ $inputs: (
     font-size: 1.2em;
     text-align: center;
     width: 10px;
+}
+
+// Make sure checkboxes and radios reduce the label's clickable area to the
+// width of the label only
+.form-checkbox-inline,
+.form-radio-inline {
+    > .controls > .control__label {
+        display: inline-block;
+    }
+}
+
+.form-choice {
+    > .controls > .control__label {
+        clear: left;
+        float: left;
+    }
 }
