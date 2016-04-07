@@ -9,17 +9,6 @@
     border-collapse: collapse;
   }
 
-  // Links
-  a {
-    color: $black;
-    text-decoration: none;
-  }
-
-  // Colour links when user hovers over the table
-  &:hover tbody a {
-    color: color(link);
-  }
-
   // Rows
   tr {
     line-height: $line-height-base;
