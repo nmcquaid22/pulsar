@@ -8,6 +8,22 @@
         color: color(link);
     }
 
+    .btn {
+        &,
+        &:hover:not(:disabled) {
+            margin: 8px 0 9px;
+            vertical-align: top;
+        }
+    }
+}
+
+.datatable--fixed {
+    table-layout: fixed;
+
+    td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .table__tr {
@@ -104,6 +120,7 @@
     max-width: 60px;
     position: relative;
     width: 60px;
+    z-index: -1;
 }
 
 .table-link {
