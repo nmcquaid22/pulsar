@@ -9,7 +9,7 @@ fieldset {
 }
 
 .form--standalone {
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 20px;
 }
 
 .form__group {
@@ -22,6 +22,15 @@ fieldset {
     height: $input-height-base;
     line-height: $input-height-base;
     padding: 0 $padding-base-horizontal;
+
+    @include respond-min($screen-tablet) {
+        .has-changed &.file,
+        .has-success &.file,
+        .has-warning &.file,
+        .has-error &.file {
+            padding: 14px 10px 13px;
+        }
+    }
 
     &.checkbox,
     &.radio {
@@ -64,12 +73,17 @@ fieldset {
         padding: 0;
 
         @include respond-min($screen-tablet) {
-            padding: 11px 0 0;
+            padding: 14px 0 0;
         }
 
         @include ie-lte(9) {
             border: 1px solid $input-border;
             border-radius: 0;
+        }
+
+        &.is-disabled {
+            background-color: color(white);
+            color: color(text, disabled);
         }
     }
 
@@ -167,7 +181,7 @@ fieldset {
 }
 
 .modal .form__actions {
-    border-top: none;
+    border-top: 0;
     min-height: 37px;
     padding: 0;
 }
