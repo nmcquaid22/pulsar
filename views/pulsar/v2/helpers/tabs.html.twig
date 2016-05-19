@@ -4,7 +4,7 @@
     <div class="nav-inline">
         <ul class="nav-inline__list">
     {%- for tab in tabs -%}
-            <li class="nav-inline__item{% if tab.active is defined and tab.active == tab.id %} nav-inline__item--is-active is-active{% endif %}{% if tab.hidden is defined and tab.hidden == true %} hide{% endif %}">
+            <li class="nav-inline__item{% if tab.active is defined and tab.active == tab.id %} nav-inline__item--is-active is-active{% endif %}{% if tab.hidden is defined and tab.hidden == true %} hide{% endif %}{% if tab.class is defined and tab.class is not empty %}{{ ' ' ~ tab.class }}{% endif %}">
                 {% set href = '#' ~ tab.id %}
                 {% set type = 'tab' %}
                 {%
