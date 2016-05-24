@@ -24,16 +24,16 @@
         user-select: none; // stop nasty blue text selection when clicking
         width: 100%; // mobile-first width
 
+        @include ie-lte(8) {
+            border: 1px solid color(border);
+        }
+
         img {
             vertical-align: middle;
         }
 
         &:last-child {
             margin: 0;
-        }
-
-        @include ie-lte(8) {
-            border: 1px solid color(border);
         }
     }
 
