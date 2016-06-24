@@ -23,6 +23,7 @@ PulsarUIComponent.prototype.init = function () {
     this.initTables();
     this.initDataTables();
     this.initCountdown();
+    this.initRepeatables();
 };
 
 PulsarUIComponent.prototype.initTables = function () {
@@ -99,6 +100,31 @@ PulsarUIComponent.prototype.initCountdown = function () {
             $this.html(event.strftime(format));
         });
     });
+};
+
+PulsarUIComponent.prototype.initRepeatables = function () {
+
+    this.$html.find('.js-repeatable').each(function() {
+
+        var $this = $(this);
+
+        $this.on('click', '.js-repeatable-add', function (e) {
+            $this.find('.js-repeatable-add').hide();
+            $this.find('.js-repeatable-form').slideDown(100, function() {
+                $this.find('.js-repeatable-save').fadeIn(100);
+            });
+        });
+
+         $this.on('click', '[data-dismiss="table-form"]', function (e) {
+            $this.find('.js-repeatable-save').fadeOut(100);
+            $this.find('.js-repeatable-form').slideUp(100, function() {
+                $this.find('.js-repeatable-add').fadeIn(100);
+            });
+        });
+
+        console.log($this);
+    });
+
 };
 
 module.exports = PulsarUIComponent;

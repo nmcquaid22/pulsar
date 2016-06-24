@@ -130,7 +130,11 @@
 
 td.table__form {
     background-color: color(background);
-    padding: 10px 10px 24px 20px;
+    padding: 0;
+
+    .table__form-container {
+        padding: 10px 10px 24px 20px;
+    }
 
     form {
         background-color: transparent;
