@@ -1,0 +1,352 @@
+{% extends "@pulsar/pulsar/components/tab.html.twig" %}
+{% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %}
+{% import '@pulsar/pulsar/v2/helpers/form.html.twig' as form %}
+{% import '@pulsar/pulsar/v2/helpers/flash.html.twig' as flash %}
+
+
+{% block tab_content %}
+
+<div class="piano-wrapper">
+    <div class="piano">
+        <ul class="piano__items">
+
+            {{
+                html.li({
+                    'class': 'piano__item is-selected',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'pie-chart',
+                                'title': 'Analytics',
+                                'description': 'Google, AWStats, Piwik, etc '
+                        }) ~ html.status('active', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'lock',
+                                'title': 'Authentication',
+                                'description': 'Active Directory, LDAP, OAuth'
+                        }) ~ html.status('active', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'cloud-upload',
+                                'title': 'Cloud storage',
+                                'description': 'Google Drive, Dropbox, OneDrive, etc'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'paper-plane-o',
+                                'title': 'Email delivery',
+                                'description': 'MailGun, Mandrill, Sendgrid, etc'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'files-o',
+                                'title': 'Office365',
+                                'description': 'Word, Outlook, Excel, etc'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'map-signs',
+                                'title': 'Postcode lookup',
+                                'description': 'Providers of address data'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'comments-o',
+                                'title': 'Social media',
+                                'description': 'Facebook, Twitter, etc'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'volume-control-phone',
+                                'title': 'Telephony',
+                                'description': 'CloudCall, Skype, Cisco'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+
+        <!--
+            {{
+                html.li({
+                    'class': 'piano__item is-selected is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'image': '/images/favicons/cxm/favicon-96x96.png',
+                                'title': 'Continuum CXM',
+                                'description': 'Allow users to sign in with CXM credentials'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'dropbox',
+                                'icon_colour': '#1581e2',
+                                'title': 'Dropbox',
+                                'description': 'Import content from your dropbox account'
+                        }) ~ html.status('active', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'facebook-official',
+                                'icon_colour': '#3c5a96',
+                                'title': 'Facebook',
+                                'description': 'Use Facebook for comments on content'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'google',
+                                'icon_colour': '#4688f1',
+                                'title': 'Google',
+                                'description': 'Import files with Google Drive'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'paypal',
+                                'icon_colour': '#053385',
+                                'title': 'PayPal',
+                                'description': 'Accept payments via PayPal'
+                        }) ~ html.status('active', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'pied-piper',
+                                'icon_colour': '#339e4b',
+                                'title': 'Pied Piper',
+                                'description': 'A middle-out compression company'
+                        }) ~ html.status('active', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'twitter',
+                                'icon_colour': '#2aa3ef',
+                                'title': 'Twitter',
+                                'description': 'Manage the social activity of your content'
+                        }) ~ html.status('active', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            {{
+                html.li({
+                    'class': 'piano__item is-inactive',
+                    'value': html.link({
+                        'href': '#',
+                        'label': html.media({
+                                'icon': 'youtube',
+                                'icon_colour': '#e52524',
+                                'title': 'YouTube',
+                                'description': 'Easily embed your YouTube content'
+                        }) ~ html.status('inactive', { 'data-placement': 'left' })
+                    })
+                })
+            }}
+            -->
+        </ul>
+        <div class="messages piano__item-content">
+            <div class="masterswitch">
+                <h2 class="header">Continuum CXM</h2>
+                {{ form.create() }}
+
+                {{
+                    form.toggle_switch({
+                        'class': 'masterswitch-control',
+                        'label': 'Enable integration',
+                        'id': 'toggletest'
+                    })
+                }}
+
+                <hr />
+
+                <section class="masterswitch-content is-disabled">
+                    <p>You will find these details by signing into your Continuum CXM and navigating to <strong>Settings > System > Service APIs</strong>.<br />Permission to add service APIs will be required.</p>
+
+                    {{
+                        form.text({
+                            'label': 'OAuth API URL',
+                            'class': 'form__group--full',
+                            'required': true
+                        })
+                    }}
+                    {{
+                        form.text({
+                            'label': 'OAuth client ID',
+                            'class': 'form__group--medium',
+                            'required': true
+                        })
+                    }}
+                    {{
+                        form.text({
+                            'label': 'OAuth client secret',
+                            'class': 'form__group--full',
+                            'required': true
+                        })
+                    }}
+                    {{
+                        form.text({
+                            'label': 'Service API URL',
+                            'class': 'form__group--full',
+                            'required': true
+                        })
+                    }}
+                    {{
+                        form.text({
+                            'label': 'Service API key',
+                            'class': 'form__group--full',
+                            'required': true
+                        })
+                    }}
+                    {{
+                        form.text({
+                            'label': 'CXM instance URL',
+                            'class': 'form__group--full',
+                            'required': true
+                        })
+                    }}
+                    {{
+                        form.text({
+                            'label': 'User account homepage',
+                            'required': true
+                        })
+                    }}
+
+                    {{ form.fieldset_start({ 'legend': 'Webhook' }) }}
+                    <p>This will allow changes made to a user in CXM to be reflected in the CMS as they happen.</p>
+
+                    {{
+                        html.list({
+                            'type': 'ol',
+                            'items': [
+                                'In Continuum CXM, go to: <strong>Settings > System > Webhooks</strong>',
+                                'Click ‘New Webhook’',
+                                'Copy the ‘webhook handler URL’',
+                                'Make sure ‘secret’ is the same in both CMS and CXM',
+                            ]
+                        })
+                    }}
+
+                    {{
+                        form.content({
+                            'label': 'Webook handler URL',
+                            'value': 'http://domain.com/integrations/cxm/webhook'
+                        })
+                    }}
+
+                    {{
+                        form.text({
+                            'label': 'Secret',
+                            'class': 'form__group--full',
+                            'help': 'Required by the CMS to verify the webhook requests, must match CXM’s secret'
+                        })
+                    }}
+
+                    {{ form.fieldset_end() }}
+
+                    {{
+                        form.end({
+                            'class': 'form__actions--flush',
+                            'actions': [
+                                form.submit({
+                                    'label': 'Save',
+                                    'class': 'btn--primary'
+                                }),
+                                html.button({
+                                    'label': 'Cancel',
+                                    'class': 'btn--naked'
+                                })
+                            ]
+                        })
+                    }}
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock tab_content %}

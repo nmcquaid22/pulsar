@@ -1,0 +1,19 @@
+.ui-piano {
+    .content-main,
+    .tabs__content,
+    .tab__pane,
+    .tab__content,
+    .piano-wrapper,
+    .piano,
+    .piano__items {
+        height: 100%;
+    }
+
+    .tabs__content > .tab__pane {
+        display: block;
+        margin-left: -$gutter-width;
+        margin-right: -$gutter-width;
+    }
+
+
+}

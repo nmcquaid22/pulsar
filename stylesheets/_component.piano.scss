@@ -1,51 +1,86 @@
-.piano-wrapper {
-    border-top: 1px solid color(border);
-    position: relative;
 
-    @include respond-min($screen-desktop) {
-        overflow: hidden;
-    }
-
-    @include ie-lte(8) {
-        position: static;
-    }
-}
 
 .piano {
-    border-left: 1px solid color(border);
-    border-right: 1px solid color(border);
-    margin-bottom: 20px;
-
-    @include respond-min($screen-desktop) {
-        overflow-x: hidden;
-        border-left: 0;
-        float: left;
-        height: 75vh;
-        margin-bottom: 0;
-        width: 30%;
-    }
-
-    .no-messages {
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-    }
+    display: table;
 }
 
 .piano__items {
+    background-color: rgba(239, 239, 239, .5);
+    border-top: 1px solid color(border);
+    border-top-right-radius: 20px;
+    box-shadow: inset -4px -4px 0 rgba(0, 0, 0, .05);
+    display: table-cell;
+    padding-bottom: 36px;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    max-width: 300px;
+    width: 30%;
+    z-index: 1;
+}
+
+.piano__item-content {
+    display: table-cell;
+    padding-bottom: 36px;
+    padding-left: 30px;
+    width: 70%;
 }
 
 .piano__item {
+    position: relative;
+
+    .status {
+        position: absolute;
+        top: 17px;
+        right: 15px;
+    }
+
+    &.is-inactive .media__image {
+        color: color(text, disabled) !important;
+    }
+}
+
+
+// .piano-wrapper {
+//     background-color: red;
+//     float: left;
+//     margin-left: -20px;
+//     position: relative;
+
+//     @include ie-lte(8) {
+//         position: static;
+//     }
+// }
+
+// .piano {
+//     margin-bottom: 20px;
+//     outline: 1px solid red;
+//     float: left;
+
+//     @include respond-min($screen-desktop) {
+//         border-left: 0;
+//         // float: left;
+//         // height: 75vh;
+//         margin-bottom: 0;
+//         // width: 30%;
+//     }
+
+//     .no-messages {
+//         display: block;
+//         margin: 20px auto;
+//         text-align: center;
+//     }
+// }
+
+
+
+.piano__item {
+    background-color: white;
     border-bottom: 1px solid color(border);
-    clear: both;
+    border-right: 1px solid color(border);
     overflow: hidden;
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
 
     @include respond-min($screen-desktop) {
-        border-left: 1px solid color(border);
+
         transition: background .3s ease;
 
         &:hover {
@@ -53,7 +88,17 @@
         }
     }
 
+    &:first-child {
+        border-top-right-radius: 20px;
+    }
+
+    &:last-child {
+        border-bottom-right-radius: 4px;
+        box-shadow: -4px 4px 0 rgba(0, 0, 0, .05);
+    }
+
     a {
+        color: color(text);
         text-decoration: none;
     }
 }
@@ -76,281 +121,285 @@
     font-weight: normal;
 }
 
-.piano__item-header {
-    color: #6a6a6a;
-    vertical-align: top;
+// .piano__item-header {
+//     color: #6a6a6a;
+//     vertical-align: top;
 
-    .is-selected & {
-        border-bottom: 1px solid color(border);
-        padding-bottom: 5px;
+//     .is-selected & {
+//         border-bottom: 1px solid color(border);
+//         padding-bottom: 5px;
 
-        @include respond-min($screen-desktop) {
-            border: 0;
-            padding: 0;
-        }
-    }
-}
+//         @include respond-min($screen-desktop) {
+//             border: 0;
+//             padding: 0;
+//         }
+//     }
+// }
 
-.piano__item-content {
-    clear: both;
+// .piano__item-content {
+//     // clear: both;
+//     background-color: color(white);
+//     float: right;
+//     padding: 0 0 0 30px;
+//     width: 70%;
 
-    .is-selected & {
-        margin-top: 10px;
+//     .is-selected & {
+//         margin-top: 10px;
 
-        @include respond-min($screen-desktop) {
-            height: 100%;
-            margin-top: 0;
-            padding-top: 10px;
-            position: absolute;
-            overflow-y: auto;
-            right: 10px;
-            top: 10px;
-            width: 68%;
-        }
+//         @include respond-min($screen-desktop) {
+//             height: 100%;
+//             margin-top: 0;
+//             padding-top: 10px;
+//             // position: absolute;
+//             overflow-y: auto;
+//             right: 10px;
+//             top: 10px;
+//             width: 68%;
+//         }
 
-        @include ie-lte(8) {
-            height: auto;
-            padding-bottom: 50px;
-            overflow-y: visible;
-        }
-    }
+//         @include ie-lte(8) {
+//             height: auto;
+//             padding-bottom: 50px;
+//             overflow-y: visible;
+//         }
+//     }
 
-    .piano-active-content & {
-        display: block;
-    }
+//     .piano-active-content & {
+//         display: block;
+//     }
 
-    .message-reply {
-        margin: 10px 0 0;
+//     .message-reply {
+//         margin: 10px 0 0;
 
-        @include ie-lte(8) {
-            width: 100%;
-        }
-    }
+//         @include ie-lte(8) {
+//             width: 100%;
+//         }
+//     }
 
-    .message {
-        padding: 10px 0 0;
-        width: 100%;
+//     .message {
+//         padding: 10px 0 0;
+//         width: 100%;
 
-        time {
-            float: right;
-        }
-    }
+//         time {
+//             float: right;
+//         }
+//     }
 
-    .history {
-        background-color: #e5ecf2;
-        border-bottom: 1px solid color(border);
-        border-top: 1px solid color(border);
-        color: #989699;
-        cursor: pointer;
-        display: block;
-        margin: 1em 0;
-        position: relative;
-        text-align: center;
+//     .history {
+//         background-color: #e5ecf2;
+//         border-bottom: 1px solid color(border);
+//         border-top: 1px solid color(border);
+//         color: #989699;
+//         cursor: pointer;
+//         display: block;
+//         margin: 1em 0;
+//         position: relative;
+//         text-align: center;
 
-        span {
-            background-color: #e5ecf2;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-    }
+//         span {
+//             background-color: #e5ecf2;
+//             padding: 0 20px;
+//             position: relative;
+//             z-index: 1;
+//         }
+//     }
 
-    date {
-        color: color(text, light);
-        display: none;
-        font-size: 14px;
+//     date {
+//         color: color(text, light);
+//         display: none;
+//         font-size: 14px;
 
-        .piano-active-content & {
-            display: inline-block;
-            float: right;
-        }
-    }
+//         .piano-active-content & {
+//             display: inline-block;
+//             float: right;
+//         }
+//     }
 
-    h4 {
-        font-size: 16px;
+//     h4 {
+//         font-size: 16px;
 
-        .piano-active-content & {
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-    }
-}
+//         .piano-active-content & {
+//             font-size: 18px;
+//             font-weight: 400;
+//             margin-bottom: 20px;
+//         }
+//     }
+// }
 
-.piano__item-content-header {
-    margin-bottom: 10px;
-}
+// .piano__item-content-header {
+//     margin-bottom: 10px;
+// }
 
-.piano__avatar {
-    border-radius: 50%;
-    float: left;
-    height: 25px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    width: 25px;
-}
+// .piano__avatar {
+//     border-radius: 50%;
+//     float: left;
+//     height: 25px;
+//     margin-bottom: 5px;
+//     margin-right: 10px;
+//     width: 25px;
+// }
 
-.piano__user {
-    color: #000;
-    // font-size: 14px;
-}
+// .piano__user {
+//     color: #000;
+//     // font-size: 14px;
+// }
 
-.piano__title {
-    clear: both;
-    font-size: 14px;
-    margin: 0;
-}
+// .piano__title {
+//     clear: both;
+//     font-size: 14px;
+//     margin: 0;
+// }
 
-.piano__time {
-    clear: both;
-    display: block;
-    font-size: 14px;
-}
+// .piano__time {
+//     clear: both;
+//     display: block;
+//     font-size: 14px;
+// }
 
-.piano__form {
-    background: none;
-    margin-bottom: 10px;
-    padding: 0;
-}
+// .piano__form {
+//     background: none;
+//     margin-bottom: 10px;
+//     padding: 0;
+// }
 
-.piano__item-toggle {
-    font-size: 20px;
-    position: absolute;
-    right: 20px;
-    text-decoration: none;
-    top: 10px;
+// .piano__item-toggle {
+//     font-size: 20px;
+//     position: absolute;
+//     right: 20px;
+//     text-decoration: none;
+//     top: 10px;
 
-    @include respond-min($screen-desktop) {
-        display: none;
-    }
-}
+//     @include respond-min($screen-desktop) {
+//         display: none;
+//     }
+// }
 
-.piano__item-content .message > .preview {
-    display: block;
-}
+// .piano__item-content .message > .preview {
+//     display: block;
+// }
 
-.message-old.message--open {
-    border-bottom: 3px double $gray;
-}
+// .message-old.message--open {
+//     border-bottom: 3px double $gray;
+// }
 
-.message {
-    overflow: hidden;
-    padding: 1em $gutter-width 0;
+// .message {
+//     overflow: hidden;
+//     padding: 1em $gutter-width 0;
 
-    &.message--open {
-        .message-body {
-            height: auto;
-        }
-    }
+//     &.message--open {
+//         .message-body {
+//             height: auto;
+//         }
+//     }
 
-    &.message--closed {
-        color: lighten($text-color, 2%);
-        padding: 10px;
+//     &.message--closed {
+//         color: lighten($text-color, 2%);
+//         padding: 10px;
 
-        .message-body {
-            border-top: 1px dashed color(border);
-            margin-top: .5em;
-        }
+//         .message-body {
+//             border-top: 1px dashed color(border);
+//             margin-top: .5em;
+//         }
 
-        .message-body {
-            > * {
-                display: none;
-            }
-        }
+//         .message-body {
+//             > * {
+//                 display: none;
+//             }
+//         }
 
-        &:hover {
-            cursor: pointer;
-        }
+//         &:hover {
+//             cursor: pointer;
+//         }
 
-        &:nth-of-type(odd) {
-            background-color: lighten($gray, 17%);
+//         &:nth-of-type(odd) {
+//             background-color: lighten($gray, 17%);
 
-            &:hover {
-                background-color: lighten($gray, 16%);
-            }
-        }
+//             &:hover {
+//                 background-color: lighten($gray, 16%);
+//             }
+//         }
 
-        &:nth-of-type(even) {
-            background-color: lighten($gray, 15%);
+//         &:nth-of-type(even) {
+//             background-color: lighten($gray, 15%);
 
-            &:hover {
-                background-color: lighten($gray, 14%);
-            }
-        }
-    }
+//             &:hover {
+//                 background-color: lighten($gray, 14%);
+//             }
+//         }
+//     }
 
-    .preview > p {
-        display: inline;
-    }
+//     .preview > p {
+//         display: inline;
+//     }
 
-    .sender {
-        display: none;
-        font-family: $font-family-regular;
+//     .sender {
+//         display: none;
+//         font-family: $font-family-regular;
 
-        @include respond-min($screen-desktop) {
-            display: inline;
-        }
-    }
+//         @include respond-min($screen-desktop) {
+//             display: inline;
+//         }
+//     }
 
-    time {
-        display: none;
+//     time {
+//         display: none;
 
-        @include respond-min($screen-desktop) {
-            display: inline;
-        }
-    }
-}
+//         @include respond-min($screen-desktop) {
+//             display: inline;
+//         }
+//     }
+// }
 
-.with-settings.piano__item-content {
-    @include respond-min($screen-desktop) {
-        padding-right: 35px;
-    }
-}
+// .with-settings.piano__item-content {
+//     @include respond-min($screen-desktop) {
+//         padding-right: 35px;
+//     }
+// }
 
-.with-settings .settings {
-    -webkit-transition: none;
-    height: auto;
-    padding: 0 0 10px;
-    position: static;
-    transition: none;
+// .with-settings .settings {
+//     -webkit-transition: none;
+//     height: auto;
+//     padding: 0 0 10px;
+//     position: static;
+//     transition: none;
 
-    @include respond-min($screen-desktop) {
-        -moz-transition: all .5s ease-in-out;
-        -ms-transition: all .5s ease-in-out;
-        -o-transition: all .5s ease-in-out;
-        -webkit-transition: all .5s ease-in-out;
-        height: 74vh;
-        position: absolute;
-        right: -230px;
-        top: 0;
-        transition: all .5s ease-in-out;
-    }
-}
+//     @include respond-min($screen-desktop) {
+//         -moz-transition: all .5s ease-in-out;
+//         -ms-transition: all .5s ease-in-out;
+//         -o-transition: all .5s ease-in-out;
+//         -webkit-transition: all .5s ease-in-out;
+//         height: 74vh;
+//         position: absolute;
+//         right: -230px;
+//         top: 0;
+//         transition: all .5s ease-in-out;
+//     }
+// }
 
-.settings {
-    background: none;
-    width: 100%;
+// .settings {
+//     background: none;
+//     width: 100%;
 
-    @include respond-min($screen-desktop) {
-        background-color: #fff;
-        display: block;
-        width: 250px;
-    }
+//     @include respond-min($screen-desktop) {
+//         background-color: #fff;
+//         display: block;
+//         width: 250px;
+//     }
 
-    .warning {
-        padding: 10px;
-    }
-}
+//     .warning {
+//         padding: 10px;
+//     }
+// }
 
-.settings__toggle,
-.settings__title {
-    display: none;
+// .settings__toggle,
+// .settings__title {
+//     display: none;
 
-    @include respond-min($screen-desktop) {
-        display: table-cell;
-    }
-}
+//     @include respond-min($screen-desktop) {
+//         display: table-cell;
+//     }
+// }
 
-.setting__actions {
-    padding: 10px;
-}
+// .setting__actions {
+//     padding: 10px;
+// }
