@@ -108,5 +108,15 @@
             $('.ct-chart').get(0).__chartist__.update();
         });
 
+
+        $('.is-sortable').sortable({
+             placeholder: "form__group is-sorting",
+             helper: "clone",
+             opacity: 0.9,
+             start: function(e, ui) {
+                $(ui.helper).addClass('is-dragging');
+            }
+        }).disableSelection();
+
     });
 }(jQuery));

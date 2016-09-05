@@ -23,6 +23,7 @@ var $                     = require('jquery'),
     clickover  = require('../libs/bootstrapx-clickover/js/bootstrapx-clickover'),
     countdown  = require('../libs/jquery.countdown/dist/jquery.countdown.min'),
     daterangepicker = require('../libs/bootstrap-daterangepicker/daterangepicker'),
+    jqueryui   = require('../libs/jquery-ui/jquery-ui.min'),
     svgeezy    = require('../libs/svgeezy/svgeezy.min'),
     select2    = require('../libs/select2/dist/js/select2.min'),
 
