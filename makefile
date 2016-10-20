@@ -7,10 +7,9 @@ BUILD := build
 build:
 	@ echo "${HEADER}"
 
-	@ read -p "This will attempt to install all dependencies of the Pulsar dev environment, are you sure?  [Y/n]" -n 1 -r
-	echo
-		if [[ $REPLY =~ ^[Yy]$ ]]
-		then
+	 read -r -p "This will attempt to install Pulsars development environment dependencies, are you sure? [Y/n]" response
+		response=${response,,} # tolower
+	 	if [[ $response =~ ^(yes|y| ) ]]; then
 
 			@ echo "Installing Composer and its dependencies...${HR}\n"
 			@ curl -sS https://getcomposer.org/installer | php -d detect_unicode=Off
