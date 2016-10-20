@@ -4,128 +4,85 @@ CHECK=\033[32m✔\033[39m
 
 BUILD := build
 
-BREW = $(shell which brew)
-SASSLINT = $(shell which scss-lint)
-SASSLINTVER = 0.44.0
-BOWER = $(shell which bower)
-GRUNT = $(shell which grunt)
-NODE = $(shell which node)
-IMAGEMAGICK = $(shell which convert)
-PHANTOMJS = $(shell which phantomjs)
-XCODE = $(shell pkgutil --pkg-info=com.apple.pkg.CLTools_Executables)
-WRAITH = $(shell which wraith)
-
 build:
 	@ echo "${HEADER}"
 
-	@ echo "Installing Composer and its dependencies...${HR}\n"
-	@ curl -sS https://getcomposer.org/installer | php -d detect_unicode=Off
-	@ php composer.phar install
-	@ echo "\n${CHECK} Done"
+	read -p "This will attempt to install all dependencies of the Pulsar dev environment, are you sure?  " -n 1 -r
+	echo
+		if [[ $REPLY =~ ^[Yy]$ ]]
+		then
 
-	@ echo "${HR}\nInstalling XCode Command Line Tools...${HR}\n"
-ifeq (${XCODE}, )
-	xcode-select --install
-else
-	@ echo "Command line tools are already installed."
-endif
+			@ echo "Installing Composer and its dependencies...${HR}\n"
+			@ curl -sS https://getcomposer.org/installer | php -d detect_unicode=Off
+			@ php composer.phar install
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling Homebrew and its dependencies...${HR}\n"
-ifeq (${BREW}, )
-	ruby -e "$$(curl -fsSL curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-	@ echo "Homebrew v$(shell brew --version) is already installed."
-endif
+			@ echo "${HR}\nInstalling XCode Command Line Tools...${HR}\n"
+			xcode-select --install
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling Ruby...${HR}\n"
-	@ brew install ruby
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling Homebrew and its dependencies...${HR}\n"
+			ruby -e "$$(curl -fsSL curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling scss-lint...${HR}\n"
-ifeq (${SASSLINT}, )
-	@ gem install scss_lint -v ${SASSLINTVER}
-else
-	@ echo "$(shell scss-lint --version) is already installed.\n"
-endif
+			@ echo "${HR}\nInstalling Vagrant...${HR}\n"
+			@ brew cask install vagrant
+			@ echo "\n${CHECK} Done"
 
-ifeq (${PHANTOMJS}, )
-	@ brew install phantomjs
-	@ echo "\n${CHECK} Done"
-else
-	@ echo "Phantomjs v$(shell phantomjs --version) is already installed."
-endif
+			@ echo "${HR}\nInstalling Virtualbox...${HR}\n"
+			@ brew cask install virtualbox
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling Node & NPM...${HR}\n"
-ifeq (${NODE}, )
-	brew install node
-	npm install -g npm
-else
-	@ echo "Node $(shell node --version) is already installed."
-endif
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling Ruby...${HR}\n"
+			@ brew install ruby
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling Bower and its dependencies...${HR}\n"
-ifeq (${BOWER}, )
-	@ npm install -g bower
-else
-	@ echo "Bower v$(shell bower --version) is already installed."
-endif
-	@ bower install
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling scss-lint...${HR}\n"
+			@ gem install scss_lint -v ${SASSLINTVER}
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling Grunt and its libraries...${HR}\n"
-ifeq (${GRUNT}, )
-	@ npm install -g grunt-cli
-else
-	@ echo "Grunt is already installed."
-endif
-	@ npm install
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling PhantomJS...${HR}\n"
+			@ brew install phantomjs
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling ImageMagick...${HR}\n"
-ifeq (${IMAGEMAGICK}, )
-	brew install imagemagick
-else
-	@ echo "ImageMagick is already installed."
-endif
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling Node & NPM...${HR}\n"
+			@ brew install node
+			@ npm install -g npm
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling Wraith...${HR}\n"
-ifeq (${WRAITH}, )
-	gem install wraith
-else
-	@ echo "Wraith is already installed."
-endif
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling Bower and its dependencies...${HR}\n"
+			@ npm install -g bower
+			@ bower install
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nInstalling Git hooks...${HR}"
-	@ cp hooks/* .git/hooks/
-	@ chmod -R u+x .git/hooks/*
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling Grunt and its libraries...${HR}\n"
+			@ npm install -g grunt-cli
+			@ npm install
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nCopy Proxima Nova (if available)...${HR}"
-	@ touch ./fonts/_config.fonts.scss
-	@ cp -r ../pulsar-fonts/src/* ./fonts 2>/dev/null || :
-	@ git update-index --skip-worktree fonts/_config.fonts.scss
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nInstalling ImageMagick...${HR}\n"
+			@ brew install imagemagick
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nCompiling the stylesheets...${HR}\n"
-	@ grunt sass:dev
-	@ echo "${CHECK} Done\n"
+			@ echo "${HR}\nInstalling Wraith...${HR}\n"
+			@ gem install wraith
+			@ echo "\n${CHECK} Done"
 
-	@ echo "Run 'vagrant up' start the VM."
-	@ echo "Run 'grunt' to watch for Sass changes."
+			@ echo "${HR}\nInstalling Git hooks...${HR}"
+			@ cp hooks/* .git/hooks/
+			@ chmod -R u+x .git/hooks/*
+			@ echo "\n${CHECK} Done"
 
-clean:
-	@ echo "${HEADER}"
-	@ echo "Removing Composer packages...${HR}"
-	@ rm -rf vendor/*
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nCopy Proxima Nova (if available)...${HR}"
+			@ touch ./fonts/_config.fonts.scss
+			@ cp -r ../pulsar-fonts/src/* ./fonts 2>/dev/null || :
+			@ git update-index --skip-worktree fonts/_config.fonts.scss
+			@ echo "\n${CHECK} Done"
 
-	@ echo "${HR}\nRemoving front-end libraries...${HR}"
-	@ rm -rf libs/*
-	@ echo "\n${CHECK} Done"
+			@ echo "${HR}\nCompiling the stylesheets...${HR}\n"
+			@ grunt sass:dev
+			@ echo "${CHECK} Done\n"
 
-	@ echo "${HR}\nRemoving Git hooks...${HR}"
-	@ rm -rf .git/hooks/*
-	@ echo "\n${CHECK} Done\n"
+			@ echo "Run 'vagrant up' start the VM."
+			@ echo "Run 'grunt' to watch for Sass changes."
+		fi
