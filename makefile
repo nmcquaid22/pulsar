@@ -23,6 +23,7 @@ build:
 
 			@ echo "${HR}\nInstalling Virtualbox...${HR}\n"
 			@ brew cask install virtualbox
+			@ sudo /Library/StartupItems/VirtualBox/VirtualBox restart
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling Ruby...${HR}\n"
@@ -30,7 +31,7 @@ build:
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling scss-lint...${HR}\n"
-			@ gem install scss_lint -v ${SASSLINTVER}
+			@ gem install scss_lint -v ${SASSLINTVER} --no-ri --no-rdoc
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling PhantomJS...${HR}\n"
@@ -57,7 +58,7 @@ build:
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling Wraith...${HR}\n"
-			@ gem install wraith
+			@ gem install wraith --no-ri --no-rdoc
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling Git hooks...${HR}"
