@@ -2,6 +2,7 @@ HR = \n---------------------------------------------
 HEADER = ---------------------------------------------\n _____  _    _ _       _____         _____   \n|  __ \| |  | | |     / ____|  /\   |  __ \  \n| |__) | |  | | |    | (___   /  \  | |__) | \n|  ___/| |  | | |     \___ \ / /\ \ |  _  /  \n| |    | |__| | |____ ____) / ____ \| | \ \  \n|_|     \____/|______|_____/_/    \_\_|  \_\ \n\n---------------------------------------------
 CHECK=\033[32m✔\033[39m
 
+XCODE = $(shell pkgutil --pkg-info=com.apple.pkg.CLTools_Executables)
 BUILD := build
 
 build:
@@ -13,8 +14,12 @@ build:
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling XCode Command Line Tools...${HR}\n"
-			xcode-select --install
-			@ echo "\n${CHECK} Done"
+			ifeq (${XCODE}, )
+				xcode-select --install
+				@ echo "\n${CHECK} Done"
+			else
+				@ echo "\n${CHECK} Command line tools are already installed."
+			endif
 
 			@ echo "${HR}\nInstalling Homebrew and its dependencies...${HR}\n"
 			ruby -e "$$(curl -fsSL curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
