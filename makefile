@@ -7,7 +7,7 @@ BUILD := build
 build:
 	@ echo "${HEADER}"
 
-	read -p "This will attempt to install all dependencies of the Pulsar dev environment, are you sure?  " -n 1 -r
+	@ read -p "This will attempt to install all dependencies of the Pulsar dev environment, are you sure?  [Y/n]" -n 1 -r
 	echo
 		if [[ $REPLY =~ ^[Yy]$ ]]
 		then
