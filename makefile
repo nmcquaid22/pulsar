@@ -32,14 +32,18 @@ endif
 
 	@ echo "${HR}\nInstalling Homebrew and its dependencies...${HR}\n"
 ifeq (${BREW}, )
-	ruby -e "$$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+	ruby -e "$$(curl -fsSL curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
 	@ echo "Homebrew v$(shell brew --version) is already installed."
 endif
 
+	@ echo "${HR}\nInstalling Ruby...${HR}\n"
+	@ brew install ruby
+	@ echo "\n${CHECK} Done"
+
 	@ echo "${HR}\nInstalling scss-lint...${HR}\n"
 ifeq (${SASSLINT}, )
-	@ sudo gem install scss_lint -v ${SASSLINTVER}
+	@ gem install scss_lint -v ${SASSLINTVER}
 else
 	@ echo "$(shell scss-lint --version) is already installed.\n"
 endif
