@@ -38,7 +38,7 @@ build:
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling Node & NPM...${HR}\n"
-			@ brew install node > /dev/null
+			@ -brew install node
 			@ npm install -g npm
 			@ echo "\n${CHECK} Done"
 
