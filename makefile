@@ -14,7 +14,7 @@ build:
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling Homebrew and its dependencies...${HR}\n"
-			ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+			yes '' | ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling Vagrant...${HR}\n"
