@@ -23,7 +23,6 @@ build:
 
 			@ echo "${HR}\nInstalling Virtualbox...${HR}\n"
 			@ brew cask install virtualbox
-			@ sudo /Library/StartupItems/VirtualBox/VirtualBox restart
 			@ echo "\n${CHECK} Done"
 
 			@ echo "${HR}\nInstalling Ruby...${HR}\n"
