@@ -399,7 +399,6 @@ body {
 		background-color: #fff;
 
 		&::before {
-			//&#xf0e0;
 			content: '\f0e0';
 			display: inline-block;
 			color: #2f8dbd;
@@ -460,21 +459,21 @@ body {
   }
 
   100% {
-  	transform: translateY(150%) scale(20);
   	-moz-transform: translateY(150%) scale(1);
+  	transform: translateY(150%) scale(20);
   }
 }
 
 // Scale effect is disabled in Firefox because of horrible performance issues
 @keyframes success-container {
   0% {
-  	transform: scale(1);
   	-moz-transform: scale(1);
+  	transform: scale(1);
   }
 
   100% {
-  	transform: scale(20);
   	-moz-transform: scale(1);
+  	transform: scale(20);
   }
 }
 
