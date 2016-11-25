@@ -85,7 +85,28 @@
 %}
 
 {% block tabs_list %}
-    {{ tabs.list(tabs_content) }}
+    [
+        {
+          "id"    : "buttons",
+          "label" : "Normal Buttons",
+          "src"   : tab_buttons
+        },
+        {
+          "id"    : "buttons-links",
+          "label" : "Link Buttons",
+          "src"   : tab_link_buttons
+        },
+        {
+          "id"    : "badges",
+          "label" : "Badges",
+          "src"   : tab_badges
+        },
+        {
+          "id"    : "labels",
+          "label" : "Labels",
+          "src"   : tab_labels
+        }
+    ]
 {% endblock %}
 
 {% block tabs_content %}
