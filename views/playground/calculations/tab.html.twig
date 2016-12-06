@@ -1,0 +1,60 @@
+{% extends "@pulsar/pulsar/components/tab.html.twig" %}
+
+{% block tab_content %}
+
+<style type="text/css">
+.calculation-label {
+    line-height: 2;
+}
+
+
+.calculation-designer {
+    border: 1px solid #ccc;
+    width: 400px;
+}
+
+.calculation-toolbar {
+    background-color: rgba(0,0,0,.05);
+    padding: 10px;
+}
+
+.calculation-editor {
+    padding: 10px;
+}
+
+.calculation-label {
+    margin-left: 5px;
+}
+
+span.is-sorting {
+    border: 1px solid red;
+    display: inline-block;
+    width: 50px;
+}
+
+
+
+</style>
+
+<div class="calculation-designer">
+
+    <div class="js-calculation-toolbar calculation-toolbar">
+        {{ html.label({ 'label': '#variable', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': 'number', 'class': 'calculation-label js-calc' }) }}
+
+        {{ html.label({ 'label': '+', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': '-', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': 'x', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': '/', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': '(', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': ')', 'class': 'calculation-label js-calc' }) }}
+    </div>
+
+    <div class="js-calculation-designer calculation-editor">
+        {{ html.label({ 'label': '#variable', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': html.icon('plus'), 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': '#variable', 'class': 'calculation-label js-calc' }) }}
+        {{ html.label({ 'label': '=', 'class': 'calculation-label js-calc' }) }}
+    </div>
+</div>
+{% endblock %}
