@@ -515,7 +515,7 @@ module.exports = function(grunt) {
         'scsslint',
         'sass:dev',
         'bless',
-        'browserify',
+        'browserify:dev',
         'browserSync',
         'watch',
         'email-build'

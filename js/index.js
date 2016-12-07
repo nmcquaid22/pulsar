@@ -34,6 +34,7 @@ var $                     = require('jquery'),
     dt_select     = require('datatables.net-select')(window, $),
 
     ButtonComponent = require('./ButtonComponent'),
+    CalculationDesignerComponent = require('./CalculationDesignerComponent');
     HelpTextComponent = require('./HelpTextComponent'),
     FilterBarComponent = require('./FilterBarComponent'),
     FlashMessageComponent = require('./FlashMessageComponent'),
@@ -46,6 +47,7 @@ var $                     = require('jquery'),
 
 module.exports = {
     ButtonComponent: ButtonComponent,
+    CalculationDesignerComponent: CalculationDesignerComponent,
     HelpTextComponent: HelpTextComponent,
     FilterBarComponent: FilterBarComponent,
     FlashMessageComponent: FlashMessageComponent,

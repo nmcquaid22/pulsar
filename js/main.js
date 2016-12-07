@@ -19,6 +19,7 @@
 	pulsar.modulePermissions = new pulsar.ModulePermissionsComponent($html);
     pulsar.navMain      = new pulsar.NavMainComponent($html);
     pulsar.filterBar    = new pulsar.FilterBarComponent($html);
+    pulsar.calculationDesigner = new pulsar.CalculationDesignerComponent($html);
 
     $(function () {
 
@@ -33,6 +34,7 @@
         pulsar.modulePermissions.init();
         pulsar.navMain.init();
         pulsar.filterBar.init();
+        pulsar.calculationDesigner.init();
 
         // Switch out .svg for .png for <img> elements in older browsers
         pulsar.svgeezy.init('nocheck', 'png');
