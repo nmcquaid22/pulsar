@@ -22,16 +22,24 @@ CalculationDesignerComponent.prototype.init = function () {
 
         if (e.keyCode == 13) {
             console.log('enter');
-            component.saveInput(this);
+            component.savePart(this);
         }
     });
 
+    component.$html.on('click', '.js-calculation-toolbar .js-calc', function(e) {
+        component.addToEditor(e, this);
+    });
+
     component.$html.on('click', '.js-calc-input-save', function(e) {
-        component.saveInput($(this).closest('.js-calc').find('.js-calc-input'));
+        component.savePart($(this).closest('.js-calc').find('.js-calc-input'));
     });
 
     component.$html.on('click', '.js-calc-input-remove', function(e) {
-        component.removeInput(this);
+        component.removePart(this);
+    });
+
+    component.$html.on('click', '.js-calculation-editor .js-calc:not(.is-editing)', function(e) {
+        component.toggleEditPart(e, this);
     });
 };
 
@@ -42,6 +50,7 @@ CalculationDesignerComponent.prototype.initToolbar = function () {
 
     $toolbarItems.draggable({
         connectToSortable: ".js-calculation-editor",
+        containment: "document",
         helper: "clone",
         opacity: 0.7,
         placeholder: "calc-sorting",
@@ -50,7 +59,6 @@ CalculationDesignerComponent.prototype.initToolbar = function () {
             component.hidePlaceholder();
         }
     });
-
 };
 
 CalculationDesignerComponent.prototype.initEditor = function() {
@@ -59,81 +67,93 @@ CalculationDesignerComponent.prototype.initEditor = function() {
         $editor = component.$html.find('.js-calculation-editor');
 
     $editor.sortable({
-        helper: "clone",
         items: '.js-calc',
+        opacity: .5,
         placeholder: "calc-sorting",
+        tolerance: "pointer",
         receive: function(e, ui) {
-            component.activatePart(ui);
+            component.activatePart(ui.helper);
+        },
+        start: function(e, ui) {
+            ui.placeholder.width(ui.item.width());
+
         }
     });
 };
 
-CalculationDesignerComponent.prototype.activatePart = function(ui) {
-console.log('activate part');
-console.log(ui.item);
+CalculationDesignerComponent.prototype.activatePart = function(part) {
+    console.log('activate part');
+    console.log(part);
 
-    var $helper = $(ui.helper),
+    var $part = $(part),
+        currentValue = $part.find('.js-calc-value').html(),
         input = '',
         inputActions = 'is-editing',
-        actionSave = '<button class="btn btn--naked calc-input-save js-calc-input-save"><i class="icon icon-ok-sign"></i></button>',
-        actionRemove = '<button class="btn btn--naked calc-input-remove js-calc-input-remove"><i class="icon icon-trash"></i></button>';
+        actionSave = '<button class="calc-input-save js-calc-input-save"><i class="icon icon-ok-sign"></i></button>',
+        actionRemove = '<button class="calc-input-remove js-calc-input-remove"><i class="icon icon-trash"></i></button>',
+        value = '';
 
-    if ($helper.hasClass('js-calc-num')) {
-        input = 'number: <input type="text" class="calc-input js-calc-input" />' + actionSave + actionRemove;
+    if (currentValue != undefined) {
+        value = $part.find('.js-calc-value').html();
     }
-    else if ($helper.hasClass('js-calc-var')) {
+
+    if ($part.hasClass('js-calc-num')) {
+        input = '<input type="text" class="calc-input js-calc-input" value="' + value + '" />' + actionSave + actionRemove;
+    }
+    else if ($part.hasClass('js-calc-var')) {
         input = '<select></select>' + actionSave + actionRemove;
     } else {
-        input = $(ui.item).html().trim() + actionRemove,
+        input = $part.html().trim() + actionRemove,
         inputActions += ' js-calc-fade-actions';
     }
 
-    $helper
+    $part
         .html('<span class="js-calc-label">' + input + '</span>')
-        .addClass(inputActions);
+        .addClass(inputActions)
+        .removeClass('ui-draggable ui-draggable-handle')
+        .removeAttr('style')
+        .uniqueId();
 
-    if ($helper.hasClass('js-calc-fade-actions')) {
-        $helper
-            .find('.js-calc-input-remove')
-            .delay(1000)
-            .fadeOut(250, function() {
-                $(this).css('position', 'absolute');
-            });
+    $part.find('.js-calc-input').focus();
 
-        $helper.removeClass('is-editing');
+    if ($part.hasClass('js-calc-fade-actions')) {
+         setTimeout(function () {
+            $part.removeClass('is-editing');
+        }, 1000);
     }
-
 }
 
-CalculationDesignerComponent.prototype.addToEditor = function(e) {
-console.log('addToEditor');
-
-    var component = this,
-        $editor = component.$html.find('.js-calculation-editor'),
-        $clone = $(component).clone(false);
-
-        console.log($toolbar);
-        console.log($editor);
+CalculationDesignerComponent.prototype.addToEditor = function(e, input) {
+    console.log('addToEditor');
 
     e.preventDefault();
 
-    $clone.removeClass('ui-draggable ui-draggable-handle');
+    var component = this,
+        $editor = component.$html.find('.js-calculation-editor'),
+        $clone = $(input).clone(false);
 
-    $editor.append($clone);
+    component.hidePlaceholder();
+
+    $editor
+        .delay(100)
+        .append($clone)
+        .sortable('refresh');
+
+    component.activatePart($clone);
 }
 
 CalculationDesignerComponent.prototype.hidePlaceholder = function() {
-console.log('hidePlaceholder');
+    console.log('hidePlaceholder');
 
     var component = this,
         $placeholder = component.$html.find('.js-calc-placeholder');
 
-    $placeholder.fadeOut(100);
+    $placeholder.addClass('hide');
 }
 
-CalculationDesignerComponent.prototype.saveInput = function (input) {
-console.log('saveInput');
-console.log(input);
+CalculationDesignerComponent.prototype.savePart = function (input) {
+    console.log('savePart');
+    console.log(input);
 
     var $input = $(input),
         value = $input.val(),
@@ -144,24 +164,34 @@ console.log(input);
         .removeClass('is-editing');
 }
 
-CalculationDesignerComponent.prototype.removeInput = function (input) {
-console.log('removeInput');
+CalculationDesignerComponent.prototype.removePart = function (input) {
+    console.log('removePart');
 
     var $calcLabel = $(input).closest('.js-calc');
 
-    $calcLabel.remove()
+    $calcLabel.remove();
 }
 
-// clicking a label should add it to the calculation editor
-        // $(".js-calculation-toolbar .js-calc").click(function (e) {
-        //     e.preventDefault();
-        //     console.log('clicky');
-        //     var clone = $(this).clone(false);
+CalculationDesignerComponent.prototype.toggleEditPart = function (e, part) {
+    console.log('editPart');
 
-        //     clone.removeClass('ui-draggable ui-draggable-handle');
+    e.preventDefault();
 
-        //     $(".js-calculation-designer").append(clone);
-        //     $(".js-calculation-designer").sortable('refresh');
-        // });
+    var component = this,
+        $part = $(part);
+
+    if (!$part.hasClass('is-editing')) {
+        $part.addClass('is-editing');
+
+        if ($part.hasClass('js-calc-num')) {
+            component.activatePart($('#' + part.id));
+        }
+    }
+    else {
+        if (!$part.hasClass('js-calc-num')) {
+            $part.removeClass('is-editing');
+        }
+    }
+}
 
 module.exports = CalculationDesignerComponent;

@@ -2,93 +2,6 @@
 
 {% block tab_content %}
 
-<style type="text/css">
-
-.calculation-label,
-.calc-sorting {
-    display: inline-block;
-    font-size: 14px;
-    font-family: 'Courier New', 'Andale Mono', 'Consolas', monospace;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    padding: 0 15px;
-    line-height: 36px;
-    transition: width 2s;
-    vertical-align: middle;
-    width: auto !important;
-}
-
-.calculation-label.is-editing {
-    padding-right: 0;
-}
-
-.calc-sorting {
-    background-color: #ffffec;
-    height: 36px;
-}
-
-.calculation-designer {
-    border: 1px solid #ccc;
-
-}
-
-.calculation-toolbar {
-    background-color: rgba(0,0,0,.05);
-    padding: 10px;
-}
-
-.calculation-editor {
-    padding: 10px;
-}
-
-.calc-sorting {
-    background-color: #fefefe;
-    border: 1px dashed #ccc;
-    border-radius: 4px;
-    width: 50px;
-}
-
-.calculation-label--operator {
-    font-size: 20px;
-}
-
-.calculation-label--operator i {
-    color: #999 !important;
-}
-
-.calculation-label--var {
-    background-color: #8cd2ca !important;
-}
-
-.calculation-label--num {
-    background-color: #efb4c3 !important;
-}
-
-.calculation-label--var i,
-.calculation-label--num i {
-    color: #777 !important;
-}
-
-.calc-input {
-    background-color: white;
-    border: 0;
-    border-radius: 20px;
-    font-family: 'Courier New', 'Andale Mono', 'Consolas', monospace;
-    line-height: 1.5rem;
-    margin: 0 10px;
-    padding: 0 10px;
-    text-align: center;
-    width: 100px;
-}
-
-.calc-input-save,
-.calc-input-remove {
-    font-size: 14px;
-    vertical-align: baseline;
-}
-
-</style>
-
 <div class="calculation-designer">
 
     <div class="js-calculation-toolbar calculation-toolbar">
@@ -98,35 +11,35 @@
         {{
             html.label({
                 'label': '+',
-                'class': 'calculation-label js-calc calculation-label--operator',
+                'class': 'calculation-label js-calc js-calc-operator calculation-label--operator',
                 'data-value': '+'
             })
         }}
         {{
             html.label({
                 'label': '-',
-                'class': 'calculation-label js-calc calculation-label--operator',
+                'class': 'calculation-label js-calc js-calc-operator calculation-label--operator',
                 'data-value': '-'
             })
         }}
         {{
             html.label({
                 'label': 'x',
-                 'class': 'calculation-label js-calc calculation-label--operator',
+                 'class': 'calculation-label js-calc js-calc-operator calculation-label--operator',
                  'data-value': 'x'
                 })
             }}
         {{
             html.label({
                 'label': '/',
-                'class': 'calculation-label js-calc calculation-label--operator',
+                'class': 'calculation-label js-calc js-calc-operator calculation-label--operator',
                 'data-value': '/'
             })
         }}
         {{
             html.label({
                 'label': '(',
-                'class': 'calculation-label js-calc calculation-label--operator',
+                'class': 'calculation-label js-calc js-calc-operator calculation-label--paren',
                 'data-value': '('
             })
         }}
@@ -134,7 +47,7 @@
         {{
             html.label({
                 'label': ')',
-                'class': 'calculation-label js-calc calculation-label--operator',
+                'class': 'calculation-label js-calc js-calc-operator calculation-label--paren',
                 'data-value': ')'
             })
         }}
