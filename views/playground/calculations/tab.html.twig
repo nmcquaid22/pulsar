@@ -1,6 +1,15 @@
 {% extends "@pulsar/pulsar/components/tab.html.twig" %}
 
 {% block tab_content %}
+<style>
+    .potential-label,
+    .calculation-label.potential-label:hover {
+        background-color: #fff !important;
+        cursor: text !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+</style>
 
 <div class="calculation-designer">
 
@@ -53,8 +62,6 @@
         }}
     </div>
 
-    <div class="js-calculation-editor calculation-editor">
-    <span class="js-calc-placeholder">Drop summat here</span>
-    </div>
+    <div class="js-calculation-editor calculation-editor"></div>
 </div>
 {% endblock %}
