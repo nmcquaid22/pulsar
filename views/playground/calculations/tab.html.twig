@@ -9,10 +9,13 @@
         padding-left: 4px !important;
         padding-right: 4px !important;
     }
+
+    .calculation-editor .potential-label:only-child:empty:not(:focus):before{
+        content:attr(data-text)
+    }
 </style>
-
+<p>Test</p>
 <div class="calculation-designer">
-
     <div class="js-calculation-toolbar calculation-toolbar">
         {{ html.label({ 'label': '#variable', 'class': 'calculation-label calculation-label--var js-calc js-calc-var' }) }}
         {{ html.label({ 'label': 'number', 'class': 'calculation-label calculation-label--num js-calc js-calc-num' }) }}
@@ -62,6 +65,26 @@
         }}
     </div>
 
-    <div class="js-calculation-editor calculation-editor"></div>
+    <div class="js-calculation-editor calculation-editor">
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true" data-text"Start typing or drag in a block"></span>
+        <span class="label calculation-label calculation-label--num js-calc" contenteditable="true">10</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--operator js-calc" contenteditable="true">+</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--num js-calc" contenteditable="true">5</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--operator js-calc " contenteditable="true">+</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--paren js-calc" contenteditable="true">(</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--num js-calc" contenteditable="true">7</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--operator js-calc" contenteditable="true">-</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--num js-calc" contenteditable="true">3</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span>
+        <span class="label calculation-label calculation-label--paren js-calc" contenteditable="true">)</span>
+        <span class="label calculation-label potential-label js-spacer" contenteditable="true"></span></div>
+    </div>
 </div>
 {% endblock %}

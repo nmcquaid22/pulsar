@@ -29,7 +29,6 @@ CalculationDesignerComponent.prototype.initToolbar = function () {
 };
 
 CalculationDesignerComponent.prototype.initEditor = function() {
-
     var component = this,
         $editor = component.$html.find('.js-calculation-editor');
 
@@ -78,8 +77,20 @@ CalculationDesignerComponent.prototype.initEditor = function() {
         }
     });
 
-    $editor.append(component.buildSpacer());
-    $editor.children().first().html('Test');
+    $('.js-calculation-editor').children().each(function() {
+        if ($(this).hasClass('js-spacer')) {
+            component.setSpacerListeners(this);
+        }
+        else {
+            component.setSymbolListeners(this);
+        }
+    });
+
+    if ($editor.children().length == 0) {
+        var spacer = component.buildSpacer();
+        $(spacer).attr('data-text', 'Start typing or drag in a block');
+        $editor.append(spacer);      
+    }
 };
 
 CalculationDesignerComponent.prototype.hidePlaceholder = function() {
@@ -95,6 +106,13 @@ CalculationDesignerComponent.prototype.buildSpacer = function () {
 
     label.className = 'label calculation-label potential-label js-spacer';
     label.setAttribute('contenteditable', true);
+    component.setSpacerListeners(label);
+
+    return label;
+}
+
+CalculationDesignerComponent.prototype.setSpacerListeners = function(label) {
+    var component = this;
 
     $(label).on('keydown', function(e) {
         var code = e.keyCode || e.which,
@@ -171,8 +189,37 @@ CalculationDesignerComponent.prototype.buildSpacer = function () {
             $(this).html('');        
         }
     }); 
+}
 
-    return label;
+CalculationDesignerComponent.prototype.setSymbolListeners = function(label) {
+    var component = this;
+
+    $(label).on('keydown', function(e) {
+        var code = e.keyCode || e.which,
+            cursorPos = component.getCursorPos(label);
+
+        if (code == 37 && cursorPos == 0 && $(this).prev()[0]) {
+            $(this).prev()[0].focus();
+        }
+        else if (code == 39 && cursorPos == $(this).html().length && $(this).next()[0]) {
+            $(this).next()[0].focus();
+        }
+    });
+
+    $(label).on('keyup', function(e) {
+        var code = e.keyCode || e.which;
+
+        switch (code) { 
+            case 8:
+            case 46:
+                if ($(this).html() == '') {
+                    $(this).prev()[0].focus();
+                    $(this).next().remove();
+                    $(this).remove();
+                }
+                break;
+        }
+    });
 }
 
 CalculationDesignerComponent.prototype.tokenize = function (terminator, content, span) {
@@ -186,33 +233,7 @@ CalculationDesignerComponent.prototype.tokenize = function (terminator, content,
         label.innerHTML = content;
         label.className = 'label calculation-label calculation-label--num js-calc js-calc-num';
         label.setAttribute('contenteditable', true);
-
-        $(label).on('keydown', function(e) {
-            var code = e.keyCode || e.which,
-                cursorPos = component.getCursorPos(label);
-
-            if (code == 37 && cursorPos == 0 && $(this).prev()[0]) {
-                $(this).prev()[0].focus();
-            }
-            else if (code == 39 && cursorPos == $(this).html().length && $(this).next()[0]) {
-                $(this).next()[0].focus();
-            }
-        });
-
-        $(label).on('keyup', function(e) {
-            var code = e.keyCode || e.which;
-
-            switch (code) { 
-                case 8:
-                case 46:
-                    if ($(this).html() == '') {
-                        $(this).prev()[0].focus();
-                        $(this).next().remove();
-                        $(this).remove();
-                    }
-                    break;
-            }
-        });
+        component.setSymbolListeners(label);
 
         $(span).before(spacerBefore);
         $(span).before(label);
@@ -228,33 +249,7 @@ CalculationDesignerComponent.prototype.tokenize = function (terminator, content,
         }
         operatorLabel.innerHTML = terminator;    
         operatorLabel.setAttribute('contenteditable', true);
-
-        $(operatorLabel).on('keydown', function(e) {
-            var code = e.keyCode || e.which,
-                cursorPos = component.getCursorPos(operatorLabel);
-            
-            if (code == 37 && cursorPos == 0 && $(this).prev()[0]) {
-                $(this).prev()[0].focus();
-            }
-            else if (code == 39 && cursorPos == $(this).html().length && $(this).next()[0]) {
-                $(this).next()[0].focus();
-            }
-        });
-
-        $(operatorLabel).on('keyup', function(e) {      
-            var code = e.keyCode || e.which;
-
-            switch (code) { 
-                case 8:
-                case 46:
-                    if ($(this).html() == '') {
-                        $(this).prev()[0].focus();
-                        $(this).next().remove();
-                        $(this).remove();
-                    }
-                    break;
-            }
-        });
+        component.setSymbolListeners(operatorLabel);
 
         $(span).before(spacerAfter);
         $(span).before(operatorLabel);
