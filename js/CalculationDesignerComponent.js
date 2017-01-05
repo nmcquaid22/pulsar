@@ -2,13 +2,15 @@ var $ = require('jquery');
 
 function CalculationDesignerComponent(html) {
     this.$html = html;
+    this.$picker;
 };
 
 CalculationDesignerComponent.prototype.init = function () {
     var component = this;
 
     component.initToolbar();
-    component.initEditor();   
+    component.initEditor();  
+    component.initVariablePicker(); 
 };
 
 CalculationDesignerComponent.prototype.initToolbar = function () {
@@ -44,6 +46,9 @@ CalculationDesignerComponent.prototype.initEditor = function() {
                     ui.item[0].focus();
                 }, 100);
                 ui.item.width('');
+            }
+            if ($.trim(ui.item.html()) == '[variable]') {
+                this.$picker.show();
             }
             else {
                 ui.item.html($.trim(ui.item.html()));
@@ -92,6 +97,12 @@ CalculationDesignerComponent.prototype.initEditor = function() {
         $editor.append(spacer);      
     }
 };
+
+CalculationDesignerComponent.prototype.initVariablePicker = function() {
+    this.$picker = VariablePicker.load(function(selection) {
+        console.log(selection);
+    });
+}
 
 CalculationDesignerComponent.prototype.hidePlaceholder = function() {
     var component = this,
@@ -184,9 +195,14 @@ CalculationDesignerComponent.prototype.setSpacerListeners = function(label) {
                 break;                
         }
 
-        if (terminator != '') {
-            component.tokenize(terminator, contents, this);
-            $(this).html('');        
+        if ($.trim($(this).html()) == '[') {
+            component.$picker.show();
+        }
+        else {
+            if (terminator != '') {
+                component.tokenize(terminator, contents, this);
+                $(this).html('');        
+            }
         }
     }); 
 }
