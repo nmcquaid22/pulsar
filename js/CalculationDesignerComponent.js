@@ -103,6 +103,7 @@ CalculationDesignerComponent.prototype.initVariablePicker = function() {
     this.$picker = VariablePicker.load(function(selection) {
         console.log(selection);
     }, function() {
+        $('.js-awaiting-var').next().remove();
         $('.js-awaiting-var').remove();
     });
 }
@@ -201,7 +202,7 @@ CalculationDesignerComponent.prototype.setSpacerListeners = function(label) {
         if ($.trim($(this).html()) == '[') {
             $(this).html('');
     
-            var spacerAfter = this.buildSpacer(),
+            var spacerAfter = component.buildSpacer(),
                 varLabel = document.createElement('span');
 
             varLabel.className = 'label calculation-label calculation-label--var js-calc js-calc-operator js-calc-fade-actions';
