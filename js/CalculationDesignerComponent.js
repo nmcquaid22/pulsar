@@ -101,7 +101,13 @@ CalculationDesignerComponent.prototype.initEditor = function() {
 
 CalculationDesignerComponent.prototype.initVariablePicker = function() {
     this.$picker = VariablePicker.load(function(selection) {
-        console.log(selection);
+        var result = JSON.parse(selection);
+        $('.js-awaiting-var').html('[' . result.contextLabel ']');
+        $('.js-awaiting-var').attr('data-to-save'. JSON.stringify({
+            'value': result.value,
+            'type': result.type
+        }));
+        $('.js-awaiting-var').removeClass('.js-awaiting-var');
     }, function() {
         $('.js-awaiting-var').next().remove();
         $('.js-awaiting-var').remove();
@@ -205,7 +211,7 @@ CalculationDesignerComponent.prototype.setSpacerListeners = function(label) {
             var spacerAfter = component.buildSpacer(),
                 varLabel = document.createElement('span');
 
-            varLabel.className = 'label calculation-label calculation-label--var js-calc js-calc-operator js-calc-fade-actions';
+            varLabel.className = 'label calculation-label calculation-label--var js-calc js-calc-operator js-calc-fade-actions js-awaiting-var';
             varLabel.innerHTML = '[variable]';
             $(this).after(spacerAfter);
             $(this).after(varLabel);
