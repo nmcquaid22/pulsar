@@ -48,7 +48,8 @@ CalculationDesignerComponent.prototype.initEditor = function() {
                 ui.item.width('');
             }
             if ($.trim(ui.item.html()) == '[variable]') {
-                this.$picker.show();
+                ui.item.addClass('js-awaiting-var');
+                component.$picker.show();
             }
             else {
                 ui.item.html($.trim(ui.item.html()));
@@ -101,6 +102,8 @@ CalculationDesignerComponent.prototype.initEditor = function() {
 CalculationDesignerComponent.prototype.initVariablePicker = function() {
     this.$picker = VariablePicker.load(function(selection) {
         console.log(selection);
+    }, function() {
+        $('.js-awaiting-var').remove();
     });
 }
 
@@ -196,6 +199,16 @@ CalculationDesignerComponent.prototype.setSpacerListeners = function(label) {
         }
 
         if ($.trim($(this).html()) == '[') {
+            $(this).html('');
+    
+            var spacerAfter = this.buildSpacer(),
+                varLabel = document.createElement('span');
+
+            varLabel.className = 'label calculation-label calculation-label--var js-calc js-calc-operator js-calc-fade-actions';
+            varLabel.innerHTML = '[variable]';
+            $(this).after(spacerAfter);
+            $(this).after(varLabel);
+
             component.$picker.show();
         }
         else {
@@ -256,7 +269,7 @@ CalculationDesignerComponent.prototype.tokenize = function (terminator, content,
     }
 
     if (terminator != '') {
-        operatorLabel.className = 'label calculation-label js-calc js-calc-operatorjs-calc-fade-actions';
+        operatorLabel.className = 'label calculation-label js-calc js-calc-operator js-calc-fade-actions';
         if (terminator == ')' || terminator == '(') {
             operatorLabel.className += ' calculation-label--paren'; 
         }
