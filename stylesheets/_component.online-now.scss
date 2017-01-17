@@ -1,0 +1,17 @@
+// bring in existing blue sidebar styling, should still be mostly fit for this component
+.online-now-container {
+    @extend .tab-help-container;
+}
+
+// temporary rules to make sidebar visible at all times
+.online-now-container {
+    right: -300px !important;
+    visibility: visible !important;
+    z-index: $zindex-nav;
+}
+
+.online-now {
+    padding: 40px 20px 20px;
+}
+
+// add new stuff here ----------------------------------------------------------
