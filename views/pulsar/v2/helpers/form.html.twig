@@ -663,19 +663,26 @@ element.
 
 ## Options
 
-Option  | Type   | Description
-------- | ------ | -------------------------------------------------------------
-actions | array  | Helpers to display as the actions, usually `form.submit()` but can be buttons, links etc...
-class   | string | A space separated list of class names
+Option     | Type   | Description
+---------- | ------ | -------------------------------------------------------------
+actions    | array  | Helpers to display as the actions, usually `form.submit()` but can be buttons, links etc...
+class      | string | A space separated list of class names
+close-form | boolean | Whether to output the `</form>` element (default: true)
 
 #}
 {% macro end(options) %}
     {% import '@pulsar/pulsar/v2/helpers/util.html.twig' as util %}
 
+    {%
+        set options = options|default({})|merge({
+            'close-form': options['close-form']|default(true)
+        })
+    %}
+
     {% if options.actions is defined %}
         <div{{
             attributes(options
-                |exclude('actions')
+                |exclude('actions close-form')
                 |defaults({
                     'class': 'form__actions'
                 })
@@ -686,7 +693,11 @@ class   | string | A space separated list of class names
             {% endfor %}
         </div>
     {% endif %}
+
+    {% if options['close-form'] == true %}
     </form>
+    {% endif %}
+
 {% endmacro %}
 
 
