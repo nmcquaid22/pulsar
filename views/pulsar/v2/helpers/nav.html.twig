@@ -57,19 +57,14 @@
 
 
 {% macro nav_item(options) %}
-{% spaceless %}
     {% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %}
     {% import '@pulsar/pulsar/v2/helpers/util.html.twig' as util %}
 
-    <li
-        {{
-            attributes(options
-                |exclude('data-toggle href icon')
-                |defaults({ 'class': 'nav-item t-nav-item' })
-            )
-        }}
-    >
-        <a {{ attributes(options|only('href data-toggle')) }} class="nav-link t-nav-link">
+    <li{{ attributes(options
+        |exclude('data-toggle href icon label')
+        |defaults({ 'class': 'nav-item t-nav-item' })
+    ) }}>
+        <a{{ attributes(options|only('href data-toggle')) }} class="nav-link t-nav-link">
             {% if options.icon is defined and options.icon is not empty %}
                 {{ html.icon(options.icon, { 'class': 'nav-link__icon t-nav-icon' }) }}
             {% elseif options.image is defined and options.image is not empty %}
@@ -78,8 +73,6 @@
             <span class="nav-link__label">{{ options.label|raw }}</span>
         </a>
     </li>
-
-{% endspaceless %}
 {% endmacro %}
 
 
