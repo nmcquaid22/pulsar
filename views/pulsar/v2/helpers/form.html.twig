@@ -673,12 +673,6 @@ close-form | boolean | Whether to output the `</form>` element (default: true)
 {% macro end(options) %}
     {% import '@pulsar/pulsar/v2/helpers/util.html.twig' as util %}
 
-    {%
-        set options = options|default({})|merge({
-            'close-form': options['close-form']|default(true)
-        })
-    %}
-
     {% if options.actions is defined %}
         <div{{
             attributes(options
@@ -694,7 +688,7 @@ close-form | boolean | Whether to output the `</form>` element (default: true)
         </div>
     {% endif %}
 
-    {% if options['close-form'] == true %}
+    {% if options['close-form'] is not defined or options['close-form'] == true %}
     </form>
     {% endif %}
 
