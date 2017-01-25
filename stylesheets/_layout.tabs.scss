@@ -182,6 +182,10 @@
 .tab__container {
     float: none;
     height: 100%;
+
+    // usually not triggered if a tab contents are nicely responsive, but does
+    // fix some edge cases like HTML tables which can only collapse so far
+    overflow-x: auto;
 }
 
 .tab__container {
