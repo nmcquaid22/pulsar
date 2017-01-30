@@ -24,6 +24,16 @@
                     {{ nav.nav_item(options) }}
                 {% endfor %}
             {% endif %}
+            
+        </ul>
+        <ul class="nav-item whosonline-menu">
+            {{
+                nav.nav_item({
+                    'label': '3 Online',
+                    'href': '#whosonline',
+                    'icon': 'users'
+                })
+            }}
         </ul>
      </div><!--
 
@@ -125,6 +135,124 @@
                     </a>
                 </li>
             </ul>
+        </div>
+    </div>
+
+    <!-- Who's Online -->
+    <div class="nav-quickstart t-nav-secondary online-now" data-nav="#whosonline" data-ui="nav-container">
+        <form action="/search" class="main-search" data-ui="search-box">
+            <input type="search" name="q" id="case-search" value="" placeholder="Search people" class="main-search__field" autocomplete="off">
+            <button class="main-search__submit" type="submit" name="case-search"><i class="icon-search"></i></button>
+        </form>
+        <a href="#close" class="nav-close" data-nav-action="whosonline-close">{{ html.icon('remove') }}</a>
+        <div class="nav-list quickstart__main" data-nav="#whosonline-main">
+            <span class="nav-item nav-item--header t-nav-header ">People Online <br /><span class="menu-sub-title">Ordered by last name</span>
+            </span>
+            <ul class="tab-contact-list">
+                <li class="nav-item nav-link">
+                    <a href="#" data-nav-action="whosonline-content">
+                        <input type="checkbox" checked>
+                        <i class="icon-remove-sign inner-close" aria-hidden="true"></i>
+                        <div class="personal-details">
+                          <div class="media"><img src="https://api.adorable.io/avatars/50/abott@adorable.io.png" alt="User Avatar" class="media__image" ><span title="" data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span>
+                          <div class="media__body"><p>Paul Stanton</p>
+                          <span class="small-type">Senior UI/UX Developer</span></div></div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item nav-link">
+                    <a href="#" data-nav-action="whosonline-content">
+                        <input type="checkbox" checked>
+                        <i class="icon-remove-sign inner-close" aria-hidden="true"></i>
+                        <div class="personal-details">
+                          <div class="media"><img src="/images/client-icon.png" alt="User Avatar" class="media__image"><span title="" data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span>
+                          <div class="media__body"><p>James Jacobs</p>
+                          <span class="small-type">Senior UI/UX Developer</span></div></div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item nav-link">
+                    <a href="#" data-nav-action="whosonline-content">
+                        <input type="checkbox" checked>
+                        <i class="icon-remove-sign inner-close" aria-hidden="true"></i>
+                        <div class="personal-details">
+                          <div class="media"><img src="/images/client-icon.png" alt="User Avatar" class="media__image"><span title="" data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span>
+                          <div class="media__body"><p>Nikos Vasileiadis</p>
+                          <span class="small-type">UI/UX Developer</span></div></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="offline-people-statement"><span>There are 456 people offline</span></div>
+        </div>
+
+        <div class="nav-list quickstart__additional recent-content hide" data-nav="#whosonline-content">
+            <div class="avatar">
+                <img src="../../../images/test-avatar.jpg" alt="Person's Avatar" class="avatar__image">
+                <div class="avatar__caption">
+                    <span class="username">Paul Stanton</span><span data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span><br/>
+                    <span class="job-title">Senior UI/UX Developer</span>
+                </div>
+            </div>
+            <div class="contact-details">
+              <div class="email"><i aria-hidden="true" class="icon-envelope-alt"></i><a href="mailto:paul.stanton@jadu.co.uk" target="_blank">paul.stanton@jadu.co.uk</a></div>
+              <div class="phone"><i aria-hidden="true" class="icon-phone"></i><a href="tel:01234567890">01234567890</a></div>
+              <div class="other-icons">
+                <a href="#"><i class="icon-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="icon-linkedin-sign" aria-hidden="true"></i></a>
+                <a href="#"><i class="icon-slack" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <span class="nav-item nav-item--header t-nav-header">Recent Content</span>
+            <ul>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+                <li>
+                    <a href="#"><span>This is a Dummy Title</span></a><br/>
+                    <span class="content-type">Document</span><span class="content-publish-time"> updated 3 hours ago</span>
+                </li>
+            </ul>
+            <div class="show-all">
+                <span><i class="icon-search" aria-hidden="true"></i><a href="#">Show all content</a></span>
+            </div>
         </div>
     </div>
 </nav>
