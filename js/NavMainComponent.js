@@ -4,7 +4,7 @@ var $ = require('jquery');
 
 function NavMainComponent(html) {
     this.$html = html;
-};
+}
 
 NavMainComponent.prototype.init = function() {
 
@@ -22,6 +22,13 @@ NavMainComponent.prototype.init = function() {
     component.$quickstartAdditionalMenu = component.$navMain.find('[data-nav="#quickstart-additional"]');
     component.$quickstartManageLink = component.$navMain.find('[data-nav-action=quickstart-manage]');
     component.$quickstartSaveLink = component.$navMain.find('[data-nav-action=quickstart-save]');
+
+    /* Who's Online Nav Item */
+    component.$whosonline = component.$navMain.find('[data-nav="#whosonline"]');
+    component.$whosonlineContentLink = component.$navMain.find('[data-nav-action=whosonline-content]');
+    component.$whosonlineContentMenu = component.$navMain.find('[data-nav="#whosonline-content"]');
+    component.$whosonlineCloseLink = component.$navMain.find('[data-nav-action=whosonline-close]');
+    /* */
 
     component.closeHandler = function() {
         component.closeNavs();
@@ -59,6 +66,14 @@ NavMainComponent.prototype.init = function() {
     component.$closeLink.on('click', function(e) {
         e.preventDefault();
         component.closeNavs();
+    });
+
+    component.$whosonlineContentLink.on('click', function(){
+        component.whosonlineContent();
+    });
+
+    component.$whosonlineCloseLink.on('click', function(){
+        component.whosonlineClose();
     });
 };
 
@@ -203,6 +218,42 @@ NavMainComponent.prototype.closeSubNavs = function() {
         .removeClass('is-open');
 
     component.quickstartClose();
+};
+
+NavMainComponent.prototype.whosonlineContent = function() {
+
+    var component = this;
+
+    // Doubles the size of the Secondary Nav
+    if (component.$whosonline.width() < '495'){
+        component.$whosonline.animate({ width: '495' }, 125);
+    }
+
+    // Keeps only one Checkbox checked at a time.
+    $('.online-now .nav-link input').on('change', function() {
+        $('.online-now .nav-link input').not(this).prop('checked', true);
+        if($(this).prop('checked') == false) {
+            component.$whosonlineContentMenu.removeClass('hide');
+        } else {
+            component.$whosonlineContentMenu.addClass('hide');
+        }
+    });
+};
+
+NavMainComponent.prototype.whosonlineClose = function() {
+
+    var component = this;
+
+    // Shrink back to normal size of container
+    if (component.$whosonline.width() == '495'){
+        component.$whosonline
+            .animate({
+                width: '245'
+            }, 125);
+    } else {
+        component.$whosonline
+            .removeClass('is-open');
+    }
 };
 
 module.exports = NavMainComponent;
