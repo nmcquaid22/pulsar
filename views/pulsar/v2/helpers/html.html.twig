@@ -1484,3 +1484,48 @@ slack           | string | Probably some form of link to user's profile in a spe
 
 {% endspaceless %}
 {% endmacro %}
+
+{# -----------------------------------------------------------------------------
+
+# Avatar
+
+Pass an array of user's details and have them rendered as an image/content group.
+
+## Example usage
+
+```twig
+{{
+    html.avatar({
+        'avatar_url': 'http://www.w3schools.com/css/img_fjords.jpg',
+        'avatar_alt_text': 'John Doe',
+        'username': 'John Doe',
+        'job_title': 'Gamer'
+    })
+}}
+```
+
+## Options
+
+Option          | Type   | Description
+--------------- | ------ | -------------------------------------------------------------------
+avatar_url      | string | Full address of the image's location
+avatar_alt_text | string | Text describing the image. User's name expected.
+username        | string | The user's name.
+job_title       | string | The user's job title.
+
+
+#}
+{% macro avatar(options) %}
+{% spaceless %}
+    {% import _self as html %}
+
+    <div class="avatar">
+        <img src="{% if options.avatar_url is defined and options.avatar_url is not empty %}{{ options.avatar_url }}{% endif %}" alt="{% if options.avatar_alt_text is defined and options.avatar_alt_text is not empty %}{{ options.avatar_alt_text }}{% endif %}" class="avatar__image">
+        <div class="avatar__caption">
+            <span class="username">{% if options.username is defined and options.username is not empty %}{{ options.username }}{% endif %}</span><span data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span><br/>
+            <span class="job-title">{% if options.job_title is defined and options.job_title is not empty %}{{ options.job_title }}{% endif %}</span>
+        </div>
+    </div>
+
+{% endspaceless %}
+{% endmacro %}
