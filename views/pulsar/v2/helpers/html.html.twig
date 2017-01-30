@@ -1378,3 +1378,109 @@ data-* | string | Data attributes, eg: `'data-foo': 'bar'`
 
 {% endspaceless %}
 {% endmacro %}
+
+{# -----------------------------------------------------------------------------
+
+# Contact Card
+
+Pass an array of user's details and have them rendered as an image/content group.
+
+## Example usage
+
+```twig
+{{
+    html.contact_card({
+        'avatar_url': 'http://www.w3schools.com/css/img_fjords.jpg',
+        'avatar_alt_text': 'John Doe',
+        'username': 'John Doe',
+        'job_title': 'Gamer',
+        'email': 'john.doe@game.com',
+        'phone': '00441234567890',
+        'twitter': 'johndoe'
+        'linkedin': 'johndoepro',
+        'slack': 'jdpal'
+    })
+}}
+```
+
+## Options
+
+Option          | Type   | Description
+----------------| ------ | -------------------------------------------------------------------
+avatar_url      | string | Full address of the image's location
+avatar_alt_text | string | Text describing the image. User's name expected.
+username        | string | The user's name.
+job_title       | string | The user's job title.
+email           | string | The user's email address.
+phone           | string | The user's phone number.
+twitter         | string | The user's twitter handle only. No full address required.
+linkedin        | string | The user's linkedin username only. No full address required.
+slack           | string | Probably some form of link to user's profile in a specific channel.
+
+
+#}
+{% macro contact_card(options) %}
+{% spaceless %}
+    {% import _self as html %}
+
+    {{
+        html.avatar({
+            'avatar_url': options.avatar_url,
+            'avatar_alt_text': options_alt_text,
+            'username': options.username,
+            'job_title': options.job_title
+        })
+    }}
+    <div class="contact-details">
+        <div class="email">{{ html.icon('envelope-alt') }}
+        {% if options.email is defined and options.email is not empty %}
+        {{
+            html.link({
+                'href': 'mailto:' ~ options.email,
+                'label': options.email,
+                'target': 'blank'
+            })
+        }}
+        {% endif %}
+        </div>
+        <div class="phone">{{ html.icon('phone') }}
+        {% if options.phone is defined and options.phone is not empty %}
+        {{
+            html.link({
+                'href': 'tel:' ~ options.phone,
+                'label': options.phone,
+                'target': 'blank'
+            })
+        }}
+        {% endif %}
+        </div>
+        <div class="other-icons">
+        {% if options.twitter is defined and options.twitter is not empty %}
+        {{
+            html.link({
+                'href': 'https://twitter.com/' ~ options.twitter,
+                'label': html.icon('twitter') 
+            })
+        }}
+        {% endif %}
+        {% if options.linkedin is defined and options.linkedin is not empty %}
+        {{
+            html.link({
+                'href': 'https://www.linkedin.com/in/' ~ options.linkedin,
+                'label': html.icon('linkedin-sign')
+            })
+        }}
+        {% endif %}
+        {% if options.slack is defined and options.slack is not empty %}
+        {{
+            html.link({
+                'href': 'https://slack.com/' ~ options.slack,
+                'label': html.icon('slack')
+            })
+        }}
+        {% endif %}
+        </div>
+    </div>
+
+{% endspaceless %}
+{% endmacro %}
