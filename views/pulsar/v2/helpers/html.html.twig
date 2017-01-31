@@ -1500,7 +1500,7 @@ Pass an array of user's details and have them rendered as an image/content group
     html.avatar({
         'avatar_url': 'http://www.w3schools.com/css/img_fjords.jpg',
         'avatar_alt_text': 'John Doe',
-        'username': 'John Doe',
+        'user_name': 'John Doe',
         'job_title': 'Gamer'
     })
 }}
@@ -1511,9 +1511,9 @@ Pass an array of user's details and have them rendered as an image/content group
 Option          | Type   | Description
 --------------- | ------ | -------------------------------------------------------------------
 avatar_url      | string | Full address of the image's location
-avatar_alt_text | string | Text describing the image. User's name expected.
-username        | string | The user's name.
-job_title       | string | The user's job title.
+avatar_alt_text | string | Text describing the image. User's name expected
+user_name       | string | The user's name
+job_title       | string | The user's job title
 
 
 #}
@@ -1524,7 +1524,7 @@ job_title       | string | The user's job title.
     <div class="avatar">
         <img src="{% if options.avatar_url is defined and options.avatar_url is not empty %}{{ options.avatar_url }}{% endif %}" alt="{% if options.avatar_alt_text is defined and options.avatar_alt_text is not empty %}{{ options.avatar_alt_text }}{% endif %}" class="avatar__image">
         <div class="avatar__caption">
-            <span class="username">{% if options.username is defined and options.username is not empty %}{{ options.username }}{% endif %}</span><span data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span><br/>
+            <span class="user_name">{% if options.user_name is defined and options.user_name is not empty %}{{ options.user_name }}{% endif %}</span><span data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span><br/>
             <span class="job-title">{% if options.job_title is defined and options.job_title is not empty %}{{ options.job_title }}{% endif %}</span>
         </div>
     </div>
