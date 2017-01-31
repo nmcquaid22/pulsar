@@ -11,6 +11,7 @@
 
 {% set tab_buttons %}{% include 'lexicon/html/buttons.html.twig' %}{% endset %}
 {% set tab_link_buttons %}{% include 'lexicon/html/buttons-links.html.twig' %}{% endset %}
+{% set tab_contact_card %}{% include 'lexicon/html/contact-card.html.twig' %}{% endset %}
 
 {%
     set nav_data = {
@@ -38,7 +39,7 @@
         },
         "2": {
             "label": "HTML helpers",
-            "class": "",
+            "class": "is-active",
             "href": "/app/app.php/lexicon/html.html.twig",
             "icon": "code"
         },
@@ -68,6 +69,11 @@
           "id"    : "buttons-links",
           "label" : "Link Buttons",
           "src"   : tab_link_buttons
+        },
+        {
+          "id"    : "contact-card",
+          "label" : "Contact Card",
+          "src"   : tab_contact_card
         }
     ]
 %}
