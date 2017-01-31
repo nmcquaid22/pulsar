@@ -218,23 +218,21 @@ NavMainComponent.prototype.closeSubNavs = function() {
         .removeClass('is-open');
 
     component.quickstartClose();
+    component.whosonlineClose();
 };
 
 NavMainComponent.prototype.whosonlineContent = function() {
 
     var component = this;
 
-    // Doubles the size of the Secondary Nav
-    if (component.$whosonline.width() < '495'){
-        component.$whosonline.animate({ width: '495' }, 125);
-    }
-
     // Keeps only one Checkbox checked at a time.
     $('.online-now .nav-link input').on('change', function() {
         $('.online-now .nav-link input').not(this).prop('checked', true);
-        if($(this).prop('checked') == false) {
+        if(!$(this).prop('checked')) {
             component.$whosonlineContentMenu.removeClass('hide');
+            component.$whosonline.animate({ width: '495' }, 1);
         } else {
+            component.$whosonline.animate({ width: '245' }, 1);
             component.$whosonlineContentMenu.addClass('hide');
         }
     });
@@ -251,9 +249,11 @@ NavMainComponent.prototype.whosonlineClose = function() {
                 width: '245'
             }, 125);
     } else {
-        component.$whosonline
-            .removeClass('is-open');
+        component.$whosonline.removeClass('is-open');
     }
+
+    $('.online-now .nav-link input').prop('checked', true);
+    component.$whosonlineContentMenu.addClass('hide');
 };
 
 module.exports = NavMainComponent;
