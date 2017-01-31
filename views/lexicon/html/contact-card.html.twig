@@ -1,0 +1,54 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+
+{% block tab_content %}
+    <style>
+        .table tbody > tr.row-inverse > td,
+        .table tbody > tr.row-inverse:hover > td {
+            background-color: #2d86b3;
+        }
+    </style>
+    <h2>Primary Colours Version</h2>
+    {{
+        html.contact_card({
+            'avatar_url': 'https://static.guim.co.uk/sys-images/Guardian/About/General/2011/11/14/1321296191570/Super-Mario-no-longer-the-007.jpg',
+            'avatar_alt_text': 'Super Mario',
+            'user_name': 'Super Mario',
+            'job_title': 'Plumber',
+            'email': 'super.mario@nintendo.com',
+            'phone': '00441234567890',
+            'twitter': 'supermario',
+            'linkedin': 'supermario',
+            'slack': 'supermario'
+        })
+    }}<br/><br/>
+    <h2>Inverted Colours Version</h2>
+    {{
+        html.contact_card({
+            'class': 'inverse',
+            'avatar_url': 'https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/Profile_Luigi.aead314d435d8e52d9a4e92a6f799c4eee08081e.jpg',
+            'avatar_alt_text': 'Luigi',
+            'user_name': 'Luigi',
+            'job_title': 'Plumber',
+            'email': 'luigi@nintendo.com',
+            'phone': '00441234567890',
+            'twitter': 'luigi',
+            'linkedin': 'luigi',
+            'slack': 'luigi'
+        })
+    }}
+{% endblock tab_content %}
+
+{% block tab_sidebar %}
+    <a href="https://jadu.gitbooks.io/pulsar/content/text.html">
+        <img src="../../../images/cover.png" alt="Pulsar documentation front cover" width="157px" />
+    </a>
+    <br />
+    {{
+        html.button({
+            'label': 'View Documentation',
+            'type': 'link',
+            'href': 'https://jadu.gitbooks.io/pulsar/content/text.html'
+        })
+    }}
+
+{% endblock tab_sidebar %}
