@@ -1,294 +1,313 @@
 .online-now {
 
+    .nav-list {
+        &.quickstart__main {
+            padding: 0 10px;
 
-  .nav-list.quickstart__main {
-    padding: 0 10px;
-
-    span {
-      &:first-child {
-        margin-bottom: 20px;
-        padding: 0 10px;
-      }
-    }
-  }
-
-  &.is-open {
-    @include respond-max($screen-desktop) {
-      //width: calc(100vh - 75px) !important;
-    }
-  }
-
-  .nav-list.recent-content {
-    padding: 0 15px;
-
-    li > p {
-      margin-bottom: 15px;
-    }
-  }
-
-  .main-search {
-    border-color: color(gray, off-white);
-    left: 20px;
-
-    @include respond-min($screen-medium) {
-
+            span {
+                &:first-child {
+                    margin-bottom: 20px;
+                    padding: 0 10px;
+                }
+            }
+        }
     }
 
-    .main-search__submit {
-      color: color(white);
+    .main-search {
+        border-color: color(gray, off-white);
+        left: 20px;
+
+        @include respond-min($screen-desktop) {
+            width: calc(100vh - $nav-primary-width);
+        }
+
+        .main-search__submit {
+            color: color(white);
+        }
+
+        input:focus + .main-search__submit {
+            color: #555;
+        }
+
+        input {
+            &:active,
+            &:focus {
+                background-color: color(white);
+            }
+
+            &::-webkit-input-placeholder {
+                color: color(gray, lighter);
+            }
+        }
     }
 
-    input:focus + .main-search__submit {
-      color: #555;
+    h2 {
+        display: block;
+        clear: both;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        text-align: center;
     }
 
-    input {
-      &:active,
-      &:focus {
-        background-color: color(white);
-      }
+    a {
+        color: color(gray, off-white);
+        text-decoration: none;
 
-      &::-webkit-input-placeholder {
-        color: color(gray, lighter);
-      }
+        &:hover {
+            color: color(gray, off-white);
+        }
     }
-  }
 
-  h2 {
+    .nav-item--header {
+        border-color: transparent;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .icon-remove {
+        color: color(white);
+    }
+
+    .nav-close {
+        position: relative;
+        z-index: 2;
+    }
+
+    .recent-content {
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        a {
+            text-decoration: underline;
+        }
+
+        ul {
+            border-bottom: 1px solid color(jadu-blue, light);
+            list-style: none;
+            margin: 10px 10px 15px;
+            padding: 0;
+        }
+
+        li {
+            line-height: 1.3;
+            margin-bottom: 10px;
+
+            > p {
+            margin-bottom: 15px;
+            }
+
+            &:last-child {
+                margin-bottom: 15px;
+            }
+        }
+
+        p {
+            font-size: smaller;
+            color: color(white);
+        }
+
+        .nav-item--header {
+            margin: 15px 10px 20px;
+        }
+
+        .content-type {
+            color: color(gray, off-white);
+            font-size: 12px;
+        }
+
+        .content-publish-time {
+            color: color(gray, lighter);
+            font-size: 12px;
+        }
+    }
+
+    .contact-card {
+        display: inline-block;
+
+        .contact-details {
+            border-bottom: 1px solid color(jadu-blue, light);
+            color: color(white);
+            font-size: smaller;
+
+            i {
+            margin: 0 10px 0 0;
+            }
+
+            .other-icons i {
+                font-size: 16px;
+                margin: 0 20px 0 0;
+            }
+
+            div {
+                padding: 2px 0;
+
+                &:last-child {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+
+        &.inverse {
+        background-color: color(inverse);
+        color: $white;
+
+            a {
+                color: $white;
+            }
+
+            i {
+                color: $white;
+            }
+
+            .contact-details {
+                border-bottom: 1px solid $white;
+            }
+        }
+    }
+
+    .avatar {
+        height: 200px;
+        margin: 0;
+        position: relative;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 248px;
+    }
+
+    .avatar__caption {
+        margin: 0;
+        background-color: rgba(0, 0, 0, .1);
+        padding: 10px;
+        position: relative;
+        top: -78px;
+        color: white;
+
+        .username {
+          font-size: x-large;
+        }
+
+        .job-title {
+          color: color(gray, lighter);
+          font-size: smaller;
+        }
+        }
+
+        .show-all {
+        color: color(gray, off-white);
+        font-size: 12px;
+        margin-top: 10px;
+        text-align: center;
+
+        i {
+          margin-right: 5px;
+        }
+    }
+}
+
+.whosonline-menu {
     display: block;
-    clear: both;
-    position: relative;
-    padding: 0;
+    bottom: 0;
     margin: 0;
-    text-align: center;
-  }
-
-  a {
-    color: color(gray, off-white);
-    text-decoration: none;
-
-    &:hover {
-      color: color(gray, off-white);
-    }
-  }
-
-  .icon-remove {
-    color: color(white);
-  }
-
-  .nav-item--header {
-    border-color: transparent;
-    font-size: 20px;
-    font-weight: 400;
-  }
-
-  .nav-close {
-    position: relative;
-    z-index: 2;
-  }
+    position: absolute;
 }
 
 .transition {
-  transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
 }
 
 .tab-contact-list {
-  border-bottom: 1px solid color(jadu-blue, light);
-  list-style: none;
-  margin: 0;
-  padding: 0 0 10px;
-  width: 100%;
-  display: block;
-  clear: both;
-  position: relative;
-
-  li {
-    position: relative;
-    padding: 0;
-    margin: 10px 0;
-
-    input[type=checkbox] {
-      position: absolute;
-      cursor: pointer;
-      width: 100%;
-      height: 55px;
-      z-index: 1;
-      opacity: 0;
-
-      &:checked {
-        ~ .inner-close {
-          display: none;
-        }
-
-        ~ .personal-details {
-          background-color: transparent;
-        }
-      }
-    }
-  }
-
-  .inner-close {
-    position: absolute;
-    right: 4px;
-    transform: translate(0, 20%);
-  }
-
-  .nav-link {
-    &:hover {
-      background-color: color(jadu-blue, darkest);
-    }
-  }
-
-  .status {
-    &.is-online {
-      position: absolute;
-      top: 42px;
-      left: 42px;
-      border: 2px solid color(white);
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-    }
-  }
-}
-
-.offline-people-statement {
-  color: color(gray, off-white);
-  font-size: 12px;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.menu-sub-title {
-  color: color(gray, lightest);
-  font-size: 12px;
-}
-
-.personal-details {
-  background-color: #529ec3;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  padding: 8px 6px;
-
-  p {
-    text-decoration: underline;
-  }
-
-  img {
-    border: 3px solid color(white);
-    border-radius: 50%;
-  }
-
-  span {
-    font-size: small;
-    text-decoration: none;
-  }
-}
-
-.contact-details {
-  border-bottom: 1px solid color(jadu-blue, light);
-  color: color(white);
-  font-size: smaller;
-  margin: 0 0 10px;
-
-  i {
-    margin: 0 10px 0 0;
-  }
-
-  .other-icons i {
-    font-size: 16px;
-    margin: 0 20px 0 0;
-  }
-
-  div {
-    padding: 2px 0;
-
-    &:last-child {
-      padding-bottom: 10px;
-    }
-  }
-}
-
-.recent-content {
-  a {
-    text-decoration: underline;
-  }
-
-  ul {
     border-bottom: 1px solid color(jadu-blue, light);
     list-style: none;
     margin: 0;
-    padding-bottom: 15px;
-  }
+    padding: 0 0 10px;
+    width: 100%;
+    display: block;
+    clear: both;
+    position: relative;
 
-  li {
-    line-height: 1.3;
-    margin-bottom: 10px;
+    li {
+        position: relative;
+        padding: 0;
+        margin: 10px 0;
 
-    &:last-child {
-      margin-bottom: 0;
+        input[type=checkbox] {
+            position: absolute;
+            cursor: pointer;
+            width: 100%;
+            height: 55px;
+            z-index: 1;
+            opacity: 0;
+
+            &:checked {
+                ~ .inner-close {
+                    display: none;
+                }
+
+                ~ .personal-details {
+                    background-color: transparent;
+                }
+            }
+        }
     }
-  }
 
-  p {
-    font-size: smaller;
-    color: color(white);
-  }
+    .inner-close {
+        position: absolute;
+        right: 4px;
+        transform: translate(0, 20%);
+    }
 
-  .content-type {
+    .nav-link {
+        &:hover {
+            background-color: color(jadu-blue, darkest);
+        }
+    }
+
+    .status {
+        &.is-online {
+            position: absolute;
+            top: 42px;
+            left: 42px;
+            border: 2px solid color(white);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.offline-people-statement {
     color: color(gray, off-white);
     font-size: 12px;
-  }
+    margin-top: 10px;
+    text-align: center;
+}
 
-  .content-publish-time {
-    color: color(gray, lighter);
+.menu-sub-title {
+    color: color(gray, lightest);
     font-size: 12px;
-  }
-
-  .status.is-online {
-    margin-left: 4px;
-    border: 1px solid white;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
 }
 
-.avatar {
-  height: 200px;
-  margin: -70px -13px 15px;
-  position: relative;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: 248px;
-}
+.personal-details {
+    background-color: #529ec3;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 8px 6px;
 
-.avatar__caption {
-  margin: 0;
-  background-color: rgba(0, 0, 0, .1);
-  padding: 10px;
-  position: relative;
-  top: -78px;
-  color: white;
+    p {
+        text-decoration: underline;
+    }
 
-  .username {
-    font-size: x-large;
-  }
+    img {
+        border: 3px solid color(white);
+        border-radius: 50%;
+    }
 
-  .job-title {
-    color: color(gray, lighter);
-    font-size: smaller;
-  }
-}
-
-.show-all {
-  color: color(gray, off-white);
-  font-size: 12px;
-  margin-top: 10px;
-  text-align: center;
-
-  i {
-    margin-right: 10px;
-  }
+    span {
+        font-size: small;
+        text-decoration: none;
+    }
 }
