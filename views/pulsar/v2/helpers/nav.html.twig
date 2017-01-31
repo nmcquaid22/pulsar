@@ -24,7 +24,7 @@
                     {{ nav.nav_item(options) }}
                 {% endfor %}
             {% endif %}
-            
+
         </ul>
         <ul class="nav-item whosonline-menu">
             {{
@@ -187,22 +187,19 @@
         </div>
 
         <div class="nav-list quickstart__additional recent-content hide" data-nav="#whosonline-content">
-            <div class="avatar">
-                <img src="../../../images/test-avatar.jpg" alt="Person's Avatar" class="avatar__image">
-                <div class="avatar__caption">
-                    <span class="username">Paul Stanton</span><span data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span><br/>
-                    <span class="job-title">Senior UI/UX Developer</span>
-                </div>
-            </div>
-            <div class="contact-details">
-              <div class="email"><i aria-hidden="true" class="icon-envelope-alt"></i><a href="mailto:paul.stanton@jadu.co.uk" target="_blank">paul.stanton@jadu.co.uk</a></div>
-              <div class="phone"><i aria-hidden="true" class="icon-phone"></i><a href="tel:01234567890">01234567890</a></div>
-              <div class="other-icons">
-                <a href="#"><i class="icon-twitter" aria-hidden="true"></i></a>
-                <a href="#"><i class="icon-linkedin-sign" aria-hidden="true"></i></a>
-                <a href="#"><i class="icon-slack" aria-hidden="true"></i></a>
-              </div>
-            </div>
+            {{
+                html.contact_card({
+                    'avatar_url': 'http://1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+                    'avatar_alt_text': 'User 1',
+                    'user_name': 'User 1',
+                    'job_title': 'Ultimate Demo Placeholder',
+                    'email': 'user@company.com',
+                    'phone': '00441234567890',
+                    'twitter': 'supermario',
+                    'linkedin': 'supermario',
+                    'slack': 'supermario'
+                })
+            }}
             <span class="nav-item nav-item--header t-nav-header">Recent Content</span>
             <ul>
                 <li>
