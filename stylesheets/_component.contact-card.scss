@@ -1,0 +1,91 @@
+.contact-card {
+    display: inline-block;
+    height: 285px;
+    width: 248px;
+
+    .avatar {
+        height: 70%;
+        margin: 0;
+        position: relative;
+        right: 0;
+        top: 0;
+        width: inherit;
+        z-index: 1;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .avatar__caption {
+        background-color: rgba(0, 0, 0, .1);
+        color: color(white);
+        margin: 0;
+        padding: 10px;
+        position: relative;
+        top: -75px;
+
+        .status {
+            &.is-online {
+              border: 1px solid color(white);
+              border-radius: 50%;
+              height: 12px;
+              margin-left: 4px;
+              width: 12px;
+            }
+        }
+
+        .username {
+            font-size: x-large;
+        }
+
+        .job-title {
+            color: color(gray, lighter);
+            font-size: smaller;
+        }
+    }
+
+    .contact-details {
+        border-bottom: 1px solid color(jadu-blue, light);
+        color: color(primary);
+        font-size: smaller;
+        height: 30%;
+        margin: 0 10px;
+        width: calc(100% - 20px);
+
+        div {
+            padding: 2px 0;
+        }
+
+        i {
+          margin: 0 10px 0 0;
+        }
+
+        .other-icons {
+
+            i {
+              font-size: $font-size-base;
+              margin: 0 20px 0 0;
+            }
+        }
+
+    }
+
+    &.inverse {
+        background-color: color(inverse);
+        color: color(white);
+
+        a {
+            color: color(white);
+        }
+
+        i {
+            color: color(white);
+        }
+
+        .contact-details {
+            border-bottom: 1px solid color(white);
+        }
+    }
+}
