@@ -72,8 +72,12 @@ NavMainComponent.prototype.init = function() {
         component.whosonlineContent();
     });
 
-    component.$whosonlineCloseLink.on('click', function(){
+    component.$whosonlineCloseLink.on('click', function(e){
         component.whosonlineClose();
+        if (!$('.nav-quickstart.t-nav-secondary').hasClass('is-open')) {
+            $('.nav-primary .nav-items a').removeClass('is-active');
+            console.log('Deactivation');
+        }
     });
 };
 
