@@ -1524,7 +1524,7 @@ job_title       | string | The user's job title
     <div class="avatar">
         <img src="{% if options.avatar_url is defined and options.avatar_url is not empty %}{{ options.avatar_url }}{% endif %}" alt="{% if options.avatar_alt_text is defined and options.avatar_alt_text is not empty %}{{ options.avatar_alt_text }}{% endif %}" class="avatar__image">
         <div class="avatar__caption">
-            <span class="user_name">{% if options.user_name is defined and options.user_name is not empty %}{{ options.user_name }}{% endif %}</span><span data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span><br/>
+            <span class="user-name">{% if options.user_name is defined and options.user_name is not empty %}{{ options.user_name }}{% endif %}</span><span data-placement="top" data-toggle="tooltips" class="status is-online" data-original-title="online"></span><br/>
             <span class="job-title">{% if options.job_title is defined and options.job_title is not empty %}{{ options.job_title }}{% endif %}</span>
         </div>
     </div>
