@@ -19,7 +19,8 @@
         z-index: 10;
 
         @include respond-max($screen-desktop) {
-            width: calc(100vh - $nav-primary-width);
+            left: 0;
+            margin: 20px 40px 20px 20px;
         }
 
         .main-search__submit {
@@ -27,7 +28,7 @@
         }
 
         input:focus + .main-search__submit {
-            color: #555;
+            color: color(gray, dark);
         }
 
         input {
@@ -47,11 +48,11 @@
     }
 
     h2 {
-        display: block;
         clear: both;
-        position: relative;
-        padding: 0;
+        display: block;
         margin: 0;
+        padding: 0;
+        position: relative;
         text-align: center;
     }
 
@@ -73,6 +74,12 @@
     .nav-close {
         position: relative;
         z-index: 2;
+
+        @include respond-max($screen-desktop) {
+            position: absolute;
+            top: 0;
+
+        }
     }
 
     .recent-content {
@@ -160,6 +167,10 @@
     bottom: 0;
     margin: 0;
     position: absolute;
+
+    @include respond-max($screen-desktop) {
+        position: relative;
+    }
 }
 
 .transition {
@@ -168,13 +179,13 @@
 
 .tab-contact-list {
     border-bottom: 1px solid color(jadu-blue, light);
+    clear: both;
+    display: block;
     list-style: none;
     margin: 0;
     padding: 0 0 10px;
-    width: 100%;
-    display: block;
-    clear: both;
     position: relative;
+    width: 100%;
 
     li {
         position: relative;
