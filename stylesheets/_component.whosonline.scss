@@ -16,8 +16,9 @@
     .main-search {
         border-color: color(gray, off-white);
         left: 20px;
+        z-index: 10;
 
-        @include respond-min($screen-desktop) {
+        @include respond-max($screen-desktop) {
             width: calc(100vh - $nav-primary-width);
         }
 
@@ -33,10 +34,14 @@
             &:active,
             &:focus {
                 background-color: color(white);
+
+                &::-webkit-input-placeholder {
+                    color: color(gray, dark);
+                }
             }
 
             &::-webkit-input-placeholder {
-                color: color(gray, lighter);
+                color: color(white);
             }
         }
     }
@@ -63,10 +68,6 @@
         border-color: transparent;
         font-size: 20px;
         font-weight: 400;
-    }
-
-    .icon-remove {
-        color: color(white);
     }
 
     .nav-close {
@@ -125,46 +126,10 @@
     }
 
     .contact-card {
-        display: inline-block;
+        width: 100%;
 
         .contact-details {
-            border-bottom: 1px solid color(jadu-blue, light);
             color: color(white);
-            font-size: smaller;
-
-            i {
-            margin: 0 10px 0 0;
-            }
-
-            .other-icons i {
-                font-size: 16px;
-                margin: 0 20px 0 0;
-            }
-
-            div {
-                padding: 2px 0;
-
-                &:last-child {
-                    padding-bottom: 10px;
-                }
-            }
-        }
-
-        &.inverse {
-        background-color: color(inverse);
-        color: $white;
-
-            a {
-                color: $white;
-            }
-
-            i {
-                color: $white;
-            }
-
-            .contact-details {
-                border-bottom: 1px solid $white;
-            }
         }
     }
 
@@ -178,25 +143,7 @@
         width: 248px;
     }
 
-    .avatar__caption {
-        margin: 0;
-        background-color: rgba(0, 0, 0, .1);
-        padding: 10px;
-        position: relative;
-        top: -78px;
-        color: white;
-
-        .username {
-          font-size: x-large;
-        }
-
-        .job-title {
-          color: color(gray, lighter);
-          font-size: smaller;
-        }
-        }
-
-        .show-all {
+    .show-all {
         color: color(gray, off-white);
         font-size: 12px;
         margin-top: 10px;

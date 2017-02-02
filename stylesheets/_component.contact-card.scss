@@ -19,12 +19,13 @@
     }
 
     .avatar__caption {
-        background-color: rgba(0, 0, 0, .1);
+        background-color: rgba(0, 0, 0, .6);
         color: color(white);
         margin: 0;
         padding: 10px;
-        position: relative;
-        top: -75px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
 
         .status {
             &.is-online {
@@ -36,23 +37,32 @@
             }
         }
 
-        .username {
-            font-size: x-large;
+        .long-text {
+            &.user-name {
+                font-size: $font-size-base;
+            }
+
+            &.job-title {
+                font-size: $font-size-small;
+            }
+        }
+
+        .user-name {
+            font-size: $font-size-xlarge;
         }
 
         .job-title {
             color: color(gray, lighter);
-            font-size: smaller;
+            font-size: $font-size-base;
         }
     }
 
     .contact-details {
-        border-bottom: 1px solid color(jadu-blue, light);
         color: color(primary);
+        box-sizing: border-box;
         font-size: smaller;
         height: 30%;
-        margin: 0 10px;
-        width: calc(100% - 20px);
+        padding: 5px 10px 0;
 
         div {
             padding: 2px 0;
@@ -63,6 +73,8 @@
         }
 
         .other-icons {
+            border-bottom: 1px solid color(jadu-blue, light);
+            padding: 2px 0 5px;
 
             i {
               font-size: $font-size-base;
@@ -84,8 +96,8 @@
             color: color(white);
         }
 
-        .contact-details {
-            border-bottom: 1px solid color(white);
+        .other-icons {
+            border-bottom: 0;
         }
     }
 }
