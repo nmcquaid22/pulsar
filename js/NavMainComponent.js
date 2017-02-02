@@ -23,8 +23,14 @@ NavMainComponent.prototype.init = function() {
     component.$quickstartManageLink = component.$navMain.find('[data-nav-action=quickstart-manage]');
     component.$quickstartSaveLink = component.$navMain.find('[data-nav-action=quickstart-save]');
 
+    /* Use by both quickstart and whosonline */
+    component.$secondaryTNav = this.$html.find('.nav-quickstart.t-nav-secondary');
+    component.$menuItems = this.$html.find('.nav-primary .nav-items a');
+    /* */
+
     /* Who's Online Nav Item */
     component.$whosonline = component.$navMain.find('[data-nav="#whosonline"]');
+    component.$whosonlineHiddenInput = component.$navMain.find('.online-now .nav-link input');
     component.$whosonlineContentLink = component.$navMain.find('[data-nav-action=whosonline-content]');
     component.$whosonlineContentMenu = component.$navMain.find('[data-nav="#whosonline-content"]');
     component.$whosonlineCloseLink = component.$navMain.find('[data-nav-action=whosonline-close]');
@@ -74,9 +80,8 @@ NavMainComponent.prototype.init = function() {
 
     component.$whosonlineCloseLink.on('click', function(e){
         component.whosonlineClose();
-        if (!$('.nav-quickstart.t-nav-secondary').hasClass('is-open')) {
-            $('.nav-primary .nav-items a').removeClass('is-active');
-            console.log('Deactivation');
+        if (!component.$secondaryTNav.hasClass('is-open')) {
+            component.$menuItems.removeClass('is-active');
         }
     });
 };
@@ -211,6 +216,10 @@ NavMainComponent.prototype.closeNavs = function() {
 
     component.closeSubNavs();
     component.$html.find('.content-main').unbind('click', component.closeHandler);
+
+    if (!component.$secondaryTNav.hasClass('is-open')) {
+        component.$menuItems.removeClass('is-active');
+    }
 };
 
 NavMainComponent.prototype.closeSubNavs = function() {
@@ -230,14 +239,14 @@ NavMainComponent.prototype.whosonlineContent = function() {
     var component = this;
 
     // Keeps only one Checkbox checked at a time.
-    $('.online-now .nav-link input').on('change', function() {
-        $('.online-now .nav-link input').not(this).prop('checked', true);
+    component.$whosonlineHiddenInput.on('change', function() {
+        component.$whosonlineHiddenInput.not(this).prop('checked', true);
         if(!$(this).prop('checked')) {
+            component.$whosonline.animate({ width: '495' }, 100);
             component.$whosonlineContentMenu.removeClass('hide');
-            component.$whosonline.animate({ width: '495' }, 1);
         } else {
-            component.$whosonline.animate({ width: '245' }, 1);
             component.$whosonlineContentMenu.addClass('hide');
+            component.$whosonline.animate({ width: '245' }, 100);
         }
     });
 };
@@ -251,12 +260,12 @@ NavMainComponent.prototype.whosonlineClose = function() {
         component.$whosonline
             .animate({
                 width: '245'
-            }, 125);
+            }, 100);
     } else {
         component.$whosonline.removeClass('is-open');
     }
 
-    $('.online-now .nav-link input').prop('checked', true);
+    component.$whosonlineHiddenInput.prop('checked', true);
     component.$whosonlineContentMenu.addClass('hide');
 };
 
