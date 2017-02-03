@@ -524,7 +524,7 @@ $nav-border-radius: 8px;
     }
 
     .is-sortable {
-        @extend .sortable--unstyled;
+        @extend .sortable--unstyled !optional;
         min-height: 400px;
 
         .nav-link {

@@ -1,5 +1,9 @@
 .online-now {
 
+    @include respond-max($screen-desktop) {
+
+    }
+
     .nav-list {
         &.quickstart__main {
             padding: 0 10px;
@@ -80,13 +84,20 @@
             top: 0;
 
         }
+
+        .icon-remove::before {
+            color: color(gray, lightest);
+        }
+
     }
 
     .recent-content {
+        background-color: #28779f;
         padding: 0;
         position: absolute;
         right: 0;
         top: 0;
+        z-index: 1;
 
         a {
             text-decoration: underline;
@@ -104,7 +115,7 @@
             margin-bottom: 10px;
 
             > p {
-            margin-bottom: 15px;
+                margin-bottom: 15px;
             }
 
             &:last-child {
@@ -157,7 +168,7 @@
         text-align: center;
 
         i {
-          margin-right: 5px;
+            margin-right: 5px;
         }
     }
 }
@@ -226,13 +237,13 @@
 
     .status {
         &.is-online {
+            border: 2px solid color(white);
+            border-radius: 50%;
+            height: 14px;
+            left: 42px;
             position: absolute;
             top: 42px;
-            left: 42px;
-            border: 2px solid color(white);
             width: 14px;
-            height: 14px;
-            border-radius: 50%;
         }
     }
 }
