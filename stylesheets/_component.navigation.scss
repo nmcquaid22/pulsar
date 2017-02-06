@@ -389,6 +389,7 @@ $nav-border-radius: 8px;
 .nav-secondary.is-open,
 .nav-quickstart.is-open {
     margin-left: 0;
+    width: 245px;
 }
 
 .jadu-branding {
@@ -500,6 +501,7 @@ $nav-border-radius: 8px;
 }
 
 .nav-quickstart {
+    transition: width 100ms ease-in-out;
     width: 245px;
     -webkit-font-smoothing: subpixel-antialiased;
 
@@ -592,6 +594,11 @@ $nav-border-radius: 8px;
             }
         }
     }
+
+    &.expand {
+        width: 495px !important;
+        transition: width 100ms ease-in-out;
+    }
 }
 
 .quickstart__additional {
@@ -601,12 +608,8 @@ $nav-border-radius: 8px;
         display: none;
     }
 }
-/* Who's Online Nav Item */
+/* Who's Online Primary Navigation Item */
 .online-now {
-
-    @include respond-max($screen-desktop) {
-
-    }
 
     .nav-list {
         &.quickstart__main {
@@ -681,7 +684,7 @@ $nav-border-radius: 8px;
 
     .nav-close {
         position: relative;
-        z-index: 2;
+        z-index: 3;
 
         @include respond-max($screen-desktop) {
             position: absolute;
@@ -693,6 +696,10 @@ $nav-border-radius: 8px;
             color: color(gray, lightest);
         }
 
+    }
+
+    [data-nav="#whosonline-main"] {
+        z-index: 2;
     }
 
     .recent-content {
@@ -870,13 +877,13 @@ $nav-border-radius: 8px;
     border-bottom-left-radius: 8px;
     padding: 8px 6px;
 
-    p {
-        text-decoration: underline;
-    }
-
     img {
         border: 3px solid color(white);
         border-radius: 50%;
+    }
+
+    p {
+        text-decoration: underline;
     }
 
     span {

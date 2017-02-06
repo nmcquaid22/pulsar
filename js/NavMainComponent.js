@@ -79,7 +79,7 @@ NavMainComponent.prototype.init = function() {
 
     component.$whosonlineCloseLink.on('click', function(){
         component.whosonlineClose();
-        if (!component.component.$navSecondary.hasClass('is-open')) {
+        if (!component.$navSecondary.hasClass('is-open')) {
             component.$menuItems.removeClass('is-active');
         }
     });
@@ -192,9 +192,12 @@ NavMainComponent.prototype.whosonlineContent = function() {
     component.$whosonlineHiddenInput.on('change', function() {
         component.$whosonlineHiddenInput.not(this).prop('checked', true);
         if(!$(this).prop('checked')) {
-            component.$whosonline.animate({ width: '495' }, 'fast');
-            component.$whosonlineContentMenu.fadeIn('fast').removeClass('hide');
+            component.$whosonline.addClass('expand');
+            var $index = $(this).parent().parent().index();
+            $('.user-'+($index+1)+'').fadeIn('fast').removeClass('hide');
+            $('.recent-content').not('.user-'+($index+1)+'').addClass('hide');
         } else {
+            $('.recent-content').addClass('hide');
             component.whosonlineClose();
         }
     });
@@ -232,7 +235,7 @@ NavMainComponent.prototype.closeNavs = function() {
     component.closeSubNavs();
     component.$html.find('.content-main').unbind('click', component.closeHandler);
 
-    if (!component.$navSecondary.hasClass('is-open')) {
+    if (!component.$secondaryTNav.hasClass('is-open')) {
         component.$menuItems.removeClass('is-active');
     }
 };
@@ -255,13 +258,13 @@ NavMainComponent.prototype.whosonlineClose = function() {
 
     // Shrink back to normal size of container
     if (component.$whosonline.width() == '495'){
-        component.$whosonline.animate({ width: '245' }, 'fast');
+        component.$whosonline.removeClass('expand');
     } else {
         component.$whosonline.removeClass('is-open');
     }
 
     component.$whosonlineHiddenInput.prop('checked', true);
-    component.$whosonlineContentMenu.fadeOut('fast').addClass('hide');
+    component.$whosonlineContentMenu.addClass('hide');
 };
 
 module.exports = NavMainComponent;
