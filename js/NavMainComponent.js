@@ -24,7 +24,6 @@ NavMainComponent.prototype.init = function() {
     component.$quickstartSaveLink = component.$navMain.find('[data-nav-action=quickstart-save]');
 
     /* Use by both quickstart and whosonline */
-    component.$secondaryTNav = this.$html.find('.nav-quickstart.t-nav-secondary');
     component.$menuItems = this.$html.find('.nav-primary .nav-items a');
     /* */
 
@@ -78,9 +77,9 @@ NavMainComponent.prototype.init = function() {
         component.whosonlineContent();
     });
 
-    component.$whosonlineCloseLink.on('click', function(e){
+    component.$whosonlineCloseLink.on('click', function(){
         component.whosonlineClose();
-        if (!component.$secondaryTNav.hasClass('is-open')) {
+        if (!component.$navSecondary.hasClass('is-open')) {
             component.$menuItems.removeClass('is-active');
         }
     });
@@ -185,6 +184,25 @@ NavMainComponent.prototype.quickstartManage = function() {
         }).disableSelection();
 };
 
+NavMainComponent.prototype.whosonlineContent = function() {
+
+    var component = this;
+
+    // Keeps only one Checkbox checked at a time.
+    component.$whosonlineHiddenInput.on('change', function() {
+        component.$whosonlineHiddenInput.not(this).prop('checked', true);
+        if(!$(this).prop('checked')) {
+            component.$whosonline.addClass('expand');
+            var $index = $(this).parent().parent().index();
+            $('.user-'+($index+1)+'').fadeIn('fast').removeClass('hide');
+            $('.recent-content').not('.user-'+($index+1)+'').addClass('hide');
+        } else {
+            $('.recent-content').addClass('hide');
+            component.whosonlineClose();
+        }
+    });
+};
+
 NavMainComponent.prototype.quickstartClose = function() {
 
     var component = this;
@@ -234,33 +252,13 @@ NavMainComponent.prototype.closeSubNavs = function() {
     component.whosonlineClose();
 };
 
-NavMainComponent.prototype.whosonlineContent = function() {
-
-    var component = this;
-
-    // Keeps only one Checkbox checked at a time.
-    component.$whosonlineHiddenInput.on('change', function() {
-        component.$whosonlineHiddenInput.not(this).prop('checked', true);
-        if(!$(this).prop('checked')) {
-            component.$whosonline.animate({ width: '495' }, 100);
-            component.$whosonlineContentMenu.removeClass('hide');
-        } else {
-            component.$whosonlineContentMenu.addClass('hide');
-            component.$whosonline.animate({ width: '245' }, 100);
-        }
-    });
-};
-
 NavMainComponent.prototype.whosonlineClose = function() {
 
     var component = this;
 
     // Shrink back to normal size of container
     if (component.$whosonline.width() == '495'){
-        component.$whosonline
-            .animate({
-                width: '245'
-            }, 100);
+        component.$whosonline.removeClass('expand');
     } else {
         component.$whosonline.removeClass('is-open');
     }

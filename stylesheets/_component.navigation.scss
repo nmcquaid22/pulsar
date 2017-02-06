@@ -578,6 +578,11 @@ $nav-border-radius: 8px;
             }
         }
     }
+
+    &.expand {
+        width: 495px !important;
+        transition: width 100ms ease-in-out;
+    }
 }
 
 .quickstart__additional {
