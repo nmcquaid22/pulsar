@@ -38,12 +38,12 @@
         }
 
         .long-text {
-            &.user-name {
-                font-size: $font-size-base;
-            }
-
             &.job-title {
                 font-size: $font-size-small;
+            }
+
+            &.user-name {
+                font-size: $font-size-base;
             }
         }
 
