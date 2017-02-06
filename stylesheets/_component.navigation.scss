@@ -587,4 +587,288 @@ $nav-border-radius: 8px;
         display: none;
     }
 }
+/* Who's Online Primary Navigation Item */
+.online-now {
+
+    .nav-list {
+        &.quickstart__main {
+            padding: 0 10px;
+
+            span {
+                &:first-child {
+                    margin-bottom: 20px;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+
+    .main-search {
+        border-color: color(gray, off-white);
+        left: 20px;
+        z-index: 10;
+
+        @include respond-max($screen-desktop) {
+            left: 0;
+            margin: 20px 40px 20px 20px;
+        }
+
+        .main-search__submit {
+            color: color(white);
+        }
+
+        input:focus + .main-search__submit {
+            color: color(gray, dark);
+        }
+
+        input {
+            &:active,
+            &:focus {
+                background-color: color(white);
+
+                &::-webkit-input-placeholder {
+                    color: color(gray, dark);
+                }
+            }
+
+            &::-webkit-input-placeholder {
+                color: color(white);
+            }
+        }
+    }
+
+    h2 {
+        clear: both;
+        display: block;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-align: center;
+    }
+
+    a {
+        color: color(gray, off-white);
+        text-decoration: none;
+
+        &:hover {
+            color: color(gray, off-white);
+        }
+    }
+
+    .nav-item--header {
+        border-color: transparent;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .nav-close {
+        position: relative;
+        z-index: 3;
+
+        @include respond-max($screen-desktop) {
+            position: absolute;
+            top: 0;
+
+        }
+
+        .icon-remove::before {
+            color: color(gray, lightest);
+        }
+
+    }
+
+    [data-nav="#whosonline-main"] {
+        z-index: 2;
+    }
+
+    .recent-content {
+        background-color: $nav-color-dark;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+
+        a {
+            text-decoration: underline;
+        }
+
+        ul {
+            border-bottom: 1px solid color(jadu-blue, light);
+            list-style: none;
+            margin: 10px 10px 15px;
+            padding: 0;
+        }
+
+        li {
+            line-height: 1.3;
+            margin-bottom: 10px;
+
+            > p {
+                margin-bottom: 15px;
+            }
+
+            &:last-child {
+                margin-bottom: 15px;
+            }
+        }
+
+        p {
+            font-size: smaller;
+            color: color(white);
+        }
+
+        .nav-item--header {
+            margin: 15px 10px 20px;
+        }
+
+        .content-type {
+            color: color(gray, off-white);
+            font-size: 12px;
+        }
+
+        .content-publish-time {
+            color: color(gray, lighter);
+            font-size: 12px;
+        }
+    }
+
+    .contact-card {
+        width: 100%;
+
+        .contact-details {
+            color: color(white);
+        }
+    }
+
+    .avatar {
+        height: 200px;
+        margin: 0;
+        position: relative;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 248px;
+    }
+
+    .show-all {
+        color: color(gray, off-white);
+        font-size: 12px;
+        margin-top: 10px;
+        text-align: center;
+
+        i {
+            margin-right: 5px;
+        }
+    }
+}
+
+.whosonline-menu {
+    display: block;
+    bottom: 0;
+    margin: 0;
+    position: absolute;
+
+    @include respond-max($screen-desktop) {
+        position: relative;
+    }
+}
+
+.transition {
+    transition: all .25s ease-in-out;
+}
+
+.tab-contact-list {
+    border-bottom: 1px solid color(jadu-blue, light);
+    clear: both;
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 10px;
+    position: relative;
+    width: 100%;
+
+    li {
+        position: relative;
+        padding: 0;
+        margin: 10px 0;
+
+        input[type=checkbox] {
+            position: absolute;
+            cursor: pointer;
+            width: 100%;
+            height: 55px;
+            z-index: 1;
+            opacity: 0;
+
+            &:checked {
+                ~ .inner-close {
+                    display: none;
+                }
+
+                ~ .personal-details {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .inner-close {
+        position: absolute;
+        right: 4px;
+        transform: translate(0, 20%);
+    }
+
+    .nav-link {
+        &:hover {
+            background-color: color(jadu-blue, darkest);
+        }
+    }
+
+    .status {
+        &.is-online {
+            border: 2px solid color(white);
+            border-radius: 50%;
+            height: 14px;
+            left: 42px;
+            position: absolute;
+            top: 42px;
+            width: 14px;
+        }
+    }
+}
+
+.offline-people-statement {
+    color: color(gray, off-white);
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.menu-sub-title {
+    color: color(gray, lightest);
+    font-size: 12px;
+}
+
+.personal-details {
+    background-color: #529ec3;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 8px 6px;
+
+    img {
+        border: 3px solid color(white);
+        border-radius: 50%;
+    }
+
+    p {
+        text-decoration: underline;
+    }
+
+    span {
+        font-size: small;
+        text-decoration: none;
+    }
+}
+
 
