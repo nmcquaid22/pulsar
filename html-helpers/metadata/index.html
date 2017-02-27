@@ -11,7 +11,7 @@
 
   <title>
     
-      404: Page not found &middot; Pulsar
+      Metadata &middot; Pulsar
     
   </title>
 
@@ -175,7 +175,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/html-helpers/metadata/">Metadata</a>
+              <a class="sidebar-nav-item active" href="/html-helpers/metadata/">Metadata</a>
             </li>
           
             <li>
@@ -210,8 +210,102 @@
 
     <div class="content container">
       <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/pulsar/">Head back home</a> to try finding it again.</p>
+  <h1 class="page-title">Metadata</h1>
+  <p>Provides a simple way to mark up key/value information provided by a Twig hash or JSON object.</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;dl class=&quot;metadata&quot;&gt;
+    &lt;dt class=&quot;metadata__key&quot;&gt;File&lt;/dt&gt;&lt;!--
+ --&gt;&lt;dd class=&quot;metadata__value&quot;&gt;true_lies.avi&lt;/dd&gt;
+    &lt;dt class=&quot;metadata__key&quot;&gt;Size&lt;/dt&gt;&lt;!--
+ --&gt;&lt;dd class=&quot;metadata__value&quot;&gt;1.2 Gb&lt;/dd&gt;
+    &lt;dt class=&quot;metadata__key&quot;&gt;Type&lt;/dt&gt;&lt;!--
+ --&gt;&lt;dd class=&quot;metadata__value&quot;&gt;Video&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.metadata({
+        &apos;items&apos;: {
+            &apos;File&apos;: &apos;true_lies.avi&apos;,
+            &apos;Size&apos;: &apos;1.2 Gb&apos;,
+            &apos;Type&apos;: &apos;Video&apos;
+        }
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<p data-height="120" data-theme-id="24005" data-slug-hash="JYGvOg" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/JYGvOg/">JYGvOg</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>CSS classes, space separated</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td>hash</td>
+      <td>A hash of data where key: value = title: description</td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="bordered-variation">Bordered variation</h2>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="c">{# an example of passing data via a Twig hash #}</span>
+<span class="cp">{%</span>
+    <span class="k">set</span> <span class="nv">data</span> <span class="err">=</span> <span class="err">{</span>
+        <span class="s2">"File"</span> <span class="err">:</span> <span class="s2">"true_lies.avi"</span><span class="p">,</span>
+        <span class="s2">"Size"</span> <span class="err">:</span> <span class="s2">"1.2Gb"</span><span class="p">,</span>
+        <span class="s2">"Type"</span> <span class="err">:</span> <span class="s2">"Video"</span>
+    <span class="err">}</span>
+<span class="cp">%}</span>
+
+<span class="cp">{{</span>
+    <span class="nv">html.metadata</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'items'</span><span class="err">:</span> <span class="nv">data</span><span class="p">,</span>
+        <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'metadata--bordered'</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<p data-height="100" data-theme-id="24005" data-slug-hash="LpGmQY" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/LpGmQY/">Metadata bordered</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
 </div>
 
     </div>

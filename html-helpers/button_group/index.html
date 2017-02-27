@@ -11,7 +11,7 @@
 
   <title>
     
-      404: Page not found &middot; Pulsar
+      Button group &middot; Pulsar
     
   </title>
 
@@ -131,7 +131,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/html-helpers/button_group/">Button group</a>
+              <a class="sidebar-nav-item active" href="/html-helpers/button_group/">Button group</a>
             </li>
           
             <li>
@@ -210,8 +210,78 @@
 
     <div class="content container">
       <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/pulsar/">Head back home</a> to try finding it again.</p>
+  <h1 class="page-title">Button group</h1>
+  <p>Group a series of related buttons together on a single line. Great for creating toolbars.</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.button_group</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'buttons'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'foo'</span> <span class="err">}</span><span class="p">),</span>
+            <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'bar'</span> <span class="err">}</span><span class="p">),</span>
+            <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'baz'</span> <span class="err">}</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<div><p data-height="65" data-theme-id="24005" data-slug-hash="ozxgEo" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ozxgEo/">docs - html - button group</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>buttons</td>
+      <td>array</td>
+      <td>An array of <code class="highlighter-rouge">html.button()</code> elements</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>Classes to be applied to the button group (not the buttons inside it)</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example-with-icons">Example with icons</h2>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.button_group</span><span class="p">(</span><span class="err">{</span>
+        <span class="nv">buttons</span><span class="err">:</span> <span class="p">[</span>
+            <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'align-left'</span><span class="p">)</span> <span class="err">}</span><span class="p">),</span>
+            <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'align-center'</span><span class="p">)</span> <span class="err">}</span><span class="p">),</span>
+            <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'align-right'</span><span class="p">)</span> <span class="err">}</span><span class="p">),</span>
+            <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'align-justify'</span><span class="p">)</span> <span class="err">}</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<div><p data-height="65" data-theme-id="24005" data-slug-hash="ZpWYoO" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ZpWYoO/">docs - html - button group with icons</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
 </div>
 
     </div>

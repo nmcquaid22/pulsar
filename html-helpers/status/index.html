@@ -11,7 +11,7 @@
 
   <title>
     
-      404: Page not found &middot; Pulsar
+      Status &middot; Pulsar
     
   </title>
 
@@ -191,7 +191,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/html-helpers/status/">Status</a>
+              <a class="sidebar-nav-item active" href="/html-helpers/status/">Status</a>
             </li>
           
           </ol>
@@ -210,8 +210,88 @@
 
     <div class="content container">
       <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/pulsar/">Head back home</a> to try finding it again.</p>
+  <h1 class="page-title">Status</h1>
+  <p>Displays a small visual indication of state; helpful when used within table cells or piano list keys to avoid the need for a user to check many items individually to determine their state.</p>
+
+<p>Status indicators should ideally have some text which indicates their context. For example, they could be sat next to a text label called ‘Active’, or within a table column entitled ‘Online’. Try not to rely on this indicator alone.</p>
+
+<p data-height="200" data-theme-id="24005" data-slug-hash="mPrvqZ" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/mPrvqZ/">docs - status indicators</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="accessibility">Accessibility</h3>
+
+<p>You may notice ‘offline’ uses a square instead of a circle, this is to visually distinguish it from the green ‘online’ status for red/green colourblind users as colour alone isn’t a reliable indicator of status. The title attribute is also added which is displayed on hover and for screen readers.</p>
+
+<blockquote>
+  <p>…ensure that all users can access information that is conveyed by color differences, that is, by the use of color where each color has a meaning assigned to it. If the information is conveyed through color differences in an image (or other non-text format), the color may not be seen by users with color deficiencies. In this case, providing the information conveyed with color through another visual means ensures users who cannot see color can still perceive the information.</p>
+</blockquote>
+
+<p><em><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html">WCAG 2.0 Guideline 1.4.1</a></em></p>
+
+<p><img class="image--inline" src="/assets/images/status-col1.png" /><img class="image--inline" src="/assets/images/status-col2.png" /><img class="image--inline" src="/assets/images/status-col3.png" /><img class="image--inline" src="/assets/images/status-col5.png" /></p>
+
+<p><em>Example of how status indicators are viewed with different types of colour blindness</em></p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> <span class="nv">html.status</span><span class="p">(</span><span class="s1">'online'</span><span class="p">)</span> <span class="cp">}}</span>
+</code></pre>
+</div>
+
+<p>The ‘state’ will be used for both the title attribute, and for the stateful
+class name, eg:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"status is-online"</span> <span class="na">title=</span><span class="s">"online"</span><span class="nt">&gt;&lt;/span&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="states">States</h3>
+
+<ul>
+  <li>online <em>(default)</em></li>
+  <li>offline</li>
+  <li>active</li>
+  <li>inactive</li>
+</ul>
+
+<p>Some states are simply synonyms of each other, the choice of verb will be
+defined by the context in which it is to be used.</p>
+
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>CSS classes, space separated</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td>Title attribute, defaults to ‘state’ if not supplied. Will be displayed as a <a href="tooltips.md">tooltip</a></td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
 </div>
 
     </div>

@@ -11,7 +11,7 @@
 
   <title>
     
-      404: Page not found &middot; Pulsar
+      Content &middot; Pulsar
     
   </title>
 
@@ -96,7 +96,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/form-helpers/content/">Content</a>
+              <a class="sidebar-nav-item active" href="/form-helpers/content/">Content</a>
             </li>
           
             <li>
@@ -210,8 +210,111 @@
 
     <div class="content container">
       <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/pulsar/">Head back home</a> to try finding it again.</p>
+  <h1 class="page-title">Content</h1>
+  <p>Generates a paragraph of text where an input would normally be positioned within a form while still allowing a regular form label to illustrate it.</p>
+
+<p>Useful for presenting non-editable information within a form where you’d prefer not to use a disabled input.</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
+    &lt;label class=&quot;control__label&quot;&gt;it’s the remix to ignition&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;p&gt;Hot and fresh out the kitchen&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.content({
+        &apos;label&apos;: &apos;It’s the remix to ignition&apos;,
+        &apos;value&apos;: &apos;Hot and fresh out the kitchen&apos;
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<p data-height="90" data-theme-id="24005" data-slug-hash="8ee5353bcb656212de2d2a63e29f0db5" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/8ee5353bcb656212de2d2a63e29f0db5/">docs - form - content</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="options-applied-to-parent-wrapper">Options applied to parent wrapper</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>A space separated list of class names</td>
+    </tr>
+    <tr>
+      <td>guidance</td>
+      <td>string</td>
+      <td>Text to be displayed in a popover, adds a (?) icon after the input</td>
+    </tr>
+    <tr>
+      <td>guidance-container</td>
+      <td>string</td>
+      <td>Element to bind guidance popover scroll behaviour to (default <code class="highlighter-rouge">body</code>)</td>
+    </tr>
+    <tr>
+      <td>help</td>
+      <td>string</td>
+      <td>Additional guidance information to be displayed next to the input</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>string</td>
+      <td>Text for the <code class="highlighter-rouge">&lt;label&gt;</code> companion element</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="options-applied-to-paragraph">Options applied to paragraph</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, will also be used as the label’s <code class="highlighter-rouge">for</code> attribute</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>string</td>
+      <td>Specifies the value of the input</td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Any other options not listed here will be applied to the paragraph.</p>
+
 </div>
 
     </div>

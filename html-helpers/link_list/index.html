@@ -11,7 +11,7 @@
 
   <title>
     
-      404: Page not found &middot; Pulsar
+      Link list &middot; Pulsar
     
   </title>
 
@@ -159,7 +159,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/html-helpers/link_list/">Link list</a>
+              <a class="sidebar-nav-item active" href="/html-helpers/link_list/">Link list</a>
             </li>
           
             <li>
@@ -210,8 +210,89 @@
 
     <div class="content container">
       <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/pulsar/">Head back home</a> to try finding it again.</p>
+  <h1 class="page-title">Link list</h1>
+  <p>A specialised method to create a list of links without the need to manually call multiple <code class="highlighter-rouge">html.link</code> helpers.</p>
+
+<p>Lists are purposely left unstyled, but you can use <a href="block_list.md">block lists</a> if you need nicer styling.</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#href_one&quot;&gt;Value one&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#href_two&quot;&gt;Value two&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.link_list({
+        items: {
+            &apos;Value one&apos;: &apos;#href_one&apos;,
+            &apos;Value two&apos;: &apos;#href_two&apos;
+        }
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div><p data-height="80" data-theme-id="24005" data-slug-hash="zKqkPK" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/zKqkPK/">docs - html - link list</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>active_item</td>
+      <td>int</td>
+      <td>The index of the active item, will have the <code class="highlighter-rouge">.is-active</code> class applied</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>CSS classes, space separated</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td>hash</td>
+      <td>A hash of links formatted by <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">label:</span><span class="w"> </span><span class="err">href</span><span class="w"> </span><span class="p">}</span></code></td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string</td>
+      <td><code class="highlighter-rouge">ul</code> (default), <code class="highlighter-rouge">ol</code></td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
     </div>
