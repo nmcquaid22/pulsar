@@ -11,7 +11,7 @@
 
   <title>
     
-      Pulsar &middot; The open-source design system for the Jadu Continuum Platform
+      Badge &middot; Pulsar
     
   </title>
 
@@ -119,7 +119,7 @@
           <ol>
           
             <li>
-              <a class="sidebar-nav-item" href="/pulsar/html-helpers/badge/">Badge</a>
+              <a class="sidebar-nav-item active" href="/pulsar/html-helpers/badge/">Badge</a>
             </li>
           
             <li>
@@ -209,18 +209,119 @@
 
 
     <div class="content container">
-      <div class="posts">
-  
+      <div class="page">
+  <h1 class="page-title">Badge</h1>
+  <p>Highlight new or unread items. Limited usage is recommended, mainly for displaying numeric values in combination with other data to provide context. Do not use in place of labels, or any other similar element.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;span class=&quot;badge&quot;&gt;123&lt;/span&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.badge({
+        &apos;label&apos;: &apos;123&apos;
+    })
+}}
+</code></pre>
+          </div>
 </div>
 
-<div class="pagination">
-  
-    <span class="pagination-item older">Older</span>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>CSS classes, space separated</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>string</td>
+      <td>The value to display, usually an integer</td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="variations">Variations</h2>
+
+<p>Badges accept the normal state variations through the <code class="highlighter-rouge">class</code> option.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;span class=&quot;badge badge--primary&quot;&gt;123&lt;/span&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.badge({
+        &apos;label&apos;: &apos;123&apos;,
+        &apos;class&apos;: &apos;badge--primary&apos;
+    })
+}}
+</code></pre>
+          </div>
 </div>
+
+<div><p data-height="65" data-theme-id="24005" data-slug-hash="ZpWEBV" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ZpWEBV/">docs - html - badges</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+<h2 id="badged-buttons">Badged buttons</h2>
+
+<p>Badges within buttons will inherit the parent button styling without the need to define a specific badge style, which is nice.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;button class=&quot;btn btn--primary&quot;&gt;Primary &lt;span class=&quot;badge&quot;&gt;2&lt;/span&gt;&lt;/button&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.button({
+        &apos;label&apos;: &apos;Primary &apos; ~ html.badge({ &apos;value&apos;: &apos;2&apos; }),
+        &apos;class&apos;: &apos;btn--primary&apos;
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div><p data-height="130" data-theme-id="24005" data-slug-hash="ORNJbm" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ORNJbm/">docs - html - badges in buttons</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+</div>
+
     </div>
 
   </body>

@@ -11,7 +11,7 @@
 
   <title>
     
-      Pulsar &middot; The open-source design system for the Jadu Continuum Platform
+      List item &middot; Pulsar
     
   </title>
 
@@ -151,7 +151,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/pulsar/html-helpers/li/">List item</a>
+              <a class="sidebar-nav-item active" href="/pulsar/html-helpers/li/">List item</a>
             </li>
           
             <li>
@@ -209,18 +209,67 @@
 
 
     <div class="content container">
-      <div class="posts">
-  
+      <div class="page">
+  <h1 class="page-title">List item</h1>
+  <p>Simple wrapper to create <code class="highlighter-rouge">&lt;li&gt;</code> elements, mainly used from within other helpers..</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;li&gt;foo&lt;/li&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.li({
+        value: &apos;foo&apos;
+    })
+}}
+</code></pre>
+          </div>
 </div>
 
-<div class="pagination">
-  
-    <span class="pagination-item older">Older</span>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>CSS classes, space separated</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>string</td>
+      <td>The value to display</td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
+
     </div>
 
   </body>

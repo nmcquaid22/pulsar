@@ -11,7 +11,7 @@
 
   <title>
     
-      Pulsar &middot; The open-source design system for the Jadu Continuum Platform
+      Remove button &middot; Pulsar
     
   </title>
 
@@ -187,7 +187,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/pulsar/html-helpers/remove-button/">Remove button</a>
+              <a class="sidebar-nav-item active" href="/pulsar/html-helpers/remove-button/">Remove button</a>
             </li>
           
             <li>
@@ -209,18 +209,84 @@
 
 
     <div class="content container">
-      <div class="posts">
-  
+      <div class="page">
+  <h1 class="page-title">Remove button</h1>
+  <p>Used by other helpers to add a small icon which should allow that item to be removed and uses data-attributes to contain information about what object should be removed.</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.remove_button</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'target'</span><span class="err">:</span> <span class="s1">'#itemToRemove'</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
 </div>
 
-<div class="pagination">
-  
-    <span class="pagination-item older">Older</span>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
+<p>Would output following markup for you to hook into with your javascript.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;button</span> 
+    <span class="na">type=</span><span class="s">"button"</span> 
+    <span class="na">class=</span><span class="s">"remove-button"</span> 
+    <span class="na">data-toggle=</span><span class="s">"tooltips"</span> 
+    <span class="na">data-placement=</span><span class="s">"right"</span> 
+    <span class="na">title=</span><span class="s">"Remove this item"</span> 
+    <span class="na">data-action=</span><span class="s">"remove"</span> 
+    <span class="na">data-action-target=</span><span class="s">"#itemToRemove"</span>
+    <span class="na">data-original-title=</span><span class="s">"Remove this item"</span>
+<span class="nt">&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-remove-sign"</span><span class="nt">&gt;&lt;/i&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre>
 </div>
+
+<p>And look like this:</p>
+
+<div><p data-height="55" data-theme-id="24005" data-slug-hash="ORNEzP" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ORNEzP/">docs - html - remove button</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>A space separated list of class names</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td>string</td>
+      <td>CSS Selector of the item to be removed, will be turned into the <code class="highlighter-rouge">data-action-target</code> attribute</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string</td>
+      <td>Can be <code class="highlighter-rouge">button</code> (default), <code class="highlighter-rouge">link</code>, <code class="highlighter-rouge">input</code>, <code class="highlighter-rouge">submit</code></td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+
     </div>
 
   </body>
