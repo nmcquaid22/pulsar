@@ -94,6 +94,10 @@
 .piano__item-content {
     clear: both;
 
+    @include ie-lte(8) {
+        top: 90px;
+    }
+
     .is-selected & {
         margin-top: 10px;
 
