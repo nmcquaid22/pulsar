@@ -44,6 +44,8 @@ var $                     = require('jquery'),
     PulsarUIComponent = require('./PulsarUIComponent'),
     SignInComponent = require('./area/signin/signin');
 
+     require('jstree');
+    require('../libs/corners/jquery.corner.js');
 module.exports = {
     ButtonComponent: ButtonComponent,
     HelpTextComponent: HelpTextComponent,

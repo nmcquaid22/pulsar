@@ -112,6 +112,13 @@
 
         // tinycon.setBubble(6);
 
+          // jsTree
+        $('#container').jstree({
+            'plugins' : ['state']
+        });
+
+        //Corners for IE8
+        $('.notifications-toggle.has-new:before').corner();
     });
 
 }(jQuery));
