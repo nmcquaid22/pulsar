@@ -11,7 +11,7 @@
 
   <title>
     
-      404: Page not found &middot; Pulsar
+      Link &middot; Pulsar
     
   </title>
 
@@ -155,7 +155,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/pulsar/html-helpers/link/">Link</a>
+              <a class="sidebar-nav-item active" href="/pulsar/html-helpers/link/">Link</a>
             </li>
           
             <li>
@@ -210,8 +210,129 @@
 
     <div class="content container">
       <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="">Head back home</a> to try finding it again.</p>
+  <h1 class="page-title">Link</h1>
+  <p>Creates a simple HTML link, often used inside other helpers.</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;a href=&quot;http://www.jadu.net&quot;&gt;Jadu&lt;/a&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.link({
+        &apos;href&apos;: &apos;http://www.jadu.net&apos;,
+        &apos;label&apos;: &apos;Jadu&apos;
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div><p data-height="65" data-theme-id="24005" data-slug-hash="LRNVGB" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/LRNVGB/">docs - html - link</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+<h2 id="options">Options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>CSS classes, space separated</td>
+    </tr>
+    <tr>
+      <td>href</td>
+      <td>string</td>
+      <td>The URL attribute</td>
+    </tr>
+    <tr>
+      <td>icon</td>
+      <td>string</td>
+      <td>An icon to place before the label</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier, if required</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>string</td>
+      <td>The link text label</td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="icons">Icons</h2>
+
+<p>Use icons to add extra meaning to your links.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;a href=&quot;http://www.jadu.net&quot;&gt;External link &lt;i class=&quot;icon icon-external-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.link({
+        &apos;href&apos;: &apos;http://www.jadu.net&apos;,
+        &apos;label&apos;: &apos;External link &apos; ~ html.icon(&apos;external-link&apos;)
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div><p data-height="65" data-theme-id="24005" data-slug-hash="WGwvwA" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/WGwvwA/">docs - html - link with icon</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;a href=&quot;#top&quot;&gt;&lt;i class=&quot;icon icon-arrow-up&quot;&gt;&lt;/i&gt; Back to top&apos;&lt;/a&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.link({
+        &apos;href&apos;: &apos;#top&apos;,
+        &apos;label&apos;: html.icon(&apos;arrow-up&apos;) ~ &apos; Back to top&apos;
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div><p data-height="65" data-theme-id="24005" data-slug-hash="LRNVNB" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/LRNVNB/">docs - html - link with icon before</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+
+
 </div>
 
     </div>
