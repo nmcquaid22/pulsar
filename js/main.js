@@ -114,7 +114,10 @@
 
         // jsTree
         $('#container').jstree({
-            'plugins' : ['state']
+            'plugins' : ['state', 'ui', 'checkbox'],
+            'checkbox' : {
+                    'keep_selected_style' : false
+            }
         });
 
     });
