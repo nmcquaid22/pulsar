@@ -11,7 +11,7 @@
 
   <title>
     
-      List item &middot; Pulsar
+      Block list &middot; Pulsar
     
   </title>
 
@@ -208,7 +208,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/pulsar/html-helpers/block-list/">Block list</a>
+              <a class="sidebar-nav-item active" href="/pulsar/html-helpers/block-list/">Block list</a>
             </li>
           
             <li>
@@ -244,7 +244,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item active" href="/pulsar/html-helpers/li/">List item</a>
+              <a class="sidebar-nav-item" href="/pulsar/html-helpers/li/">List item</a>
             </li>
           
             <li>
@@ -342,8 +342,8 @@
 </div>
 
         <div class="page">
-            <h1 class="page-title">List item</h1>
-            <p>Simple wrapper to create <code class="highlighter-rouge">&lt;li&gt;</code> elements, mainly used from within other helpers..</p>
+            <h1 class="page-title">Block list</h1>
+            <p>A simple way to present lists of information using whatever markup scheme is most appropriate for the data. Markup can be based around <code class="highlighter-rouge">ul</code> (default), <code class="highlighter-rouge">ol</code>, <code class="highlighter-rouge">div</code>  or <code class="highlighter-rouge">link</code> elements.</p>
 
 <h2 id="example-usage">Example usage</h2>
 
@@ -353,18 +353,31 @@
               </ul>
             </div>
           <div class="example language-html html">
-            <pre class="prettyprint lang-html"><code data-lang="html">&lt;li&gt;foo&lt;/li&gt;
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;ul class=&quot;block-list&quot;&gt;
+    &lt;li class=&quot;block-list__item&quot;&gt;One&lt;/li&gt;
+    &lt;li class=&quot;block-list__item&quot;&gt;Two&lt;/li&gt;
+    &lt;li class=&quot;block-list__item&quot;&gt;Three&lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
           </div>
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
-    html.li({
-        value: &apos;foo&apos;
+    html.block_list({
+        &apos;items&apos;: [
+            {&apos;value&apos;: &apos;One&apos;},
+            {&apos;value&apos;: &apos;Two&apos;},
+            {&apos;value&apos;: &apos;Three&apos;}
+        ]
     })
 }}
 </code></pre>
           </div>
 </div>
+
+<p data-height="268" data-theme-id="24005" data-slug-hash="zGQryX" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/zGQryX/">zGQryX</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>List items can be a singular block-level element, or a collection of elements in a wrapper.</p>
 
 <h2 id="options">Options</h2>
 
@@ -383,14 +396,29 @@
       <td>CSS classes, space separated</td>
     </tr>
     <tr>
+      <td>footer</td>
+      <td>string</td>
+      <td>String/Markup to display in the footer row</td>
+    </tr>
+    <tr>
+      <td>header</td>
+      <td>string</td>
+      <td>String/Markup to display in the header row</td>
+    </tr>
+    <tr>
       <td>id</td>
       <td>string</td>
       <td>A unique identifier, if required</td>
     </tr>
     <tr>
-      <td>value</td>
+      <td>items</td>
+      <td>array</td>
+      <td>An <code class="highlighter-rouge">options</code> hash which will added as attributes to the <code class="highlighter-rouge">div</code>, <code class="highlighter-rouge">li</code> or <code class="highlighter-rouge">a</code> element (defined by <code class="highlighter-rouge">type</code>)</td>
+    </tr>
+    <tr>
+      <td>type</td>
       <td>string</td>
-      <td>The value to display</td>
+      <td>Markup scheme to use: <code class="highlighter-rouge">ul</code> (default), <code class="highlighter-rouge">ol</code>, <code class="highlighter-rouge">div</code> or <code class="highlighter-rouge">link</code></td>
     </tr>
     <tr>
       <td>data-*</td>
@@ -399,6 +427,133 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="example-using-link-markup-scheme">Example using <code class="highlighter-rouge">link</code> markup scheme</h3>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;block-list&quot;&gt;
+    &lt;a class=&quot;block-list__item&quot; href=&quot;#foo&quot;&gt;Foo&lt;/a&gt;
+    &lt;a class=&quot;block-list__item&quot; href=&quot;#bar&quot;&gt;Bar&lt;/a&gt;
+    &lt;a class=&quot;block-list__item&quot; href=&quot;#baz&quot;&gt;Baz&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.block_list({
+        &apos;type&apos;: &apos;link&apos;,
+        &apos;items&apos;: [
+            {&apos;label&apos;: &apos;Foo&apos;, &apos;href&apos;: &apos;#foo&apos;},
+            {&apos;label&apos;: &apos;Bar&apos;, &apos;href&apos;: &apos;#bar&apos;},
+            {&apos;label&apos;: &apos;Baz&apos;, &apos;href&apos;: &apos;#baz&apos;}
+        ]
+    })
+}}
+
+</code></pre>
+          </div>
+</div>
+
+<h3 id="example-using-div-markup-scheme">Example using <code class="highlighter-rouge">div</code> markup scheme</h3>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;block-list&quot;&gt;
+    &lt;div class=&quot;block-list__item&quot;&gt;Foo&lt;/div&gt;
+    &lt;div class=&quot;block-list__item&quot;&gt;Bar&lt;/div&gt;
+    &lt;div class=&quot;block-list__item&quot;&gt;Baz&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.block_list({
+        &apos;type&apos;: &apos;div&apos;,
+        &apos;items&apos;: [
+            {&apos;value&apos;: &apos;Foo&apos;},
+            {&apos;value&apos;: &apos;Bar&apos;},
+            {&apos;value&apos;: &apos;Baz&apos;}
+        ]
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<h2 id="header--footer">Header / Footer</h2>
+
+<p>Add an optional header and/or footer row to your block list.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.block_list</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'header'</span><span class="err">:</span> <span class="s1">'My Header'</span><span class="p">,</span>
+        <span class="s1">'footer'</span><span class="err">:</span> <span class="s1">'My Footer'</span><span class="p">,</span>
+        <span class="s1">'items'</span><span class="err">:</span> <span class="p">[</span> <span class="err">...</span> <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<h2 id="modifiers">Modifiers</h2>
+
+<h3 id="selected-item">Selected item</h3>
+
+<p>Use <code class="highlighter-rouge">.is-selected</code> on a <code class="highlighter-rouge">block-list__item</code> to highlight a currently selected item.</p>
+
+<p data-height="268" data-theme-id="24005" data-slug-hash="jPoVPp" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/jPoVPp/">Block list - selected item</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="states">States</h3>
+
+<p data-height="268" data-theme-id="24005" data-slug-hash="zGQKgQ" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/zGQKgQ/">zGQKgQ</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="variations">Variations</h2>
+
+<h3 id="underlined">Underlined</h3>
+
+<p><code class="highlighter-rouge">.block-list--underlined</code></p>
+
+<p data-height="268" data-theme-id="24005" data-slug-hash="jPoWdx" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/jPoWdx/">jPoWdx</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="bordered">Bordered</h3>
+
+<p><code class="highlighter-rouge">.block-list--bordered</code></p>
+
+<p data-height="268" data-theme-id="24005" data-slug-hash="mJYVoO" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/mJYVoO/">mJYVoO</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="full-width">Full width</h3>
+
+<p><code class="highlighter-rouge">.block-list--full</code></p>
+
+<p data-height="268" data-theme-id="24005" data-slug-hash="doEpKy" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/doEpKy/">doEpKy</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="horizontal">Horizontal</h3>
+
+<p><code class="highlighter-rouge">.block-list--horizontal</code></p>
+
+<p data-height="429" data-theme-id="24005" data-slug-hash="ZGNpRM" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/ZGNpRM/">Block list - horizontal</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="contrast">Contrast</h3>
+
+<p><code class="highlighter-rouge">.block-list--contrast</code></p>
+
+<p data-height="509" data-theme-id="24005" data-slug-hash="eNadxb" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/eNadxb/">Block list - contrast</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 
 
 
