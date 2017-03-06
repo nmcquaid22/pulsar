@@ -11,7 +11,7 @@
 
   <title>
     
-      File &middot; Pulsar
+      Browsers and Devices &middot; Pulsar
     
   </title>
 
@@ -67,7 +67,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="/pulsar/browsers-and-devices/">Browsers and Devices</a>
+            <a class="sidebar-nav-item active" href="/pulsar/browsers-and-devices/">Browsers and Devices</a>
           
         
       
@@ -157,7 +157,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item active" href="/pulsar/form-helpers/file/">File</a>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/file/">File</a>
             </li>
           
             <li>
@@ -323,143 +323,156 @@
 </div>
 
         <div class="page">
-            <h1 class="page-title">File</h1>
-            <p>Generates a file input.</p>
+            <h1 class="page-title">Browsers and Devices</h1>
+            <p>We automatically gather browser information from Continuum platform users to inform which browsers we design and test for.</p>
 
-<h2 id="example-usage">Example usage</h2>
+<h6 id="browser-usage">Browser usage</h6>
 
-<div class="code-examples">            <div class="code-examples__buttons examples">
-              <ul class="code-examples__list">
-                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
-              </ul>
-            </div>
-          <div class="example language-html html">
-            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
-    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;File input&lt;/label&gt;
-    &lt;div class=&quot;controls&quot;&gt;
-        &lt;input id=&quot;foo&quot; type=&quot;file&quot; class=&quot;form__control file&quot;&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-          </div>
-          <div class="example language-twig twig">
-            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
-    form.file({
-    &apos;label&apos;: &apos;File input&apos;,
-        &apos;id&apos;: &apos;foo&apos;,
-    })
-}}
-</code></pre>
-          </div>
-</div>
-
-<p data-height="75" data-theme-id="24005" data-slug-hash="ZpOQpg" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ZpOQpg/">docs - form - file</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="19151" data-slug-hash="xwBEGg" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/xwBEGg/">xwBEGg</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="options-applied-to-parent-wrapper">Options applied to parent wrapper</h2>
+<h6 id="version-breakdown-for-top-browsers">Version breakdown for top browsers</h6>
+
+<p data-height="675" data-theme-id="19151" data-slug-hash="OyqbJJ" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/OyqbJJ/">OyqbJJ</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="verified-browsers">Verified browsers</h2>
+
+<p>These are the browsers we recommend testing on when developing the Continuum platform. This list strongly recommends testing on a range of browsers created within the last 3 years that cover the largest representation of the user base.</p>
+
+<p>Browsers not listed may still work well, and it should be noted that this is not a list that intends to suggest that these are the only browsers the service will work on – this is simply a benchmark for testing against to ensure that the Continuum platform will likely work for as many users as possible alongside appropriate cost-effectiveness and development overhead.</p>
+
+<p>Two distinct levels of support are given and denoted next to each browser. Where ‘latest version’ is listed, it means the latest stable version plus one version back, as these browsers regularly update without intervention from the user.</p>
+
+<h3 id="desktop">Desktop</h3>
 
 <table>
   <thead>
     <tr>
-      <th>Option</th>
-      <th>Type</th>
-      <th>Description</th>
+      <th scope="col">Operating system</th>
+      <th scope="col">Browser</th>
+      <th scope="col">Support</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>class</td>
-      <td>string</td>
-      <td>A space separated list of class names</td>
-    </tr>
-    <tr>
-      <td>guidance</td>
-      <td>string</td>
-      <td>Text to be displayed in a popover, adds a (?) icon after the input</td>
-    </tr>
-    <tr>
-      <td>guidance-container</td>
-      <td>string</td>
-      <td>Element to bind guidance popover scroll behaviour to (default <code class="highlighter-rouge">body</code>)</td>
-    </tr>
-    <tr>
-      <td>help</td>
-      <td>string</td>
-      <td>Additional guidance information to be displayed next to the input</td>
-    </tr>
-    <tr>
-      <td>label</td>
-      <td>string</td>
-      <td>Text for the <code class="highlighter-rouge">&lt;label&gt;</code> companion element</td>
-    </tr>
-    <tr>
-      <td>required</td>
-      <td>bool</td>
-      <td>Visually indicates that the field must be completed</td>
-    </tr>
-  </tbody>
-</table>
+  <tbody><tr>
+    <td rowspan="4">Windows</td>
+    <td>Internet Explorer 9+</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td>Internet Explorer 8</td>
+    <td>Functional</td>
+  </tr>
+  <tr>
+    <td>Google Chrome (latest version)</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td>Mozilla Firefox (latest version)</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Mac OS X</td>
+    <td>Safari 7+</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td>Google Chrome (latest version)</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td>Mozilla Firefox (latest version)</td>
+    <td>Compliant</td>
+  </tr>
+</tbody></table>
 
-<h2 id="options-applied-to-input">Options applied to input</h2>
+<h3 id="small-screen-devices">Small screen devices</h3>
 
 <table>
   <thead>
     <tr>
-      <th>Option</th>
-      <th>Type</th>
-      <th>Description</th>
+      <th scope="col">Operating system</th>
+      <th scope="col">Version</th>
+      <th scope="col">Browser</th>
+      <th scope="col">Support</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>autofocus</td>
-      <td>bool</td>
-      <td>Whether the field should have input focus on page load</td>
-    </tr>
-    <tr>
-      <td>disabled</td>
-      <td>bool</td>
-      <td>Stops the element from being interactive if true</td>
-    </tr>
-    <tr>
-      <td>form</td>
-      <td>string</td>
-      <td>Specific one or more forms this label belongs to</td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td>string</td>
-      <td>A unique identifier, if required</td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td>string</td>
-      <td>The name of this control</td>
-    </tr>
-    <tr>
-      <td>placeholder</td>
-      <td>string</td>
-      <td>A short hint that describes the expected value</td>
-    </tr>
-    <tr>
-      <td>required</td>
-      <td>bool</td>
-      <td>Adds <code class="highlighter-rouge">required</code> and <code class="highlighter-rouge">aria-required="true"</code> attributes</td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>string</td>
-      <td>Specifies the value of the input</td>
-    </tr>
-    <tr>
-      <td>data-*</td>
-      <td>string</td>
-      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
-    </tr>
-  </tbody>
+  <tr>
+    <td rowspan="2">iOS</td>
+    <td rowspan="2">7+</td>
+    <td>Mobile Safari</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td>Google Chrome</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Android</td>
+    <td rowspan="2">4.x</td>
+    <td>Google Chrome</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td>Samsung Internet</td>
+    <td>Compliant</td>
+  </tr>
+  <tr>
+    <td>Windows Phone</td>
+    <td>8.1</td>
+    <td>Internet Explorer</td>
+    <td>Compliant</td>
+  </tr>
+</tbody>
 </table>
 
-<p>Any other options not listed here will be applied to the input.</p>
+<h2 id="device-testing">Device testing</h2>
+
+<p>Pulsar layouts and components are tested on physical devices with a selection of operating system versions.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Device</th>
+            <th scope="col">Operating System</th>
+            <th scope="col">Version</th>
+            <th scope="col">Browsers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>iPhone 6s</td>
+            <td>iOS</td>
+            <td>10</td>
+            <td>Safari, Chrome</td>
+        </tr>
+        <tr>
+            <td>iPhone 4s</td>
+            <td>iOS</td>
+            <td>9.3.5</td>
+            <td>Safari, Chrome</td>
+        </tr>
+        <tr>
+            <td>iPad 1</td>
+            <td>iOS</td>
+            <td>5.1.1</td>
+            <td>Safari, Chrome</td>
+        </tr>
+        <tr>
+            <td>Samsung Galaxy S4</td>
+            <td>Android</td>
+            <td>6.0 Marshmallow</td>
+            <td>Samsung Internet, Chrome</td>
+        </tr>
+        <tr>
+            <td>Samsung Galaxy S5</td>
+            <td>Android</td>
+            <td>7.0 Nougat</td>
+            <td>Samsung Internet, Chrome</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
