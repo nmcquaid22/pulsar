@@ -409,23 +409,12 @@
 
 <h2 id="example-usage">Example usage</h2>
 
-<div class="code-examples">            <div class="code-examples__buttons examples">
-              <ul class="code-examples__list">
-                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
-              </ul>
-            </div>
-          <div class="example language-html html">
-            <pre class="prettyprint lang-html"><code data-lang="html">&lt;span class=&quot;label&quot;&gt;new&lt;/span&gt;
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.label</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'new'</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
 </code></pre>
-          </div>
-          <div class="example language-twig twig">
-            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
-    html.label({
-        &apos;label&apos;: &apos;new&apos;
-    })
-}}
-</code></pre>
-          </div>
 </div>
 
 <p data-height="60" data-theme-id="24005" data-slug-hash="PzooGE" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/PzooGE/">PzooGE</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
