@@ -5,6 +5,8 @@
         console = { log: function() {} }
     };
 
+    console.log('running main.js')
+
     var $html = $('html');
 
     $html.removeClass('no-js');
