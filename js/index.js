@@ -10,29 +10,9 @@
 window.jQuery = window.$ = require('jquery');
 
 // Global UI components
-var $                     = require('jquery'),
-    dropdown              = require('./libs/dropdown'),
-    modal                 = require('./libs/modal'),
-    tab                   = require('./libs/tab'),
-    popover               = require('./libs/popover'),
-    tooltip               = require('./libs/tooltip'),
-    matchMedia            = require('./polyfills/matchMedia'),
-    matchMediaAddListener = require('./polyfills/matchMedia.addListener'),
-
-    clickover = require('bootstrapx-clickover/js/bootstrapx-clickover'),
-    history   = require('history.js/scripts/bundled/html5/jquery.history'),
-    jqueryui  = require('jquery-ui/jquery-ui.min'),
-    countdown = require('jquery.countdown/dist/jquery.countdown.min'),
-    pikaday   = require('pikaday/plugins/pikaday.jquery'),
-    svgeezy   = require('svgeezy/svgeezy.min'),
-    select2   = require('select2'),
-    tinycon   = require('tinyicon/tinycon.min'),
-
-    dt            = require('datatables.net')(window, $),
-    dt_buttons    = require('datatables.net-buttons')(window, $),
-    dt_responsive = require('datatables.net-responsive')(window, $),
-    dt_select     = require('datatables.net-select')(window, $),
-
+var $ = require('jquery'),
+    history = require('history.js/scripts/bundled/html5/jquery.history'),
+    svgeezy = require('svgeezy/svgeezy.min'),
     ButtonComponent = require('./ButtonComponent'),
     HelpTextComponent = require('./HelpTextComponent'),
     FilterBarComponent = require('./FilterBarComponent'),
@@ -44,7 +24,24 @@ var $                     = require('jquery'),
     PulsarUIComponent = require('./PulsarUIComponent'),
     SignInComponent = require('./area/signin/signin');
 
-    require('jstree');
+// require('./libs/dropdown');
+// require('./libs/modal');
+// require('./libs/tab');
+// require('./libs/popover');
+// require('./libs/tooltip');
+// require('./polyfills/matchMedia');
+// require('./polyfills/matchMedia.addListener');
+// require('bootstrapx-clickover/js/bootstrapx-clickover');
+// require('jquery-ui/jquery-ui.min');
+// require('jquery.countdown/dist/jquery.countdown.min');
+// require('pikaday/plugins/pikaday.jquery');
+// require('select2');
+// require('tinyicon/tinycon.min');
+// require('datatables.net')(window, $);
+// require('datatables.net-buttons')(window, $);
+// require('datatables.net-responsive')(window, $);
+// require('datatables.net-select')(window, $);
+// require('jstree');
 
 module.exports = {
     ButtonComponent: ButtonComponent,
