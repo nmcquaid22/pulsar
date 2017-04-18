@@ -1,7 +1,7 @@
 'use strict';
 
 var $ = require('jquery');
-var moment = require('moment/moment');
+var moment = require('moment');
 
 require('pikaday/plugins/pikaday.jquery');
 require('select2');
