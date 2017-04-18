@@ -24,24 +24,24 @@ var $ = require('jquery'),
     PulsarUIComponent = require('./PulsarUIComponent'),
     SignInComponent = require('./area/signin/signin');
 
-// require('./libs/dropdown');
-// require('./libs/modal');
-// require('./libs/tab');
-// require('./libs/popover');
-// require('./libs/tooltip');
-// require('./polyfills/matchMedia');
-// require('./polyfills/matchMedia.addListener');
-// require('bootstrapx-clickover/js/bootstrapx-clickover');
-// require('jquery-ui/jquery-ui.min');
-// require('jquery.countdown/dist/jquery.countdown.min');
-// require('pikaday/plugins/pikaday.jquery');
-// require('select2');
-// require('tinyicon/tinycon.min');
-// require('datatables.net')(window, $);
-// require('datatables.net-buttons')(window, $);
-// require('datatables.net-responsive')(window, $);
-// require('datatables.net-select')(window, $);
-// require('jstree');
+require('./libs/dropdown');
+require('./libs/modal');
+require('./libs/tab');
+require('./libs/popover');
+require('./libs/tooltip');
+require('./polyfills/matchMedia');
+require('./polyfills/matchMedia.addListener');
+require('bootstrapx-clickover/js/bootstrapx-clickover');
+require('jquery-ui/jquery-ui.min');
+require('jquery.countdown/dist/jquery.countdown.min');
+require('pikaday/plugins/pikaday.jquery');
+require('select2');
+require('tinyicon/tinycon.min');
+require('datatables.net')(window, $);
+require('datatables.net-buttons')(window, $);
+require('datatables.net-responsive')(window, $);
+require('datatables.net-select')(window, $);
+require('jstree');
 
 module.exports = {
     ButtonComponent: ButtonComponent,
