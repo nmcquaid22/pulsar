@@ -1,11 +1,10 @@
 'use strict';
 
 var $ = require('jquery');
+var moment = require('../libs/moment/moment');
 
 require('../libs/pikaday/plugins/pikaday.jquery');
-require('../libs/select2/dist/js/select2.min');
 require('../libs/spectrum/spectrum');
-var moment = require('../libs/moment/moment');
 
 function PulsarFormComponent(html) {
 
@@ -14,6 +13,10 @@ function PulsarFormComponent(html) {
 }
 
 PulsarFormComponent.prototype.init = function () {
+    // ensure select2 instance is available
+    if (!$.fn.select2) {
+        throw new Error('No select2 instance found, ensure you have required select2 prior to requiring the PulsarFormComponent')
+    }
 
     var component = this;
 
