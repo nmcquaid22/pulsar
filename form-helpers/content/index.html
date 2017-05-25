@@ -483,10 +483,20 @@
       <td>string</td>
       <td>Text for the <code class="highlighter-rouge">&lt;label&gt;</code> companion element</td>
     </tr>
+    <tr>
+      <td>raw</td>
+      <td>bool</td>
+      <td>Instead of wrapping the value in a <code class="highlighter-rouge">&lt;p&gt;</code>, just render the value/helper instead (default: false)</td>
+    </tr>
+    <tr>
+      <td>show-label</td>
+      <td>bool</td>
+      <td>Control visibility of the <code class="highlighter-rouge">&lt;label&gt;</code> element without affecting layout (default: true)</td>
+    </tr>
   </tbody>
 </table>
 
-<h2 id="options-applied-to-paragraph">Options applied to paragraph</h2>
+<h2 id="options-applied-to-paragraph-if-raw-is-false">Options applied to paragraph (if <code class="highlighter-rouge">raw</code> is <code class="highlighter-rouge">false</code>)</h2>
 
 <table>
   <thead>
@@ -515,7 +525,7 @@
   </tbody>
 </table>
 
-<p>Any other options not listed here will be applied to the paragraph.</p>
+<p>Any other options not listed here will be applied to the paragraph, unless <code class="highlighter-rouge">raw</code> is used, then they will not be used anywhere.</p>
 
 
 

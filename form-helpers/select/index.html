@@ -492,6 +492,11 @@
       <td>bool</td>
       <td>Visually indicates that the field must be completed</td>
     </tr>
+    <tr>
+      <td>show-label</td>
+      <td>bool</td>
+      <td>Control visibility of the <code class="highlighter-rouge">&lt;label&gt;</code> element without affecting layout (default: true)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -608,6 +613,72 @@
     <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
 </code></pre>
+</div>
+
+<h2 id="using-optgroups">Using optgroups</h2>
+
+<p>Your options can be arranged within <code class="highlighter-rouge">optgroups</code> by using the optgroup syntax.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
+    &lt;label class=&quot;control__label&quot;&gt;Select with optgroups&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;select class=&quot;form__control select&quot;&gt;
+            &lt;optgroup label=&quot;optgroup one&quot;&gt;
+                &lt;option value=&quot;val-alpha&quot;&gt;alpha&lt;/option&gt;
+                &lt;option value=&quot;val-bravo&quot;&gt;bravo&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label=&quot;optgroup two&quot;&gt;
+                &lt;option value=&quot;val-charlie&quot;&gt;charlie&lt;/option&gt;
+                &lt;option value=&quot;val-delta&quot;&gt;delta&lt;/option&gt;
+            &lt;/optgroup&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.select2({
+        &apos;label&apos;: &apos;Select with optgroups&apos;,
+        &apos;options&apos;:
+        [
+            {
+                &apos;label&apos;: &apos;optgroup one&apos;,
+                &apos;options&apos;: [
+                    {
+                        &apos;label&apos;: &apos;alpha&apos;,
+                        &apos;value&apos;: &apos;val-alpha&apos;
+                    },
+                    {
+                        &apos;label&apos;: &apos;bravo&apos;,
+                        &apos;value&apos;: &apos;val-bravo&apos;
+                    }
+                ]
+            },
+            {
+                &apos;label&apos;: &apos;optgroup two&apos;,
+                &apos;options&apos;: [
+                    {
+                        &apos;label&apos;: &apos;charlie&apos;,
+                        &apos;value&apos;: &apos;val-charlie&apos;
+                    },
+                    {
+                        &apos;label&apos;: &apos;delta&apos;,
+                        &apos;value&apos;: &apos;val-delta&apos;
+                    }
+                ]
+            }
+        ]
+    })
+}}
+</code></pre>
+          </div>
 </div>
 
 <h2 id="error-state">Error state</h2>

@@ -494,6 +494,11 @@
       <td>bool</td>
       <td>Visually indicates that the field must be completed</td>
     </tr>
+    <tr>
+      <td>show-label</td>
+      <td>bool</td>
+      <td>Control visibility of the <code class="highlighter-rouge">&lt;label&gt;</code> element without affecting layout (default: true)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -559,6 +564,11 @@
       <td>The number of items to display when the list is shown</td>
     </tr>
     <tr>
+      <td>data-init</td>
+      <td>string</td>
+      <td>If ‘false’, will prevent the select2 javascript behaviour being initialised</td>
+    </tr>
+    <tr>
       <td>data-*</td>
       <td>string</td>
       <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
@@ -571,6 +581,83 @@
 <h2 id="manually-creating-select2-elements">Manually creating select2 elements</h2>
 
 <p>The select2 plugin will be called on any <code class="highlighter-rouge">select</code> element that contain the <code class="highlighter-rouge">js-select2</code> class.</p>
+
+<p>You can prevent this from happening via the <code class="highlighter-rouge">data-init="false"</code> attribute, you might want to do this so that you can write your own select2 initialiser to do certain things.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">form.select2</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Pick a colour'</span><span class="p">,</span>
+        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span>
+        <span class="s1">'data-init'</span><span class="err">:</span> <span class="s1">'false'</span><span class="p">,</span>
+        <span class="err">...</span>
+</code></pre>
+</div>
+
+<h2 id="using-optgroups">Using optgroups</h2>
+
+<p>Your options can be arranged within <code class="highlighter-rouge">optgroups</code> by using the optgroup syntax.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
+    &lt;label class=&quot;control__label&quot;&gt;Select with optgroups&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;select class=&quot;form__control select js-select2&quot;&gt;
+            &lt;optgroup label=&quot;optgroup one&quot;&gt;
+                &lt;option value=&quot;val-alpha&quot;&gt;alpha&lt;/option&gt;
+                &lt;option value=&quot;val-bravo&quot;&gt;bravo&lt;/option&gt;
+            &lt;/optgroup&gt;
+            &lt;optgroup label=&quot;optgroup two&quot;&gt;
+                &lt;option value=&quot;val-charlie&quot;&gt;charlie&lt;/option&gt;
+                &lt;option value=&quot;val-delta&quot;&gt;delta&lt;/option&gt;
+            &lt;/optgroup&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.select2({
+        &apos;label&apos;: &apos;Select with optgroups&apos;,
+        &apos;options&apos;:
+        [
+            {
+                &apos;label&apos;: &apos;optgroup one&apos;,
+                &apos;options&apos;: [
+                    {
+                        &apos;label&apos;: &apos;alpha&apos;,
+                        &apos;value&apos;: &apos;val-alpha&apos;
+                    },
+                    {
+                        &apos;label&apos;: &apos;bravo&apos;,
+                        &apos;value&apos;: &apos;val-bravo&apos;
+                    }
+                ]
+            },
+            {
+                &apos;label&apos;: &apos;optgroup two&apos;,
+                &apos;options&apos;: [
+                    {
+                        &apos;label&apos;: &apos;charlie&apos;,
+                        &apos;value&apos;: &apos;val-charlie&apos;
+                    },
+                    {
+                        &apos;label&apos;: &apos;delta&apos;,
+                        &apos;value&apos;: &apos;val-delta&apos;
+                    }
+                ]
+            }
+        ]
+    })
+}}
+</code></pre>
+          </div>
+</div>
 
 <h2 id="using-html-in-select-options">Using HTML in select options</h2>
 

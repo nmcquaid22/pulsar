@@ -487,6 +487,11 @@
       <td>bool</td>
       <td>Visually indicates that the field must be completed</td>
     </tr>
+    <tr>
+      <td>show-label</td>
+      <td>bool</td>
+      <td>Control visibility of the <code class="highlighter-rouge">&lt;label&gt;</code> element without affecting layout (default: true)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -573,10 +578,10 @@
 
 <p>Labels follow the regular Pulsar form flow and are positioned down the left. Clicking the label will toggle the input.</p>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> 
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">form.checkbox</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Default checkbox'</span><span class="p">,</span> 
-        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span> 
+        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Default checkbox'</span><span class="p">,</span>
+        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span>
         <span class="s1">'name'</span><span class="err">:</span> <span class="s1">'foo'</span>
     <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
@@ -607,10 +612,10 @@
   </tbody>
 </table>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> 
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">form.checkbox_inline</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Checkbox inline'</span><span class="p">,</span> 
-        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span> 
+        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Checkbox inline'</span><span class="p">,</span>
+        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span>
         <span class="s1">'name'</span><span class="err">:</span> <span class="s1">'foo'</span>
     <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
@@ -620,10 +625,10 @@
 <p data-height="75" data-theme-id="24005" data-slug-hash="qakKvg" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/qakKvg/">docs - form - checkbox right label</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> 
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">form.checkbox_inline</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Checkbox on the right'</span><span class="p">,</span> 
-        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span> 
+        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Checkbox on the right'</span><span class="p">,</span>
+        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span>
         <span class="s1">'name'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span>
         <span class="s1">'input_placement'</span><span class="err">:</span> <span class="s1">'right'</span>
     <span class="err">}</span><span class="p">)</span>
