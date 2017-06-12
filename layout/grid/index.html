@@ -491,6 +491,24 @@
 </code></pre>
 </div>
 
+<p>As the 12 column grid will be much narrower at this screen size, this method also allows you to specify a more suitable number of columns rather than simply forcing it not to stretch to 100%.</p>
+
+<p>If you’re coding your own components and would prefer to stick to a ‘mobile first’ ethos, you can use set your mobile columns outside of a media query, using <code class="highlighter-rouge">force</code>, and then define your other styles in specific phablet/tablet/desktop/widescreen queries as required.</p>
+
+<p>This method also means you don’t need to declare column classes in the markup.</p>
+
+<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="nc">.my-element</span> <span class="err">{</span>
+    <span class="k">@include</span> <span class="nd">span</span><span class="p">(</span><span class="m">10</span><span class="o">,</span> <span class="bp">true</span><span class="p">)</span><span class="err">;</span>
+    <span class="c1">// mobile styles here
+</span>
+    <span class="k">@include</span> <span class="nd">respond-min</span><span class="p">(</span><span class="nv">$screen-tablet</span><span class="p">)</span> <span class="err">{</span>
+        <span class="k">@include</span> <span class="nd">span</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="err">;</span>
+        <span class="c1">// tablet -&gt; desktop styles here
+</span>    <span class="err">}</span>
+<span class="err">}</span>
+</code></pre>
+</div>
+
 
 
         </div>
