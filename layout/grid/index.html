@@ -11,7 +11,7 @@
 
   <title>
     
-      Button Styleguide &middot; Pulsar
+      Grid &middot; Pulsar
     
   </title>
 
@@ -330,7 +330,7 @@
             </li>
           
             <li>
-              <a class="sidebar-nav-item" href="/pulsar/layout/grid/">Grid</a>
+              <a class="sidebar-nav-item active" href="/pulsar/layout/grid/">Grid</a>
             </li>
           
             <li>
@@ -387,7 +387,7 @@
           <ol>
           
             <li>
-              <a class="sidebar-nav-item active" href="/pulsar/styleguides/buttons/">Button Styleguide</a>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/buttons/">Button Styleguide</a>
             </li>
           
             <li>
@@ -416,71 +416,52 @@
 </div>
 
         <div class="page">
-            <h1 class="page-title">Button Styleguide</h1>
-            <p>Your button labels should be illustrative but concise, it’s almost never enough for an button to simply say ‘OK’, it should attempt to provide more information about what action(s) will be performed once the user presses the button. The variation of the button you choose should help to highlight any dangerous or destructive actions.</p>
+            <h1 class="page-title">Grid</h1>
+            <p>Align components and elements against a responsive 12 column grid.</p>
 
-<h2 id="general-guidance">General guidance</h2>
+<p>The grid is available to control the contents of the <code class="highlighter-rouge">tab__content</code> element, rather than the entire layout.</p>
 
-<p>Use title case.</p>
+<p><img src="/pulsar/assets/image_examples/grid.png" alt="grid example" /></p>
 
-<div><p data-height="65" data-theme-id="24005" data-slug-hash="KgzPkm" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/KgzPkm/">docs - buttons - title case</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<h2 id="width-of-elements">Width of elements</h2>
 
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<p>An element can span 1 to 12 of the available columns, using the <code class="highlighter-rouge">.col-x</code> class.</p>
 
-<p>If the button relates to an action, the label should be (principally) a verb, use the state classes to reinforce dangerous or destructive actions.</p>
+<p><img src="/pulsar/assets/image_examples/grid-1.png" alt="grid example" /></p>
 
-<div><p data-height="65" data-theme-id="24005" data-slug-hash="WwwXmq" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/WwwXmq/">Button CRUD patterns</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-2"</span><span class="nt">&gt;</span>foo<span class="nt">&lt;/div&gt;</span>
 
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-9"</span><span class="nt">&gt;</span>bar<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
 
-<p>If an action is related to creating new items of content, use ‘New’.</p>
+<h2 id="remove-first-column-margin">Remove first column margin</h2>
 
-<div><p data-height="65" data-theme-id="24005" data-slug-hash="XjdAkq" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/XjdAkq/">docs - buttons - new news article</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<p>Column margins are applied to the left hand edge, make your first elemnt line up flush with the container by using the <code class="highlighter-rouge">.col--first</code> class to remove the left margin.</p>
 
-<p>If the action involves adding to a parent item or to a context that already exists (such as adding a keyword to a content item) use ‘Add’.</p>
+<p><img src="/pulsar/assets/image_examples/grid-2.png" alt="grid example" /></p>
 
-<div><p data-height="65" data-theme-id="24005" data-slug-hash="GjkKxg" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/GjkKxg/">docs - buttons - add keyword</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-2 col--first"</span><span class="nt">&gt;</span>foo<span class="nt">&lt;/div&gt;</span>
 
-<p>If an action affects more than one item, you should badge your button.</p>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-9"</span><span class="nt">&gt;</span>bar<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
 
-<div><p data-height="65" data-theme-id="24005" data-slug-hash="XjdAEq" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/XjdAEq/">docs - buttons - badged buttons</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<h2 id="column-push">Column push</h2>
 
-<p>If a button triggers more than one action, we should communicate this to the user where possible.</p>
+<p>Indent an element a certain number of column widths using the <code class="highlighter-rouge">.col-push-x</code> class.</p>
 
-<div><p data-height="130" data-theme-id="24005" data-slug-hash="GjkKdg" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/GjkKdg/">docs - buttons - multiple actions</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<p><img src="/pulsar/assets/image_examples/grid-3.png" alt="grid example" /></p>
 
-<h2 id="using-icons">Using icons</h2>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-2 col-push-1 col--first"</span><span class="nt">&gt;</span>foo<span class="nt">&lt;/div&gt;</span>
 
-<p>Icons should sparingly to further illustrate the action where necessary. To avoid unnecessary visual noise, action bar buttons should avoid the use of icons.</p>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-2"</span><span class="nt">&gt;</span>bar<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
 
-<p>Icons should be used in:</p>
+<h2 id="responsive-behaviour">Responsive behaviour</h2>
 
-<ul>
-  <li>All actions menu items* Inline delete (times, not trash)* Blocking actions/states (locked)* microinteractions (saving)</li>
-</ul>
-
-<p data-height="298" data-theme-id="24005" data-slug-hash="xVVpgp" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/xVVpgp/">Button icon examples</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="actions-menu">Actions menu</h2>
-
-<ul>
-  <li>Use dividers to group related actions* Use icons related to the action.* Primary actions should be grouped at the top of the list* Disabled items should use a tooltip explaining why they are disabled</li>
-</ul>
-
-<p data-height="298" data-theme-id="24005" data-slug-hash="XXeNXM" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/XXeNXM/">XXeNXM</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="form-actions">Form actions</h2>
-
-<p>Buttons required to submit/cancel a form should be left aligned. Any destructive action, such as delete, should be right aligned to avoid accidental use.</p>
-
-<p data-height="92" data-theme-id="24005" data-slug-hash="Myyrrp" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/Myyrrp/">Form action buttons</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
+<p>At phone/xsmall breakpoints, all columns will switch to 100% width by default. Individual components or elements may override this behaviour by using [means yet to be determined].</p>
 
 
 
