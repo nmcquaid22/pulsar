@@ -91,8 +91,6 @@ describe('NavMain component', function() {
         this.$secondaryLinkTwo = this.$html.find('[href="#two_one"]');
         this.$secondaryLinkThree = this.$html.find('[href="#three_one"]');
         this.$secondaryLinkFour = this.$html.find('[href="#four_one"]');
-        this.$moreIcon = this.$navMain.find('.more-icon');
-        this.$moreIconLink = this.$navMain.find('.more-icon > .nav-link');
 
         // set height on nav items as no css in tests
         this.$html.find('.nav-item').height(20);
@@ -253,16 +251,15 @@ describe('NavMain component', function() {
 
     describe('clicking the more icon', function() {
 
-        before(function() {
+        beforeEach(function() {
             this.navMainComponent.init();
+            this.$moreIconLink = this.$navMain.find('.more-icon > .nav-link');
+
             this.$moreIconLink.click();
         });
-
 
         it('should open the sliding main nav', function() {
             expect(this.$navMainSliding.hasClass('is-open')).to.be.true;
         });
-
     });
-
 });
