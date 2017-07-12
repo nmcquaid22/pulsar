@@ -30,6 +30,7 @@ module.exports = function(grunt) {
                 },
                 options: {
                     browserifyOptions: {
+                        debug: true, // Enable source maps for debugging
                         standalone: 'pulsar'
                     },
                     transform: [['aliasify', { global: true }]]
@@ -535,7 +536,7 @@ module.exports = function(grunt) {
         'sass:dev',
         'autoprefixer',
         'bless',
-        'browserify',
+        'browserify:dev',
         'browserSync',
         'watch',
         'email-build'
