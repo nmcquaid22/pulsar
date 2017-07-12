@@ -236,7 +236,7 @@ NavMainComponent.prototype.adjustNavItems = function() {
         console.log('itemHeight 2 = ' + itemsHeight); // itemHeight never changes in test
     }
 
-    // var hiddenItemsCount = component.$html.find('.nav-primary .nav-items li').is(':visible').length;
+    var hiddenItemsCount = component.$html.find('.nav-primary .nav-items li').is(':visible').length;
 
     // console.log('hiddenItemsCount = ' + hiddenItemsCount);
 

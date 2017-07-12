@@ -13,7 +13,7 @@ describe('NavMain component', function() {
         this.$html = $('<div class="fake-html"></div>').appendTo('html');
         this.$body = $('<div class="fake-body"></div>').appendTo(this.$html);
         this.$window = $('<div></div>');
-        this.$window.height(70);
+        this.$window.height(150);
         this.window = this.$window[0];
 
         this.$markup = $('\
@@ -95,7 +95,7 @@ describe('NavMain component', function() {
         this.$moreIconLink = this.$navMain.find('.more-icon > .nav-link');
 
         // set height on nav items as no css in tests
-        this.$html.find('.nav-items').height(529);
+        this.$html.find('.nav-item').height(20);
 
         this.navMainComponent = new NavMainComponent(this.$html, this.window);
 
