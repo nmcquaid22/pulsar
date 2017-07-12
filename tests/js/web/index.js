@@ -1,6 +1,10 @@
 /*global mocha, mochaPhantomJS, sinon:true, window */
 'use strict';
 
+/**
+ * Test harness for running JS tests under Node or the browser
+ */
+
 var $ = require('jquery'),
     chai = require('chai'),
     sinon = require('sinon'),
@@ -19,7 +23,5 @@ mocha.timeout(2000);
 
 // Expose tools in the global scope
 window.chai = chai;
-window.describe = describe;
 window.expect = chai.expect;
-window.it = it;
 window.sinon = sinon;
