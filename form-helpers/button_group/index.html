@@ -149,6 +149,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/dropzone/">DropZone</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/components/flash/">Flash messages</a>
             </li>
           
@@ -432,20 +436,26 @@
               </ul>
             </div>
           <div class="example language-html html">
-            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;btn__group&quot;&gt;
-    &lt;button class=&quot;btn&quot;&gt;Foo&lt;/button&gt;
-    &lt;button class=&quot;btn&quot;&gt;Bar&lt;/button&gt;
-    &lt;button class=&quot;btn&quot;&gt;Baz&lt;/button&gt;
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form__button-group&quot;&gt;
+    &lt;div class=&quot;controls btn__group&quot;&gt;
+        &lt;input name=&quot;bands&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot; /&gt;
+        &lt;label class=&quot;control__label&quot;&gt;AM&lt;/label&gt;
+        &lt;input name=&quot;bands&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot; /&gt;
+        &lt;label class=&quot;control__label&quot;&gt;FM&lt;/label&gt;
+        &lt;input name=&quot;bands&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot; /&gt;
+        &lt;label class=&quot;control__label&quot;&gt;MW&lt;/label&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
           </div>
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
-    html.button_group({
-        &apos;buttons&apos;: [
-            html.button({ label: &apos;foo&apos; }),
-            html.button({ label: &apos;bar&apos; }),
-            html.button({ label: &apos;baz&apos; })
+    form.button_group({
+        &apos;type&apos;: &apos;radio&apos;,
+        &apos;items&apos;: [
+            { label: &apos;foo&apos; },
+            { label: &apos;bar&apos; },
+            { label: &apos;baz&apos; }
         ]
     })
 }}
@@ -453,8 +463,18 @@
           </div>
 </div>
 
-<div><p data-height="65" data-theme-id="24005" data-slug-hash="ozxgEo" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ozxgEo/">docs - html - button group</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<div class="form__group form__button-group">
+    <div class="controls btn__group">
+        <input name="bands" type="radio" class="form__control radio" />
+        <label class="control__label">AM</label>
+        <input name="bands" type="radio" class="form__control radio" />
+        <label class="control__label">FM</label>
+        <input name="bands" type="radio" class="form__control radio" />
+        <label class="control__label">MW</label>
+    </div>
+</div>
+
+<p>The array of options within <code class="highlighter-rouge">items</code> will be passed to the helper <code class="highlighter-rouge">type</code> you choose. You should consult the documentation for <a href="/form-helpers/radio/">radio</a>, <a href="/form-helpers/checkbox/">checkbox</a> or <a href="/form-helpers/button/">button</a> for a full list of available item options.</p>
 
 <h2 id="options">Options</h2>
 
@@ -483,9 +503,19 @@
       <td>A unique identifier, if required</td>
     </tr>
     <tr>
+      <td>items</td>
+      <td>array</td>
+      <td>An array of options to pass to the specified <code class="highlighter-rouge">type</code> helper</td>
+    </tr>
+    <tr>
       <td>show-label</td>
       <td>bool</td>
       <td>Control visibility of the <code class="highlighter-rouge">&lt;label&gt;</code> element without affecting layout (default: true)</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string</td>
+      <td>The type of input to create <code class="highlighter-rouge">radio</code> (default), <code class="highlighter-rouge">checkbox</code> or <code class="highlighter-rouge">button</code></td>
     </tr>
     <tr>
       <td>data-*</td>
@@ -495,6 +525,10 @@
   </tbody>
 </table>
 
+<h2 id="input-types">Input types</h2>
+
+<p>The inputs used within button groups can be changed to suit your need, supply <code class="highlighter-rouge">radio</code>, <code class="highlighter-rouge">checkbox</code> or <code class="highlighter-rouge">button</code> to the <code class="highlighter-rouge">type</code> attribute. Normally you would use radio for a ‘select one’ situation, and checkboxes for ‘select multiple’.</p>
+
 <h2 id="example-with-icons">Example with icons</h2>
 
 <div class="code-examples">            <div class="code-examples__buttons examples">
@@ -503,22 +537,29 @@
               </ul>
             </div>
           <div class="example language-html html">
-            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;btn__group&quot;&gt;
-    &lt;button class=&quot;btn&quot;&gt;&lt;i class=&quot;icon-align-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn&quot;&gt;&lt;i class=&quot;icon-align-center&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn&quot;&gt;&lt;i class=&quot;icon-align-right&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn&quot;&gt;&lt;i class=&quot;icon-align-justify&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form__button-group&quot;&gt;
+    &lt;div class=&quot;controls btn__group&quot;&gt;
+        &lt;input name=&quot;bands&quot; type=&quot;checkbox&quot; class=&quot;form__control checkbox&quot; /&gt;
+        &lt;label class=&quot;control__label&quot;&gt;&lt;i class=&quot;icon-align-left&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+        &lt;input name=&quot;bands&quot; type=&quot;checkbox&quot; class=&quot;form__control checkbox&quot; /&gt;
+        &lt;label class=&quot;control__label&quot;&gt;&lt;i class=&quot;icon-align-center&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+        &lt;input name=&quot;bands&quot; type=&quot;checkbox&quot; class=&quot;form__control checkbox&quot; /&gt;
+        &lt;label class=&quot;control__label&quot;&gt;&lt;i class=&quot;icon-align-right&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+        &lt;input name=&quot;bands&quot; type=&quot;checkbox&quot; class=&quot;form__control checkbox&quot; /&gt;
+        &lt;label class=&quot;control__label&quot;&gt;&lt;i class=&quot;icon-align-justify&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
           </div>
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
     html.button_group({
-        buttons: [
-            html.button({ label: html.icon(&apos;align-left&apos;) }),
-            html.button({ label: html.icon(&apos;align-center&apos;) }),
-            html.button({ label: html.icon(&apos;align-right&apos;) }),
-            html.button({ label: html.icon(&apos;align-justify&apos;) })
+        &apos;type&apos;: &apos;checkbox&apos;,
+        &apos;items&apos;: [
+            { label: html.icon(&apos;align-left&apos;) },
+            { label: html.icon(&apos;align-center&apos;) },
+            { label: html.icon(&apos;align-right&apos;) },
+            { label: html.icon(&apos;align-justify&apos;) )
         ]
     })
 }}
@@ -526,8 +567,18 @@
           </div>
 </div>
 
-<div><p data-height="65" data-theme-id="24005" data-slug-hash="ZpWYoO" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ZpWYoO/">docs - html - button group with icons</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<div class="form__group form__button-group">
+    <div class="controls btn__group">
+        <input name="bands" type="checkbox" class="form__control checkbox" />
+        <label class="control__label"><i class="icon-align-left"></i></label>
+        <input name="bands" type="checkbox" class="form__control checkbox" />
+        <label class="control__label"><i class="icon-align-center"></i></label>
+        <input name="bands" type="checkbox" class="form__control checkbox" />
+        <label class="control__label"><i class="icon-align-right"></i></label>
+        <input name="bands" type="checkbox" class="form__control checkbox" />
+        <label class="control__label"><i class="icon-align-justify"></i></label>
+    </div>
+</div>
 
 
 

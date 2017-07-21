@@ -1,5 +1,10 @@
-<div class="btn__group">
-    <button class="btn">Foo</button>
-    <button class="btn">Bar</button>
-    <button class="btn">Baz</button>
+<div class="form__group form__button-group">
+    <div class="controls btn__group">
+        <input name="bands" type="radio" class="form__control radio" />
+        <label class="control__label">AM</label>
+        <input name="bands" type="radio" class="form__control radio" />
+        <label class="control__label">FM</label>
+        <input name="bands" type="radio" class="form__control radio" />
+        <label class="control__label">MW</label>
+    </div>
 </div>

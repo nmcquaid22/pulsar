@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      DropZone &middot; Pulsar
+    
+  </title>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/pulsar/css/styles.css">
+  <link rel="stylesheet" href="/pulsar/css/syntax.css">
+  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+<body>
+
+    <div class="header">
+        <img src="/pulsar/assets/images/pulsar-brand-medium.png" class="brand-image" />
+        <h1>
+            <a href="/pulsar">
+                Pulsar
+            </a>
+        </h1>
+        <p class="lead">The open-source design system for the Jadu Continuum platform</p>
+
+        <div class="header-links">
+            <a class="header-link" href="https://github.com/jadu/pulsar">View on GitHub</a>
+            <a class="header-link" href="https://github.com/jadu/pulsar/archive/develop.zip">Download .zip</a>
+            <a class="header-link" href="https://github.com/jadu/pulsar/archive/develop.tar.gz">Download .tar.gz</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="sidebar">
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/pulsar">Home</a>
+      
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/browsers-and-devices/">Browsers and Devices</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/contributing/">Notes for contributors</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/installing/">Installation</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/tagging/">Tagging a release</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/utility-classes/">Utility classes</a>
+          
+        
+      
+
+      
+
+      
+      
+
+          <span class="sidebar-nav-header">Components</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/actions_bar/">Actions bar</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/badge/">Badge</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/block-list/">Block list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/button/">Button</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/button_dropdown/">Button dropdown</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/button_group/">Button group</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/countdown/">Countdown</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/datatable/">Datatables</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/divider/">Divider</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item active" href="/pulsar/components/dropzone/">DropZone</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/flash/">Flash messages</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/icon/">Icon</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/label/">Label</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/li/">List item</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/link/">Link</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/link_list/">Link list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/list/">List</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/loading/">Loading spinner</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/media/">Media</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/metadata/">Metadata</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/modal/">Modal</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/pagination/">Pagination</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/panel/">Panel</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/popover/">Popovers</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/progress-bar/">Progress bar</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/progress-list/">Progress list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/remove-button/">Remove button</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/status/">Status</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/tables/">Tables</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/tooltip/">Tooltips</a>
+            </li>
+          
+          </ol>
+      
+
+          <span class="sidebar-nav-header">Form helpers</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/button_group/">Button Group</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/checkbox/">Checkbox</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/choice/">Choice</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/color/">Color</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/content/">Content</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/create/">Create form</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/date/">Date</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/end/">End form</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/fieldet_end/">Fieldset end</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/fieldset_start/">Fieldset start</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/file/">File</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/group/">Group</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/hidden/">Hidden</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/password/">Password</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/radio/">Radio</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/radio_simple/">Radio simple</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/select2/">Select2</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/text/">Text</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+          </ol>
+      
+
+          <span class="sidebar-nav-header">Layout</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/breadcrumb/">Breadcrumb</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/favicon/">Favicon</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/grid/">Grid</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/navigation/">Navigation</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/notifications/">Notifications</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+          </ol>
+      
+
+          <span class="sidebar-nav-header">Patterns</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/disabled-ui/">Disabled UI</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/filterbar/">Filter bar</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/masterswitch/">Masterswitch</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/no-results/">No results</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/piano-list/">Piano list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/rules/">Rules</a>
+            </li>
+          
+          </ol>
+      
+
+          <span class="sidebar-nav-header">Posts</span>
+
+          <ol>
+          
+          </ol>
+      
+
+          <span class="sidebar-nav-header">Styleguides</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/buttons/">Button Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/colour/">Colour Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/css/">CSS Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/forms/">Forms Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/state/">State Styleguide</a>
+            </li>
+          
+          </ol>
+      
+    </nav>
+</div>
+
+        <div class="page">
+            <h1 class="page-title">DropZone</h1>
+            <p>The DropZone is a component that can create a pre-formatted area for users to drag files, it can also be used to convert an existing HTML element into a droppable area.</p>
+
+<h2 id="example-usage">Example usage</h2>
+
+<h3 id="vanilla">Vanilla</h3>
+
+<p>DropZone using default configuration.</p>
+
+<p><img src="/pulsar/assets/image_examples/dropzone-vanilla-drop.gif" alt="DropZoneComponent vanilla drop" class="dropzone-example" /></p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">import</span> <span class="s1">'@pulsar/pulsar/v2/helpers/html.html.twig'</span> <span class="k">as</span> <span class="nv">html</span> <span class="cp">%}</span>
+
+<span class="cp">{{</span>
+    <span class="nv">html.dropzone</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'drop-zone'</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">DropZoneComponentFactory</span> <span class="nx">from</span> <span class="s1">'../path/to/DropZoneComponentFactory'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">dropZoneComponent</span> <span class="o">=</span> <span class="nx">DropZoneComponentFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="c1">// &lt;html&gt; element</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">,</span> 
+    <span class="c1">// selector to identify DropZone elements</span>
+    <span class="s1">'.dropzone'</span>
+<span class="p">);</span>
+
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h3 id="passive">Passive</h3>
+
+<p>DropZone initiated in passive mode. When in passive mode, the DropZoneComponent will not alter any HTML apart from adding file nodes once a file is added. It should be used for when you need to turn an existing element into a DropZone and do not want to use the default DropZone HTML. When in passive mode you will need to leverage the DropZoneComponent public methods (below) in order to change state.</p>
+
+<p><img src="/pulsar/assets/image_examples/dropzone-passive-drop.gif" alt="DropZoneComponent passive drop" class="dropzone-example" /></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropzone"</span> <span class="na">data-dropzone-passive=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Node to be converted to a DropZone<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">DropZoneComponentFactory</span> <span class="nx">from</span> <span class="s1">'../path/to/DropZoneComponentFactory'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">dropZoneComponent</span> <span class="o">=</span> <span class="nx">DropZoneComponentFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="c1">// &lt;html&gt; element</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">,</span> 
+    <span class="c1">// selector to identify DropZone elements</span>
+    <span class="s1">'.dropzone'</span>
+<span class="p">);</span>
+
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h3 id="enriched-passive">Enriched passive</h3>
+
+<p>An example of a passive DropZone leveraging the DropZoneComponent’s callbacks and public methods (see below) to trigger help state changes and a backdrop.</p>
+
+<p><img src="/pulsar/assets/image_examples/dropzone-passive-enriched.gif" alt="DropZoneComponent passive enriched" class="dropzone-example" /></p>
+
+<hr />
+
+<h3 id="submission">Submission</h3>
+
+<p>In order to use a DropZone as a file input for a form, it is required that the form is submitted as a XHR / Ajax request. This is necessary as we need to be able to query the DropZoneComponent API to retrieve files before sending the form.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nx">form</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">getFilesFromDropZone</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="nx">data</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'dropzone-file'</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">raw</span><span class="p">);</span>
+
+<span class="c1">// ...</span>
+</code></pre>
+</div>
+
+<p>When retrieving files from a DropZone instance, you should expect the following schema.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="err">id:</span><span class="w"> </span><span class="err">[Number],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">identifier</span><span class="w">
+    </span><span class="err">raw:</span><span class="w"> </span><span class="err">[FileObject],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">reference</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">FileObject</span><span class="w">
+    </span><span class="err">name:</span><span class="w"> </span><span class="err">[String],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">file</span><span class="w"> </span><span class="err">name</span><span class="w">
+    </span><span class="err">type:</span><span class="w"> </span><span class="err">[String],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">file</span><span class="w"> </span><span class="err">type</span><span class="w">
+    </span><span class="err">size:</span><span class="w"> </span><span class="err">[String],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">file</span><span class="w"> </span><span class="err">size</span><span class="w">
+    </span><span class="err">thumbnail:</span><span class="w"> </span><span class="err">[String|false],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">file</span><span class="w"> </span><span class="err">thumbnail</span><span class="w">
+    </span><span class="err">meta:</span><span class="w"> </span><span class="err">[Object]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">additional</span><span class="w"> </span><span class="err">file</span><span class="w"> </span><span class="err">information</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<hr />
+
+<h2 id="options">Options</h2>
+
+<p>Options can be initialised as part of the <code class="highlighter-rouge">init({...options})</code> method, or as attributes on DropZone HTML elements. Below are a list of configurable options with an environment table showing initiation examples.</p>
+
+<p>Any option from the reference above that is prefixed with <code class="highlighter-rouge">data-dropzone-</code> can be initialised using the twig helper (or HTML when in passive mode) or through the DropZone’s <code class="highlighter-rouge">init(...)</code> method as a camel case version of the attribute.</p>
+
+<hr />
+
+<h4 id="max-files">Max Files</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {String|Number}
+@default [5]
+</code></pre>
+</div>
+
+<p>The max files option sets the maximum amount of files allowed onto the DropZone, this is a running total and will persist across multiple drops. If the limit is exceeded a DropZone error will be thrown.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-max-files': '5' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-max-files="5"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ maxfiles: 5 })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="max-size">Max Size</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {String|Number}
+@default [3e+8]
+</code></pre>
+</div>
+
+<p>The max size option sets the maximum amount of bytes allowed on the DropZone, this is a running total and will persist across multiple drops. If the limit is exceeded a DropZone error will be thrown.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-max-size': '50000' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-max-size="50000"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ maxSize: 50000 })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="idle-html">Idle HTML</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {String}
+@default ['your files here or &lt;a class="dropzone__browse" id="#"&gt;Browse Files&lt;/a&gt;']
+</code></pre>
+</div>
+
+<p>The idle HTML option specifies the HTML content for the DropZone helper node when it is in it’s idle state.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-idle-html': '&lt;p&gt;foo&lt;/p&gt;' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-idle-html="&lt;p&gt;foo&lt;/p&gt;"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ idleHtml: '&lt;p&gt;foo&lt;/p&gt;' })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="window-enter-html">Window enter HTML</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {String}
+@default ['Drag your files here']
+</code></pre>
+</div>
+
+<p>The window enter HTML option specifies the HTML content for the DropZone helper node when files have entered the window.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-window-enter-html': '&lt;p&gt;foo&lt;/p&gt;' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-window-enter-html="&lt;p&gt;foo&lt;/p&gt;"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ windowEnterHtml: '&lt;p&gt;foo&lt;/p&gt;' })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="dropzone-enter-html">DropZone enter HTML</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {String}
+@default ['Drop your files here']
+</code></pre>
+</div>
+
+<p>The DropZone enter HTML option specifies the HTML content for the DropZone helper node when files have entered the DropZone.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-drop-zone-enter-html': '&lt;p&gt;foo&lt;/p&gt;' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-drop-zone-enter-html="&lt;p&gt;foo&lt;/p&gt;"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ dropZoneEnterHtml: '&lt;p&gt;foo&lt;/p&gt;' })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="passive-1">Passive</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {Boolean}
+@default [false]
+</code></pre>
+</div>
+
+<p>The passive option specifies if the DropZone will be in passive mode.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-passive': true })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-passive="true"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ passive: true })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="supported">Supported</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {Boolean}
+@default [true]
+</code></pre>
+</div>
+
+<p>The supported option specifies whether the plugin attaches events to the environment. This will typically be used in environments that do not support the File API, IE9 for instance. Therefore it makes most sense to set this options in the JavaScript init code as we’ll be able to determine the environment at that point.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-supported': false })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-supported="false"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ supported: document.documentElement.search('lt-ie10') &lt; 0 })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="input-node-id">Input node ID</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {String|null}
+@default [null]
+</code></pre>
+</div>
+
+<p><img src="/pulsar/assets/image_examples/dropzone-input-node.gif" alt="DropZoneComponent input node" class="dropzone-example" /></p>
+
+<p>The input node ID option specifies whether there is a corresponding input node, the value should be the ID attribute on said node. This is useful if you need to hook the DropZone up to an already existing input node, it also allows us to use the native “Browse” functionality.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-input-node-id': 'foo' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-input-node-id="foo"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ inputNodeId: 'foo' })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="show-input-node">Show input node</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {Boolean}
+@default [false]
+</code></pre>
+</div>
+
+<p>The show input node option specifies if the corresponding input node should be hidden by the DropZoneComponent. It’s recommended that this is handled in CSS to prevent any flashing of the input element.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-show-input-node': 'true' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-show-input-node="true"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ showInputNode: true })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="file-node-description">File node description</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {Boolean}
+@default [true]
+</code></pre>
+</div>
+
+<p>The file node description option specifies if the file HTML that is generated includes the file description.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-file-node-name': 'false' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-file-node-name="false"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ fileNodeDesc: false })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="file-node-name">File node name</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {Boolean}
+@default [true]
+</code></pre>
+</div>
+
+<p>The file node name option specifies if the file HTML that is generated includes the file name.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-file-node-name': 'false' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-file-node-name="false"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ fileNodeName: false })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="file-node-size">File node size</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {Boolean}
+@default [true]
+</code></pre>
+</div>
+
+<p>The file node size option specifies if the file HTML that is generated includes the file size.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-file-node-size': 'false' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-file-node-size="false"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ fileNodeSize: false })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="file-node-type">File node type</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@param {Boolean}
+@default [true]
+</code></pre>
+</div>
+
+<p>The file node type option specifies if the file HTML that is generated includes the file type.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Twig</td>
+      <td><code class="highlighter-rouge">html.dropzone({ 'data-dropzone-file-node-type': 'false' })</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td><code class="highlighter-rouge">&lt;div data-dropzone-file-node-type="false"&gt;&lt;/div&gt;</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td><code class="highlighter-rouge">dropZoneComponent.init({ fileNodeType: false })</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="callbacks">Callbacks</h2>
+
+<p>There are several callbacks at your disposal when it comes to interacting with the DropZone API. These will come in handy when the DropZone is in <code class="highlighter-rouge">passive</code> mode. Each callback is fired and passed an object containing contextual information.</p>
+
+<hr />
+
+<h4 id="window-enter">Window enter</h4>
+
+<p>The window enter callback is triggered once files have been dragged onto the browser window.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="cm">/**
+     * @param {Boolean} valid | Determine if the files are valid
+     * @param {String} text | If the files are not valid this is the validation message
+     * @param {DropZoneComponent} instance | A reference to the DropZoneComponent
+     */</span>
+    <span class="na">customWindowEnter</span><span class="p">:</span> <span class="p">({</span> <span class="nx">valid</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="nx">instance</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="s1">'Window entered!'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="window-leave">Window leave</h4>
+
+<p>The window leave callback is triggered once files have been dragged off of the window.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="cm">/**
+     * @param {DropZoneComponent} instance | A reference to the DropZoneComponent
+     */</span>
+    <span class="na">customWindowLeave</span><span class="p">:</span> <span class="p">({</span> <span class="nx">instance</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="s1">'Window exited!'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="dropzone-enter">DropZone enter</h4>
+
+<p>The DropZone enter callback is triggered once files have been dragged onto the DropZone element.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="cm">/**
+     * @param {Boolean} valid | Determine if the files are valid
+     * @param {String} text | If the files are not valid this is the validation message
+     * @param {DropZoneComponent} instance | A reference to the DropZoneComponent
+     */</span>
+    <span class="na">customDropZoneEnter</span><span class="p">:</span> <span class="p">({</span> <span class="nx">valid</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="nx">instance</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="s1">'DropZone entered!'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="dropzone-leave">DropZone leave</h4>
+
+<p>The DropZone leave callback is triggered once files have been dragged off of the DropZone element.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="cm">/**
+     * @param {Boolean} valid | Determine if the files are valid
+     * @param {String} text | If the files are not valid this is the validation message
+     * @param {DropZoneComponent} instance | A reference to the DropZoneComponent
+     */</span>
+    <span class="na">customDropZoneEnter</span><span class="p">:</span> <span class="p">({</span> <span class="nx">valid</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="nx">instance</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="s1">'DropZone exited!'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="dropzone-drop">DropZone drop</h4>
+
+<p>The DropZone drop callback is triggered once files have been dropped onto the DropZone element.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="cm">/**
+     * @param {Boolean} valid | Determine if the files are valid
+     * @param {String} text | If the files are not valid this is the validation message
+     * @param {Array} files | A collection of file objects
+     * @param {DropZoneComponent} instance | A reference to the DropZoneComponent
+     */</span>
+    <span class="na">customDropZoneDrop</span><span class="p">:</span> <span class="p">({</span> <span class="nx">files</span><span class="p">,</span> <span class="nx">valid</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="nx">instance</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="s1">'DropZone drop!'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+<hr />
+
+<h4 id="window-drop">Window drop</h4>
+
+<p>The window drop callback is triggered once files have been dropped onto window, but <em>not</em> the DropZone.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="cm">/**
+     * @param {Array} files | A collection of file objects
+     * @param {DropZoneComponent} instance | A reference to the DropZoneComponent
+     */</span>
+    <span class="na">customWindowDrop</span><span class="p">:</span> <span class="p">({</span> <span class="nx">files</span><span class="p">,</span> <span class="nx">instance</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="s1">'Window drop!'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="file-removed">File removed</h4>
+
+<p>The file removed callback is triggered once a file has been removed from the DropZone.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="cm">/**
+     * @param {DropZoneComponent} instance | A reference to the DropZoneComponent
+     */</span>
+    <span class="na">customFileRemoved</span><span class="p">:</span> <span class="p">({</span> <span class="nx">instance</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="s1">'File removed!'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="public-methods">Public Methods</h2>
+
+<p>There are a few public methods at your disposal when integrating a DropZone which are intended to make creating custom instances as flexible as they can be. Most public methods will take the DropZoneId as an argument, this is an integer representing the DropZoneComponent instance. It will be added to DropZoneComponents once they have been initialised in both passive and non-passive modes.</p>
+
+<hr />
+
+<h4 id="validate-files">Validate files</h4>
+
+<p>The <code class="highlighter-rouge">validateFiles</code> method will pass files through the DropZoneComponent validator.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {FileList} files | file(s) to pass through the validator
+ * @param {number} id | DropZoneComponent ID
+ * @returns  validation object
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">validateFiles</span><span class="p">(</span><span class="nx">files</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span> 
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="add-files-to-dropzone">Add files to DropZone</h4>
+
+<p>The <code class="highlighter-rouge">addFilesToDropZone</code> method will add a collection of files to a DropZone instance.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {FileList} files | file(s) to add to the instance
+ * @param {number} id | DropZoneComponent ID
+ * @param {Object} meta | an optional object of data to add to the file object 
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">addFilesToDropZone</span><span class="p">(</span><span class="nx">files</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="p">{</span> <span class="na">description</span><span class="p">:</span> <span class="s1">'my file'</span> <span class="p">});</span> 
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="reset-dropzone-instance">Reset DropZone instance</h4>
+
+<p>The <code class="highlighter-rouge">reset</code> method can reset all (or specified) DropZone instances. This method will remove any files currently attached to the DropZone and reset the info HTML state.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {number} id | optional DropZoneComponent ID
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span> 
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="get-files-from-dropzone-instance">Get files from DropZone instance</h4>
+
+<p>The <code class="highlighter-rouge">getFilesFromDropZone</code> will return all files attached to an instance. Files will be passed back through the validator to catch edge cases where files are removed after being added onto the DropZone.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {number} id | DropZoneComponent ID
+ * @param {number} index | an optional index referencing a single file 
+ * @returns 
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">getFilesFromDropZone</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span> 
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="get-dropzone-instance-idlehtml">Get DropZone instance idleHtml</h4>
+
+<p>The <code class="highlighter-rouge">getInstanceIdleHtml</code> method retrieves the <code class="highlighter-rouge">idleHtml</code> option on a specified instance.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {number} id | DropZoneComponent ID
+ * @returns {String} idleHtml
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">getInstanceIdleHtml</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span> 
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="get-dropzone-instance-windowenterhtml">Get DropZone instance windowEnterHtml</h4>
+
+<p>The <code class="highlighter-rouge">getInstanceWindowEnterHtml</code> method retrieves the <code class="highlighter-rouge">windowEnterHtml</code> option on a specified instance.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {number} id | DropZoneComponent ID
+ * @returns {String} windowEnterHtml
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">getInstanceWindowEnterHtml</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span> 
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="get-dropzone-instance-dropzoneenterhtml">Get DropZone instance dropZoneEnterHtml</h4>
+
+<p>The <code class="highlighter-rouge">getInstanceDropZoneEnterHtml</code> method retrieves the <code class="highlighter-rouge">dropZoneEnterHtml</code> option on a specified instance.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {number} id | DropZoneComponent ID
+ * @returns {String} dropZoneEnterHtml
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">getInstanceDropZoneEnterHtml</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span> 
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="get-dropzone-instance-supportsdatatransferitems">Get DropZone instance supportsDataTransferItems</h4>
+
+<p>The <code class="highlighter-rouge">getSupportsDataTransferItems</code> method retrieves the <code class="highlighter-rouge">supportsDataTransferItems</code> option on a specified instance.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">dropZoneHtmlNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-dropzone-id'</span><span class="p">));</span>
+
+<span class="cm">/**
+ * @param {number} id | DropZoneComponent ID
+ * @returns {Boolean} data transfer support
+ */</span>
+<span class="nx">dropZoneComponent</span><span class="p">.</span><span class="nx">getSupportsDataTransferItems</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span> 
+</code></pre>
+</div>
+
+
+
+
+        </div>
+    </div>
+
+</body>
+</html>
