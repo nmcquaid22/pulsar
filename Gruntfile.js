@@ -30,8 +30,13 @@ module.exports = function(grunt) {
                 },
                 options: {
                     browserifyOptions: {
-                        standalone: 'pulsar'
-                    }
+                        standalone: 'pulsar',
+                        debug: true
+                    },
+                    transform: [
+                        ['babelify', { presets: ['es2015'] } ],
+                        ['aliasify', { global: true }]
+                    ]
                 }
             },
             dist: {
@@ -43,7 +48,11 @@ module.exports = function(grunt) {
                     browserifyOptions: {
                         standalone: 'pulsar'
                     },
-                    transform: ['uglifyify']
+                    transform: [
+                        ['babelify', { presets: ['es2015'] } ],
+                        ['aliasify', { global: true }],
+                        'uglifyify'
+                    ]
                 }
             }
         },
@@ -156,7 +165,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['js/**/*.js', 'tests/js/**/*', 'package.json'],
-                tasks: ['browserify']
+                tasks: ['browserify:dev']
             }
         },
 
@@ -474,6 +483,40 @@ module.exports = function(grunt) {
                 reloadOnRestart: true,
                 watchTask: true
             }
+	    },
+
+        casperjs: {
+            options: {
+                async: {
+                    parallel: false
+                },
+                silent: false
+            },
+            files: ['../pulsar/js/casper.js']
+        },
+
+        validation: {
+            options: {
+                reset: grunt.option('reset') || false,
+                stoponerror: false,
+                maxTry: 3,
+                relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'], // ignores these errors
+                generateReport: true,
+                errorHTMLRootDir: "tests/validation/error_reports",
+                useTimeStamp: true,
+                errorTemplate: "tests/validation/w3c_validation_error_Template.html"
+            },
+            files: {
+                src: ['../pulsar/tests/validation/html_output/*.html']
+            }
+        },
+
+	    'gh-pages': {
+            options: {
+                base: 'docs/_site',
+                repo: 'https://github.com/jadu/pulsar.git'
+            },
+            src: ['**']
         }
 
     });
@@ -500,7 +543,7 @@ module.exports = function(grunt) {
         'sass:dev',
         'autoprefixer',
         'bless',
-        'browserify',
+        'browserify:dev',
         'browserSync',
         'watch',
         'email-build'
@@ -564,6 +607,11 @@ module.exports = function(grunt) {
         'exec:updateBower',
         'exec:updateGems',
         'exec:updateNpm'
+    ]);
+
+    grunt.registerTask('validate', [
+        'casperjs',
+        'validation'
     ]);
 
     // load all grunt tasks

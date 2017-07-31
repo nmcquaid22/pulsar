@@ -1,0 +1,10 @@
+{{
+    form.button_group({
+        'type': 'radio',
+        'items': [
+            { label: 'foo' },
+            { label: 'bar' },
+            { label: 'baz' }
+        ]
+    })
+}}

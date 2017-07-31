@@ -34,6 +34,7 @@ var $                     = require('jquery'),
     dt_select     = require('datatables.net-select')(window, $),
 
     ButtonComponent = require('./ButtonComponent'),
+    DisableUiComponent = require('./DisableUiComponent'),
     HelpTextComponent = require('./HelpTextComponent'),
     FilterBarComponent = require('./FilterBarComponent'),
     FlashMessageComponent = require('./FlashMessageComponent'),
@@ -42,21 +43,26 @@ var $                     = require('jquery'),
     NavMainComponent = require('./NavMainComponent'),
     PulsarFormComponent = require('./PulsarFormComponent'),
     PulsarUIComponent = require('./PulsarUIComponent'),
-    SignInComponent = require('./area/signin/signin');
+    PulsarSortableComponent = require('./PulsarSortableComponent'),
+    SignInComponent = require('./area/signin/signin'),
+    DropZoneComponentFactory = require('./DropZone/DropZoneComponentFactory');
 
-    require('jstree')
+    require('jstree');
 
 module.exports = {
-    ButtonComponent: ButtonComponent,
-    HelpTextComponent: HelpTextComponent,
-    FilterBarComponent: FilterBarComponent,
-    FlashMessageComponent: FlashMessageComponent,
-    MasterSwitchComponent: MasterSwitchComponent,
-    ModulePermissionsComponent: ModulePermissionsComponent,
-    NavMainComponent: NavMainComponent,
-    PulsarFormComponent: PulsarFormComponent,
-    PulsarUIComponent: PulsarUIComponent,
-    SignInComponent: SignInComponent,
-    history: history,
-    svgeezy: svgeezy
+    ButtonComponent,
+    DropZoneComponentFactory,
+    DisableUiComponent,
+    HelpTextComponent,
+    FilterBarComponent,
+    FlashMessageComponent,
+    MasterSwitchComponent,
+    ModulePermissionsComponent,
+    NavMainComponent,
+    PulsarFormComponent,
+    PulsarUIComponent,
+    PulsarSortableComponent,
+    SignInComponent,
+    history,
+    svgeezy
 };
