@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         browserify: {
             dev: {
                 files: {
-                    'dist/js/bundle.js': ['js/index.js'],
+                    'dist/js/lexicon-bundle.js': ['js/lexicon-index.js'],
                     'dist/js/test.js': ['tests/js/web/index.js']
                 },
                 options: {
@@ -41,8 +41,23 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/js/bundle.js': ['js/index.js'],
+                    'dist/js/lexicon-bundle.js': ['js/lexicon-index.js'],
                     'dist/js/test.js': ['tests/js/web/index.js']
+                },
+                options: {
+                    browserifyOptions: {
+                        standalone: 'pulsar'
+                    },
+                    transform: [
+                        ['babelify', { presets: ['es2015'] } ],
+                        ['aliasify', { global: true }],
+                        'uglifyify'
+                    ]
+                }
+            },
+            prod: {
+                files: {
+                    'dist/js/pulsar-production-bundle.js': ['js/production-index.js']
                 },
                 options: {
                     browserifyOptions: {
