@@ -57,7 +57,7 @@ module.exports = function(grunt) {
             },
             prod: {
                 files: {
-                    'dist/js/pulsar-production-bundle.js': ['js/production-index.js']
+                    'dist/js/pulsar.js': ['js/pulsar-production-index.js']
                 },
                 options: {
                     browserifyOptions: {
