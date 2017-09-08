@@ -319,6 +319,10 @@
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
             </li>
           
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/toggle/">Toggle switch</a>
+            </li>
+          
           </ol>
       
 
@@ -476,10 +480,10 @@
 
 <h2 id="setting-columns-in-sass">Setting columns in Sass</h2>
 
-<p>To make an element fit a specific number of columns, use the <code class="highlighter-rouge">span()</code> mixin, supplying a number from 1-12.</p>
+<p>To make an element fit a specific number of columns, use the <code class="highlighter-rouge">col-span()</code> mixin, supplying a number from 1-12.</p>
 
 <div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="nc">.my-element</span> <span class="err">{</span>
-    <span class="k">@include</span> <span class="nd">span</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="err">;</span>
+    <span class="k">@include</span> <span class="nd">col-span</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="err">;</span>
     <span class="nc">...</span>
 <span class="err">}</span>
 </code></pre>
@@ -491,13 +495,13 @@
 
 <p><img src="/pulsar/assets/image_examples/grid-4.png" alt="grid example" /></p>
 
-<p>Individual components or elements may override this behaviour by setting the <code class="highlighter-rouge">force</code> parameter of the <code class="highlighter-rouge">span()</code> mixin to <code class="highlighter-rouge">true</code>.</p>
+<p>Individual components or elements may override this behaviour by setting the <code class="highlighter-rouge">force</code> parameter of the <code class="highlighter-rouge">col-span()</code> mixin to <code class="highlighter-rouge">true</code>.</p>
 
 <p>You can (and perhaps should) restrict your override to affect only the mobile breakpoint by using the <code class="highlighter-rouge">respond-max($screen-tablet)</code> breakpoint, for example:</p>
 
 <div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="nc">.my-element</span> <span class="err">{</span>
     <span class="k">@include</span> <span class="nd">respond-max</span><span class="p">(</span><span class="nv">$screen-tablet</span><span class="p">)</span> <span class="err">{</span>
-        <span class="k">@include</span> <span class="nd">span</span><span class="p">(</span><span class="m">5</span><span class="o">,</span> <span class="bp">true</span><span class="p">)</span><span class="err">;</span>
+        <span class="k">@include</span> <span class="nd">col-span</span><span class="p">(</span><span class="m">5</span><span class="o">,</span> <span class="bp">true</span><span class="p">)</span><span class="err">;</span>
         <span class="nc">...</span>
     <span class="err">}</span>
 <span class="err">}</span>
@@ -511,11 +515,11 @@
 <p>This method also means you don’t need to declare column classes in the markup.</p>
 
 <div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="nc">.my-element</span> <span class="err">{</span>
-    <span class="k">@include</span> <span class="nd">span</span><span class="p">(</span><span class="m">10</span><span class="o">,</span> <span class="bp">true</span><span class="p">)</span><span class="err">;</span>
+    <span class="k">@include</span> <span class="nd">col-span</span><span class="p">(</span><span class="m">10</span><span class="o">,</span> <span class="bp">true</span><span class="p">)</span><span class="err">;</span>
     <span class="c1">// mobile styles here
 </span>
     <span class="k">@include</span> <span class="nd">respond-min</span><span class="p">(</span><span class="nv">$screen-tablet</span><span class="p">)</span> <span class="err">{</span>
-        <span class="k">@include</span> <span class="nd">span</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="err">;</span>
+        <span class="k">@include</span> <span class="nd">col-span</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="err">;</span>
         <span class="c1">// tablet -&gt; desktop styles here
 </span>    <span class="err">}</span>
 <span class="err">}</span>

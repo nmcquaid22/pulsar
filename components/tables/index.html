@@ -319,6 +319,10 @@
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
             </li>
           
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/toggle/">Toggle switch</a>
+            </li>
+          
           </ol>
       
 
@@ -459,6 +463,33 @@
   <li>has-inverse</li>
   <li>has-new</li>
 </ul>
+
+<h2 id="tables-with-badges-in-actions-dropdown">Tables with badges in “Actions” dropdown</h2>
+
+<p>To add badges to the “Actions” dropdown when items are selected a class “has-badges” needs to be added in an element (div or form) grouping both the dropdown and the table together.</p>
+
+<p><img src="../assets/image_examples/table-with-badged-dropdown.gif" alt="Screenshot" /></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"has-badges"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;button</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">class=</span><span class="s">"btn dropdown__toggle"</span><span class="nt">&gt;</span>Actions<span class="ni">&amp;nbsp;</span><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
+	...
+	<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;thead&gt;</span>
+	        <span class="nt">&lt;tr&gt;</span>
+	            <span class="nt">&lt;th&gt;</span>Column 1<span class="nt">&lt;/th&gt;</span>
+	            <span class="nt">&lt;th&gt;</span>Column 2<span class="nt">&lt;/th&gt;</span>
+	        <span class="nt">&lt;/tr&gt;</span>
+	    <span class="nt">&lt;/thead&gt;</span>
+	    <span class="nt">&lt;tbody&gt;</span>
+	        <span class="nt">&lt;tr&gt;</span>
+	            <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+	            <span class="nt">&lt;td&gt;</span>Cell 2<span class="nt">&lt;/td&gt;</span>
+	        <span class="nt">&lt;/tr&gt;</span>
+	    <span class="nt">&lt;/tbody&gt;</span>
+	<span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
 
 <h2 id="accessibility">Accessibility</h2>
 
