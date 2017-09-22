@@ -560,6 +560,37 @@
 <p data-height="130" data-theme-id="24005" data-slug-hash="ALKdAO" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ALKdAO/">docs - html - panel centered</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
 
+<h2 id="call-to-action">Call to Action</h2>
+
+<p>Use a combination of <code class="highlighter-rouge">.btn--outline</code> and <code class="highlighter-rouge">.btn--small</code> with either <code class="highlighter-rouge">.btn--inverse</code> or <code class="highlighter-rouge">.btn--white</code> depending on the colour of the panel you’re using.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">{</span><span class="w">
+    </span><span class="err">html.panel({</span><span class="w">
+        </span><span class="err">'title':</span><span class="w"> </span><span class="err">'Hello',</span><span class="w">
+        </span><span class="err">'body':</span><span class="w"> </span><span class="err">'You</span><span class="w"> </span><span class="err">need</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">thing.</span><span class="w"> </span><span class="err">'</span><span class="w"> </span><span class="err">~</span><span class="w">
+                </span><span class="err">html.button({</span><span class="w">
+                    </span><span class="err">'label':</span><span class="w"> </span><span class="err">'Don’t</span><span class="w"> </span><span class="err">Do</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">Thing',</span><span class="w">
+                    </span><span class="err">'class':</span><span class="w"> </span><span class="err">'btn--outline</span><span class="w"> </span><span class="err">btn--small</span><span class="w"> </span><span class="err">btn--inverse'</span><span class="w">
+                </span><span class="p">}</span><span class="err">)</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="err">'&amp;nbsp;'</span><span class="w"> </span><span class="err">~</span><span class="w">
+                </span><span class="err">html.button(</span><span class="p">{</span><span class="w">
+                    </span><span class="err">'label':</span><span class="w"> </span><span class="err">'Do</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">Thing',</span><span class="w">
+                    </span><span class="err">'class':</span><span class="w"> </span><span class="err">'btn--outline</span><span class="w"> </span><span class="err">btn--small</span><span class="w"> </span><span class="err">btn--inverse'</span><span class="w">
+                </span><span class="p">}</span><span class="err">)</span><span class="w">
+    </span><span class="err">})</span><span class="w">
+</span><span class="err">}}</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="panel">
+    <i aria-hidden="true" class="icon-info-sign panel__icon"></i>
+    <div class="panel__title">
+        Hello
+    </div>
+    <div class="panel__body">
+        You need to do a thing.
+        <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>&nbsp;<button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+    </div>
+</div>
 
 
 
