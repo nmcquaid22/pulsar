@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -460,8 +474,14 @@
           </div>
 </div>
 
-<p data-height="75" data-theme-id="24005" data-slug-hash="VKadqO" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/VKadqO/">docs - form - checkbox</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-checkbox">
+        <label for="inputCheckboxLeft" class="control__label">Default checkbox</label>
+        <div class="controls">
+            <input id="inputCheckboxLeft" name="inputCheckboxLeft" checked="" type="checkbox" class="form__control checkbox" />
+        </div>
+    </div>
+</div>
 
 <h2 id="options-applied-to-parent-wrapper">Options applied to parent wrapper</h2>
 
@@ -588,8 +608,15 @@
 </code></pre>
 </div>
 
-<p data-height="95" data-theme-id="24005" data-slug-hash="gwANNx" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/gwANNx/">docs - form - checkbox error</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-checkbox has-error">
+        <label for="inputCheckboxLeft" class="control__label">Default checkbox</label>
+        <div class="controls">
+            <input id="inputCheckboxLeft" name="inputCheckboxLeft" checked="" type="checkbox" class="form__control checkbox" />
+            <span class="help-block is-error"><i class="icon-warning-sign"></i> Something went wrong</span>
+        </div>
+    </div>
+</div>
 
 <h2 id="label-alignment">Label alignment</h2>
 
@@ -605,8 +632,14 @@
 </code></pre>
 </div>
 
-<p data-height="75" data-theme-id="24005" data-slug-hash="VKadqO" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/VKadqO/">docs - form - checkbox</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-checkbox">
+        <label for="inputCheckboxLeft" class="control__label">Default checkbox</label>
+        <div class="controls">
+            <input id="inputCheckboxLeft" name="inputCheckboxLeft" checked="" type="checkbox" class="form__control checkbox" />
+        </div>
+    </div>
+</div>
 
 <h2 id="checkbox-inline">Checkbox inline</h2>
 
@@ -639,8 +672,15 @@
 </code></pre>
 </div>
 
-<p data-height="75" data-theme-id="24005" data-slug-hash="qakKvg" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/qakKvg/">docs - form - checkbox right label</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-checkbox-inline">
+        <div class="controls">
+            <label for="inputCheckboxRight" class="control__label">
+                <input id="inputCheckboxRight" name="inputCheckboxInline" checked="" type="checkbox" class="form__control checkbox" />Checkbox inline
+            </label>
+        </div>
+    </div>
+</div>
 
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">form.checkbox_inline</span><span class="p">(</span><span class="err">{</span>
@@ -653,14 +693,32 @@
 </code></pre>
 </div>
 
-<div><p data-height="75" data-theme-id="24005" data-slug-hash="kkbjxQ" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/kkbjxQ/">docs - form - checkbox inline</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<div class="pulsar-example form">
+    <div class="form__group form-checkbox-inline">
+        <div class="controls">
+            <label for="inputCheckboxRight" class="control__label">Checkbox on the right <input id="inputCheckboxRight" name="inputCheckboxInline" checked="" type="checkbox" class="form__control checkbox" /></label>
+        </div>
+    </div>
+</div>
 
 <h2 id="indented-checkbox">Indented checkbox</h2>
 
 <p>Using <code class="highlighter-rouge">form.checkbox_inline</code> will cause the checkbox input to not follow the normal flow of a regular pulsar form, if you want to maintain form alignment, use the <code class="highlighter-rouge">form__group--indent</code> class to restore the position.</p>
 
-<div><p data-height="160" data-theme-id="24005" data-slug-hash="bwpmbX" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/bwpmbX/">docs - form - checkbox right label</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></div>
+<div class="pulsar-example form">
+    <div class="form__group form-checkbox-inline">
+        <div class="controls">
+            <label for="inputCheckboxRight" class="control__label">
+                <input id="inputCheckboxRight" name="inputCheckboxInline" checked="" type="checkbox" class="form__control checkbox" />Checkbox inline</label>
+        </div>
+    </div>
+    <div class="form__group form-checkbox-inline form__group--indent">
+        <div class="controls">
+            <label for="inputCheckboxIndented" class="control__label">
+                <input id="inputCheckboxIndented" name="inputCheckboxInline" checked="" type="checkbox" class="form__control checkbox" />Checkbox inline &amp; indented</label>
+        </div>
+    </div>
+</div>
 
 <h2 id="alternative-styling">Alternative styling</h2>
 
@@ -668,19 +726,47 @@
 
 <h6 id="choice-block">Choice block</h6>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="amNRyY" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/amNRyY/">docs - form - checkbox choice block</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-choice choice--block">
+        <label class="control__label">Choice block</label>
+        <div class="controls">
+            <label class="control__label">
+                <input value="bold" name="foo" type="checkbox" class="form__control checkbox" /><i class="icon-bold"></i> Bold
+            </label>
+            <label class="control__label">
+                <input value="italic" name="foo" type="checkbox" class="form__control checkbox" /><i class="icon-italic"></i> Italic
+            </label>
+            <label class="control__label">
+                <input value="underline" name="foo" type="checkbox" class="form__control checkbox" /><i class="icon-underline"></i> Underline
+            </label>
+        </div>
+    </div>
+</div>
 
 <h6 id="button-group">Button group</h6>
 
-<p data-height="70" data-theme-id="24005" data-slug-hash="jrqZpy" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/jrqZpy/">docs - form - checkbox button group</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form__button-group">
+        <label class="control__label">Band</label>
+        <div class="controls btn__group">
+            <input id="am" name="bands" type="checkbox" class="form__control checkbox" /><label for="am" class="control__label">AM</label><!--
+            --><input id="fm" name="bands" type="checkbox" class="form__control checkbox" /><label for="fm" class="control__label">FM</label><!--
+            --><input id="mw" name="bands" type="checkbox" class="form__control checkbox" /><label for="mw" class="control__label">MW</label>
+        </div>
+    </div>
+</div>
 
 <h6 id="toggle-switch">Toggle switch</h6>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="mAPzjN" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/mAPzjN/">docs - form - checkbox toggle switch</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="toggletest" class="control__label">Toggle</label>
+        <div class="controls">
+            <input label="Toggle" id="toggletest" type="checkbox" class="form__control toggle-switch" />
+            <label for="toggletest" class="control__label toggle-switch-label"><span class="hide">Toggle</span></label>
+        </div>
+    </div>
+</div>
 
 
 

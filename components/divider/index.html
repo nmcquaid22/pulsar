@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -432,8 +446,17 @@
             <h1 class="page-title">Divider</h1>
             <p>Used to visually group or separate links in <a href="button_dropdown.md">html.button_dropdown</a> elements.</p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="dGVOZg" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/dGVOZg/">dGVOZg</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example" style="height: 200px">
+    <div class="btn__group dropdown open">
+        <button class="btn dropdown__toggle" data-toggle="dropdown">Actions&nbsp;<span class="caret"></span></button>
+        <ul class="dropdown__menu pull-left">
+            <li><a href="/save"><i class="icon-save"></i>&nbsp;Save</a></li>
+            <li><a href="/edit"><i class="icon-pencil"></i>&nbsp;Edit</a></li>
+            <li><span class="divider"></span></li>
+            <li><a href="/delete" class="link--danger"><i class="icon-remove"></i>&nbsp;Delete</a></li>
+        </ul>
+    </div>
+</div>
 
 <h2 id="basic-usage">Basic usage</h2>
 
@@ -460,19 +483,19 @@
     <span class="nv">html.button_dropdown</span><span class="p">(</span><span class="err">{</span>
         <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Drop Down'</span><span class="p">,</span>
         <span class="s1">'items'</span><span class="err">:</span> <span class="p">[</span>
-            <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span> 
-                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Save'</span><span class="p">,</span> 
+            <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Save'</span><span class="p">,</span>
                 <span class="s1">'href'</span><span class="err">:</span> <span class="s1">'/save'</span><span class="p">,</span>
                 <span class="s1">'icon'</span><span class="err">:</span> <span class="s1">'save'</span>
             <span class="err">}</span><span class="p">),</span>
-            <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span> 
-                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Edit'</span><span class="p">,</span> 
+            <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Edit'</span><span class="p">,</span>
                 <span class="s1">'href'</span><span class="err">:</span> <span class="s1">'/edit'</span><span class="p">,</span>
                 <span class="s1">'icon'</span><span class="err">:</span> <span class="s1">'pencil'</span>
             <span class="err">}</span><span class="p">),</span>
             <span class="nv">html.divider</span><span class="p">(),</span>
-            <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span> 
-                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Delete'</span><span class="p">,</span> 
+            <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Delete'</span><span class="p">,</span>
                 <span class="s1">'href'</span><span class="err">:</span> <span class="s1">'/delete'</span><span class="p">,</span>
                 <span class="s1">'icon'</span><span class="err">:</span> <span class="s1">'remove'</span>
             <span class="err">}</span><span class="p">),</span>
@@ -522,9 +545,21 @@
 
 <p>Delete actions should ideally be placed as the last item, and be separated with a divider. Multiple delete actions should be grouped (delete / delete all).</p>
 
-<p data-height="280" data-theme-id="24005" data-slug-hash="XXeNXM" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/XXeNXM/">XXeNXM</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
+<div class="pulsar-example" style="height: 300px">
+    <div class="btn__group dropdown open">
+        <button class="btn dropdown__toggle" data-toggle="dropdown">Actions&nbsp;<span class="caret"></span></button>
+        <ul class="dropdown__menu pull-left">
+            <li><a href="/save"><i class="icon-save"></i>&nbsp;Save</a></li>
+            <li><a href="/edit"><i class="icon-pencil"></i>&nbsp;Edit</a></li>
+            <li><span class="divider"></span></li>
+            <li><a href="/publish"><i class="icon-cloud-upload"></i>&nbsp;Publish</a></li>
+            <li><a href="/translate"><i class="icon-globe"></i>&nbsp;Translate</a></li>
+            <li><a href="/locl"><i class="icon-lock"></i>&nbsp;Lock</a></li>
+            <li><span class="divider"></span></li>
+            <li><a href="/delete" class="link--danger"><i class="icon-remove"></i>&nbsp;Delete</a></li>
+        </ul>
+    </div>
+</div>
 
 
 

@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -462,8 +476,20 @@
           </div>
 </div>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="bwpWbb" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/bwpWbb/">docs - html - panel</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel">
+        <div class="panel__title">
+            <i class="icon-info-sign"></i> Default panel
+        </div>
+        <div class="panel__body">
+            <p>What you wanna ball with the kid
+            Watch your step you might fall
+            Trying to do what I did
+            Mama-unh mama-unh mama come closer
+            In the middle of the club with the rub-a-dub, unh</p>
+        </div>
+    </div>
+</div>
 
 <h2 id="options">Options</h2>
 
@@ -476,6 +502,16 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>actions</td>
+      <td>array</td>
+      <td>An array of <code class="highlighter-rouge">html.button</code> options to be displayed within the panel</td>
+    </tr>
+    <tr>
+      <td>actions_position</td>
+      <td>string</td>
+      <td>Position of the actions, <code class="highlighter-rouge">left</code> (default), <code class="highlighter-rouge">inline</code>, <code class="highlighter-rouge">center</code>, <code class="highlighter-rouge">right</code></td>
+    </tr>
     <tr>
       <td>body</td>
       <td>string</td>
@@ -513,33 +549,104 @@
 
 <p>Use the standard state variations to reinforce the message your panel is displaying.</p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="RGayjr" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/RGayjr/">docs - html - panel inverse</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel">
+        <div class="panel__title">
+            <i class="icon-info-sign"></i> Default panel
+        </div>
+        <div class="panel__body">
+            <p>What you wanna ball with the kid
+                Watch your step you might fall
+                Trying to do what I did
+                Mama-unh mama-unh mama come closer
+                In the middle of the club with the rub-a-dub, unh</p>
+        </div>
+    </div>
+</div>
 
 <p><code class="highlighter-rouge">.panel--info</code></p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="JRXvpW" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/JRXvpW/">docs - html - panel info</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel panel--info">
+        <div class="panel__title">
+            <i class="icon-question-sign"></i> Info panel
+        </div>
+        <div class="panel__body">
+            <p>No love for the haters, the haters
+                Mad cause I got floor seats at the Lakers
+                See me on the fifty yard line with the Raiders
+                Met Ali he told me I’m the greatest
+                I got the fever for the flavor of a crowd pleaser</p>
+        </div>
+    </div>
+</div>
 
 <p><code class="highlighter-rouge">.panel--success</code></p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="GjkdQG" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/GjkdQG/">docs - html - panel success</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel panel--success">
+        <div class="panel__title">
+            <i class="icon-ok-sign"></i> Success panel
+        </div>
+        <div class="panel__body">
+            <p>DJ play another
+                From the prince of this
+                Your highness
+                Only mad chicks ride in my whips
+                South to the west to the east to the north</p>
+        </div>
+    </div>
+</div>
 
 <p><code class="highlighter-rouge">.panel--warning</code></p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="ORNkjo" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ORNkjo/">docs - html - panel default</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel panel--warning">
+        <div class="panel__title">
+            <i class="icon-warning-sign"></i> Warning panel
+        </div>
+        <div class="panel__body">
+            <p>Bought my hits and watch ’em go off a go off
+                Ah yes yes y’all ya don't stop
+                In the winter or the (summertime)
+                I makes it hot
+                Gettin jiggy wit ’em</p>
+        </div>
+    </div>
+</div>
 
 <p><code class="highlighter-rouge">.panel--danger</code></p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="Xjdqzd" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/Xjdqzd/">docs - html - panel danger</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel panel--danger">
+        <div class="panel__title">
+            <i class="icon-exclamation-sign"></i> Danger panel
+        </div>
+        <div class="panel__body">
+            <p>Eight-fifty I.S. if you need a lift
+                Who’s the kid in the drop
+                Who else Will Smith
+                Livin’ that life some consider a myth Rock from south street to one two fifth</p>
+        </div>
+    </div>
+</div>
 
 <p><code class="highlighter-rouge">.panel--inverse</code></p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="ozxddG" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ozxddG/">docs - html - panel inverse</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel panel--inverse">
+        <div class="panel__title">
+            <i class="icon-remove-sign"></i> Inverse panel
+        </div>
+        <div class="panel__body">
+            <p>Women used to tease me
+                Give it to me now nice and easy
+                Since I moved up like George and Wheezy
+                Cream to the maximum I be askin’ ’em
+                Would you like to bounce with the brother that’s platinum</p>
+        </div>
+    </div>
+</div>
 
 <h2 id="additional-styles">Additional styles</h2>
 
@@ -547,48 +654,233 @@
 
 <h6 id="panel-without-titleicon">Panel without title/icon</h6>
 
-<p data-height="130" data-theme-id="24005" data-slug-hash="bwprLz" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/bwprLz/">docs - html - panel without title</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel">
+        <div class="panel__body">
+            <p>Panels don't need a title or an icon and can be used as standout containers</p>
+        </div>
+    </div>
+</div>
 
 <p><code class="highlighter-rouge">.panel--padded</code></p>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="QKNAZw" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/QKNAZw/">docs - html - panel padded</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel panel--padded">
+        <div class="panel__body">
+            <p>Panels can have increased vertical padding</p>
+        </div>
+    </div>
+</div>
 
-<p><code class="highlighter-rouge">.centered</code></p>
+<p><code class="highlighter-rouge">.u-text-align-center</code></p>
 
-<p data-height="130" data-theme-id="24005" data-slug-hash="ALKdAO" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ALKdAO/">docs - html - panel centered</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="panel centered">
+        <div class="panel__body">
+            <p>Center content where appropriate</p>
+        </div>
+    </div>
+</div>
 
 <h2 id="call-to-action">Call to Action</h2>
 
-<p>Use a combination of <code class="highlighter-rouge">.btn--outline</code> and <code class="highlighter-rouge">.btn--small</code> with either <code class="highlighter-rouge">.btn--inverse</code> or <code class="highlighter-rouge">.btn--white</code> depending on the colour of the panel you’re using.</p>
+<p>The <code class="highlighter-rouge">actions</code> option will accept an array of options which will be passed to the <code class="highlighter-rouge">html.button()</code> helper.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">{</span><span class="w">
-    </span><span class="err">html.panel({</span><span class="w">
-        </span><span class="err">'title':</span><span class="w"> </span><span class="err">'Hello',</span><span class="w">
-        </span><span class="err">'body':</span><span class="w"> </span><span class="err">'You</span><span class="w"> </span><span class="err">need</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">thing.</span><span class="w"> </span><span class="err">'</span><span class="w"> </span><span class="err">~</span><span class="w">
-                </span><span class="err">html.button({</span><span class="w">
-                    </span><span class="err">'label':</span><span class="w"> </span><span class="err">'Don’t</span><span class="w"> </span><span class="err">Do</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">Thing',</span><span class="w">
-                    </span><span class="err">'class':</span><span class="w"> </span><span class="err">'btn--outline</span><span class="w"> </span><span class="err">btn--small</span><span class="w"> </span><span class="err">btn--inverse'</span><span class="w">
-                </span><span class="p">}</span><span class="err">)</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="err">'&amp;nbsp;'</span><span class="w"> </span><span class="err">~</span><span class="w">
-                </span><span class="err">html.button(</span><span class="p">{</span><span class="w">
-                    </span><span class="err">'label':</span><span class="w"> </span><span class="err">'Do</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">Thing',</span><span class="w">
-                    </span><span class="err">'class':</span><span class="w"> </span><span class="err">'btn--outline</span><span class="w"> </span><span class="err">btn--small</span><span class="w"> </span><span class="err">btn--inverse'</span><span class="w">
-                </span><span class="p">}</span><span class="err">)</span><span class="w">
-    </span><span class="err">})</span><span class="w">
-</span><span class="err">}}</span><span class="w">
-</span></code></pre>
+<p>For actions styles, use a combination of <code class="highlighter-rouge">.btn--outline</code> and <code class="highlighter-rouge">.btn--small</code> with either <code class="highlighter-rouge">.btn--inverse</code> or <code class="highlighter-rouge">.btn--white</code> depending on the colour of the panel you’re using.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.panel</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'title'</span><span class="err">:</span> <span class="s1">'Hello'</span><span class="p">,</span>
+        <span class="s1">'body'</span><span class="err">:</span> <span class="s1">'You need to do a thing.'</span><span class="p">,</span>
+        <span class="s1">'actions'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Don’t Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span>
+        <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
 </div>
 
-<div class="panel">
-    <i aria-hidden="true" class="icon-info-sign panel__icon"></i>
-    <div class="panel__title">
-        Hello
+<div class="pulsar-example">
+    <div class="panel">
+        <i aria-hidden="true" class="icon-info-sign panel__icon"></i>
+        <div class="panel__title">
+            Hello
+        </div>
+        <div class="panel__body">
+            You need to do a thing.
+            <div class="panel__actions">
+                <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>
+                <button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+            </div>
+        </div>
     </div>
-    <div class="panel__body">
-        You need to do a thing.
-        <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>&nbsp;<button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+</div>
+
+<h2 id="action-positions">Action positions</h2>
+
+<p>Use the <code class="highlighter-rouge">actions_placement</code> option to control the positin of your action buttons, they can be <code class="highlighter-rouge">left</code> (default), <code class="highlighter-rouge">inline</code>, <code class="highlighter-rouge">center</code> or <code class="highlighter-rouge">right</code>.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.panel</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'title'</span><span class="err">:</span> <span class="s1">'Default (left) placement'</span><span class="p">,</span>
+        <span class="s1">'body'</span><span class="err">:</span> <span class="s1">'You need to do a thing.'</span><span class="p">,</span>
+        <span class="s1">'actions_placement'</span><span class="err">:</span> <span class="s1">'left'</span><span class="p">,</span>
+        <span class="s1">'actions'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Don’t Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span>
+        <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<div class="pulsar-example">
+    <div class="panel">
+        <i aria-hidden="true" class="icon-info-sign panel__icon"></i>
+        <div class="panel__title">Default (left) placement</div>
+        <div class="panel__body">
+            You need to do a thing.
+            <div class="panel__actions">
+                <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>
+                <button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.panel</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'title'</span><span class="err">:</span> <span class="s1">'Inline placement'</span><span class="p">,</span>
+        <span class="s1">'body'</span><span class="err">:</span> <span class="s1">'You need to do a thing.'</span><span class="p">,</span>
+        <span class="s1">'actions_placement'</span><span class="err">:</span> <span class="s1">'inline'</span><span class="p">,</span>
+        <span class="s1">'actions'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Don’t Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span>
+        <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<div class="pulsar-example">
+    <div class="panel">
+        <i aria-hidden="true" class="icon-info-sign panel__icon"></i>
+        <div class="panel__title">Inline placement</div>
+        <div class="panel__body">
+            You need to do a thing.
+            <div class="panel__actions panel__actions--inline">
+                <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>
+                <button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.panel</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'title'</span><span class="err">:</span> <span class="s1">'Centered placement'</span><span class="p">,</span>
+        <span class="s1">'body'</span><span class="err">:</span> <span class="s1">'You need to do a thing.'</span><span class="p">,</span>
+        <span class="s1">'actions_placement'</span><span class="err">:</span> <span class="s1">'center'</span><span class="p">,</span>
+        <span class="s1">'actions'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Don’t Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span>
+        <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<div class="pulsar-example">
+    <div class="panel">
+        <i aria-hidden="true" class="icon-info-sign panel__icon"></i>
+        <div class="panel__title">Centered placement</div>
+        <div class="panel__body">
+            You need to do a thing.
+            <div class="panel__actions panel__actions--center">
+                <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>
+                <button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.panel</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'title'</span><span class="err">:</span> <span class="s1">'Centered placement (with centered panel)'</span><span class="p">,</span>
+        <span class="s1">'class: '</span><span class="nv">u</span><span class="o">-</span><span class="nv">text</span><span class="o">-</span><span class="nv">align</span><span class="o">-</span><span class="nv">center</span><span class="err">'</span><span class="p">,</span>
+        <span class="err">...</span>
+</code></pre>
+</div>
+
+<div class="pulsar-example">
+    <div class="panel u-text-align-center">
+        <div class="panel__title">Centered placement (with centered panel)</div>
+        <div class="panel__body">
+            You need to do a thing.
+            <div class="panel__actions panel__actions--center">
+                <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>
+                <button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">html.panel</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'title'</span><span class="err">:</span> <span class="s1">'Right placement'</span><span class="p">,</span>
+        <span class="s1">'body'</span><span class="err">:</span> <span class="s1">'You need to do a thing.'</span><span class="p">,</span>
+        <span class="s1">'actions_placement'</span><span class="err">:</span> <span class="s1">'right'</span><span class="p">,</span>
+        <span class="s1">'actions'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Don’t Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Do the Thing'</span><span class="p">,</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'.btn--outline .btn--small .btn--inverse'</span>
+            <span class="err">}</span>
+        <span class="p">]</span>
+    <span class="err">}</span><span class="p">)</span>
+<span class="cp">}}</span>
+</code></pre>
+</div>
+
+<div class="pulsar-example">
+    <div class="panel">
+        <i aria-hidden="true" class="icon-info-sign panel__icon"></i>
+        <div class="panel__title">Right placement</div>
+        <div class="panel__body">
+            You need to do a thing.
+            <div class="panel__actions panel__actions--right">
+                <button class="btn btn--outline btn--small btn--inverse">Don’t Do The Thing</button>
+                <button class="btn btn--outline btn--small btn--inverse">Do The Thing</button>
+            </div>
+        </div>
     </div>
 </div>
 

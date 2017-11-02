@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -432,13 +446,41 @@
             <h1 class="page-title">State Styleguide</h1>
             <p>Actions which <strong>modify</strong> a state should (principally) be verbs:</p>
 
-<p data-height="145" data-theme-id="19151" data-slug-hash="MajaBa" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/MajaBa/">MajaBa</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <p>
+      <button class="btn">Lock</button>
+      <button class="btn btn--inverse">Unlock</button>
+    </p>
+
+    <p>
+      <button class="btn btn--primary">Show</button>
+      <button class="btn">Hide</button>
+    </p>
+
+    <p>
+      <button class="btn btn--success">Publish</button>
+      <button class="btn btn--danger">Unpublish</button>
+    </p>
+</div>
 
 <p>Labels which <strong>indicate</strong> the state should be past-participles or adjectives:</p>
 
-<p data-height="120" data-theme-id="19151" data-slug-hash="Kdgdbw" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/Kdgdbw/">docs - state - labels</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <p>
+      <span class="label label--inverse">Locked</span>
+      <span class="label">Unlocked</span>
+    </p>
+
+    <p>
+      <span class="label label--success">Visible</span>
+      <span class="label label--danger">Hidden</span>
+    </p>
+
+    <p>
+      <span class="label label--success">Published</span>
+      <span class="label label--danger">Offline</span>
+    </p>
+</div>
 
 <p>Use the most appropriate mix of verbs/adjectives to describe a related action or state. In the example above for the ‘Unpublish’ action, ‘offline’ is a better adjective to use than ‘unpublished’.</p>
 
@@ -480,8 +522,10 @@
 
 <p>When using iconography there may be the opportunity to use different icons to reflect the state and action; They may often appear together in the same interface.</p>
 
-<p data-height="79" data-theme-id="19151" data-slug-hash="PPGPBx" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/PPGPBx/">docs - state - labels</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <p>Action: <button class="btn"><i class="icon-unlock"></i> Unlock</button></p>
+    <p>State: <span class="label label--inverse"><i class="icon-lock"></i> Locked</span></p>
+</div>
 
 <h2 id="communicating-state-changes">Communicating state changes</h2>
 

@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -432,11 +446,6 @@
             <h1 class="page-title">Notifications</h1>
             <p>Provides a prominent location for notifications to be displayed. A toolbar indicator highlights when new notifications are available and a dropdown list displays the actual notifications.</p>
 
-<div>
-<p data-height="600" data-theme-id="16461" data-slug-hash="grmLyy" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/grmLyy/">docs - notifications</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-</div>
-
 <h2 id="toolbar-indicator">Toolbar indicator</h2>
 
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
@@ -450,9 +459,10 @@
 </code></pre>
 </div>
 
-<div>
-<p data-height="60" data-theme-id="24005" data-slug-hash="aNWXvz" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/aNWXvz/">docs - notifications</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <a href="#" class="notifications-toggle is-active has-new" data-toggle="dropdown"><i class="icon-bell-o"></i></a>
+    <a href="#" class="notifications-toggle is-active" data-toggle="dropdown"><i class="icon-bell-o"></i></a>
+    <a href="#" class="notifications-toggle" data-toggle="dropdown"><i class="icon-bell-o"></i></a>
 </div>
 
 <p>Toggle the states with common state classes</p>

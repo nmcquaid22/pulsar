@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -432,8 +446,22 @@
             <h1 class="page-title">Choice</h1>
             <p>Displayed as a question with multiple answers, each of which has its own label and can allow either singular (checkboxes) or multiple (radios) choice.</p>
 
-<p data-height="185" data-theme-id="24005" data-slug-hash="QNagrB" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/QNagrB/">QNagrB</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-choice form__group--medium">
+        <label class="control__label">Assign blame to</label>
+        <div class="controls">
+
+          <label class="control__label"><input value="sunshine" name="foo" type="radio" class="form__control radio" />Sunshine</label>
+
+          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" />Moonlight</label>
+
+          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" />Good times</label>
+
+          <label class="control__label is-selected"><input value="underline" name="foo" type="radio" checked="" class="form__control radio" />Boogie</label>
+
+        </div>
+    </div>
+</div>
 
 <p>The choice helper will will automatically adhere to Pulsar’s form styleguide by switching to a <a href="select2.md">select2</a> element if more than 5 options are provided.</p>
 
@@ -586,8 +614,22 @@
 </code></pre>
 </div>
 
-<p data-height="185" data-theme-id="24005" data-slug-hash="RoqxPe" data-default-tab="result" data-user="pulsar" data-embed-version="2" data-pen-title="docs - choice - disabled" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/RoqxPe/">docs - choice - disabled</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-choice form__group--medium">
+        <label class="control__label">Assign blame to</label>
+        <div class="controls">
+
+          <label class="control__label"><input value="sunshine" name="foo" type="radio" class="form__control radio" /><span class="form-choice__label">Sunshine</span></label>
+
+          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" disabled="disabled" /><span class="form-choice__label">Moonlight</span></label>
+
+          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" /><span class="form-choice__label">Good times</span></label>
+
+          <label class="control__label is-selected"><input value="underline" name="foo" type="radio" checked="" class="form__control radio" /><span class="form-choice__label">Boogie</span></label>
+
+        </div>
+    </div>
+</div>
 
 <h2 id="choice-block">Choice Block</h2>
 
@@ -603,14 +645,24 @@
 </code></pre>
 </div>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="XdzwME" data-default-tab="result" data-user="pulsar" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/XdzwME/">XdzwME</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-choice choice--block form__group--medium">
+      <label class="control__label">Radios
+        </label><div class="controls"><label class="control__label"><input value="bold" name="foo" type="radio" class="form__control radio" /><i class="icon-bold"></i> Bold
+        </label><label class="control__label is-selected"><input value="italic" name="foo" type="radio" checked="" class="form__control radio" /><i class="icon-italic"></i> Italic
+        </label><label class="control__label"><input value="underline" name="foo" type="radio" class="form__control radio" /><i class="icon-underline"></i> Underline
+        </label></div></div>
+</div>
 
 <p>Add <code class="highlighter-rouge">choice--block choice--block-inline</code> to lay the options out horizontally.</p>
 
-<p data-height="120" data-theme-id="24005" data-slug-hash="pydmrr" data-default-tab="result" data-user="pulsar" data-embed-version="2" data-pen-title="pydmrr" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/pydmrr/">pydmrr</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
+<div class="pulsar-example form">
+    <div class="form__group form-choice choice--block choice--block-inline form__group--small">
+      <label class="control__label">Radios
+        </label><div class="controls"><label class="control__label is-selected"><input value="bold" checked="" name="foo" type="radio" class="form__control radio" />Yes
+        </label><label class="control__label"><input value="underline" name="foo" type="radio" class="form__control radio" />No
+        </label></div></div>
+</div>
 
 
 

@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -467,8 +481,18 @@
 </code></pre>
 </div>
 
-<p data-height="150" data-theme-id="24005" data-slug-hash="VKjjXL" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/VKjjXL/">form - select2</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label class="control__label" for="foo">Pick a colour</label>
+        <div class="controls">
+            <select class="form__control select js-select2" id="foo">
+                <option value="">Choose</option>
+                <option value="colour_red">Red</option>
+                <option value="colour_blue">Blue</option>
+            </select>
+        </div>
+    </div>
+</div>
 
 <h2 id="options-applied-to-parent-wrapper">Options applied to parent wrapper</h2>
 
@@ -613,7 +637,9 @@
   </tbody>
 </table>
 
-<p>*Any other options not listed here will be applied to the input.</p>
+<ul>
+  <li>Any other options not listed here will be applied to the input.</li>
+</ul>
 
 <h2 id="manually-creating-select2-elements">Manually creating select2 elements</h2>
 
@@ -705,7 +731,7 @@
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">form.select2</span><span class="p">(</span><span class="err">{</span>
         <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Pick a colour'</span><span class="p">,</span>
-        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'example-select'</span><span class="p">,</span>
+        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'bar'</span><span class="p">,</span>
         <span class="s1">'data-html'</span><span class="err">:</span> <span class="s1">'true'</span><span class="p">,</span>
         <span class="s1">'options'</span><span class="err">:</span> <span class="err">{</span>
             <span class="s1">''</span><span class="err">:</span> <span class="s1">'Choose'</span><span class="p">,</span>
@@ -717,8 +743,18 @@
 </code></pre>
 </div>
 
-<p data-height="150" data-theme-id="24005" data-slug-hash="zKBoBw" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/zKBoBw/">form - select2 html</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label class="control__label" for="bar">Pick a colour</label>
+        <div class="controls">
+            <select class="form__control select js-select2" data-html="true" id="bar">
+                <option value="">Choose</option>
+                <option value="colour_red"><span style="color: red">Red</span></option>
+                <option value="colour_blue"><span style="color: blue">Blue</span></option>
+            </select>
+        </div>
+    </div>
+</div>
 
 <h2 id="widths">Widths</h2>
 

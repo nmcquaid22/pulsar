@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item active" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -465,8 +479,18 @@
           </div>
 </div>
 
-<p data-height="110" data-theme-id="24005" data-slug-hash="meVKpx" data-default-tab="result" data-embed-version="2" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/meVKpx/">form - select</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label class="control__label">Pick a colour</label>
+        <div class="controls">
+            <select class="form__control select">
+                <option value="">Choose</option>
+                <option value="colour_red">Red</option>
+                <option value="colour_blue">Blue</option>
+            </select>
+        </div>
+    </div>
+</div>
 
 <h2 id="options-applied-to-parent-wrapper">Options applied to parent wrapper</h2>
 
@@ -728,17 +752,19 @@
 </code></pre>
 </div>
 
-<p data-height="110" data-theme-id="24005" data-slug-hash="ALXXWd" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ALXXWd/">form - select error</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="loading-state">Loading state</h2>
-
-<p>Add the <a href="loading.md">loading spinner</a> markup via Javascript after the select element to communicate that the user’s selection is causing something else to happen on the page.</p>
-
-<p>If a select element’s options are being loaded or updated, the placeholder should be changed to ‘Loading…’ and the field disabled until this is complete.</p>
-
-<p data-height="80" data-theme-id="24005" data-slug-hash="vNXdox" data-embed-version="2" data-default-tab="result" data-user="stanton" class="codepen">See the Pen <a href="http://codepen.io/stanton/pen/vNXdox/">vNXdox</a> by Paul Stanton (<a href="http://codepen.io/stanton">@stanton</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group has-error">
+        <label class="control__label">Pick a colour</label>
+        <div class="controls">
+            <select class="form__control select">
+                <option value="">Choose</option>
+                <option value="colour_red">Red</option>
+                <option value="colour_blue">Blue</option>
+            </select>
+            <span class="help-block is-error"><i aria-hidden="true" class="icon-warning-sign"></i> Something went wrong</span>
+        </div>
+    </div>
+</div>
 
 <h2 id="widths">Widths</h2>
 

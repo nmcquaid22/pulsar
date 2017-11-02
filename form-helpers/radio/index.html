@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -460,8 +474,14 @@
           </div>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="ORXrEo" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ORXrEo/">docs - form - radio</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-radio">
+        <label for="inputRadioLeft" class="control__label">Default radio</label>
+        <div class="controls">
+            <input id="inputRadioLeft" name="inputRadioLeft" checked="" type="radio" class="form__control radio" />
+        </div>
+    </div>
+</div>
 
 <h2 id="options-applied-to-parent-wrapper">Options applied to parent wrapper</h2>
 
@@ -573,8 +593,15 @@
 </code></pre>
 </div>
 
-<p data-height="95" data-theme-id="24005" data-slug-hash="NRANKk" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/NRANKk/">docs - form - radio error</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group has-error form-radio">
+        <label for="inputRadioLeft" class="control__label">Default radio</label>
+        <div class="controls">
+            <input id="inputRadioLeft" name="inputRadioLeft" checked="" type="radio" class="form__control radio" />
+            <span class="help-block is-error"><i class="icon-warning-sign"></i> Something went wrong</span>
+        </div>
+    </div>
+</div>
 
 <h2 id="label-alignment">Label alignment</h2>
 
@@ -590,8 +617,14 @@
 </code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="ORXrEo" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ORXrEo/">docs - form - radio</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-radio">
+        <label for="inputRadioLeft" class="control__label">Default radio</label>
+        <div class="controls">
+            <input id="inputRadioLeft" name="inputRadioLeft" checked="" type="radio" class="form__control radio" />
+        </div>
+    </div>
+</div>
 
 <h2 id="radio-inline">Radio inline</h2>
 
@@ -624,8 +657,13 @@
 </code></pre>
 </div>
 
-<p data-height="75" data-theme-id="24005" data-slug-hash="XjKdjR" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/XjKdjR/">docs - form - radio right label</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-radio-inline">
+        <div class="controls">
+            <label for="inputRadioRight" class="control__label"><input id="inputRadioRight" name="inputRadioInline" checked="" type="radio" class="form__control radio" />Radio inline</label>
+        </div>
+    </div>
+</div>
 
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">form.radio_inline</span><span class="p">(</span><span class="err">{</span>
@@ -638,15 +676,30 @@
 </code></pre>
 </div>
 
-<p data-height="75" data-theme-id="24005" data-slug-hash="BLzKoZ" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/BLzKoZ/">docs - form - radio inline right</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-radio-inline">
+        <div class="controls">
+            <label for="inputRadioRight" class="control__label">Radio on the right <input id="inputRadioRight" name="inputRadioInline" checked="" type="radio" class="form__control radio" /></label>
+        </div>
+    </div>
+</div>
 
 <h2 id="indented-radio">Indented radio</h2>
 
 <p>Using <code class="highlighter-rouge">form.radio_inline</code> will cause the radio input to not follow the normal flow of a regular pulsar form, if you want to maintain form alignment, use the <code class="highlighter-rouge">form__group--indent</code> class to restore the position.</p>
 
-<p data-height="160" data-theme-id="24005" data-slug-hash="LRkNxm" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/LRkNxm/">docs - form - radio indented</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-radio-inline">
+        <div class="controls">
+            <label for="inputRadioRight" class="control__label"><input id="inputRadioRight" name="inputRadioInline" checked="" type="radio" class="form__control radio" />Radio inline</label>
+        </div>
+    </div>
+    <div class="form__group form-radio-inline form__group--indent">
+        <div class="controls">
+            <label for="inputRadioIndented" class="control__label"><input id="inputRadioIndented" name="inputRadioInline" checked="" type="radio" class="form__control radio" />Radio inline &amp; indented</label>
+        </div>
+    </div>
+</div>
 
 <h2 id="alternative-styling">Alternative styling</h2>
 
@@ -654,14 +707,29 @@
 
 <h6 id="choice-block">Choice block</h6>
 
-<p data-height="180" data-theme-id="24005" data-slug-hash="YGWqVJ" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/amNRyY/">docs - form - checkbox choice block</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example form">
+    <div class="form__group form-choice choice--block form__group--medium">
+        <label class="control__label">Choice block</label>
+        <div class="controls">
+            <label class="control__label"><input value="bold" name="foo" type="radio" class="form__control radio" /><i class="icon-bold"></i> Bold</label>
+            <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" /><i class="icon-italic"></i> Italic</label>
+            <label class="control__label"><input value="underline" name="foo" type="radio" class="form__control radio" /><i class="icon-underline"></i> Underline</label>
+        </div>
+    </div>
+</div>
 
 <h6 id="button-group">Button group</h6>
 
-<p data-height="70" data-theme-id="24005" data-slug-hash="bwZpRG" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/jrqZpy/">docs - form - checkbox button group</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
+<div class="pulsar-example form">
+    <div class="form__group  form__button-group">
+        <label class="control__label">Band</label>
+        <div class="controls btn__group">
+            <input id="am" name="bands" type="radio" class="form__control radio" /><label for="am" class="control__label">AM</label>
+            <input id="fm" name="bands" type="radio" class="form__control radio" /><label for="fm" class="control__label">FM</label>
+            <input id="mw" name="bands" type="radio" class="form__control radio" /><label for="mw" class="control__label">MW</label>
+        </div>
+    </div>
+</div>
 
 
 

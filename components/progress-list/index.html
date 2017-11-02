@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -456,8 +470,25 @@
 </code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="pEEWor" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/pEEWor/">docs - form - progress list</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="progress-list">
+        <a href="#" class="progress-list__item progress-list__item--current">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 1</span>
+                Cut a hole in a box
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+
+        <a href="#" class="progress-list__item">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 2</span>
+                Put your junk in that box
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+    </div>
+</div>
 
 <h2 id="states">States</h2>
 
@@ -486,8 +517,33 @@
   </tbody>
 </table>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="GjjroG" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/GjjroG/">docs - form - progress list states</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="progress-list">
+        <a href="#" class="progress-list__item progress-list__item--complete">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 1</span>
+                Complete
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+
+        <a href="#" class="progress-list__item progress-list__item--current">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 2</span>
+                Current
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+
+        <a href="#" class="progress-list__item is-disabled">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 3</span>
+                Disabled
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+    </div>
+</div>
 
 <h2 id="disabled-items">Disabled items</h2>
 

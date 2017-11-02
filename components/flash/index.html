@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -469,18 +483,19 @@
 <p>Your main view should have a container with the classes of <code class="highlighter-rouge">flash-container js-flash-container</code>. Any flash messages you choose to generate on page load should be placed here, and any that you subsequently create through the JS methods will also be placed here.</p>
 
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flash-container js-flash-container"</span><span class="nt">&gt;</span>
-<span class="cp">{{</span> 
+<span class="cp">{{</span>
     <span class="nv">flash.message</span><span class="p">(</span><span class="err">{</span>
         <span class="s1">'message'</span><span class="err">:</span> <span class="s1">'You did something right!'</span><span class="p">,</span>
         <span class="s1">'type'</span><span class="err">:</span> <span class="s1">'success'</span>
-    <span class="err">}</span><span class="p">)</span> 
+    <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="wzzJXX" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/wzzJXX/">docs - component - flash success</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="flash flash--success"><a class="close" href="#" data-dismiss="flash"><i class="icon-remove"></i></a><i class="icon-ok"></i> This is a success message</div>
+</div>
 
 <h2 id="options">Options</h2>
 
@@ -513,53 +528,57 @@
 
 <h2 id="variations">Variations</h2>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> 
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">flash.message</span><span class="p">(</span><span class="err">{</span>
         <span class="s1">'message'</span><span class="err">:</span> <span class="s1">'This is a success message'</span><span class="p">,</span>
         <span class="s1">'type'</span><span class="err">:</span> <span class="s1">'success'</span>
-    <span class="err">}</span><span class="p">)</span> 
+    <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
 </code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="wzzJXX" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/wzzJXX/">docs - component - flash success</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="flash flash--success"><a class="close" href="#" data-dismiss="flash"><i class="icon-remove"></i></a><i class="icon-ok"></i> This is a success message</div>
+</div>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> 
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">flash.message</span><span class="p">(</span><span class="err">{</span>
         <span class="s1">'message'</span><span class="err">:</span> <span class="s1">'This is a warning message'</span><span class="p">,</span>
         <span class="s1">'type'</span><span class="err">:</span> <span class="s1">'warning'</span>
-    <span class="err">}</span><span class="p">)</span> 
+    <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
 </code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="VKKpBp" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/VKKpBp/">docs - component - flash warning</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="flash flash--warning"><a class="close" href="#" data-dismiss="flash"><i class="icon-remove"></i></a><i class="icon-warning-sign"></i> This is a warning message</div>
+</div>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> 
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">flash.message</span><span class="p">(</span><span class="err">{</span>
         <span class="s1">'message'</span><span class="err">:</span> <span class="s1">'This is an error message'</span><span class="p">,</span>
         <span class="s1">'type'</span><span class="err">:</span> <span class="s1">'error'</span>
-    <span class="err">}</span><span class="p">)</span> 
+    <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
 </code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="RGGpYL" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/RGGpYL/">docs - component - flash error</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="flash flash--error"><a class="close" href="#" data-dismiss="flash"><i class="icon-remove"></i></a><i class="icon-warning-sign"></i> This is an error message</div>
+</div>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span> 
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
     <span class="nv">flash.message</span><span class="p">(</span><span class="err">{</span>
         <span class="s1">'message'</span><span class="err">:</span> <span class="s1">'This is an info message'</span><span class="p">,</span>
         <span class="s1">'type'</span><span class="err">:</span> <span class="s1">'info'</span>
-    <span class="err">}</span><span class="p">)</span> 
+    <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
 </code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="ammJRd" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/ammJRd/">docs - component - flash success</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="flash flash--success"><a class="close" href="#" data-dismiss="flash"><i class="icon-remove"></i></a><i class="icon-info-sign"></i> This is an info message</div>
+</div>
 
 <h2 id="icons">Icons</h2>
 
@@ -575,8 +594,9 @@
 </span></code></pre>
 </div>
 
-<p data-height="80" data-theme-id="24005" data-slug-hash="wzzJQx" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/wzzJQx/">docs - component - flash not dismissable</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <div class="flash flash--error"><a class="close" href="#" data-dismiss="flash"></a><i class="icon-warning"></i> This flash cannot be dismissed</div>
+</div>
 
 <h2 id="triggering-with-javascript">Triggering with Javascript</h2>
 

@@ -18,12 +18,14 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
   <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/pulsar/css/styles.css">
   <link rel="stylesheet" href="/pulsar/css/syntax.css">
-  <link rel="stylesheet" href="/pulsar/css/pulsar.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
@@ -304,6 +306,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
             </li>
           
@@ -317,6 +323,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
             </li>
           
             <li>
@@ -352,6 +362,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
             </li>
           
           </ol>
@@ -442,8 +456,15 @@
 </code></pre>
 </div>
 
-<p data-height="60" data-theme-id="24005" data-slug-hash="PzooGE" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/PzooGE/">PzooGE</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <span class="label">default</span>&nbsp;
+    <span class="label label--primary">primary</span>&nbsp;
+    <span class="label label--success">success</span>&nbsp;
+    <span class="label label--warning">warning</span>&nbsp;
+    <span class="label label--danger">danger</span>&nbsp;
+    <span class="label label--info">info</span>&nbsp;
+    <span class="label label--inverse">inverse</span>&nbsp;
+</div>
 
 <h2 id="options">Options</h2>
 
@@ -493,8 +514,19 @@
 
 <p>Labels are usually used to indicate a state and therefore should be past-participles or adjectives.</p>
 
-<p data-height="160" data-theme-id="24005" data-slug-hash="GqRRXd" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/GqRRXd/">GqRRXd</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <p>
+        <span class="label label--inverse">locked</span> &nbsp; <span class="label">unlocked</span>&nbsp;
+    </p>
+    <p>
+        <span class="label">visible</span>&nbsp;
+        <span class="label label--warning">hidden</span>&nbsp;
+    </p>
+    <p>
+        <span class="label label--success">published</span>&nbsp;
+        <span class="label label--danger">offline</span>&nbsp;
+    </p>
+</div>
 
 <h2 id="types">Types</h2>
 
@@ -509,8 +541,15 @@
 </code></pre>
 </div>
 
-<p data-height="60" data-theme-id="24005" data-slug-hash="PzooGE" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/PzooGE/">PzooGE</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="puslar-example">
+    <span class="label">default</span>&nbsp;
+    <span class="label label--primary">primary</span>&nbsp;
+    <span class="label label--success">success</span>&nbsp;
+    <span class="label label--warning">warning</span>&nbsp;
+    <span class="label label--danger">danger</span>&nbsp;
+    <span class="label label--info">info</span>&nbsp;
+    <span class="label label--inverse">inverse</span>&nbsp;
+</div>
 
 <h2 id="removable-labels">Removable labels</h2>
 
@@ -525,8 +564,15 @@
 </code></pre>
 </div>
 
-<p data-height="60" data-theme-id="24005" data-slug-hash="LZYYjb" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/LZYYjb/">LZYYjb</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+<div class="pulsar-example">
+    <span class="label">default <a type="link" data-action="remove" data-action-target="this" class="btn  remove-button"><i class="icon-remove-sign"></i></a></span>&nbsp;
+    <span class="label label--primary">primary <a type="link" data-action="remove" data-action-target="this" class="btn  remove-button"><i class="icon-remove-sign"></i></a></span>&nbsp;
+    <span class="label label--success">success <a type="link" data-action="remove" data-action-target="this" class="btn  remove-button"><i class="icon-remove-sign"></i></a></span>&nbsp;
+    <span class="label label--warning">warning <a type="link" data-action="remove" data-action-target="this" class="btn  remove-button"><i class="icon-remove-sign"></i></a></span>&nbsp;
+    <span class="label label--danger">danger <a type="link" data-action="remove" data-action-target="this" class="btn  remove-button"><i class="icon-remove-sign"></i></a></span>&nbsp;
+    <span class="label label--info">info <a type="link" data-action="remove" data-action-target="this" class="btn  remove-button"><i class="icon-remove-sign"></i></a></span>&nbsp;
+    <span class="label label--inverse">inverse <a type="link" data-action="remove" data-action-target="this" class="btn  remove-button"><i class="icon-remove-sign"></i></a></span>&nbsp;
+</div>
 
 <h2 id="labels-with-tooltips">Labels with tooltips</h2>
 
@@ -560,9 +606,10 @@
 </code></pre>
 </div>
 
-<p data-height="60" data-theme-id="24005" data-slug-hash="yJLLEm" data-default-tab="result" data-user="pulsar" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/pulsar/pen/yJLLEm/">yJLLEm</a> by Pulsar (<a href="http://codepen.io/pulsar">@pulsar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
+<div class="pulsar-example">
+    <span class="label label--large">biggy</span>&nbsp;
+    <span class="label">smalls</span>&nbsp;
+</div>
 
 
 
