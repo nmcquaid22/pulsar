@@ -197,6 +197,7 @@
         @include respond-min($screen-desktop) {
           display: table-cell;
           float: right;
+          padding-left: 20px;
           vertical-align: top;
         }
 
