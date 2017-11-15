@@ -60,15 +60,54 @@
         });
 
         // jsTree
-        $('#container').jstree({
-            'plugins' : ['state']
-        });
+        // $('#container').jstree({
+        //     'plugins' : ['state']
+        // });
 
         // DropZone
         pulsar.dropZoneComponent.init({
             supported: !lt10,
-            showInputNode: lt10
+            showInputNode: lt10,
+            customDropZoneDrop: analyzeImage
         });
+
+        // Vision
+        const $tags = $html.find('#tags');
+        const $description = $html.find('textarea');
+
+        $html.find('#vision').on('submit', event => event.preventDefault());
+
+        $html.find('#vision-reset').on('click', () => {
+             $tags.empty();
+             $description.val('');
+             pulsar.dropZoneComponent.reset();
+        });
+
+        function analyzeImage ({ files }) {
+            const data = new FormData();
+
+            data.append('image', files[0].raw);
+            $description.attr('placeholder', 'Generating description...');
+            $tags.append('<p class="muted">Generating tags...</p>');
+
+            // initiate vision services
+            pulsar.visionService.visionTagService.init($tags);
+            pulsar.visionService.visionDescriptionService.init($description);
+
+            // send vision request
+            pulsar.visionService.visionRequestService.sendRequest(
+                data,
+                pulsar.visionService.visionRequestService.buildRequestUrl(['Tags', 'Description'])
+            ).then(parsedResponse => {
+                const { tags, description } = parsedResponse;
+
+                console.log(parsedResponse);
+                pulsar.visionService.visionTagService.appendTags(tags);
+                pulsar.visionService.visionDescriptionService.insertDescription(description);
+            }).catch(error => {
+                console.log(error);
+            });
+        }
     });
 
 }(jQuery));

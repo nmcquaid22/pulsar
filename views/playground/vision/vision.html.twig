@@ -2,8 +2,12 @@
 
 {% block tab_content %}
 
+    {% spaceless %}
+
     {{
-        form.create()
+        form.create({
+            'id': 'vision'
+        })
     }}
 
     {{
@@ -18,7 +22,7 @@
                     'helperContent': '<h5>Multimedia</h5> <ul> <li>Images</li> <li>Video</li> <li>Audio</li> </ul> <h5>Text</h5> <ul> <li>Plain text</li> <li>Rich text</li> <li>Web page</li> </ul> <h5>Documents</h5> <ul> <li>Microsoft Word</li> <li>Microsoft Excel</li> <li>Open Document</li> <li>Open Office</li> <li>PDF</li> </ul>',
                     'helperContainer': 'body',
                     'helperTitle': 'Accepted files',
-                    'data-dropzone-max-files': '4',
+                    'data-dropzone-max-files': '1',
                     'data-dropzone-input-node-id': 'dropzone_input_hidden',
                     'data-dropzone-idle-html': '<a class="dropzone__browse" href="#">Browse Files&hellip;</a>',
                     'data-dropzone-whitelist': 'audio/* image/* video/* application/ogg text/plain text/html application/pdf application/vnd.ms-office application/vnd.ms-powerpoint application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.ms-xpsdocument application/vnd.ms-works application/vnd.oasis.opendocument.spreadsheet application/vnd.oasis.opendocument.text application/vnd.sun.xml.calc application/vnd.sun.xml.writer application/vnd.sun.xml.writer.global application/rtf text/rtf text/richtext'
@@ -38,7 +42,8 @@
         form.textarea({
             'label': 'Alt description',
             'class': 'form__control-col--9',
-            'value': 'A machine generated description that can be edited',
+            'placeholder': '',
+            'value': '',
             'help': 'Automatically generated, you should edit this to suit your needs'
         })
     }}
@@ -48,24 +53,20 @@
             'label': 'Tags',
             'class': 'form__control-col--9',
             'help': 'Automatically generated, you should edit these to suit your needs',
-            'value':
-                html.label({
-                    'class': 'label--large',
-                    'label': 'alpha',
-                    'removable': true
-                }) ~ '&nbsp;' ~
-                html.label({
-                    'class': 'label--large',
-                    'label': 'bravo',
-                    'removable': true
-                }) ~ '&nbsp;' ~
-                html.label({
-                    'class': 'label--large',
-                    'label': 'charlie',
-                    'removable': true
-                })
+            'id': 'tags',
+            'value': ' '
         })
     }}
+
+    {{
+        html.button({
+            'label': 'Reset',
+            'type': 'button',
+            'id': 'vision-reset'
+        })
+    }}
+
+    {% endspaceless %}
 
 {% endblock %}
 

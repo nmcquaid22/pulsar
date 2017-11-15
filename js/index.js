@@ -9,6 +9,8 @@
 // Fixes issue with dependencies that expect both $ and jQuery to be set
 window.jQuery = window.$ = require('jquery');
 
+require("babel-polyfill");
+
 // Global UI components
 var $                     = require('jquery'),
     dropdown              = require('./libs/dropdown'),
@@ -45,9 +47,11 @@ var $                     = require('jquery'),
     PulsarUIComponent = require('./PulsarUIComponent'),
     PulsarSortableComponent = require('./PulsarSortableComponent'),
     SignInComponent = require('./area/signin/signin'),
-    DropZoneComponentFactory = require('./DropZone/DropZoneComponentFactory');
-
-    require('jstree');
+    DropZoneComponentFactory = require('./DropZone/DropZoneComponentFactory'),
+    visionService = require('./vision/VisionFactory')(
+        'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze',
+        '0b7419c7214f4e57b156131d9028f99b'
+    );
 
 module.exports = {
     ButtonComponent,
@@ -64,5 +68,6 @@ module.exports = {
     PulsarSortableComponent,
     SignInComponent,
     history,
-    svgeezy
+    svgeezy,
+    visionService
 };
