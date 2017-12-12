@@ -75,13 +75,6 @@ class DataTableService {
 
         return options;
     }
-
-    addRow ($datatable, row) {
-        console.log('adding rows...')
-
-        console.log($datatable.DataTable().data();
-        // $datatable.DataTable().row.add(row).draw();
-    }
 }
 
 module.exports = DataTableService;
