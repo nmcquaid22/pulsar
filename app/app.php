@@ -13,6 +13,8 @@ use Jadu\Pulsar\Twig\Extension\GetConstantExtension;
 use Jadu\Pulsar\Twig\Extension\RelativeTimeExtension;
 use Jadu\Pulsar\Twig\Extension\UrlParamsExtension;
 use Jadu\Pulsar\Twig\Extension\TabsExtension;
+use voku\helper\AntiXSS;
+use voku\twig\AntiXssExtension;
 
 $loader = new Twig_Loader_Filesystem($templateDir);
 $loader->addPath($templateDir, 'pulsar');
@@ -33,6 +35,9 @@ $twig->addExtension(new RelativeTimeExtension());
 $twig->addExtension(new UrlParamsExtension($_GET));
 $twig->addExtension(new TabsExtension());
 $twig->addExtension(new Twig_Extension_Debug());
+
+$antiXss = new AntiXSS();
+$twig->addExtension(new AntiXssExtension($antiXss));
 
 if (strstr($_SERVER['PATH_INFO'], '.html.twig')) {
     $template = $twig->loadTemplate($_SERVER['PATH_INFO']);

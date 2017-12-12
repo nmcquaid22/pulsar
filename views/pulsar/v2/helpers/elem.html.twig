@@ -96,7 +96,7 @@ name    | string | The name of this control
                 })
             )
         }}>
-            {{- options.label|raw -}}
+            {{- options.label|xss_clean|raw -}}
             {{ util.required(options.required|default(false)) }}
             {{ util.guidance(options.guidance|default, { 'guidance-container': options['guidance-container']|default }) }}
         </label>
@@ -138,7 +138,7 @@ value   | string | Specifies the value of the paragraph
 
     {% if options.value is not empty %}
         <p{{ attributes(options|exclude('value')) }}>
-            {{- options.value|raw -}}
+            {{- options.value|xss_clean|raw -}}
         </p>
     {% endif %}
 

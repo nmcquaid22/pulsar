@@ -888,7 +888,7 @@ value  | string, array  | The string, or array of strings to render inside the e
 
         {% for error in errors %}
             <span class="help-block is-error">
-                {{ html.icon('warning-sign') }} {{ error|raw -}}
+                {{ html.icon('warning-sign') }} {{ error|xss_clean|raw -}}
             </span>
         {% endfor %}
 
@@ -935,7 +935,7 @@ data-* | string | Data attributes, eg: `'data-foo': 'bar'`
         if options.legend is defined
         and options.legend is not empty
     %}
-        <legend class="legend">{{ options.legend|raw }}</legend>
+        <legend class="legend">{{ options.legend|xss_clean|raw }}</legend>
     {% endif %}
 
 {% endspaceless %}
@@ -1116,7 +1116,7 @@ Option            | Type   | Description
 controls.class    | string | A space separated list of class names
 
 #}
-{% macro group(options) %}
+{% macro group(options, safe_tags) %}
 
     {% import _self as form %}
     {% import '@pulsar/pulsar/v2/helpers/util.html.twig' as util %}
@@ -1283,7 +1283,7 @@ value  | string | The string or html markup to render inside the help block
 
     {% if options.value is defined and options.value is not empty %}
         <span class="help-block">
-            {{- options.value|raw -}}
+            {{- options.value|xss_clean|raw -}}
         </span>
     {% endif %}
 

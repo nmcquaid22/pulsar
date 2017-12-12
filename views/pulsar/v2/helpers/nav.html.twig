@@ -29,7 +29,7 @@
                 {% if options.items is defined and options.items is iterable %}
 
                     <div class="nav-list" data-nav="{{ options.href }}">
-                        <span class="nav-item nav-item--header t-nav-header">{{ options.label|raw }}</span>
+                        <span class="nav-item nav-item--header t-nav-header">{{ options.label|xss_clean|raw }}</span>
                         <ul class="nav-items">
                             {% for menu_blocks in options.items %}
                                 {% for item_options in menu_blocks %}
@@ -76,7 +76,7 @@
                    {% if options.items is defined and options.items is iterable %}
 
                        <div class="nav-list" data-nav="{{ options.href }}">
-                           <span class="nav-item nav-item--header t-nav-header">{{ options.label|raw }}</span>
+                           <span class="nav-item nav-item--header t-nav-header">{{ options.label|xss_clean|xss_clean|raw }}</span>
                            <ul class="nav-items">
                                {% for menu_blocks in options.items %}
                                    {% for item_options in menu_blocks %}
@@ -121,7 +121,7 @@
             {% elseif options.image is defined and options.image is not empty %}
                 <img src="{{ options.image }}" alt="{{ options.image_alt|default }}" class="nav-link__image" />
             {% endif %}
-            <span class="nav-link__label">{{ options.label|raw }}</span>
+            <span class="nav-link__label">{{ options.label|xss_clean|raw }}</span>
         </a>
     </li>
 

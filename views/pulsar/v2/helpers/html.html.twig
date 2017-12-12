@@ -124,7 +124,7 @@ data-* | string | Data attributes, eg: `'data-foo': 'bar'`
             })
         )
     }}>
-        {{- options.label|default|raw -}}
+        {{- options.label|default|xss_clean|raw -}}
     </span>
 
 {% endspaceless %}
@@ -295,7 +295,7 @@ data-*  | string | Data attributes, eg: `'data-foo': 'bar'`
                 })
             )
         }}>
-            {{- options.label|default|raw -}}
+            {{- options.label|default|xss_clean|raw -}}
         </button>
 
     {% else %}
@@ -308,7 +308,7 @@ data-*  | string | Data attributes, eg: `'data-foo': 'bar'`
                 })
             )
         }}>
-            {{- options.label|default|striptags('<abbr><b><br><cite><code><dfn><em><i><img><kbd><q><small><span><strong><sub><sup>')|raw -}}
+            {{- options.label|default|xss_clean|raw -}}
             {{- util.caret(options.caret|default) -}}
         </button>
 
@@ -497,7 +497,7 @@ data-*     | string | Data attributes, eg: `'data-foo': 'bar'`
             })
         )
     }}>
-        {{- options.label|default|raw -}}
+        {{- options.label|default|xss_clean|raw -}}
     </span>
 
 {% endspaceless %}
@@ -534,7 +534,7 @@ data-* | string | Data attributes, eg: `'data-foo': 'bar'`
 {% spaceless %}
 
     <div{{ attributes(options|exclude('value')) }}>
-        {{- options.value|raw -}}
+        {{- options.value|xss_clean|raw -}}
     </div>
 
 {% endspaceless %}
@@ -692,7 +692,7 @@ class  | string | CSS classes, space separated
                 'class': 'icon-' ~ icon_name ~ class|default
             })
         )
-    }}>{{ label|default|raw }}</i>
+    }}>{{ label|default|xss_clean|xss_clean|raw }}</i>
 
 {% endspaceless %}
 {% endmacro %}
@@ -738,7 +738,7 @@ data-*        | string | Data attributes, eg: `'data-foo': 'bar'`
             })
         )
     }}>
-        {{- options.label|default|raw -}}
+        {{- options.label|default|xss_clean|raw -}}
         {% if options.removable is defined and options.removable == true %}
         {{
             html.remove_button({
@@ -791,7 +791,7 @@ data-* | string | Data attributes, eg: `'data-foo': 'bar'`
             {{- html.icon(options.icon) -}}&nbsp;
         {%- endif -%}
 
-        {{- options.label|default|raw -}}
+        {{- options.label|default|xss_clean|raw -}}
     </a>
 {% endmacro %}
 
@@ -954,7 +954,7 @@ data-* | string | Data attributes, eg: `'data-foo': 'bar'`
     {% import '@pulsar/pulsar/v2/helpers/util.html.twig' as util %}
 
     <li{{ attributes(options|exclude('value')) }}>
-        {{- options.value|raw -}}
+        {{- options.value|xss_clean|raw -}}
     </li>
 
 {% endspaceless %}
@@ -1068,12 +1068,12 @@ data-*      | string    | Data attributes, eg: `'data-foo': 'bar'`
         <div class="media__body">
         {% if options.action is defined and options.action is not empty %}
             <span class="pull-right">
-                {{ options.action|raw }}
+                {{ options.action|xss_clean|raw }}
             </span>
         {% endif %}
-            <p>{{ options.title|raw }}</p>
+            <p>{{ options.title|xss_clean|raw }}</p>
         {% if options.description is defined and options.description is not empty %}
-            <span class="small-type muted">{{ options.description|raw }}</span>
+            <span class="small-type muted">{{ options.description|xss_clean|raw }}</span>
         {% endif %}
         </div>
     </{{ type }}>
@@ -1128,7 +1128,7 @@ data-* | string | Data attributes, eg: `'data-foo': 'bar'`
     {% for key, value in options.items %}
 
            <dt class="metadata__key">{{ key }}</dt><!--
-        --><dd class="metadata__value">{{ value|raw }}</dd>
+        --><dd class="metadata__value">{{ value|xss_clean|raw }}</dd>
 
     {% endfor %}
     </dl>
@@ -1189,11 +1189,11 @@ data-*  | string | Data attributes, eg: `'data-foo': 'bar'`
 
         {% if options.title is defined and options.title is not empty %}
         <div class="panel__title">
-            {{ options.title|raw }}
+            {{ options.title|xss_clean|raw }}
         </div>
         {% endif %}
         <div class="panel__body">
-            {{- options.body|raw -}}
+            {{- options.body|xss_clean|raw -}}
 
             {% if options.actions is defined %}
                 {% if options.actions_placement is defined and options.actions_placement in actions_placements %}
@@ -1205,7 +1205,7 @@ data-*  | string | Data attributes, eg: `'data-foo': 'bar'`
                         {% if action is iterable %}
                             {{- html.button(action) -}}
                         {% else %}
-                            {{- action|raw -}}
+                            {{- action|xss_clean|raw -}}
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -1266,14 +1266,14 @@ data-*        | string | Data attributes, eg: `'data-foo': 'bar'`
         }}>
 
             {% if options.value_visible|default(false) %}
-                {{- options.value|raw ~ '%' }}
+                {{- options.value|xss_clean|raw ~ '%' }}
             {% else %}
                 <span class="hide">
                     {{- options.value ~ '%' }}
                 </span>
             {% endif %}
 
-            {{- options.label|default|raw -}}
+            {{- options.label|default|xss_clean|raw -}}
         </div>
     </div>
 
@@ -1452,12 +1452,12 @@ data-dropzone-file-node-type        | boolean   | Show file type in file html | 
                 {{  html.icon('cloud-upload', { 'class': 'dropzone__icon dropzone__icon--main' }) }}
             </div>
             <p class="dropzone__label">Drag &amp; Drop</p>
-            <p class="dropzone__info">{{ idle|raw }}</p>
+            <p class="dropzone__info">{{ idle|xss_clean|raw }}</p>
 
             <p class="dropzone__help"
                rel="clickover"
-               data-title="{{ options.helperTitle|default('Helper title')|raw }}"
-               data-content="{{ options.helperContent|default('Helper content')|raw }}"
+               data-title="{{ options.helperTitle|default('Helper title')|xss_clean|raw }}"
+               data-content="{{ options.helperContent|default('Helper content')|xss_clean|raw }}"
                data-html="true"
                data-placement="bottom"
                data-container="{{ options.helperContainer|default('#' ~ options.id) }}"
