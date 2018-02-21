@@ -139,6 +139,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/card/">Card</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/components/countdown/">Countdown</a>
             </li>
           
@@ -152,6 +156,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/components/dropzone/">DropZone</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/favicon/">Favicon</a>
             </li>
           
             <li>
@@ -258,6 +266,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/compound/">Compound</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/content/">Content</a>
             </li>
           
@@ -307,6 +319,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/repeater/">Repeater</a>
             </li>
           
             <li>
@@ -397,6 +413,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/patterns/rules/">Rules</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/table-detail/">Table detail</a>
             </li>
           
           </ol>
@@ -490,6 +510,30 @@
 <p><strong>Code Coverage</strong> <a href="https://codecov.io/github/jadu/pulsar">https://codecov.io/github/jadu/pulsar</a></p>
 
 <p>Reports on unit test coverage.</p>
+
+<p><strong>Local JavaScript Test Suite</strong></p>
+
+<p>The Pulsar test suite is configured to work in a regular chrome browser as well as a chrome headless environment.</p>
+
+<p>Run tests in headless mode:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm run test:headless
+
+// watch
+
+npm run test:headless -- --watch
+</code></pre>
+</div>
+
+<p>Run tests in a local instance of chrome:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm run test:browser
+
+// watch
+
+npm run test:browser:watch
+</code></pre>
+</div>
 
 <h1 id="definition-of-done">Definition of Done</h1>
 

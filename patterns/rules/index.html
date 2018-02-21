@@ -139,6 +139,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/card/">Card</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/components/countdown/">Countdown</a>
             </li>
           
@@ -152,6 +156,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/components/dropzone/">DropZone</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/favicon/">Favicon</a>
             </li>
           
             <li>
@@ -258,6 +266,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/compound/">Compound</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/content/">Content</a>
             </li>
           
@@ -307,6 +319,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/repeater/">Repeater</a>
             </li>
           
             <li>
@@ -399,6 +415,10 @@
               <a class="sidebar-nav-item active" href="/pulsar/patterns/rules/">Rules</a>
             </li>
           
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/table-detail/">Table detail</a>
+            </li>
+          
           </ol>
       
 
@@ -446,7 +466,7 @@
             <h1 class="page-title">Rules</h1>
             <p>The rules UI allows users to build a logical ruleset using simple <code class="highlighter-rouge">WHEN</code> <code class="highlighter-rouge">AND/OR</code> &amp; <code class="highlighter-rouge">THEN</code> blocks.</p>
 
-<p><img src="/assets/image_examples/rules.gif" alt="Rules UI example gif" /></p>
+<p><img src="/pulsar/assets/image_examples/rules.gif" alt="Rules UI example gif" /></p>
 
 <h2 id="layout">Layout</h2>
 
@@ -603,7 +623,7 @@
           </div>
 </div>
 
-<p><img src="/assets/image_examples/rule-when.png" alt="When rule example" /></p>
+<p><img src="/pulsar/assets/image_examples/rule-when.png" alt="When rule example" /></p>
 
 <h3 id="and">And</h3>
 
@@ -634,7 +654,7 @@
           </div>
 </div>
 
-<p><img src="/assets/image_examples/rule-and.png" alt="When rule example" /></p>
+<p><img src="/pulsar/assets/image_examples/rule-and.png" alt="When rule example" /></p>
 
 <h3 id="or">Or</h3>
 
@@ -667,7 +687,7 @@
           </div>
 </div>
 
-<p><img src="/assets/image_examples/rule-or.png" alt="When rule example" /></p>
+<p><img src="/pulsar/assets/image_examples/rule-or.png" alt="When rule example" /></p>
 
 <h3 id="then">Then</h3>
 
@@ -700,7 +720,7 @@
           </div>
 </div>
 
-<p><img src="/assets/image_examples/rule-then.png" alt="When rule example" /></p>
+<p><img src="/pulsar/assets/image_examples/rule-then.png" alt="When rule example" /></p>
 
 <h2 id="example-rule-block-with-inputs">Example rule block with inputs</h2>
 
@@ -747,6 +767,88 @@
   <li>THEN [send email confirmation] to [address]</li>
 </ul>
 
+<h2 id="rule-block-modifiers">Rule block modifiers</h2>
+
+<p>The following classes, when applied to the top level element, will modify certain visual states of the rule block.</p>
+
+<p>Pass classes through the <code class="highlighter-rouge">class</code> attribute of the rule helpers.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">rule.block_when</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'rule--indented'</span><span class="p">,</span>
+        <span class="s1">'inputs'</span><span class="err">:</span> <span class="p">[</span>
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">.rule--indented</code></td>
+      <td>Indents a step by 20px, used to denote sub-rules.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="displaying-errors">Displaying errors</h2>
+
+<p>You will normally need to do two things to properly indicate errors in a rule block.</p>
+
+<ol>
+  <li>Add a danger panel to the top of the UI, explaining there are issues that need to be resolved further down in the UI</li>
+  <li>Add an error message to the rule block</li>
+  <li>Highlight the specific field causing the error</li>
+</ol>
+
+<p><img src="/pulsar/assets/image_examples/rule-error-four.png" alt="rule error example" /></p>
+
+<p>The <code class="highlighter-rouge">error</code> option, when supplied, will automatically apply the required error styling to the rule block.</p>
+
+<h3 id="adding-error-messages-to-the-rule-block">Adding error messages to the rule block</h3>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">rule.block__or</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'error'</span><span class="err">:</span> <span class="s1">'Something went wrong...'</span>
+        <span class="err">...</span>
+</code></pre>
+</div>
+
+<p><img src="/pulsar/assets/image_examples/rule-error-one.png" alt="rule error example" /></p>
+
+<p>In some cases you may need to add more than one error (e.g. field 1 has x error, field 2 has y error), the <code class="highlighter-rouge">error</code> field can accept an array of strings rather than a single string.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">rule.block__or</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'error'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="s1">'This is error one'</span><span class="p">,</span>
+            <span class="s1">'This is error two'</span>
+        <span class="p">]</span>
+        <span class="err">...</span>
+</code></pre>
+</div>
+
+<p><img src="/pulsar/assets/image_examples/rule-error-three.png" alt="rule error example" /></p>
+
+<h3 id="highlighting-invalid-fields">Highlighting invalid fields</h3>
+
+<p>To properly communicate which specific form elements within a rule are causing the error, you should add the common <code class="highlighter-rouge">has-error</code> class where appropriate.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
+    <span class="nv">rule.block__or</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'error'</span><span class="err">:</span> <span class="s1">'Something went wrong...'</span><span class="p">,</span>
+        <span class="s1">'inputs'</span><span class="err">:</span> <span class="p">[</span>
+            <span class="nv">form.select2</span><span class="p">(</span><span class="err">{</span>
+                <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'has-error'</span>
+                <span class="err">...</span>
+</code></pre>
+</div>
+
+<p><img src="/pulsar/assets/image_examples/rule-error-two.png" alt="rule error example" /></p>
 
 
 

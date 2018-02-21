@@ -139,6 +139,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/card/">Card</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/components/countdown/">Countdown</a>
             </li>
           
@@ -152,6 +156,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/components/dropzone/">DropZone</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/favicon/">Favicon</a>
             </li>
           
             <li>
@@ -258,6 +266,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/compound/">Compound</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/content/">Content</a>
             </li>
           
@@ -307,6 +319,10 @@
           
             <li>
               <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/repeater/">Repeater</a>
             </li>
           
             <li>
@@ -399,6 +415,10 @@
               <a class="sidebar-nav-item" href="/pulsar/patterns/rules/">Rules</a>
             </li>
           
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/table-detail/">Table detail</a>
+            </li>
+          
           </ol>
       
 
@@ -455,60 +475,120 @@
       <td>Style</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-display-none</code></td>
-      <td><code class="highlighter-rouge">display: none;</code></td>
+      <td>.hide</td>
+      <td>hides an element</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-display-block</code></td>
-      <td><code class="highlighter-rouge">display: block;</code></td>
+      <td>.show</td>
+      <td>shows an element (used as a reset to .hide)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-display-inline</code></td>
-      <td><code class="highlighter-rouge">display: inline;</code></td>
+      <td>.margin-left</td>
+      <td>margin-left: $gutter-width;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-display-inline-block</code></td>
-      <td><code class="highlighter-rouge">display: inline-block;</code></td>
+      <td>.margin-right</td>
+      <td>margin-right: $gutter-width;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-float-none</code></td>
-      <td><code class="highlighter-rouge">float: none;</code></td>
+      <td>.no-select</td>
+      <td>user-select: none; (and all browser prefix variations)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-float-left</code></td>
-      <td><code class="highlighter-rouge">float: left;</code></td>
+      <td>.u-cursor-not-allowed</td>
+      <td>cursor: not-allowed !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-vertical-align-top</code></td>
-      <td><code class="highlighter-rouge">vertical-align: top;</code></td>
+      <td>.u-display-none</td>
+      <td>display: none !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-vertical-align-middle</code></td>
-      <td><code class="highlighter-rouge">vertical-align: middle;</code></td>
+      <td>.u-display-block</td>
+      <td>display: block !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-vertical-align-bottom</code></td>
-      <td><code class="highlighter-rouge">vertical-align: bottom;</code></td>
+      <td>.u-display-inline</td>
+      <td>display: inline !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-vertical-align-baseline</code></td>
-      <td><code class="highlighter-rouge">vertical-align: baseline;</code></td>
+      <td>.u-display-inline-block</td>
+      <td>display: inline-block !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-text-align-left</code></td>
-      <td><code class="highlighter-rouge">text-align: left;</code></td>
+      <td>.u-float-none</td>
+      <td>float: none !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-text-align-center</code></td>
-      <td><code class="highlighter-rouge">text-align: center;</code></td>
+      <td>.u-float-left</td>
+      <td>float: left !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-text-align-right</code></td>
-      <td><code class="highlighter-rouge">text-align: right;</code></td>
+      <td>.u-float-right</td>
+      <td>float: right !important;</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.u-text-align-justify</code></td>
-      <td><code class="highlighter-rouge">text-align: justify;</code></td>
+      <td>.u-margin-bottom-none</td>
+      <td>margin-bottom: 0 !important;</td>
+    </tr>
+    <tr>
+      <td>.u-margin-top-none</td>
+      <td>margin-top: 0 !important;</td>
+    </tr>
+    <tr>
+      <td>.u-no-border</td>
+      <td>border: 0 !important;</td>
+    </tr>
+    <tr>
+      <td>.u-no-hover</td>
+      <td>background-color: inherit !important;</td>
+    </tr>
+    <tr>
+      <td>.u-no-wrap</td>
+      <td>white-space: nowrap !important;</td>
+    </tr>
+    <tr>
+      <td>.u-text-align-left</td>
+      <td>text-align: left !important;</td>
+    </tr>
+    <tr>
+      <td>.u-text-align-center</td>
+      <td>text-align: center !important;</td>
+    </tr>
+    <tr>
+      <td>.u-text-align-right</td>
+      <td>text-align: right !important;</td>
+    </tr>
+    <tr>
+      <td>.u-text-align-justify</td>
+      <td>text-align: justify !important;</td>
+    </tr>
+    <tr>
+      <td>.u-vertical-align-top</td>
+      <td>vertical-align: top !important;</td>
+    </tr>
+    <tr>
+      <td>.u-vertical-align-middle</td>
+      <td>vertical-align: middle !important;</td>
+    </tr>
+    <tr>
+      <td>.u-vertical-align-bottom</td>
+      <td>vertical-align: bottom !important;</td>
+    </tr>
+    <tr>
+      <td>.u-vertical-align-baseline</td>
+      <td>vertical-align: baseline !important;</td>
+    </tr>
+    <tr>
+      <td>.u-width-auto</td>
+      <td>width: auto !important;</td>
+    </tr>
+    <tr>
+      <td>.u-word-break</td>
+      <td>word-break: break-all !important;</td>
+    </tr>
+    <tr>
+      <td>.visually-hidden</td>
+      <td>display: none;</td>
     </tr>
   </tbody>
 </table>
@@ -531,27 +611,27 @@
     <tr>
       <td>Mobile</td>
       <td>480px</td>
-      <td><code class="highlighter-rouge">$screen-phone</code></td>
+      <td>$screen-phone</td>
     </tr>
     <tr>
       <td>Phablet</td>
       <td>600px</td>
-      <td><code class="highlighter-rouge">$screen-phablet</code></td>
+      <td>$screen-phablet</td>
     </tr>
     <tr>
       <td>Tablet</td>
       <td>767px</td>
-      <td><code class="highlighter-rouge">$screen-tablet</code></td>
+      <td>$screen-tablet</td>
     </tr>
     <tr>
       <td>Desktop</td>
       <td>991px</td>
-      <td><code class="highlighter-rouge">$screen-desktop</code></td>
+      <td>$screen-desktop</td>
     </tr>
     <tr>
       <td>Widescreen</td>
       <td>1200px</td>
-      <td><code class="highlighter-rouge">$screen-large-desktop</code></td>
+      <td>$screen-large-desktop</td>
     </tr>
   </tbody>
 </table>
@@ -597,6 +677,8 @@
 <h6 id="usage-2">Usage</h6>
 
 <div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="na">respond-min-max</span><span class="err">($</span><span class="nl">min-width</span><span class="err">, $</span><span class="nl">max-width</span><span class="err">, $</span><span class="na">reverse</span><span class="p">:</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">...</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -608,7 +690,7 @@
 </code></pre>
 </div>
 
-<h3 id="visibility">Visibility</h3>
+<h3 id="screen--device-visibility">Screen / Device Visibility</h3>
 
 <p>Use the following utility classes to control the visibility of elements at certain screen sizes.</p>
 
@@ -657,6 +739,42 @@
       <td>Visible</td>
       <td>Visible</td>
       <td>✕</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="print-visibility">Print Visibility</h3>
+
+<p>Controls the visibility of elements using <code class="highlighter-rouge">@media print</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Screen display</th>
+      <th>Print display</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.u-visible-print</td>
+      <td>none</td>
+      <td>block (table/tr/td use respective table/table-row/table-cell)</td>
+    </tr>
+    <tr>
+      <td>.u-visible-print-inline</td>
+      <td>none</td>
+      <td>inline</td>
+    </tr>
+    <tr>
+      <td>.u-visible-print-inline-block</td>
+      <td>none</td>
+      <td>inline-block</td>
+    </tr>
+    <tr>
+      <td>.u-hidden-print</td>
+      <td>not changed</td>
+      <td>none</td>
     </tr>
   </tbody>
 </table>
