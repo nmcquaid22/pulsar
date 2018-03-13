@@ -39,24 +39,11 @@
 
 <body>
 
-    <div class="header">
-        <img src="/pulsar/assets/images/pulsar-brand-medium.png" class="brand-image" />
-        <h1>
-            <a href="/pulsar">
-                Pulsar
-            </a>
-        </h1>
-        <p class="lead">The open-source design system for the Jadu Continuum platform</p>
-
-        <div class="header-links">
-            <a class="header-link" href="https://github.com/jadu/pulsar">View on GitHub</a>
-            <a class="header-link" href="https://github.com/jadu/pulsar/archive/develop.zip">Download .zip</a>
-            <a class="header-link" href="https://github.com/jadu/pulsar/archive/develop.tar.gz">Download .tar.gz</a>
-        </div>
-    </div>
-
     <div class="content">
         <div class="sidebar">
+    <h1 class="brand">
+        <a href="/pulsar">Pulsar</a><img src="/pulsar/assets/images/pulsar-brand-medium.png" class="brand-image" />
+    </h1>
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item" href="/pulsar">Home</a>
@@ -82,11 +69,21 @@
       
         
           
+            <a class="sidebar-nav-item" href="/pulsar/getting_started/">Getting started</a>
+          
+        
+      
+        
+          
         
       
         
           
             <a class="sidebar-nav-item" href="/pulsar/installing/">Installation</a>
+          
+        
+      
+        
           
         
       
@@ -109,7 +106,7 @@
 
       
       
-
+        
           <span class="sidebar-nav-header">Components</span>
 
           <ol>
@@ -243,8 +240,9 @@
             </li>
           
           </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Form helpers</span>
 
           <ol>
@@ -350,8 +348,9 @@
             </li>
           
           </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Layout</span>
 
           <ol>
@@ -385,8 +384,9 @@
             </li>
           
           </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Patterns</span>
 
           <ol>
@@ -420,15 +420,11 @@
             </li>
           
           </ol>
+        
       
-
-          <span class="sidebar-nav-header">Posts</span>
-
-          <ol>
-          
-          </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Styleguides</span>
 
           <ol>
@@ -458,11 +454,15 @@
             </li>
           
           </ol>
+        
       
     </nav>
 </div>
 
         <div class="page">
+            <a href="#" class="nav-toggle">
+                <i class="icon icon-bars"></i>
+            </a>
             <h1 class="page-title">Progress bar</h1>
             <p>Provide up-to-date feedback on the progress of a workflow or action with simple
 progress bars.</p>
@@ -603,7 +603,7 @@ progress bars.</p>
 
 <p>Given the markup example below, it’s simply a case of updating the two main percentage values in <code class="highlighter-rouge">aria-valuenow</code> and the inline <code class="highlighter-rouge">style</code> attributes with your new percentage.</p>
 
-<p>If you have the percentage in the label either hidden or visible then you’ll need to update that too.</p>
+<p>If you have the percentage in the label either hidden or visible) then you’ll need to update that too.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"progress"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span>
@@ -620,67 +620,26 @@ progress bars.</p>
 </code></pre>
 </div>
 
-<h2 id="stepped-progress-bar-example">Stepped Progress Bar Example</h2>
-
-<p>Stepped progress bar is used mainly in modals as a step indicator of a multi step process.</p>
-<div class="pulsar-example">
-    <div class="stepped-progressbar">
-        <div class="step"><span class="step-box current">1</span></div>
-        <div class="step"><span class="step-box">2</span></div>
-        <div class="step"><span class="step-box">3</span></div>
-        <div class="step last"><span class="step-box"><i class="icon-flag-checkered"></i></span></div>
-    </div>
-    <div class="stepped-progressbar">
-        <div class="step successful"><span class="step-box completed"><i class="icon-ok"></i></span></div>
-        <div class="step"><span class="step-box current">2</span></div>
-        <div class="step"><span class="step-box">3</span></div>
-        <div class="step last"><span class="step-box"><i class="icon-flag-checkered"></i></span></div>
-    </div>
-    <div class="stepped-progressbar">
-        <div class="step successful"><span class="step-box completed"><i class="icon-ok"></i></span></div>
-        <div class="step successful"><span class="step-box completed"><i class="icon-ok"></i></span></div>
-        <div class="step"><span class="step-box current">3</span></div>
-        <div class="step last"><span class="step-box"><i class="icon-flag-checkered"></i></span></div>
-    </div>
-    <div class="stepped-progressbar">
-        <div class="step successful"><span class="step-box completed"><i class="icon-ok"></i></span></div>
-        <div class="step successful"><span class="step-box completed"><i class="icon-ok"></i></span></div>
-        <div class="step successful"><span class="step-box completed"><i class="icon-ok"></i></span></div>
-        <div class="step last"><span class="step-box final"><i class="icon-flag-checkered"></i></span></div>
-    </div>
-</div>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box current"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step last"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box current"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step last"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box current"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step last"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"step last"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box final"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre>
-</div>
-
 
 
         </div>
     </div>
 
 </body>
+<script>
+(function ($) {
+    var $trigger = $('.nav-toggle'),
+        $nav = $('.sidebar');
+
+    $trigger.on('click', function() {
+        $nav.toggleClass('is-open');
+    });
+
+    $(window).on('resize', function() {
+        if (window.innerWidth <= 900) {
+            $nav.removeClass('is-open');
+        }
+    });
+})(jQuery);
+</script>
 </html>

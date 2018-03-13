@@ -39,24 +39,11 @@
 
 <body>
 
-    <div class="header">
-        <img src="/pulsar/assets/images/pulsar-brand-medium.png" class="brand-image" />
-        <h1>
-            <a href="/pulsar">
-                Pulsar
-            </a>
-        </h1>
-        <p class="lead">The open-source design system for the Jadu Continuum platform</p>
-
-        <div class="header-links">
-            <a class="header-link" href="https://github.com/jadu/pulsar">View on GitHub</a>
-            <a class="header-link" href="https://github.com/jadu/pulsar/archive/develop.zip">Download .zip</a>
-            <a class="header-link" href="https://github.com/jadu/pulsar/archive/develop.tar.gz">Download .tar.gz</a>
-        </div>
-    </div>
-
     <div class="content">
         <div class="sidebar">
+    <h1 class="brand">
+        <a href="/pulsar">Pulsar</a><img src="/pulsar/assets/images/pulsar-brand-medium.png" class="brand-image" />
+    </h1>
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item" href="/pulsar">Home</a>
@@ -82,11 +69,21 @@
       
         
           
+            <a class="sidebar-nav-item" href="/pulsar/getting_started/">Getting started</a>
+          
+        
+      
+        
+          
         
       
         
           
             <a class="sidebar-nav-item" href="/pulsar/installing/">Installation</a>
+          
+        
+      
+        
           
         
       
@@ -109,7 +106,7 @@
 
       
       
-
+        
           <span class="sidebar-nav-header">Components</span>
 
           <ol>
@@ -243,8 +240,9 @@
             </li>
           
           </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Form helpers</span>
 
           <ol>
@@ -350,8 +348,9 @@
             </li>
           
           </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Layout</span>
 
           <ol>
@@ -385,8 +384,9 @@
             </li>
           
           </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Patterns</span>
 
           <ol>
@@ -420,15 +420,11 @@
             </li>
           
           </ol>
+        
       
-
-          <span class="sidebar-nav-header">Posts</span>
-
-          <ol>
-          
-          </ol>
+        
       
-
+        
           <span class="sidebar-nav-header">Styleguides</span>
 
           <ol>
@@ -458,11 +454,15 @@
             </li>
           
           </ol>
+        
       
     </nav>
 </div>
 
         <div class="page">
+            <a href="#" class="nav-toggle">
+                <i class="icon icon-bars"></i>
+            </a>
             <h1 class="page-title">Modal</h1>
             <p>Modals are a blocking element, they should be used sparingly and only when we absolutely, positively have to stop the user in their tracks to perform a specific action.</p>
 
@@ -677,4 +677,20 @@ Additionally, you may give a description of your modal dialog. Use the <code cla
     </div>
 
 </body>
+<script>
+(function ($) {
+    var $trigger = $('.nav-toggle'),
+        $nav = $('.sidebar');
+
+    $trigger.on('click', function() {
+        $nav.toggleClass('is-open');
+    });
+
+    $(window).on('resize', function() {
+        if (window.innerWidth <= 900) {
+            $nav.removeClass('is-open');
+        }
+    });
+})(jQuery);
+</script>
 </html>
