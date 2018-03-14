@@ -11,7 +11,7 @@
 
   <title>
     
-      Installation &middot; Pulsar
+      Local Development &middot; Pulsar
     
   </title>
 
@@ -54,6 +54,12 @@
         
       
         
+          
+            <a class="sidebar-nav-item active" href="/pulsar/Local_development/">Local Development</a>
+          
+        
+      
+        
       
         
           
@@ -74,12 +80,6 @@
         
       
         
-          
-        
-      
-        
-          
-            <a class="sidebar-nav-item active" href="/pulsar/installing/">Installation</a>
           
         
       
@@ -463,7 +463,7 @@
             <a href="#" class="nav-toggle">
                 <i class="icon icon-bars"></i>
             </a>
-            <h1 class="page-title">Installation</h1>
+            <h1 class="page-title">Local Development</h1>
             <p>Pulsar can run standalone to allow you to develop user interfaces outside of the software, it requires a few things to be installed first.</p>
 
 <h2 id="first-time-installation">First Time Installation</h2>
@@ -554,14 +554,15 @@ You should know that the makefile will attempt to install everything required fo
 <script>
 (function ($) {
     var $trigger = $('.nav-toggle'),
-        $nav = $('.sidebar');
+        $nav = $('.sidebar'),
+        width = window.innerWidth;
 
     $trigger.on('click', function() {
         $nav.toggleClass('is-open');
     });
 
     $(window).on('resize', function() {
-        if (window.innerWidth <= 900) {
+        if ((width != window.innerWidth) && (window.innerWidth <= 900)) {
             $nav.removeClass('is-open');
         }
     });
