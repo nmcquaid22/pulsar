@@ -75,6 +75,12 @@
       
         
           
+            <a class="sidebar-nav-item" href="/pulsar/getting_started/">Getting started</a>
+          
+        
+      
+        
+          
         
       
         
@@ -464,6 +470,35 @@
   <p>Pulsar is a robust user interface framework with a collection of patterns, helpers and a user-focused design process with documented best practices that will help you to make beautiful user interfaces and amazing user experiences.</p>
 </blockquote>
 
+<p>The Pulsar framework is included in the following Jadu products:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Major Pulsar version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jadu CXM</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Jadu CMS</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Jadu XFP</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Quantum</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="ui-goals">UI Goals</h2>
 <ul>
   <li>Improve code quality and consistency</li>
@@ -484,351 +519,6 @@
   <li>Reduce the complexity of the tasks our customers need to perform</li>
   <li>Define clear, understandable guidelines for developers to build awesome things</li>
 </ul>
-
-<h1 id="getting-started">Getting Started</h1>
-
-<p>This is a quick guide to using Pulsar in a standalone project. This guide does not relate to Continuum products.</p>
-
-<h2>Download</h2>
-
-<h3 id="php--composer">PHP / Composer</h3>
-
-<p>Pulsar needs to be brought into your project as a dependency, for PHP projects we recommend using Composer.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>composer install jadu/pulsar --save-dev --prefer-dist
-</code></pre>
-</div>
-
-<p>This will install Pulsar to your <code class="highlighter-rouge">/vendors</code> directory. We’re going to assume you’re familiar with using Composer for this quick guide.</p>
-
-<p>Pulsar has a lot of files, like tooling and tests, that aren’t strictly required for a working project, the <code class="highlighter-rouge">--prefer-dist</code> flag will use the <code class="highlighter-rouge">.gitattributes</code> file included within Pulsar to only bring in the essentials.</p>
-
-<h3 id="direct-download">Direct download</h3>
-
-<p>Download a zipped archive of the Pulsar package and place it somewhere in your project directory. We recommend keeping Pulsar files self-contained somewhere like <code class="highlighter-rouge">/path-to-project/pulsar</code>.</p>
-
-<p><a href="https://github.com/jadu/pulsar/archive/develop.zip">https://github.com/jadu/pulsar/archive/develop.zip</a></p>
-
-<h3 id="pulsar-fonts">Pulsar Fonts</h3>
-
-<p>Jadu’s chosen typeface is Proxima Nova, due to licensing restrictions this is not included in the Public GitHub repository.</p>
-
-<p>There is a pulsar-fonts repository on Jadu’s GitLab, which can be pulled in via Composer or directly downloded. It should be placed as a sibling directory next to the Pulsar directory, so:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/your-project
-    └── /pulsar
-    └── /pulsar-fonts
-</code></pre>
-</div>
-<p>or</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/your-project
-    └── /vendor
-        └── /jadu
-            └── /pulsar
-            └── /pulsar-fonts
-</code></pre>
-</div>
-
-<h2 id="directory-structure">Directory Structure</h2>
-
-<p>Whether you use Composer or you directly clone the Pulsar GitHub repo, you’ll need to make sure these files and folders are made web-readable.</p>
-
-<p>If you use Composer you can use a task runner like grunt-copy which runs the task on a successful <code class="highlighter-rouge">composer install</code> or <code class="highlighter-rouge">composer update</code> automatically, placing them into a directory of your choice.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/your-project
-    └── /pulsar
-        └── /images/<span class="k">*</span>
-        └── /libs
-            └── /font-awesome/<span class="k">*</span>
-            └── /html5shiv/html5shuv.min.js
-            └── /normalize-css/normalize.css
-            └── /nwmatcher/src/nwmatcher.js
-            └── /respond/dest/respond.min.js
-            └── /select2/dist/css/select2.css
-            └── /selectivizr/selectivizr.js
-    └── /pulsar-fonts/src/<span class="k">*</span>
-</code></pre>
-</div>
-
-<h1 id="setup">Setup</h1>
-
-<h3 id="html-setup">HTML Setup</h3>
-
-<p>You will need to include Pulsar’s CSS and javascript into your pages, making sure the files point to the correct location of the Pulsar directory in your project.</p>
-
-<div class="code-examples">            <div class="code-examples__buttons examples">
-              <ul class="code-examples__list">
-                <li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
-              </ul>
-            </div>
-          <div class="example language-html html">
-            <pre class="prettyprint lang-html"><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;!--[if IE 7]&gt;&lt;html lang=&quot;en&quot; class=&quot;no-js ie7 lt-ie10 lt-ie8&quot;&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 8]&gt;&lt;html lang=&quot;en&quot; class=&quot;no-js ie8 lt-ie10 lt-ie9&quot;&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 9]&gt;&lt;html lang=&quot;en&quot; class=&quot;no-js ie9 lt-ie10&quot;&gt;&lt;![endif]--&gt;
-&lt;!--[if gt IE 9]&gt;&lt;!--&gt;&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;&gt;&lt;!--&lt;![endif]--&gt;
-&lt;head&gt;
-    &lt;title&gt;Project Title&lt;/title&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-
-    &lt;!--[if IE 7]&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/path-to-pulsar/css/pulsar-ie7.min.css&quot; /&gt;
-    &lt;![endif]--&gt;
-    &lt;!--[if IE 8]&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/path-to-pulsar/css/pulsar-ie8.min.css&quot; /&gt;
-    &lt;![endif]--&gt;
-    &lt;!--[if IE 9]&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/path-to-pulsar/css/pulsar-ie9.min.css&quot; /&gt;
-    &lt;![endif]--&gt;
-    &lt;!--[if gt IE 9]&gt;&lt;!--&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/path-to-pulsar/css/pulsar.css&quot; /&gt;
-    &lt;!--&lt;![endif]--&gt;
-
-    &lt;!--[if lt IE 9]&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-pulsar/libs/html5shiv/dist/html5shiv.js&quot;&gt;&lt;/script&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-pulsar/libs/nwmatcher/src/nwmatcher.js&quot;&gt;&lt;/script&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-pulsar/libs/selectivizr/selectivizr.js&quot;&gt;&lt;/script&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-pulsar/libs/respond/dest/respond.min.js&quot;&gt;&lt;/script&gt;
-    &lt;![endif]--&gt;
-
-    &lt;!--[if IE 7]&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/path-to-pulsar/libs/font-awesome/css/font-awesome-ie7.min.css&quot; /&gt;
-    &lt;![endif]--&gt;
-
-    &lt;script src=&quot;/path-to-pulsar/dist/js/bundle.js&quot; id=&quot;main-js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;/path-to-pulsar/js/main.js&quot;&gt;&lt;/script&gt;
-
-&lt;/head&gt;
-&lt;body class=&quot;language-html&quot;&gt;
-
-    &lt;!--
-        MAIN LAYOUT GOES HERE
-    --&gt;
-
-    &lt;footer class=&quot;footer&quot;&gt;
-        &lt;a href=&quot;#top&quot;&gt;&lt;i class=&quot;icon-circle-arrow-up&quot;&gt;&lt;span class=&quot;hide&quot;&gt;Back to top&lt;/span&gt;&lt;/i&gt;&lt;/a&gt;
-        &lt;a href=&quot;/jadu/version.php&quot; class=&quot;branding-footer&quot;&gt;Jadu Continuum&lt;/a&gt; © 2018
-    &lt;/footer&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-          </div>
-</div>
-
-<h3 id="compiling-sass">Compiling Sass</h3>
-
-<p>You will need to create your own primary Sass file and import whichever pieces of Pulsar you need to achieve your UI. This also allows you to create your own Sass files and include them in the compiled output.</p>
-
-<p>An example, ultra basic Sass file would look like this:</p>
-
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$ie-version</span><span class="p">:</span> <span class="m">12</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
-
-<span class="c1">// Third party plugins
-</span><span class="k">@import</span> <span class="s1">'../libs/normalize-css/normalize.css'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'../libs/select2/dist/css/select2.css'</span><span class="p">;</span>
-
-<span class="c1">// Font awesome
-</span><span class="nv">$fa-font-path</span><span class="p">:</span> <span class="s1">'../libs/font-awesome/fonts'</span><span class="p">;</span>
-<span class="nv">$fa-css-prefix</span><span class="p">:</span> <span class="s1">'icon'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'../../../../vendor/jadu/pulsar/libs/font-awesome/scss/font-awesome'</span><span class="p">;</span>
-
-<span class="c1">// Mixins
-</span><span class="k">@import</span> <span class="s1">'mixin.border-radius'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.clear-fix'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.content-box'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.css-arrow'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.hide-text'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.inline-block'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.label-variant'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.media-queries'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.mixins-to-organise'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'mixin.responsive-utilities'</span><span class="p">;</span>
-
-<span class="c1">// Config
-</span><span class="k">@import</span> <span class="s1">'config.variables'</span><span class="p">;</span>
-
-<span class="nv">$font-path</span><span class="p">:</span> <span class="s1">'../../pulsar-fonts/src/'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'config.fonts'</span><span class="p">;</span>
-
-<span class="k">@import</span> <span class="s1">'config.branding'</span><span class="p">;</span>
-
-<span class="c1">// Functions
-</span><span class="k">@import</span> <span class="s1">'function.math'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'function.color-luminance'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'function.pick-best-color'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'function.color'</span><span class="p">;</span>
-
-<span class="c1">// Base colour palette
-</span><span class="k">@import</span> <span class="s1">'palette.base'</span><span class="p">;</span>
-
-<span class="c1">// Apply palette to components
-</span><span class="k">@import</span> <span class="s1">'config.theme'</span><span class="p">;</span>
-
-<span class="c1">// Structure
-</span><span class="k">@import</span> <span class="s1">'structure.grid'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'structure.columns'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'structure.scaffolding'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'structure.type'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'structure.forms'</span><span class="p">;</span>
-
-<span class="c1">// Layouts
-</span><span class="k">@import</span> <span class="s1">'layout.settings'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'layout.sidebar'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'layout.signin'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'layout.tabs'</span><span class="p">;</span>
-
-<span class="cm">/* ------------------------------------------------------------------------- *\
-    If you're theming Pulsar and want to include your own variables, colours or
-    mixins you should @import them here.
-\* ------------------------------------------------------------------------- */</span>
-<span class="c1">// Third party libraries
-</span><span class="k">@import</span> <span class="s1">'libraries/library.colorpicker'</span><span class="p">;</span>
-
-<span class="c1">// Objects
-</span><span class="k">@import</span> <span class="s1">'objects/_object.box'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'objects/_object.media'</span><span class="p">;</span>
-
-<span class="c1">// Components
-</span><span class="k">@import</span> <span class="s1">'component.actionsbar'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.badges'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.block-list'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.breadcrumb'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.button-groups'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.buttons'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.close'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.datepicker'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.daterange'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.dropdowns'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.edit-button'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.flash'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.footer'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.forms'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.icons'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.input-groups'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.labels'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.lists'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.loading'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.login'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.metadata'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.modals'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.navigation'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.nav-list'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.navbars'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.pagination'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.panels'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.popovers'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.progress-bars'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.progress-lists'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.range-slider'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.remove-button'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.search'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.select2'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.signin'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.tab-help'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.tab-panel'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.tables'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.datatables'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.toggle-switch'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.toolbar'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.tooltips'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'component.calendar'</span><span class="p">;</span>
-
-<span class="cm">/* ------------------------------------------------------------------------- *\
-    If you're extending Pulsar and want to include your own layouts/modules etc
-    you should @import them here.
-\* ------------------------------------------------------------------------- */</span>
-
-<span class="c1">// Utilities
-</span><span class="k">@import</span> <span class="s1">'utility.highlight'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'utility.utilities'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'utility.misc'</span><span class="p">;</span>
-<span class="k">@import</span> <span class="s1">'utility.states'</span><span class="p">;</span>
-</code></pre>
-</div>
-
-<p>Your Sass task (using Grunt or similar) should accept a list of include paths, you can pass the path to your own scss directory as well as the Pulsar directories within <code class="highlighter-rouge">/vendor</code> (or wherever you choose to put it).</p>
-
-<p>We choose to keep Pulsar scss files within <code class="highlighter-rouge">/vendor</code> as they shouldn’t be modified, you should add your own stylesheets, or open a pull request in the Pulsar repo to implement any required changes.</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">example</span><span class="err">:</span> <span class="p">{</span>
-    <span class="nl">options</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nl">includePaths</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">'scss'</span><span class="p">,</span>
-            <span class="s1">'vendor/jadu/pulsar/stylesheets'</span><span class="p">,</span>
-            <span class="s1">'vendor/jadu/pulsar-fonts/src'</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">...</span>
-</code></pre>
-</div>
-
-<h1 id="core-elements">Core Elements</h1>
-
-<p>There are a handful of consistent user interface elements that should be included on all Pulsar UIs. These include:</p>
-
-<p><img src="https://jadu.mybalsamiq.com/mockups/6441630.png?key=4ea972e5603e57bd4af80ece9e4d9f280b45b076" alt="Pulsar Core Elements - Greybox model" /></p>
-
-<h1 id="base-layout">Base Layout</h1>
-
-<p>The base layout includes the core elements, and a full width content area which can contain whatever components the UI requires, such as forms, tables or something more complex.</p>
-
-<p>Generally, all other layouts detailed here are extensions of the base layout.</p>
-
-<p><img src="/assets/image_examples/Basic%20Layout/Box%20Model.png" alt="Pulsar Base Layout - Greybox model" /></p>
-
-<h1 id="base-layout-with-sidebar-help">Base Layout with Sidebar Help</h1>
-
-<p>The sidebar help variation allows a column on the right hand side to contain help text to describe a user interface and provide more context to the user. This pattern is suitable for simple UIs where the <code class="highlighter-rouge">tab__content</code> is either a form or a table. For more complex UIs you may choose not to dedicate so much horizontal space for help text.</p>
-
-<p><img src="/assets/image_examples/Basic%20Layout%20with%20Sidebar%20Help/Box%20Model.png" alt="Pulsar Base Layout with Sidebar Help - Greybox model" /></p>
-
-<h4 id="example">Example</h4>
-
-<p><img src="/assets/image_examples/Basic%20Layout%20with%20Sidebar%20Help/Example.png" alt="Pulsar Base Layout with Sidebar Help - Example" /></p>
-
-<h1 id="settings-layout">Settings Layout</h1>
-
-<p>The settings layout has a left hand column dedicated to form controls which control whatever elements may reside in the right hand column. A simple example is a document editor on the right, with the editing controls on the left.</p>
-
-<p><img src="/assets/image_examples/Settings%20Layout/Box%20Model.png" alt="Pulsar Settings Layout - Greybox model" /></p>
-
-<h4 id="example-1">Example</h4>
-
-<p><img src="/assets/image_examples/Settings%20Layout/Example.png" alt="Pulsar Settings Layout - Example" /></p>
-
-<h1 id="masterswitch-layout-shown-with-optional-sidebar-help">Masterswitch Layout (shown with optional sidebar help)</h1>
-
-<p>The masterswitch layout has a single toggle switch that controls the enabled/disabled state of an entire user interface. Useful for patterns such as the integrations UI where a quick on/off switch needs to be provided.</p>
-
-<p><img src="/assets/image_examples/Masterswitch%20Layout%20with%20Sidebar%20Help/Box%20Model.png" alt="Pulsar Masterswitch Layout - Greybox model" /></p>
-
-<h4 id="example-2">Example</h4>
-
-<p><img src="/assets/image_examples/Masterswitch%20Layout%20with%20Sidebar%20Help/Example.png" alt="Pulsar Masterswitch Layout - Example" /></p>
-
-<h1 id="piano-layout">Piano Layout</h1>
-
-<p>Shows a scrollable left hand column and a details area on the right. The piano layout allows users to quickly navigate through multiple items and still maintain the context of what other items exist in a list. Useful for messages (like GMail).</p>
-
-<p><img src="/assets/image_examples/Piano%20Layout/Box%20Model.png" alt="Pulsar Piano Layout - Greybox model" /></p>
-
-<h4 id="example-3">Example</h4>
-
-<p><img src="/assets/image_examples/Piano%20Layout/Example.png" alt="Pulsar Piano Layout - Example" /></p>
-
-<h1 id="reports-layout">Reports Layout</h1>
-
-<p>Used exclusively for reporting UIs, this layout provides areas for report controls, charts and tabular data.</p>
-
-<p><img src="/assets/image_examples/Reports%20Layout/Box%20Model.png" alt="Pulsar Reports Layout - Greybox model" /></p>
-
-<h4 id="example-4">Example</h4>
-
-<p><img src="/assets/image_examples/Reports%20Layout/Example.png" alt="Pulsar Reports Layout - Example" /></p>
-
 
         </div>
     </div>
