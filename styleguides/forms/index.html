@@ -551,8 +551,7 @@ All user interfaces within the Continuum platform *must* meet WCAG 2.0 complianc
 
 <h3 id="aria-labelledby">aria-labelledby</h3>
 
-<p>If another visible element on the page can be used to label the input, like a 
-The input can then use the <code class="highlighter-rouge">aria-labelledby</code> attribute to specify the element you’re using as a label.</p>
+<p>If another visible element on the page can be used to label the input, like a heading or title, the input can then use the <code class="highlighter-rouge">aria-labelledby</code> attribute to specify the element you’re using as a label.</p>
 
 <p>To do this, the element acting as the label must have an <code class="highlighter-rouge">id</code>, we recommend namespacing IDs used only for labels as <code class="highlighter-rouge">id="aria-something"</code> so that other developers will understand that this ID exists for accessibility reasons. No styles or javascript behaviour should be hooked into <code class="highlighter-rouge">aria-</code> namespaced IDs.</p>
 
@@ -602,7 +601,7 @@ The input can then use the <code class="highlighter-rouge">aria-labelledby</code
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
     form.checkbox({
         &apos;id&apos;: &apos;foo&apos;,
-        &apos;aria-labelled&apos;: &apos;My awesome checkbox&apos;
+        &apos;aria-label&apos;: &apos;My awesome checkbox&apos;
     })
 }}</code></pre>
           </div>
