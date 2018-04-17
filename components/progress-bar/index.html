@@ -597,7 +597,7 @@ progress bars.</p>
 
 <p>Given the markup example below, it’s simply a case of updating the two main percentage values in <code class="highlighter-rouge">aria-valuenow</code> and the inline <code class="highlighter-rouge">style</code> attributes with your new percentage.</p>
 
-<p>If you have the percentage in the label either hidden or visible then you’ll need to update that too.</p>
+<p>If you have the percentage in the label either hidden or visible) then you’ll need to update that too.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"progress"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span>
@@ -611,70 +611,6 @@ progress bars.</p>
         25%
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre>
-</div>
-
-<h2 id="stepped-progress-bar-example">Stepped Progress Bar Example</h2>
-
-<p>Stepped progress bar is used mainly in modals as a step indicator of a multi step process.</p>
-<div class="pulsar-example">
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-1">
-        <li class="step"><span class="step-box current"><span class="step-number" aria-hidden="true">1</span></span></li>
-        <li class="step"><span class="step-box"><span class="step-number" aria-hidden="true">2</span></span></li>
-        <li class="step"><span class="step-box"><span class="step-number" aria-hidden="true">3</span></span></li>
-        <li class="step last"><span class="step-box"><i class="icon-flag-checkered" aria-hidden="true"></i></span></li>
-    </ol>
-    <h3 class="hide" id="aria-stepped-progress-bar-heading-2">Step 2 of 4</h3>
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="2" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-2">
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step"><span class="step-box current"><span class="step-number" aria-hidden="true">2</span></span></li>
-        <li class="step"><span class="step-box"><span class="step-number" aria-hidden="true">3</span></span></li>
-        <li class="step last"><span class="step-box"><i class="icon-flag-checkered" aria-hidden="true"></i></span></li>
-    </ol>
-    <h3 class="hide" id="aria-stepped-progress-bar-heading-3">Step 3 of 4</h3>
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="3" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-3">
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step"><span class="step-box current"><span class="step-number" aria-hidden="true">3</span></span></li>
-        <li class="step last"><span class="step-box"><i class="icon-flag-checkered" aria-hidden="true"></i></span></li>
-    </ol>
-    <h3 class="hide" id="aria-stepped-progress-bar-heading-4">Step 4 of 4</h3>
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="4" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-4">
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step last"><span class="step-box final"><i class="icon-flag-checkered" aria-hidden="true"></i></span></li>
-    </ol>
-</div>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>    <span class="err">&lt;</span><span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"hide"</span> <span class="na">id=</span><span class="s">"aria-stepped-progress-bar-heading-1"</span><span class="nt">&gt;</span>Step 1 of 4<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">aria-valuenow=</span><span class="s">"1"</span> <span class="na">aria-valuemin=</span><span class="s">"1"</span> <span class="na">aria-valuemax=</span><span class="s">"4"</span> <span class="na">aria-describedby=</span><span class="s">"aria-stepped-progress-bar-heading-1"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box current"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-number"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-number"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-number"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step last"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;/ol&gt;</span>
-    <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"hide"</span> <span class="na">id=</span><span class="s">"aria-stepped-progress-bar-heading-2"</span><span class="nt">&gt;</span>Step 2 of 4<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">aria-valuenow=</span><span class="s">"2"</span> <span class="na">aria-valuemin=</span><span class="s">"1"</span> <span class="na">aria-valuemax=</span><span class="s">"4"</span> <span class="na">aria-describedby=</span><span class="s">"aria-stepped-progress-bar-heading-2"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box current"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-number"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-number"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step last"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;/ol&gt;</span>
-    <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"hide"</span> <span class="na">id=</span><span class="s">"aria-stepped-progress-bar-heading-3"</span><span class="nt">&gt;</span>Step 3 of 4<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">aria-valuenow=</span><span class="s">"3"</span> <span class="na">aria-valuemin=</span><span class="s">"1"</span> <span class="na">aria-valuemax=</span><span class="s">"4"</span> <span class="na">aria-describedby=</span><span class="s">"aria-stepped-progress-bar-heading-3"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box current"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-number"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step last"</span> <span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;/ol&gt;</span>
-    <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"hide"</span> <span class="na">id=</span><span class="s">"aria-stepped-progress-bar-heading-4"</span><span class="nt">&gt;</span>Step 4 of 4<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"stepped-progressbar"</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">aria-valuenow=</span><span class="s">"4"</span> <span class="na">aria-valuemin=</span><span class="s">"1"</span> <span class="na">aria-valuemax=</span><span class="s">"4"</span> <span class="na">aria-describedby=</span><span class="s">"aria-stepped-progress-bar-heading-4"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step successful"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box completed"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-ok"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"step last"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"step-box final"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-flag-checkered"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;/ol&gt;</span>
 </code></pre>
 </div>
 
