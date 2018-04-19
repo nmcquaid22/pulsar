@@ -462,19 +462,20 @@
 
 <p>Example:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal"</span> <span class="na">id=</span><span class="s">"myModal"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-modal=</span><span class="s">"true"</span> <span class="na">aria-labelledby=</span><span class="s">"myModal-title"</span> <span class="na">aria-describedby=</span><span class="s">"myModal-description"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__dialog"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__content"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__header"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
-                <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"modal__title"</span><span class="nt">&gt;</span>A simple example<span class="nt">&lt;/h4&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close dialog"</span><span class="nt">&gt;</span>×<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"modal__title"</span> <span class="na">id=</span><span class="s">"myModal-title"</span><span class="nt">&gt;</span>A simple example<span class="nt">&lt;/h1&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__body"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"myModal-description"</span> <span class="na">class=</span><span class="s">"hide"</span><span class="nt">&gt;</span>Here goes a short description (a couple of lines) about the modal's purpose, if needed.<span class="nt">&lt;/p&gt;</span>
                 <span class="nt">&lt;p&gt;</span>The modal body might have instructions, a form, or other stuff.<span class="nt">&lt;/p&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__footer"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
                 <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn--primary"</span><span class="nt">&gt;</span>Save Changes<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn--naked"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal__content --&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal__dialog --&gt;</span>
@@ -483,19 +484,20 @@
 </div>
 
 <div class="pulsar-example">
-    <div class="modal modal__example show">
+    <div class="modal modal__example show" id="myModal2" role="dialog" aria-modal="true" aria-labelledby="myModal2-title" aria-describedby="myModal2-description">
         <div class="modal__dialog">
             <div class="modal__content">
                 <div class="modal__header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal__title">A simple example</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close dialog">×</button>
+                    <h1 class="modal__title" id="myModal2-title">A simple example</h1>
                 </div>
                 <div class="modal__body">
+                    <p id="myModal2-description" class="hide">Here goes a short description (a couple of lines) about the modal's purpose, if needed.</p>
                     <p>The modal body might have instructions, a form, or other stuff.</p>
                 </div>
                 <div class="modal__footer">
                     <button type="button" class="btn btn--primary">Save Changes</button>
-                  <button type="button" class="btn btn--naked" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn--naked" data-dismiss="modal">Cancel</button>
                 </div>
             </div><!-- /.modal__content -->
         </div><!-- /.modal__dialog -->
@@ -513,20 +515,21 @@
 </div>
 
 <div class="pulsar-example">
-    <div class="modal modal--danger modal__example show">
+    <div class="modal modal--danger modal__example show" id="myModal3" role="dialog" aria-modal="true" aria-labelledby="myModal3-title" aria-describedby="myModal3-description">
         <div class="modal__dialog">
             <div class="modal__content">
                 <div class="modal__header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal__title"><i class="icon-warning-sign"></i> You’re about to do something really, really bad</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close dialog">×</button>
+                    <h1 class="modal__title" id="myModal3-title"><i class="icon-warning-sign"></i> You’re about to do something really, really bad</h1>
                 </div>
                 <div class="modal__body">
+                    <p id="myModal3-description" class="hide">Here goes a short description (a couple of lines) about the modal's purpose, if needed.</p>
                     <p>We mainly use modals to get you to stop and confirm that you really want to delete something, and remind you that this action cannot be reversed.</p>
                     <p>A modal's action buttons should be written so that if a user only reads the buttons, they should get an idea of the action they're about to perform instead of blindly clicking 'OK' or 'Confirm'.</p>
                 </div>
                 <div class="modal__footer">
                     <button type="button" class="btn btn--danger">Delete Everything</button>
-                  <button type="button" class="btn btn--naked" data-dismiss="modal">Don't Do Anything</button>
+                    <button type="button" class="btn btn--naked" data-dismiss="modal">Don't Do Anything</button>
                 </div>
             </div><!-- /.modal__content -->
         </div><!-- /.modal__dialog -->
@@ -546,8 +549,9 @@
     <span class="na">id=</span><span class="s">"myModal"</span>
     <span class="na">tabindex=</span><span class="s">"-1"</span>
     <span class="na">role=</span><span class="s">"dialog"</span>
-    <span class="na">aria-labelledby=</span><span class="s">"myModalLabel"</span>
-    <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="na">aria-modal=</span><span class="s">"true"</span>
+    <span class="na">aria-labelledby=</span><span class="s">"myModal-label"</span>
+    <span class="na">aria-describedby=</span><span class="s">"myModal-description"</span><span class="nt">&gt;</span>
     ...
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
@@ -638,7 +642,6 @@
 
 <p>Be sure to add <code class="highlighter-rouge">role="dialog"</code> to your primary modal div. In the example above, <code class="highlighter-rouge">div#myModal</code>.
 Also, the <code class="highlighter-rouge">aria-labelledby</code> attribute references your modal title. In this example, <code class="highlighter-rouge">h4#myModalLabel</code>.
-Finally, <code class="highlighter-rouge">aria-hidden="true"</code> tells assistive technologies to skip DOM elements.
 Additionally, you may give a description of your modal dialog. Use the <code class="highlighter-rouge">aria-describedby</code> attribute in the modal’s primary <code class="highlighter-rouge">&lt;div&gt;</code> to point to this description (this is not shown in the above example).</p>
 
 <h2 id="nested-modals">Nested modals</h2>
