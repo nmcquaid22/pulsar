@@ -112,7 +112,10 @@ $(document).ready( function () {
 
     console.log(fetched_data);*/
 
-  var jsonData = [ ["Document 01", "01/01/2017", "John Doe", "25/04/2011", "Alex Jones", "aliens, paranomal, ufo", "on", "on"] ];
+  var jsonData = [
+    ["Document 01", "01/01/2017", "John Doe", "25/04/2011", "Alex Jones", "aliens, paranomal, ufo", "on", "on"],
+    ["Document 02", "01/02/2017", "John Doe", "25/05/2011", "James Darwin", "plants, growth", "on", "off"]
+   ];
 
   table = createTable( headerRow );
   $('#generic_content .tab__content').parent().append(table);
