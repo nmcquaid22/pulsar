@@ -1,0 +1,84 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+
+{%- block actions_left -%}
+    {{
+        html.actions_menu({
+            'items': [
+                [
+                    {
+                        'label': 'Create New',
+                        'href': '#create-new',
+                        'icon': 'file-alt'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Change Owner',
+                        'href': '#change-owner',
+                        'icon': 'user'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Make Live',
+                        'href': '#live',
+                        'data-toggle': 'modal',
+                        'icon': 'external-link'
+                    },
+                    {
+                        'label': 'Make Visible',
+                        'href': '#visiible',
+                        'icon': 'eye-open'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Link Inspector',
+                        'href': '#preview',
+                        'icon': 'link'
+                    },
+                    {
+                        'label': 'View Live',
+                        'href': '#view-live',
+                        'icon': 'globe'
+                    }
+                ],
+                [
+                    {
+                        'class': 'link--danger',
+                        'label': 'Delete',
+                        'href': '#delete',
+                        'icon': 'remove'
+                    }
+                ],
+            ]
+        })
+    }}
+{%- endblock -%}
+
+{%- block actions_right -%}
+    {{
+        html.button({
+            'label': 'Create New',
+            'class': 'btn--primary'
+        })
+    }}
+{%- endblock -%}
+
+{% block tab_content %}
+    <table class="table datatable table--full" id="genericTable">
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Created Date</td>
+                <td>Owner</td>
+                <td>Modified Date</td>
+                <td>Modified By</td>
+                <td>Categories</td>
+                <td>Live</td>
+                <td>Visible</td>
+            </tr>
+        </thead>
+    </table>
+
+{% endblock tab_content %}
