@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -556,15 +560,15 @@
     &lt;legend class=&quot;control__label&quot; id=&quot;bar[label]&quot;&gt;Date of birth&lt;/legend&gt;
     &lt;div class=&quot;controls&quot;&gt;
         &lt;label for=&quot;dd&quot; id=&quot;dd[label]&quot; class=&quot;control__label hide&quot;&gt;Day&lt;/label&gt;
-        &lt;input id=&quot;dd&quot; placeholder=&quot;DD&quot; type=&quot;text&quot; class=&quot;form__control form__control-col--1&quot;&gt;
+        &lt;input id=&quot;dd&quot; placeholder=&quot;DD&quot; type=&quot;text&quot; aria-describedby=&quot;guid-12345678&quot; class=&quot;form__control form__control-col--1&quot;&gt;
 
         &lt;label for=&quot;mm&quot; id=&quot;mm[label]&quot; class=&quot;control__label hide&quot;&gt;Month&lt;/label&gt;
-        &lt;input id=&quot;mm&quot; placeholder=&quot;MM&quot; type=&quot;text&quot; class=&quot;form__control form__control-col--1&quot;&gt;
+        &lt;input id=&quot;mm&quot; placeholder=&quot;MM&quot; type=&quot;text&quot; aria-describedby=&quot;guid-12345678&quot; class=&quot;form__control form__control-col--1&quot;&gt;
 
         &lt;label for=&quot;yyyy&quot; id=&quot;yyyy[label]&quot; class=&quot;control__label hide&quot;&gt;Year&lt;/label&gt;
-        &lt;input id=&quot;yyyy&quot; placeholder=&quot;YYYY&quot; type=&quot;text&quot; class=&quot;form__control form__control-col--1&quot;&gt;
+        &lt;input id=&quot;yyyy&quot; placeholder=&quot;YYYY&quot; type=&quot;text&quot; aria-describedby=&quot;guid-12345678&quot; class=&quot;form__control form__control-col--1&quot;&gt;
 
-        &lt;span class=&quot;help-block&quot;&gt;For example: 25 12 1980&lt;/span&gt;
+        &lt;span class=&quot;help-block&quot; id=&quot;guid-12345678&quot;&gt;For example: 25 12 1980&lt;/span&gt;
     &lt;/div&gt;
 &lt;/fieldset&gt;
 </code></pre>
@@ -612,15 +616,15 @@
         <legend class="control__label" id="bar[label]">Date of birth</legend>
         <div class="controls">
             <label for="dd" id="dd[label]" class="control__label hide">Day</label>
-            <input id="dd" placeholder="DD" type="text" class="form__control form__control-col--1" />
+            <input id="dd" placeholder="DD" type="text" aria-describedby="guid-671105739" class="form__control form__control-col--1" />
 
             <label for="mm" id="mm[label]" class="control__label hide">Month</label>
-            <input id="mm" placeholder="MM" type="text" class="form__control form__control-col--1" />
+            <input id="mm" placeholder="MM" type="text" aria-describedby="guid-671105739" class="form__control form__control-col--1" />
 
             <label for="yyyy" id="yyyy[label]" class="control__label hide">Year</label>
-            <input id="yyyy" placeholder="YYYY" type="text" class="form__control form__control-col--1" />
+            <input id="yyyy" placeholder="YYYY" type="text" aria-describedby="guid-671105739" class="form__control form__control-col--1" />
 
-            <span class="help-block">For example: 25 12 1980</span>
+            <span class="help-block" id="guid-671105739">For example: 25 12 1980</span>
         </div>
     </fieldset>
 </div>
@@ -635,19 +639,20 @@
     &lt;legend class=&quot;control__label&quot; id=&quot;comp-10[label]&quot;&gt;Example with one invalid field and error &lt;/legend&gt;
     &lt;div class=&quot;controls&quot;&gt;
         &lt;label for=&quot;dd&quot; id=&quot;dd[label]&quot; class=&quot;control__label hide&quot;&gt;Day&lt;/label&gt;
-        &lt;input id=&quot;dd&quot; placeholder=&quot;DD&quot; type=&quot;text&quot; class=&quot;form__control form__control-col--1&quot;&gt;
+        &lt;input id=&quot;dd&quot; placeholder=&quot;DD&quot; type=&quot;text&quot; aria-describedby=&quot;guid-12345678 guid-98765432&quot; class=&quot;form__control form__control-col--1&quot;&gt;
 
         &lt;label for=&quot;mm&quot; id=&quot;mm[label]&quot; class=&quot;control__label hide&quot;&gt;Month&lt;/label&gt;
-        &lt;input id=&quot;mm&quot; placeholder=&quot;MM&quot; type=&quot;text&quot; class=&quot;form__control form__control-col--1 has-error&quot;&gt;
+        &lt;input id=&quot;mm&quot; placeholder=&quot;MM&quot; type=&quot;text&quot; aria-describedby=&quot;guid-12345678 guid-98765432&quot; aria-invalid=&quot;true&quot; class=&quot;form__control form__control-col--1 has-error&quot;&gt;
 
         &lt;label for=&quot;yyyy&quot; id=&quot;yyyy[label]&quot; class=&quot;control__label hide&quot;&gt;Year&lt;/label&gt;
-        &lt;input id=&quot;yyyy&quot; placeholder=&quot;YYYY&quot; type=&quot;text&quot; class=&quot;form__control form__control-col--1&quot;&gt;
+        &lt;input id=&quot;yyyy&quot; placeholder=&quot;YYYY&quot; type=&quot;text&quot; aria-describedby=&quot;guid-12345678 guid-98765432&quot; class=&quot;form__control form__control-col--1&quot;&gt;
 
-        &lt;span class=&quot;help-block is-error&quot;&gt;&lt;i aria-hidden=&quot;true&quot; class=&quot;icon-warning-sign&quot;&gt;&lt;/i&gt; Please complete your month of birth&lt;/span&gt;
+        &lt;span class=&quot;help-block is-error&quot; id=&quot;guid-12345678&quot;&gt;&lt;i aria-hidden=&quot;true&quot; class=&quot;icon-warning-sign&quot;&gt;&lt;/i&gt; Please complete your month of birth&lt;/span&gt;
 
-        &lt;span class=&quot;help-block&quot;&gt;For example: 25 12 1980&lt;/span&gt;
+        &lt;span class=&quot;help-block&quot; id=&quot;guid-98765432&quot;&gt;For example: 25 12 1980&lt;/span&gt;
     &lt;/div&gt;
-&lt;/fieldset&gt;</code></pre>
+&lt;/fieldset&gt;
+</code></pre>
           </div>
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
@@ -694,17 +699,17 @@
         <legend class="control__label" id="comp-10[label]">Example with one invalid field and error </legend>
         <div class="controls">
             <label for="dd" id="dd[label]" class="control__label hide">Day</label>
-            <input id="dd" placeholder="DD" type="text" class="form__control form__control-col--1" />
+            <input id="dd" placeholder="DD" type="text" aria-describedby="guid-460222874 guid-1069969603" class="form__control form__control-col--1" />
 
             <label for="mm" id="mm[label]" class="control__label hide">Month</label>
-            <input id="mm" placeholder="MM" type="text" class="form__control form__control-col--1 has-error" />
+            <input id="mm" placeholder="MM" type="text" aria-invalid="true" aria-describedby="guid-460222874 guid-1069969603" class="form__control form__control-col--1 has-error" />
 
             <label for="yyyy" id="yyyy[label]" class="control__label hide">Year</label>
-            <input id="yyyy" placeholder="YYYY" type="text" class="form__control form__control-col--1" />
+            <input id="yyyy" placeholder="YYYY" type="text" aria-describedby="guid-460222874 guid-1069969603" class="form__control form__control-col--1" />
 
-            <span class="help-block is-error"><i aria-hidden="true" class="icon-warning-sign"></i> Please complete your month of birth</span>
+            <span class="help-block is-error" id="guid-460222874"><i aria-hidden="true" class="icon-warning-sign"></i> Please complete your month of birth</span>
 
-            <span class="help-block">For example: 25 12 1980</span>
+            <span class="help-block" id="guid-1069969603">For example: 25 12 1980</span>
         </div>
     </fieldset>
 </div>
@@ -720,15 +725,15 @@
 
     &lt;div class=&quot;controls&quot;&gt;
         &lt;label for=&quot;value&quot; id=&quot;value[label]&quot; class=&quot;control__label hide&quot;&gt;Value&lt;/label&gt;
-        &lt;input id=&quot;value&quot; maxlength=&quot;3&quot; type=&quot;text&quot; class=&quot;form__control form__control-col--1&quot;&gt;
+        &lt;input id=&quot;value&quot; maxlength=&quot;3&quot; type=&quot;text&quot; aria-describedby=&quot;guid-12345678&quot; class=&quot;form__control form__control-col--1&quot;&gt;
 
         &lt;label for=&quot;Unit&quot; id=&quot;Unit[label]&quot; class=&quot;control__label hide&quot;&gt;Unit of time&lt;/label&gt;
-        &lt;select id=&quot;Unit&quot; type=&quot;select&quot; class=&quot;form__control u-width-auto select&quot;&gt;
+        &lt;select id=&quot;Unit&quot; type=&quot;select&quot; class=&quot;form__control u-width-auto select&quot; aria-describedby=&quot;guid-12345678&quot;&gt;
             &lt;option value=&quot;sec&quot;&gt;Seconds&lt;/option&gt;
             &lt;option value=&quot;min&quot;&gt;Minutes&lt;/option&gt;
         &lt;/select&gt;
 
-        &lt;span class=&quot;help-block&quot;&gt;How long the system should wait for a response, usually 30 seconds&lt;/span&gt;
+        &lt;span class=&quot;help-block&quot; id=&quot;guid-12345678&quot;&gt;How long the system should wait for a response, usually 30 seconds&lt;/span&gt;
     &lt;/div&gt;
 &lt;/fieldset&gt;
 </code></pre>
@@ -777,18 +782,22 @@
     <legend class="control__label" id="foo[label]">Timeout</legend>
     <div class="controls">
         <label for="value" id="value[label]" class="control__label hide">Value</label>
-        <input id="value" maxlength="3" type="text" class="form__control form__control-col--1" />
+        <input id="value" maxlength="3" type="text" aria-describedby="guid-82443025" class="form__control form__control-col--1" />
 
         <label for="Unit" id="Unit[label]" class="control__label hide">Unit of time</label>
-        <select id="Unit" type="select" class="form__control u-width-auto select">
+        <select id="Unit" type="select" aria-describedby="guid-82443025" class="form__control u-width-auto select">
             <option value="sec">Seconds</option>
             <option value="min">Minutes</option>
         </select>
 
-        <span class="help-block">How long the system should wait for a response, usually 30 seconds</span>
+        <span class="help-block" id="guid-82443025">How long the system should wait for a response, usually 30 seconds</span>
     </div>
 </fieldset>
 </div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>To maintain compliance with WCAG 2.0 AA, a form element must have a related label element, the easiest way to achieve this is to always pass an <code class="highlighter-rouge">id</code> attribute to form helpers. Form helpers will automatically add <code class="highlighter-rouge">aria-describedby="guid-&lt;random-number&gt;"</code> to inputs and an <code class="highlighter-rouge">id</code> to help blocks and errors. Additionally, <code class="highlighter-rouge">aria-invalid="true"</code> will be added to inputs when an error is passed.</p>
 
 
 

@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -496,7 +500,11 @@ You should know that the makefile will attempt to install everything required fo
 </code></pre>
 </div>
 
-<p>The first time you run this, vagrant will download a ‘box’ which is basically a lightweight Ubuntu build, it will then run a provisioning script which installs and configures Apache, PHP, MySQL and Git.</p>
+<p>or alternatively, using docker</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docker-compose up -d
+</code></pre>
+</div>
 
 <p>Once that’s complete, you will need to run the main <code class="highlighter-rouge">grunt</code> task which will build the main CSS and javascript files, and watch for any further changes. This can be started with:</p>
 

@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -469,9 +473,9 @@
             </div>
           <div class="example language-html html">
             <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form-checkbox&quot;&gt;
-    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;Default checkbox&lt;/label&gt;
+    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;My label&lt;/label&gt;
     &lt;div class=&quot;controls&quot;&gt;
-        &lt;input id=&quot;foo&quot; name=&quot;bar&quot; checked=&quot;&quot; type=&quot;checkbox&quot; class=&quot;form__control checkbox&quot;&gt;
+        &lt;input id=&quot;foo&quot; name=&quot;bar&quot; type=&quot;checkbox&quot; class=&quot;form__control checkbox&quot;&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -479,9 +483,9 @@
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
     form.checkbox({
-        &apos;label&apos;: &apos;Default checkbox&apos;,
-        &apos;id&apos;: &apos;foo&apos;, 
-        &apos;name&apos;: &apos;bar&apos;
+        &apos;label&apos;: &apos;My label&apos;,
+        &apos;id&apos;: &apos;checkbox-disabled&apos;, 
+        &apos;name&apos;: &apos;checkbox-disabled&apos;
     })
 }}
 </code></pre>
@@ -563,6 +567,11 @@
       <td>Whether the input is checked</td>
     </tr>
     <tr>
+      <td>disabled</td>
+      <td>bool</td>
+      <td>If true, prevents the input from being interacted with</td>
+    </tr>
+    <tr>
       <td>form</td>
       <td>string</td>
       <td>Specify one or more forms this label belongs to</td>
@@ -612,6 +621,46 @@
 
 <p>Any other options not listed here will be applied to the input.</p>
 
+<h2 id="disabled-state">Disabled state</h2>
+
+<p>Add the <code class="highlighter-rouge">'disabled': true</code> option to disable the field on load. See the <a href="styleguides/disabling_elements/">disabling elements styleguide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form-checkbox&quot;&gt;
+    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;My label&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;input id=&quot;foo&quot; disabled type=&quot;checkbox&quot; name=&quot;bar&quot; class=&quot;form__control checkbox is-disabled&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.checkbox({
+        &apos;label&apos;: &apos;My label&apos;,
+        &apos;id&apos;: &apos;foo&apos;, 
+        &apos;name&apos;: &apos;bar&apos;,
+        &apos;disabled&apos;: true
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group form-checkbox">
+        <label for="checkbox-disabled" class="control__label">My label</label>
+        <div class="controls">
+            <input id="checkbox-disabled" disabled="" type="checkbox" name="checkbox-disabled" class="form__control checkbox is-disabled" />
+        </div>
+    </div>
+</div>
+
 <h2 id="error-state">Error state</h2>
 
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
@@ -626,8 +675,8 @@
     <div class="form__group form-checkbox has-error">
         <label for="inputCheckboxLeft" class="control__label">Default checkbox</label>
         <div class="controls">
-            <input id="inputCheckboxLeft" name="inputCheckboxLeft" checked="" type="checkbox" class="form__control checkbox" />
-            <span class="help-block is-error"><i class="icon-warning-sign"></i> Something went wrong</span>
+            <input id="inputCheckboxLeft" name="inputCheckboxLeft" checked="" type="checkbox" class="form__control checkbox" aria-invalid="true" aria-describedby="guid-12345678" />
+            <span class="help-block is-error" id="guid-12345678"><i class="icon-warning-sign"></i> Something went wrong</span>
         </div>
     </div>
 </div>
@@ -781,6 +830,10 @@
         </div>
     </div>
 </div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>To maintain compliance with WCAG 2.0 AA, a form element must have a related label element, the easiest way to achieve this is to always pass an <code class="highlighter-rouge">id</code> attribute to form helpers. Form helpers will automatically add <code class="highlighter-rouge">aria-describedby="guid-&lt;random-number&gt;"</code> to inputs and an <code class="highlighter-rouge">id</code> to help blocks and errors. Additionally, <code class="highlighter-rouge">aria-invalid="true"</code> will be added to inputs when an error is passed.</p>
 
 
 

@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -488,11 +492,9 @@ All user interfaces within the Continuum platform *must* meet WCAG 2.0 complianc
             </div>
           <div class="example language-html html">
             <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
-    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;
-        What’s your name, boss?
-    &lt;/label&gt;
+    &lt;label for=&quot;inputText&quot; class=&quot;control__label&quot;&gt;First name&lt;/label&gt;
     &lt;div class=&quot;controls&quot;&gt;
-        &lt;input id=&quot;foo&quot; type=&quot;text&quot; class=&quot;form__control&quot;&gt;
+        &lt;input id=&quot;inputText&quot; name=&quot;inputText&quot; type=&quot;text&quot; class=&quot;form__control&quot;&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -500,8 +502,9 @@ All user interfaces within the Continuum platform *must* meet WCAG 2.0 complianc
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
     form.text({
-        &apos;label&apos;: &apos;What’s your name, boss?&apos;,
-        &apos;id&apos;: &apos;foo&apos;
+        &apos;label&apos;: &apos;First name&apos;,
+        &apos;id&apos;: &apos;inputText&apos;,
+        &apos;name&apos;: &apos;inputText&apos;
     })
 }}
 </code></pre>

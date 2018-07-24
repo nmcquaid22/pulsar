@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Disabling Elements &middot; Pulsar
+    
+  </title>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/bundle.js"></script>
+  <script type="text/javascript" src="/pulsar/assets/main.js"></script>
+  <script type="text/javascript" src="/pulsar/js/jekyll-code-example-buttons.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/pulsar/css/styles.css">
+  <link rel="stylesheet" href="/pulsar/css/syntax.css">
+  <!-- <link rel="stylesheet" href="/pulsar/css/pulsar.css"> -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+<body>
+
+    <div class="content">
+        <div class="sidebar">
+    <h1 class="brand">
+        <a href="/pulsar">Pulsar</a><img src="/pulsar/assets/images/pulsar-brand-medium.png" class="brand-image" />
+    </h1>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/pulsar">Home</a>
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/Local_development/">Local Development</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/browsers-and-devices/">Browsers and Devices</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/contributing/">Notes for contributors</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/tagging/">Tagging a release</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pulsar/utility-classes/">Utility classes</a>
+          
+        
+      
+
+      
+
+      
+      
+        
+          <span class="sidebar-nav-header">Components</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/actions_bar/">Actions bar</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/badge/">Badge</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/block-list/">Block list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/button/">Button</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/button_dropdown/">Button dropdown</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/button_group/">Button group</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/card/">Card</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/countdown/">Countdown</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/datatable/">Datatables</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/divider/">Divider</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/dropzone/">DropZone</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/favicon/">Favicon</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/flash/">Flash messages</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/icon/">Icon</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/label/">Label</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/li/">List item</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/link/">Link</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/link_list/">Link list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/list/">List</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/loading/">Loading spinner</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/media/">Media</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/metadata/">Metadata</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/modal/">Modal</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/pagination/">Pagination</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/panel/">Panel</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/popover/">Popovers</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/progress-bar/">Progress bar</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/progress-list/">Progress list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/remove-button/">Remove button</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/status/">Status</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/tables/">Tables</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/components/tooltip/">Tooltips</a>
+            </li>
+          
+          </ol>
+        
+      
+        
+          <span class="sidebar-nav-header">Form helpers</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/button_group/">Button Group</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/checkbox/">Checkbox</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/choice/">Choice</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/color/">Color</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/compound/">Compound</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/content/">Content</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/create/">Create form</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/date/">Date</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/end/">End form</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/fieldet_end/">Fieldset end</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/fieldset_start/">Fieldset start</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/file/">File</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/group/">Group</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/hidden/">Hidden</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/password/">Password</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/radio/">Radio</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/radio_simple/">Radio simple</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/range/">Range</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/repeater/">Repeater</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/select/">Select</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/select2/">Select2</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/text/">Text</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/textarea/">Textarea</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/time/">Time</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/form-helpers/toggle/">Toggle switch</a>
+            </li>
+          
+          </ol>
+        
+      
+        
+          <span class="sidebar-nav-header">Layout</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/breadcrumb/">Breadcrumb</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/favicon/">Favicon</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/grid/">Grid</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/navigation/">Navigation</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/notifications/">Notifications</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/tabbed-layout/">Tabbed layout</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/layout/themes/">Themes</a>
+            </li>
+          
+          </ol>
+        
+      
+        
+          <span class="sidebar-nav-header">Patterns</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/disabled-ui/">Disabled UI</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/filterbar/">Filter bar</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/masterswitch/">Masterswitch</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/no-results/">No results</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/piano-list/">Piano list</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/rules/">Rules</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/patterns/table-detail/">Table detail</a>
+            </li>
+          
+          </ol>
+        
+      
+        
+      
+        
+          <span class="sidebar-nav-header">Styleguides</span>
+
+          <ol>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/buttons/">Button Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/colour/">Colour Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/css/">CSS Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item active" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/forms/">Forms Styleguide</a>
+            </li>
+          
+            <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/state/">State Styleguide</a>
+            </li>
+          
+          </ol>
+        
+      
+    </nav>
+</div>
+
+        <div class="page">
+            <a href="#" class="nav-toggle">
+                <i class="icon icon-bars"></i>
+            </a>
+            <h1 class="page-title">Disabling Elements</h1>
+            <p class="callout callout--danger">
+We're in the process of standardising helper behaviour for disabling elements, if you find a helper that doesn't work as expected please <a href="https://github.com/jadu/pulsar/issues/new">create a new issue</a> to let us know.
+</p>
+
+<p>Disabling and element requires adding the right attribute for the browser and any assistive device to recognise the element as being disabled, as well as a class to toggle the disabled styling of a given element.</p>
+
+<h2 id="the-disabled-attribute">The disabled attribute</h2>
+
+<p>The following elements are the only ones which support the <code class="highlighter-rouge">disabled</code> attribute. You do not need to add <code class="highlighter-rouge">aria-diasbled</code> for these.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;button&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;fieldset&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;input&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;optgroup&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;option&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;select&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;textarea&gt;</code></li>
+</ul>
+
+<h2 id="the-aria-disabled-attribute">The aria-disabled attribute</h2>
+
+<p>If an element doesn’t support <code class="highlighter-rouge">disabled</code>, you should use <code class="highlighter-rouge">aria-disabled="true"</code> to indicate to assistive technologies that an element is no longer interactive.</p>
+
+<h2 id="the-is-disabled-class">The is-disabled class</h2>
+
+<p>Elements consistently use the <code class="highlighter-rouge">.is-disabled</code> class to visually represent the disabled state of the element.</p>
+
+<h1 id="disabling-on-load">Disabling on load</h1>
+
+<p>Add the <code class="highlighter-rouge">'disabled': true</code> option to most helpers to disable the element, the required attributes and class should be added automatically.</p>
+
+<h3 id="buttons">Buttons</h3>
+
+<div class="pulsar-example">
+    <button disabled="" class="btn is-disabled">Button</button>
+</div>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;button disabled class=&quot;btn is-disabled&quot;&gt;Button&lt;/button&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.button({ 
+        &apos;label&apos;: &apos;Button&apos;,
+        &apos;disabled&apos;: true
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<h3 id="links">Links</h3>
+
+<div class="pulsar-example">
+    <a aria-disabled="true" class="is-disabled" href="http://www.jadu.net">Jadu</a>
+</div>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;a aria-disabled=&quot;true&quot; class=&quot;is-disabled&quot; href=&quot;http://www.jadu.net&quot;&gt;Jadu&lt;/a&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    html.link({
+        &apos;href&apos;: &apos;http://www.jadu.net&apos;,
+        &apos;label&apos;: &apos;Jadu&apos;,
+        &apos;disabled&apos;, true
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<h1 id="disabling-with-javascript">Disabling with javascript</h1>
+
+<p>If you’re writing javascript to disable/enable an element you <em>must</em> toggle both the correct attribute and class to maintain the support for assistive devices as well as compliance with relevant accessibility guidelines.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">$elementSupportsDisable</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#elementToDisable'</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">'disabled'</span><span class="p">,</span> <span class="kc">true</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'.is-disabled'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#elementToDisable'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'aria-disabled'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'.is-disabled'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+
+
+        </div>
+    </div>
+
+</body>
+<script>
+(function ($) {
+    var $trigger = $('.nav-toggle'),
+        $nav = $('.sidebar'),
+        width = window.innerWidth;
+
+    $trigger.on('click', function() {
+        $nav.toggleClass('is-open');
+    });
+
+    $(window).on('resize', function() {
+        if ((width != window.innerWidth) && (window.innerWidth <= 900)) {
+            $nav.removeClass('is-open');
+        }
+    });
+})(jQuery);
+</script>
+</html>

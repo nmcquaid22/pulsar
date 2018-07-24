@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -619,6 +623,10 @@
         </div>
     </div>
 </div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>To maintain compliance with WCAG 2.0 AA, a form element must have a related label element, the easiest way to achieve this is to always pass an <code class="highlighter-rouge">id</code> attribute to form helpers. Form helpers will automatically add <code class="highlighter-rouge">aria-describedby="guid-&lt;random-number&gt;"</code> to inputs and an <code class="highlighter-rouge">id</code> to help blocks and errors. Additionally, <code class="highlighter-rouge">aria-invalid="true"</code> will be added to inputs when an error is passed.</p>
 
 
 

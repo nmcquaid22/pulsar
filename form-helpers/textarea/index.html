@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -459,9 +463,13 @@
             </a>
             <h1 class="page-title">Textarea</h1>
             <p>Generates a <code class="highlighter-rouge">&lt;textarea&gt;</code> with options to control the number of rows (the height)
-of the element.</p>
+of the element as well as additional help and guidance information.</p>
+
+<p>A textarea will default to two rows in height to differentiate themselves from regular <a href="/pulsar/form-helpers/text">text inputs</a>.</p>
 
 <h2 id="example-usage">Example usage</h2>
+
+<h6 id="simple">Simple</h6>
 
 <div class="code-examples">            <div class="code-examples__buttons examples">
               <ul class="code-examples__list">
@@ -470,11 +478,11 @@ of the element.</p>
             </div>
           <div class="example language-html html">
             <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
-    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;
-        Textarea
+    &lt;label for=&quot;inputTextarea&quot; class=&quot;control__label&quot;&gt;
+        Description
     &lt;/label&gt;
     &lt;div class=&quot;controls&quot;&gt;
-        &lt;textarea id=&quot;foo&quot; rows=&quot;2&quot; class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
+        &lt;textarea id=&quot;inputTextarea&quot; name=&quot;inputTextrea&quot; rows=&quot;2&quot; class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -482,8 +490,9 @@ of the element.</p>
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
     form.textarea({
-        &apos;label&apos;: &apos;Textarea&apos;,
-        &apos;id&apos;: &apos;foo&apos;
+        &apos;label&apos;: &apos;Description&apos;,
+        &apos;id&apos;: &apos;inputTextarea&apos;,
+        &apos;name&apos;: &apos;inputTextarea&apos;
     })
 }}
 </code></pre>
@@ -492,11 +501,35 @@ of the element.</p>
 
 <div class="pulsar-example form">
     <div class="form__group">
-        <label for="foo" class="control__label">Textarea</label>
+        <label for="inputTextarea" class="control__label">Description</label>
         <div class="controls">
-            <textarea id="foo" rows="2" class="form__control textarea"></textarea>
+            <textarea id="inputTextarea" name="inputTextarea" rows="2" class="form__control textarea"></textarea>
         </div>
     </div>
+
+    <p class="screenreader">
+        <q><var>Description</var> edit multi-line, blank</q>
+    </p>
+</div>
+
+<h6 id="fully-loaded">Fully loaded</h6>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="inputTextareaBravo" class="control__label">
+            Description
+            <span class="required-indicator" rel="tooltip" data-toggle="tooltips" title="required">*</span>
+            <i data-container="body" data-content="Guidance text to give more information about expected input" data-placement="top" rel="clickover" aria-hidden="true" class="icon-question-sign input-group-guidance" title=""></i>
+        </label>
+        <div class="controls">
+            <textarea id="inputTextareaBravo" name="inputTextareaBravo" rows="2" aria-describedby="guid-12345678" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-12345678">Optional help text</span>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var> star edit, required, invalid entry, multi-line, blank</q>
+    </p>
 </div>
 
 <h2 id="options-applied-to-parent-wrapper">Options applied to parent wrapper</h2>
@@ -516,6 +549,11 @@ of the element.</p>
       <td>A space separated list of class names</td>
     </tr>
     <tr>
+      <td>error</td>
+      <td>string</td>
+      <td>Text to explain an error/validation condition. Also adds error state styling</td>
+    </tr>
+    <tr>
       <td>guidance</td>
       <td>string</td>
       <td>Text to be displayed in a popover, adds a (?) icon after the input</td>
@@ -531,6 +569,11 @@ of the element.</p>
       <td>Additional guidance information to be displayed next to the input</td>
     </tr>
     <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>Passed to the <code class="highlighter-rouge">&lt;label&gt;</code> element as a <code class="highlighter-rouge">for</code> attribute, and the <code class="highlighter-rouge">&lt;input&gt;</code> as the unique identifier</td>
+    </tr>
+    <tr>
       <td>label</td>
       <td>string</td>
       <td>Text for the <code class="highlighter-rouge">&lt;label&gt;</code> companion element</td>
@@ -542,7 +585,7 @@ of the element.</p>
     </tr>
     <tr>
       <td>show-label</td>
-      <td>bool.</td>
+      <td>bool</td>
       <td>Control visibility of the <code class="highlighter-rouge">&lt;label&gt;</code> element without affecting layout (default: true)</td>
     </tr>
   </tbody>
@@ -565,6 +608,11 @@ of the element.</p>
       <td>Whether the field should have input focus on page load</td>
     </tr>
     <tr>
+      <td>disabled</td>
+      <td>bool</td>
+      <td>Stops the element from being interactive if true</td>
+    </tr>
+    <tr>
       <td>form</td>
       <td>string</td>
       <td>Specific one or more forms this label belongs to</td>
@@ -572,7 +620,7 @@ of the element.</p>
     <tr>
       <td>id</td>
       <td>string</td>
-      <td>A unique identifier, if required</td>
+      <td>A unique identifier for the <code class="highlighter-rouge">&lt;input&gt;</code>, also added to the <code class="highlighter-rouge">&lt;label&gt;</code> as the <code class="highlighter-rouge">for</code> attribute</td>
     </tr>
     <tr>
       <td>name</td>
@@ -611,22 +659,192 @@ of the element.</p>
   <li>Any other options not listed here will be applied to the input.</li>
 </ul>
 
-<h2 id="error-state">Error state</h2>
+<h2 id="validation-states">Validation states</h2>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
-    <span class="nv">form.textarea</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Textarea'</span><span class="p">,</span>
-        <span class="s1">'error'</span><span class="err">:</span> <span class="s1">'Something went wrong'</span><span class="p">,</span>
-        <span class="err">...</span>
+<p>Use the <code class="highlighter-rouge">error</code> option when a form needs to highlight invalid or missing input, the required classes will be added automatically and error messages will be appended with the <i class="icon-warning-sign"></i> icon so the error message doesn’t rely on colour alone. <sup>[<a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-without-color">1.4.1 Use of color — Level A</a>]</sup></p>
+
+<h3 id="error">Error</h3>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group has-error&quot;&gt;
+    &lt;label for=&quot;inputTextareaError&quot; class=&quot;control__label&quot;&gt;
+        Description
+    &lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;textarea id=&quot;inputTextareaError&quot; name=&quot;inputTextareaError&quot; rows=&quot;2&quot; aria-describedby=&quot;guid-23456789&quot; aria-invalid=&quot;true&quot; class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
+        &lt;span class=&quot;help-block is-error&quot; id=&quot;guid-23456789&quot;&gt;&lt;i class=&quot;icon-warning-sign&quot;&gt;&lt;/i&gt; Please enter a description&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.textarea({
+        &apos;label&apos;: &apos;Description&apos;,
+        &apos;error&apos;: &apos;Please enter a description&apos;,
+        &apos;id&apos;: &apos;inputTextareaError&apos;,
+        &apos;name&apos;: &apos;inputTextareaError&apos;
+    })
+}}
+</code></pre>
+          </div>
 </div>
 
 <div class="pulsar-example form">
     <div class="form__group has-error">
-        <label for="foo" class="control__label">Textarea</label>
+        <label for="inputTextareaError" class="control__label">Description</label>
         <div class="controls">
-            <textarea id="foo" rows="2" class="form__control textarea"></textarea>
-            <span class="help-block is-error"><i class="icon-warning-sign"></i> Something went wrong</span>
+            <textarea id="inputTextareaError" name="inputTextareaError" rows="2" aria-describedby="guid-34567890" aria-invalid="true" class="form__control textarea"></textarea>
+            <span class="help-block is-error" id="guid-34567890"><i class="icon-warning-sign"></i> Please enter a description</span>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var> edit multi-line, invalid entry. Please enter a description</q>
+    </p>
+</div>
+
+<h3 id="success">Success</h3>
+
+<p>The <code class="highlighter-rouge">has-success</code> can highlight fields that have been successfully updated.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group has-success&quot;&gt;
+    &lt;label for=&quot;inputTextareaSuccess&quot; class=&quot;control__label&quot;&gt;
+        Description
+    &lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;textarea id=&quot;inputTextareaSuccess&quot; name=&quot;inputTextareaSuccess&quot; rows=&quot;2&quot; aria-describedby=&quot;guid-45678901&quot; class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
+        &lt;span class=&quot;help-block&quot; id=&quot;guid-45678901&quot;&gt;Optional help text&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.textarea({
+        &apos;label&apos;: &apos;Description&apos;,
+        &apos;class&apos;: &apos;has-success&apos;,
+        &apos;help&apos;: &apos;Optional help text&apos;,
+        &apos;id&apos;: &apos;inputTextareaSuccess&apos;,
+        &apos;name&apos;: &apos;inputTextareaSuccess&apos;
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group has-success">
+        <label for="inputTextareaSuccess" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaSuccess" name="inputTextareaSuccess" rows="2" aria-describedby="guid-45678901" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-45678901">Optional help text</span>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var> edit multi-line, blank. Optional help text.</q>
+    </p>
+</div>
+
+<h3 id="changed">Changed</h3>
+
+<p>If a field value is changed by an interaction elsewhere in an interface, use the <code class="highlighter-rouge">has-changed</code> class to highlight the field.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group has-changed&quot;&gt;
+    &lt;label for=&quot;inputTextareaChanged&quot; class=&quot;control__label&quot;&gt;
+        Description
+    &lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;textarea id=&quot;inputTextareaChanged&quot; name=&quot;inputTextareaChanged&quot; rows=&quot;2&quot; aria-describedby=&quot;guid-56789012&quot; class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
+        &lt;span class=&quot;help-block&quot; id=&quot;guid-56789012&quot;&gt;Optional help text&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.textarea({
+        &apos;label&apos;: &apos;Description&apos;,
+        &apos;class&apos;: &apos;has-changed&apos;,
+        &apos;help&apos;: &apos;Optional help text&apos;,
+        &apos;id&apos;: &apos;inputTextareaChanged&apos;,
+        &apos;name&apos;: &apos;inputTextareaChanged&apos;
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group has-changed">
+        <label for="inputTextareaChanged" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaChanged" name="inputTextareaChanged" rows="2" aria-describedby="guid-56789012" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-56789012">Optional help text</span>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var> edit multi-line, blank. Optional help text</q>
+    </p>
+</div>
+
+<h2 id="disabled-state">Disabled state</h2>
+
+<p>Add the <code class="highlighter-rouge">'disabled': true</code> option to disable the field on load. See the <a href="styleguides/disabling_elements/">disabling elements styleguide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
+    &lt;label for=&quot;inputTextarea&quot; class=&quot;control__label&quot;&gt;
+        Description
+    &lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;textarea id=&quot;inputTextarea&quot; name=&quot;inputTextrea&quot; rows=&quot;2&quot; disabled class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.textarea({
+        &apos;label&apos;: &apos;Description&apos;,
+        &apos;id&apos;: &apos;inputTextarea&apos;,
+        &apos;name&apos;: &apos;inputTextarea&apos;,
+        &apos;disabled&apos;: true
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="inputTextarea" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextarea" name="inputTextarea" disabled="" rows="2" class="form__control textarea"></textarea>
         </div>
     </div>
 </div>
@@ -635,40 +853,236 @@ of the element.</p>
 
 <p>The height of a textarea can be increased by defining a number of <code class="highlighter-rouge">rows</code> that suits your expected input. If you expect a lot of content, provide more rows.</p>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
-    <span class="nv">form.textarea</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Large textarea'</span><span class="p">,</span>
-        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span>
-        <span class="s1">'rows'</span><span class="err">:</span> <span class="nv">5</span>
-    <span class="err">}</span><span class="p">)</span>
-<span class="cp">}}</span>
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
+    &lt;label for=&quot;inputTextareaRows&quot; class=&quot;control__label&quot;&gt;Description&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;textarea id=&quot;inputTextareaRows&quot; rows=&quot;5&quot; class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.textarea({
+        &apos;label&apos;: &apos;Description&apos;,
+        &apos;rows&apos;: 5,
+        &apos;id&apos;: &apos;inputTextareaRows&apos;,
+        &apos;name&apos;: &apos;inputTextareaRows&apos;
+    })
+}}
+</code></pre>
+          </div>
 </div>
 
 <div class="pulsar-example form">
     <div class="form__group">
-        <label for="foo" class="control__label">Large textarea</label>
+        <label for="inputTextareaRows" class="control__label">Description</label>
         <div class="controls">
-            <textarea id="foo" rows="5" class="form__control textarea"></textarea>
+            <textarea id="inputTextareaRows" rows="5" class="form__control textarea"></textarea>
         </div>
     </div>
+
+    <p class="screenreader">
+        <q><var>Description</var> edit multi-line, blank</q>
+    </p>
 </div>
 
 <h2 id="widths">Widths</h2>
 
-<p>The main input can use 1-9 columns of the 12 column grid (where 3 are used for the main label), the width can be modified by passing the required column class via the <code class="highlighter-rouge">class</code> attribute.</p>
+<p>The main input can use 1-9 columns of the 12 column grid, the first three columns are reserved for the label element and by default, text inputs use 4 columns unless modified.</p>
 
-<ul>
-  <li><code class="highlighter-rouge">.form__content--col-1</code></li>
-  <li><code class="highlighter-rouge">.form__content--col-2</code></li>
-  <li><code class="highlighter-rouge">.form__content--col-3</code></li>
-  <li><code class="highlighter-rouge">.form__content--col-4</code> (default)</li>
-  <li><code class="highlighter-rouge">.form__content--col-5</code></li>
-  <li><code class="highlighter-rouge">.form__content--col-6</code></li>
-  <li><code class="highlighter-rouge">.form__content--col-7</code></li>
-  <li><code class="highlighter-rouge">.form__content--col-8</code></li>
-  <li><code class="highlighter-rouge">.form__content--col-9</code></li>
-</ul>
+<p><img src="/pulsar/assets/image_examples/form-grid-4.png" alt="Illustration of the default 3+4 column layout" /></p>
+
+<p><img src="/pulsar/assets/image_examples/form-grid-9.png" alt="Illustration of the default 3+9 column layout" /></p>
+
+<p>the width can be modified by passing the required column class via the <code class="highlighter-rouge">class</code> attribute. Only the input width will be modified, additions like labels and help text will be unaffected.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form__control--col-1&quot;&gt;
+    &lt;label for=&quot;inputTextareaWidth&quot; class=&quot;control__label&quot;&gt;Description&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;textarea id=&quot;inputTextareaWidth&quot; rows=&quot;2&quot; class=&quot;form__control textarea&quot;&gt;&lt;/textarea&gt;
+        &lt;span class=&quot;help-block&quot;&gt;Optional help text&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.textarea({
+        &apos;label&apos;: &apos;Description&apos;,
+        &apos;class&apos;: &apos;form__control--col-1&apos;,
+        &apos;help&apos;: &apos;Optional help text&apos;,
+        &apos;id&apos;: &apos;inputTextareaWidth&apos;,
+        &apos;name&apos;: &apos;inputTextareaWidth&apos;
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group form__control-col--1">
+        <label for="inputTextareaWidthOne" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthOne" rows="2" aria-describedby="guid-11111111" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-11111111">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--2">
+        <label for="inputTextareaWidthTwo" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthTwo" rows="2" aria-describedby="guid-22222222" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-22222222">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--3">
+        <label for="inputTextareaWidthThree" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthThree" rows="2" aria-describedby="guid-33333333" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-33333333">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--4">
+        <label for="inputTextareaWidthFour" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthFour" rows="2" aria-describedby="guid-44444444" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-44444444">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--5">
+        <label for="inputTextareaWidthFive" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthFive" rows="2" aria-describedby="guid-55555555" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-55555555">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--6">
+        <label for="inputTextareaWidthSix" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthSix" rows="2" aria-describedby="guid-66666666" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-66666666">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--7">
+        <label for="inputTextareaWidthSeven" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthSeven" rows="2" aria-describedby="guid-77777777" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-77777777">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--8">
+        <label for="inputTextareaWidthEight" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthEight" rows="2" aria-describedby="guid-88888888" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-88888888">Optional help text</span>
+        </div>
+    </div>
+    <div class="form__group form__control-col--9">
+        <label for="inputTextareaWidthNine" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWidthNine" rows="2" aria-describedby="guid-99999999" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-99999999">Optional help text</span>
+        </div>
+    </div>
+</div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>To maintain compliance with WCAG 2.0 AA, a form element must have a related label element, the easiest way to achieve this is to always pass an <code class="highlighter-rouge">id</code> attribute to form helpers. Form helpers will automatically add <code class="highlighter-rouge">aria-describedby="guid-&lt;random-number&gt;"</code> to inputs and an <code class="highlighter-rouge">id</code> to help blocks and errors. Additionally, <code class="highlighter-rouge">aria-invalid="true"</code> will be added to inputs when an error is passed.</p>
+
+<h3 id="screenreader-examples">Screenreader examples</h3>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="inputTextareaSimple" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaSimple" rows="2" class="form__control textarea"></textarea>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>First name</var> edit multi-line, multi-line, blank</q>
+    </p>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="inputTextareaRequired" class="control__label">Description <span class="required-indicator" rel="tooltip" data-toggle="tooltips" title="required">*</span></label>
+        <div class="controls">
+            <textarea id="inputTextareaRequired" required="" aria-required="true" rows="2" class="form__control textarea"></textarea>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>First name</var> star edit multi-line, required, invalid entry, blank</q>
+    </p>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="inputTextareaWithValue" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWithValue" rows="2" class="form__control textarea">Pulsar</textarea>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var>, edit multi-line, <var>Pulsar</var></q>
+    </p>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="inputTextareaWithPlaceholder" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWithPlaceholder" placeholder="Be descriptive" rows="2" class="form__control textarea"></textarea>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var>, edit multi-line, <var>Be descriptive</var>, blank</q>
+    </p>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="inputTextareaWithHelp" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWithHelp" rows="2" aria-describedby="guid-12121212" class="form__control textarea"></textarea>
+            <span class="help-block" id="guid-12121212">Be descriptive</span>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var>, edit multi-line, blank. Be descriptive.</q>
+    </p>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group has-error">
+        <label for="inputTextareaWithError" class="control__label">Description</label>
+        <div class="controls">
+            <textarea id="inputTextareaWithError" rows="2" aria-describedby="guid-23232323" aria-invalid="true" class="form__control textarea"></textarea>
+            <span class="help-block is-error" id="guid-23232323"><i aria-hidden="true" class="icon-warning-sign"></i> Please complete this field</span>
+        </div>
+    </div>
+
+    <p class="screenreader">
+        <q><var>Description</var>, edit multi-line, invalid entry. Please complete this field.</q>
+    </p>
+</div>
 
 
 

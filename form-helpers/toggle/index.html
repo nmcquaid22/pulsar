@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -575,6 +579,11 @@
       <td>Whether the input is checked</td>
     </tr>
     <tr>
+      <td>disabled</td>
+      <td>bool</td>
+      <td>Stops the element from being interactive if true</td>
+    </tr>
+    <tr>
       <td>form</td>
       <td>string</td>
       <td>Specify one or more forms this label belongs to</td>
@@ -613,6 +622,57 @@
 </table>
 
 <p>Any other options not listed here will be applied to the input.</p>
+
+<h2 id="disabled-state">Disabled state</h2>
+
+<p>Add the <code class="highlighter-rouge">'disabled': true</code> option to disable the field on load. See the <a href="styleguides/disabling_elements/">disabling elements styleguide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form__group--toggle&quot;&gt;
+    &lt;label class=&quot;control__label&quot;&gt;Toggle switch&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;input id=&quot;foo&quot; name=&quot;bar&quot; disabled type=&quot;checkbox&quot; class=&quot;form__control toggle-switch is-disabled&quot;&gt;
+        &lt;label for=&quot;foo&quot; class=&quot;control__label toggle-switch-label&quot;&gt;
+            &lt;span class=&quot;hide&quot;&gt;Toggle switch&lt;/span&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.toggle_switch({
+        &apos;label&apos;: &apos;Toggle switch&apos;,
+        &apos;id&apos;: &apos;foo&apos;,
+        &apos;name&apos;: &apos;bar&apos;, 
+        &apos;disabled&apos;: true
+    })
+}}
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group form__group--toggle">
+    <label class="control__label">Toggle switch</label>
+    <div class="controls">
+        <input id="foo" name="bar" disabled="" type="checkbox" class="form__control toggle-switch is-disabled" />
+        <label for="foo" class="control__label toggle-switch-label">
+            <span class="hide">Toggle switch</span>
+        </label>
+    </div>
+</div>
+
+</div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>To maintain compliance with WCAG 2.0 AA, a form element must have a related label element, the easiest way to achieve this is to always pass an <code class="highlighter-rouge">id</code> attribute to form helpers. Form helpers will automatically add <code class="highlighter-rouge">aria-describedby="guid-&lt;random-number&gt;"</code> to inputs and an <code class="highlighter-rouge">id</code> to help blocks and errors. Additionally, <code class="highlighter-rouge">aria-invalid="true"</code> will be added to inputs when an error is passed.</p>
 
 
 

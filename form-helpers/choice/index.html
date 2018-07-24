@@ -436,6 +436,10 @@
             </li>
           
             <li>
+              <a class="sidebar-nav-item" href="/pulsar/styleguides/disabling_elements/">Disabling Elements</a>
+            </li>
+          
+            <li>
               <a class="sidebar-nav-item" href="/pulsar/styleguides/email/">Email Styleguide</a>
             </li>
           
@@ -460,19 +464,28 @@
             <h1 class="page-title">Choice</h1>
             <p>Displayed as a question with multiple answers, each of which has its own label and can allow either singular (checkboxes) or multiple (radios) choice.</p>
 
+<p>If using radios you should always set a default <code class="highlighter-rouge">checked</code> option.</p>
+
 <div class="pulsar-example form">
     <div class="form__group form-choice form__group--medium">
         <label class="control__label">Assign blame to</label>
         <div class="controls">
-
-          <label class="control__label"><input value="sunshine" name="foo" type="radio" class="form__control radio" />Sunshine</label>
-
-          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" />Moonlight</label>
-
-          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" />Good times</label>
-
-          <label class="control__label is-selected"><input value="underline" name="foo" type="radio" checked="" class="form__control radio" />Boogie</label>
-
+            <label class="control__label">
+                <input value="sun" name="foo" checked="" type="radio" class="form__control radio" />
+                <span class="form-choice__label">Sunshine</span>
+            </label>
+            <label class="control__label">
+                <input value="moon" namse="foo" type="radio" class="form__control radio" />
+                <span class="form-choice__label">Moonlight</span>
+            </label>
+            <label class="control__label">
+                <input value="good" name="foo" type="radio" class="form__control radio" />
+                <span class="form-choice__label">Good times</span>
+            </label>
+            <label class="control__label">
+                <input value="boogie" name="foo" type="radio" class="form__control radio" />
+                <span class="form-choice__label">Boogie</span>
+            </label>
         </div>
     </div>
 </div>
@@ -490,28 +503,23 @@
             <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form-choice form__group--medium&quot;&gt;
     &lt;label class=&quot;control__label&quot;&gt;Assign blame to&lt;/label&gt;
     &lt;div class=&quot;controls&quot;&gt;
-
-      &lt;label class=&quot;control__label&quot;&gt;&lt;input value=&quot;sunshine&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Sunshine&lt;/label&gt;
-
-      &lt;label class=&quot;control__label&quot;&gt;&lt;input value=&quot;italic&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Moonlight&lt;/label&gt;
-      
-      &lt;label class=&quot;control__label&quot;&gt;&lt;input value=&quot;italic&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Good times&lt;/label&gt;
-
-      &lt;label class=&quot;control__label is-selected&quot;&gt;&lt;input value=&quot;underline&quot; name=&quot;foo&quot; type=&quot;radio&quot; checked=&quot;&quot; class=&quot;form__control radio&quot;&gt;Boogie&lt;/label&gt;
-
+      &lt;label class=&quot;control__label&quot;&gt;&lt;input value=&quot;sun&quot; name=&quot;foo&quot; checked type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Sunshine&lt;/label&gt;
+      &lt;label class=&quot;control__label&quot;&gt;&lt;input value=&quot;moon&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Moonlight&lt;/label&gt;
+      &lt;label class=&quot;control__label&quot;&gt;&lt;input value=&quot;good&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Good times&lt;/label&gt;
+      &lt;label class=&quot;control__label&quot;&gt;&lt;input value=&quot;boogie&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Boogie&lt;/label&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
           </div>
           <div class="example language-twig twig">
             <pre class="prettyprint lang-twig"><code data-lang="twig">{{
     form.choice({
         &apos;label&apos;: &apos;Assign blame to&apos;,
-        &apos;id&apos;: &apos;blame&apos;,
         &apos;options&apos;: [
             {
                 &apos;label&apos;: &apos;Sunshine&apos;,
-                &apos;value&apos;: &apos;sun&apos;
+                &apos;value&apos;: &apos;sun&apos;,
+                &apos;checked&apos;: true
             },
             {
                 &apos;label&apos;: &apos;Moonlight&apos;,
@@ -596,51 +604,87 @@
   </tbody>
 </table>
 
-<h2 id="disabled-options">Disabled options</h2>
+<h2 id="disabled-options">Disabled Options</h2>
 
 <p>You can disable individual choices by adding the <code class="highlighter-rouge">disabled</code> attribute to the option, or options, you need.</p>
 
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
-    <span class="nv">form.choice</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Do you like me?'</span><span class="p">,</span>
-        <span class="s1">'id'</span><span class="err">:</span> <span class="s1">'foo'</span><span class="p">,</span>
-        <span class="s1">'options'</span><span class="err">:</span> <span class="p">[</span>
-            <span class="err">{</span>
-                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Sunshine'</span><span class="p">,</span>
-                <span class="s1">'value'</span><span class="err">:</span> <span class="s1">'sun'</span>
-            <span class="err">}</span><span class="p">,</span>
-            <span class="err">{</span>
-                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Moonlight'</span><span class="p">,</span>
-                <span class="s1">'value'</span><span class="err">:</span> <span class="s1">'moon'</span><span class="p">,</span>
-                <span class="s1">'disabled'</span><span class="err">:</span> <span class="nv">true</span>
-            <span class="err">}</span><span class="p">,</span>
-            <span class="err">{</span>
-                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Good times'</span><span class="p">,</span>
-                <span class="s1">'value'</span><span class="err">:</span> <span class="s1">'good'</span>
-            <span class="err">}</span><span class="p">,</span>
-            <span class="err">{</span>
-                <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Boogie'</span><span class="p">,</span>
-                <span class="s1">'value'</span><span class="err">:</span> <span class="s1">'boogie'</span>
-            <span class="err">}</span>
-        <span class="p">]</span>
-    <span class="err">}</span><span class="p">)</span>
-<span class="cp">}}</span>
+<p>Add the <code class="highlighter-rouge">'disabled': true</code> option to disable the field on load. See the <a href="styleguides/disabling_elements/">disabling elements styleguide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="twig">Twig</a></li><li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group form-choice form__group--medium&quot;&gt;
+    &lt;label class=&quot;control__label&quot;&gt;Assign blame to&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;label class=&quot;control__label&quot;&gt;
+            &lt;input value=&quot;sun&quot; checked name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Sunshine
+        &lt;/label&gt;
+        &lt;label class=&quot;control__label&quot;&gt;
+            &lt;input value=&quot;moon&quot; name=&quot;foo&quot; disabled type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Moonlight
+        &lt;/label&gt;
+        &lt;label class=&quot;control__label&quot;&gt;
+            &lt;input value=&quot;good&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Good times
+        &lt;/label&gt;
+        &lt;label class=&quot;control__label&quot;&gt;
+            &lt;input value=&quot;boogie&quot; name=&quot;foo&quot; type=&quot;radio&quot; class=&quot;form__control radio&quot;&gt;Boogie
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
+          </div>
+          <div class="example language-twig twig">
+            <pre class="prettyprint lang-twig"><code data-lang="twig">{{
+    form.choice({
+        &apos;label&apos;: &apos;Assign blame to&apos;,
+        &apos;options&apos;: [
+            {
+                &apos;label&apos;: &apos;Sunshine&apos;,
+                &apos;value&apos;: &apos;sun&apos;,
+                &apos;checked&apos;: true
+            },
+            {
+                &apos;label&apos;: &apos;Moonlight&apos;,
+                &apos;value&apos;: &apos;moon&apos;,
+                &apos;disabled&apos;: true
+            },
+            {
+                &apos;label&apos;: &apos;Good times&apos;,
+                &apos;value&apos;: &apos;good&apos;
+            },
+            {
+                &apos;label&apos;: &apos;Boogie&apos;,
+                &apos;value&apos;: &apos;boogie&apos;
+            }
+        ]
+    })
+}}
+</code></pre>
+          </div>
 </div>
 
 <div class="pulsar-example form">
     <div class="form__group form-choice form__group--medium">
         <label class="control__label">Assign blame to</label>
         <div class="controls">
-
-          <label class="control__label"><input value="sunshine" name="foo" type="radio" class="form__control radio" /><span class="form-choice__label">Sunshine</span></label>
-
-          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" disabled="disabled" /><span class="form-choice__label">Moonlight</span></label>
-
-          <label class="control__label"><input value="italic" name="foo" type="radio" class="form__control radio" /><span class="form-choice__label">Good times</span></label>
-
-          <label class="control__label is-selected"><input value="underline" name="foo" type="radio" checked="" class="form__control radio" /><span class="form-choice__label">Boogie</span></label>
-
+        <label class="control__label">
+            <input value="sun" checked="" type="radio" class="form__control radio" />
+            <span class="form-choice__label">Sunshine</span>
+        </label>
+        <label class="control__label">
+            <input value="moon" disabled="" type="radio" class="form__control radio" />
+            <span class="form-choice__label">Moonlight</span>
+        </label>
+        <label class="control__label">
+            <input value="good" type="radio" class="form__control radio" />
+            <span class="form-choice__label">Good times</span>
+        </label>
+        <label class="control__label">
+            <input value="boogie" type="radio" class="form__control radio" />
+            <span class="form-choice__label">Boogie</span>
+        </label>
         </div>
     </div>
 </div>
@@ -677,6 +721,10 @@
         </label><label class="control__label"><input value="underline" name="foo" type="radio" class="form__control radio" />No
         </label></div></div>
 </div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>To maintain compliance with WCAG 2.0 AA, a form element must have a related label element, the easiest way to achieve this is to always pass an <code class="highlighter-rouge">id</code> attribute to form helpers. Form helpers will automatically add <code class="highlighter-rouge">aria-describedby="guid-&lt;random-number&gt;"</code> to inputs and an <code class="highlighter-rouge">id</code> to help blocks and errors. Additionally, <code class="highlighter-rouge">aria-invalid="true"</code> will be added to inputs when an error is passed.</p>
 
 
 
