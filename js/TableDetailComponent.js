@@ -1,5 +1,5 @@
 class TableDetailComponent {
-    
+
     /**
      * TableDetailComponent
      * @constructor
@@ -7,6 +7,7 @@ class TableDetailComponent {
      */
     constructor ($html) {
         this.$html = $html;
+        this.$window = $(rootWindow);
     }
 
     /**
@@ -47,8 +48,12 @@ class TableDetailComponent {
 
             let detailContent = $(event.currentTarget).closest('tr').data('table-detail-content');
             let customDetailPanelTitle = $(event.currentTarget).closest('tr').data('table-detail-panel-custom-title');
-            
+
             this.viewDetail(detailContent, customDetailPanelTitle);
+        });
+
+        this.$window.resize(function () {
+            this.initialise();
         });
 
         // Close click listener
@@ -71,7 +76,7 @@ class TableDetailComponent {
 
         // Remove any previously added contents
         this.$detailPanelBody.empty();
-        
+
         // Add attached data to detail panel body
         this.$detailPanelBody.html(content);
 
@@ -91,6 +96,10 @@ class TableDetailComponent {
 
         // Close panel
         this.$detailPanel.removeClass('table-detail--open');
+    }
+
+    initialise () {
+
     }
 }
 
