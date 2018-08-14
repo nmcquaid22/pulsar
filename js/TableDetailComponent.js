@@ -4,8 +4,9 @@ class TableDetailComponent {
      * TableDetailComponent
      * @constructor
      * @param {jQuery} $html - jQuery wrapper of the html node
+     * @param {jQuery} rootWindow - jQuery wrapper of the window object
      */
-    constructor ($html) {
+    constructor ($html, rootWindow) {
         this.$html = $html;
         this.$window = $(rootWindow);
     }
@@ -51,10 +52,6 @@ class TableDetailComponent {
             let customDetailPanelTitle = $(event.currentTarget).closest('tr').data('table-detail-panel-custom-title');
 
             this.viewDetail(detailContent, customDetailPanelTitle);
-        });
-
-        this.$window.resize(function () {
-            this.initialise();
         });
 
         // Close click listener
@@ -104,10 +101,6 @@ class TableDetailComponent {
 
         // Close panel
         this.$detailPanel.removeClass('table-detail--open');
-    }
-
-    initialise () {
-
     }
 }
 
