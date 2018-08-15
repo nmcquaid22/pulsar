@@ -8,7 +8,6 @@ class TableDetailComponent {
      */
     constructor ($html, rootWindow) {
         this.$html = $html;
-        this.$window = $(rootWindow);
     }
 
     /**
