@@ -496,7 +496,7 @@
     <div class="form__group">
         <label for="example-date" class="control__label">Date picker</label>
         <div class="controls">
-            <input id="example-date" placeholder="dd/mm/yyyy" data-datepicker="true" type="text" class="form__control" />
+            <input id="example-date" placeholder="dd/mm/yyyy" data-datepicker="true" data-format="default" type="text" class="form__control" />
         </div>
     </div>
 </div>
@@ -577,6 +577,11 @@
       <td>Specific one or more forms this label belongs to</td>
     </tr>
     <tr>
+      <td>format</td>
+      <td>string</td>
+      <td>Options for this can be <code class="highlighter-rouge">default</code>, <code class="highlighter-rouge">US</code> or <code class="highlighter-rouge">reverse</code></td>
+    </tr>
+    <tr>
       <td>id</td>
       <td>string</td>
       <td>A unique identifier, if required</td>
@@ -602,6 +607,11 @@
       <td>Specifies the value of the input</td>
     </tr>
     <tr>
+      <td>data-datepicker</td>
+      <td>bool</td>
+      <td>Initialises or not the datepicker. Accepts <code class="highlighter-rouge">true</code> (default) or <code class="highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
       <td>data-*</td>
       <td>string</td>
       <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
@@ -610,6 +620,60 @@
 </table>
 
 <p>Any other options not listed here will be applied to the input.</p>
+
+<h2 id="us-and-reverse-formats">US and Reverse Formats</h2>
+
+<p>Add the <code class="highlighter-rouge">data-format': 'US'</code> or <code class="highlighter-rouge">'data-format': 'reverse'</code> option to format the date properly.</p>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
+    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;Date picker&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;input id=&quot;foo&quot; name=&quot;bar&quot; placeholder=&quot;dd/mm/yyyy&quot; data-datepicker=&quot;true&quot; data-format=&apos;US&apos; type=&quot;text&quot; class=&quot;form__control&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="example-date" class="control__label">Date US format</label>
+        <div class="controls">
+            <input id="example-date" placeholder="mm/dd/yyyy" data-datepicker="true" data-format="US" type="text" class="form__control" />
+        </div>
+    </div>
+</div>
+
+<div class="code-examples">            <div class="code-examples__buttons examples">
+              <ul class="code-examples__list">
+                <li class="code-examples__list"><a href="#" class="code-examples__button" target="html">Html</a></li>
+              </ul>
+            </div>
+          <div class="example language-html html">
+            <pre class="prettyprint lang-html"><code data-lang="html">&lt;div class=&quot;form__group&quot;&gt;
+    &lt;label for=&quot;foo&quot; class=&quot;control__label&quot;&gt;Date picker&lt;/label&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;input id=&quot;foo&quot; name=&quot;bar&quot; placeholder=&quot;dd/mm/yyyy&quot; data-datepicker=&quot;true&quot; data-format=&apos;reverse&apos; type=&quot;text&quot; class=&quot;form__control&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          </div>
+</div>
+
+<div class="pulsar-example form">
+    <div class="form__group">
+        <label for="example-date" class="control__label">Date reverse format</label>
+        <div class="controls">
+            <input id="example-date" placeholder="yyyy/mm/mm" data-datepicker="true" data-format="reverse" type="text" class="form__control" />
+        </div>
+    </div>
+</div>
 
 <h2 id="disabled-state">Disabled state</h2>
 
