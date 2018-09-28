@@ -4,6 +4,7 @@ var $ = require('jquery');
 
 function NavMainComponent ($html, rootWindow) {
     this.$html = $html;
+    this.window = rootWindow;
     this.$window = $(rootWindow);
 };
 
@@ -24,6 +25,7 @@ NavMainComponent.prototype.init = function () {
     component.$body = this.$html.find('body');
     component.$navMain = this.$html.find('.nav-main');
     component.$contentMain = this.$html.find('.content-main');
+    component.$brandingLink = this.$html.find('.jadu-branding');
     component.$navPrimary = this.$html.find('.nav-primary');
     component.$navSecondary = this.$html.find('.nav-secondary');
     component.$navTertiary = component.$navMain.find('.nav-tertiary');
@@ -36,6 +38,9 @@ NavMainComponent.prototype.init = function () {
     // Calculate what primary nav items can be shown and which need to be hidden in more menu
     component.adjustNavItems();
 
+    // Check which tabindexes should be applied to navigation links to ensure WCAG compliance
+    component.manageTabIndexes();
+
     // Open navigation on mobile
     component.$mobileMenuButton.on('click', function(event) {
         var $self = $(this);
@@ -46,9 +51,13 @@ NavMainComponent.prototype.init = function () {
         if ($self.text() === 'Menu') {
             $self.text('Close');
             $self.attr('aria-expanded', 'true');
+            component.$brandingLink.attr('tabindex', '3');
+            component.$primaryNavLinks.attr('tabindex', '3');
         } else {
             $self.text('Menu');
             $self.attr('aria-expanded', 'false');
+            component.$brandingLink.attr('tabindex', '-1');
+            component.$primaryNavLinks.attr('tabindex', '-1');
         }
     });
 
@@ -62,6 +71,7 @@ NavMainComponent.prototype.init = function () {
     // Re-adjust nav items on window resize to calc if more button is needed 
     component.$window.resize(function () {
         component.adjustNavItems();
+        component.manageTabIndexes();
     });
 
     // Close navs on main content click
@@ -97,13 +107,37 @@ NavMainComponent.prototype.init = function () {
 };
 
 /**
+ * Unto the tabindex if the main nav is in responsive mode
+ * This maintains the tab order to ensure WCAG compliance
+ */
+NavMainComponent.prototype.manageTabIndexes = function () {
+    var component = this,
+        isMobile = !component.window.matchMedia('(min-width: 992px)').matches;
+
+    if (isMobile) {
+        component.$brandingLink.attr('tabindex', '-1');
+        component.$primaryNavLinks.attr('tabindex', '-1');
+    } else {
+        component.$brandingLink.attr('tabindex', '1');
+        component.$primaryNavLinks.attr('tabindex', '1');
+    }
+};
+
+/**
  * Open secondary navigation, close all other navs and highlight primary nav item parent
  * @param {jQuery} $linkClicked - jQuery object of the link clicked to open secondary nav
  * @param {Event} event - click event for the primary nav link
  */
 NavMainComponent.prototype.openSecondaryNav = function ($linkClicked, event) {
     var component = this,
+        target;
+
+    if ($linkClicked[0].hasAttribute('href')) {
         target = $linkClicked.attr('href');
+    }
+    else if ($linkClicked[0].hasAttribute('data-target')) {
+        target = $linkClicked.attr('data-target');
+    }
 
     // Close any previously open navs
     component.closeSecondaryNav();
@@ -129,7 +163,7 @@ NavMainComponent.prototype.openSecondaryNav = function ($linkClicked, event) {
     }
 
     component.$navPrimary.find('.is-active').removeClass('is-active');
-    component.$navPrimary.find('[href="' + target + '"]').addClass('is-active');
+    component.$navPrimary.find('[href="' + target + '"], [data-target="' + target + '"]').addClass('is-active');
 };
 
 /**
@@ -299,7 +333,7 @@ NavMainComponent.prototype.addMoreNavItem = function (numberOfHiddenNavItems) {
 
     // Add the "More" nav item
     if ((numberOfHiddenNavItems > 0) && (!component.$html.find('.more-icon').length)) {
-        navItems.append('<li class="nav-item t-nav-item more-icon"><a href="#more" class="nav-link t-nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-tertiary-nav"><i aria-hidden="true" class="icon-ellipsis-horizontal nav-link__icon t-nav-icon"></i><span class="nav-link__label">More</span></a></li>');
+        navItems.append('<li class="nav-item t-nav-item more-icon"><button class="nav-link t-nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-tertiary-nav"><i aria-hidden="true" class="icon-ellipsis-horizontal nav-link__icon t-nav-icon"></i><span class="nav-link__label">More</span></button></li>');
     }
 
     // Check if "More" nav item is visible
