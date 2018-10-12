@@ -14,18 +14,19 @@ describe('NavMainComponent', function () {
         this.$window = $('<div></div>');
         this.$window.height(150);
         this.window = this.$window[0];
+        this.window.matchMedia = sinon.stub();
 
         this.$markup = $(`
             <button class="mobile-menu-button t-mobile-menu-button" aria-expanded="false" aria-controls="aria-main-nav" aria-label="Toggle main menu">Menu</button>
             <nav class="nav-main" aria-label="Primary" id="aria-main-nav">
                <div class="nav-primary">
-                   <a href="http://jadu.net" class="jadu-branding">Jadu</a>
+                   <a tabindex="1" href="http://jadu.net" class="jadu-branding">Jadu</a>
                    <ul class="nav-items">
                        <li class="nav-item">
                            <a href="#one" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-secondary-nav">1</a>
                        </li>
                        <li class="nav-item">
-                           <a href="#two" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-secondary-nav">2</a>
+                           <button data-target="#two" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-secondary-nav">2</button>
                        </li>
                        <li class="nav-item">
                            <a href="#three" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-secondary-nav">3</a>
@@ -33,7 +34,7 @@ describe('NavMainComponent', function () {
                    </ul>
                </div>
                <div class="nav-secondary" id="aria-secondary-nav">
-                   <a href="#close" data-nav-action="close">x</a>
+                   <button data-nav-action="close">x</button>
                    <form>
                        <input type="search" placeholder="search" />
                        <button>Go</button>
@@ -41,34 +42,44 @@ describe('NavMainComponent', function () {
                    <div class="nav-list" data-nav="#one">
                        <ul class="nav-items">
                            <li class="nav-item">
-                               <a href="#one_one" class="nav-link">1.1</a>
+                               <a tabindex="1" href="#one_one" class="nav-link">1.1</a>
                            </li>
                        </ul>
                    </div>
                    <div class="nav-list" data-nav="#two">
                        <ul class="nav-items">
                            <li class="nav-item">
-                               <a href="#two_one" class="nav-link">2.1</a>
+                               <button tabindex="1" data-target="#two_one" class="nav-link">2.1</a>
                            </li>
                        </ul>
                    </div>
                </div>
                <div class="nav-tertiary" id="aria-tertiary-nav">
-                   <a href="#close" data-nav-action="close">x</a>
+                   <button data-nav-action="close">x</button>
                    <div class="nav-list">
                        <ul class="nav-items">
                            <li class="nav-item">
-                               <a href="#three_one" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-quaternary-nav">3.1</a>
+                               <a tabindex="1" href="#three_one" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-quaternary-nav">3.1</a>
                            </li>
+                           <li class="nav-item">
+                                <button tabindex="1" data-target="#three_two" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="aria-quaternary-nav">3.2</a>
+                            </li>
                        </ul>
                    </div>
                </div>
                <div class="nav-quaternary" id="aria-quaternary-nav">
-                   <a href="#close" data-nav-action="close">x</a>
+                   <button data-nav-action="close">x</button>
                    <div class="nav-list" data-nav="#three_one">
                        <ul class="nav-items">
                            <li class="nav-item">
-                               <a href="#four_one" class="nav-link">4.1</a>
+                               <a tabindex="1" href="#four_one" class="nav-link">4.1</a>
+                           </li>
+                       </ul>
+                   </div>
+                   <div class="nav-list" data-nav="#three_two">
+                       <ul class="nav-items">
+                           <li class="nav-item">
+                               <a tabindex="1" href="#four_two" class="nav-link">4.2</a>
                            </li>
                        </ul>
                    </div>
@@ -90,9 +101,12 @@ describe('NavMainComponent', function () {
         this.$closeQuaternaryNavLink = this.$html.find('.nav-quaternary [data-nav-action="close"]');
 
         this.$linkOne = this.$html.find('[href="#one"]');
-        this.$linkTwo = this.$html.find('[href="#two"]');
+        this.$linkTwo = this.$html.find('[data-target="#two"]');
         this.$linkThree = this.$html.find('[href="#three"]');
-        this.$tertiaryLinkThree = this.$html.find('[href="#three_one"]');
+        this.$secondaryLink = this.$html.find('[href="#two_one"]');
+        this.$secondaryButton = this.$html.find('[data-target="#two_two"]');
+        this.$tertiaryLink = this.$html.find('[href="#three_one"]');
+        this.$tertiaryButton = this.$html.find('[data-target="#three_two"]');
 
         $.fn.popover = sinon.stub().returnsThis();
         this.$popoverLink = this.$html.find('[data-toggle="popover"]');
@@ -102,6 +116,10 @@ describe('NavMainComponent', function () {
         this.$html.find('.more-icon').height(20);
 
         this.navMainComponent = new NavMainComponent(this.$html, this.window);
+    });
+
+    beforeEach(function () {
+        this.window.matchMedia.returns({matches: true});
     });
 
     afterEach(function () {
@@ -127,6 +145,40 @@ describe('NavMainComponent', function () {
                 this.navMainComponentWithoutWindowArg.init();
             }).to.throw('window must be passed to NavMainComponent');
         })
+    });
+
+    describe('when component is initalised, the initial tabindex should remain', function () {
+        beforeEach(function () {
+            this.navMainComponent.init();
+        });
+
+        it('should maintain the initial tabindex', function () {
+            expect(this.$linkOne.attr('tabindex')).to.equal('1');
+        });
+    });
+
+    describe('when component is initalised in mobile mode, the initial tabindex should be changed to -1', function () {
+        beforeEach(function () {
+            this.window.matchMedia.returns({matches: false});
+            this.navMainComponent.init();
+        });
+
+        it('should maintain the initial tabindex', function () {
+            expect(this.$linkOne.attr('tabindex')).to.equal('-1');
+        });
+    });
+
+    describe('when the window is resized, the initial tabindex should be changed to -1', function () {
+        beforeEach(function () {
+            this.navMainComponent.init();
+            this.window.matchMedia.returns({matches: false});
+            this.navMainComponent.manageTabIndexes();
+            this.$window.trigger('resize');
+        });
+
+        it('should maintain the initial tabindex', function () {
+            expect(this.$linkOne.attr('tabindex')).to.equal('-1');
+        });
     });
 
     describe('When mobile menu button is clicked', function () {
@@ -293,6 +345,14 @@ describe('NavMainComponent', function () {
         it('should remove the highlight from that sections primary nav item', function () {
             expect(this.$html.find('.nav-primary .nav-link').hasClass('is-active')).to.be.false;
         });
+
+        it('should remove the is-active class on the main navigation', function () {
+            expect(this.$html.find('.nav-main').hasClass('is-active')).to.be.false;
+        });
+
+        it('should remove the is-active class on the main navigation active li', function () {
+            expect(this.$html.find('.nav-main .nav-item.is-active').hasClass('is-active')).to.be.false;
+        });
     });
 
     describe('clicking outside of the navigation, when the sub navigation is open', function () {
@@ -376,7 +436,7 @@ describe('NavMainComponent', function () {
 
         describe('when a tertiary nav link is clicked', function () {
             beforeEach(function() {
-                this.$tertiaryLinkThree.trigger(this.clickEvent);
+                this.$tertiaryLink.trigger(this.clickEvent);
             });
 
             it('should prevent the default bahavior', function () {
@@ -392,8 +452,30 @@ describe('NavMainComponent', function () {
             });
 
             it('should change the clicked links aria-expanded to true', function () {
-                expect(this.$tertiaryLinkThree.attr('aria-expanded')).to.be.equal('true');
-            })
+                expect(this.$tertiaryLink.attr('aria-expanded')).to.be.equal('true');
+            });
+        });
+
+        describe('when a tertiary nav button is clicked', function () {
+            beforeEach(function() {
+                this.$tertiaryButton.trigger(this.clickEvent);
+            });
+
+            it('should prevent the default bahavior', function () {
+                expect(this.clickEvent.isDefaultPrevented()).to.be.true;
+            });
+
+            it('should open the quaternary nav', function () {
+                expect(this.$html.find('.nav-quaternary').hasClass('is-open')).to.be.true;
+            });
+
+            it('should add the is-active class to the quaternary nav nav-list', function () {
+                expect(this.$html.find('.nav-quaternary .nav-list').hasClass('is-active')).to.be.true;
+            });
+
+            it('should change the clicked links aria-expanded to true', function () {
+                expect(this.$tertiaryButton.attr('aria-expanded')).to.be.equal('true');
+            });
         });
 
         describe('when the close tertiary nav link is clicked', function () {
@@ -425,7 +507,7 @@ describe('NavMainComponent', function () {
 
         describe('When the quaternary nav is open and the quaternary close button is clicked', function () {
             beforeEach(function() {
-                this.$tertiaryLinkThree.trigger(this.clickEvent);
+                this.$tertiaryLink.trigger(this.clickEvent);
                 this.$closeQuaternaryNavLink.trigger(this.clickEvent2);
             });
 
@@ -442,7 +524,7 @@ describe('NavMainComponent', function () {
             });
 
             it('should change the nav tertiary link previously expanded to aria-expanded="false"', function () {
-                expect(this.$tertiaryLinkThree.attr('aria-expanded')).to.be.equal('false');
+                expect(this.$tertiaryLink.attr('aria-expanded')).to.be.equal('false');
             })
         });
     });

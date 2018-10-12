@@ -158,6 +158,7 @@
 }
 
 .table-action {
+    border-bottom: 0;
     border-right: 1px dotted color(border);
     display: inline-block;
     margin-right: 5px;
@@ -187,6 +188,7 @@
 tr.table__form,
 td.table__form {
     padding: 10px 10px 24px 20px;
+    white-space: normal;
 
     form {
         background-color: transparent;
