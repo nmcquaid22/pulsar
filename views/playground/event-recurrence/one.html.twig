@@ -1,0 +1,400 @@
+{% extends "@pulsar/pulsar/components/tab.html.twig" %}
+{% set i = 1 %}
+
+{%- block actions_left -%}
+    {{
+        html.actions_menu({
+            'items': [
+                [
+                    {
+                        'label': 'Create New Page',
+                        'href': '#one',
+                        'icon': 'file-text-o'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Save',
+                        'href': '#save',
+                        'icon': 'save'
+                    },
+                    {
+                        'label': 'Send for approval',
+                        'href': '#workflow-submit',
+                        'data-toggle': 'modal',
+                        'icon': 'hand-o-right'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Lock',
+                        'href': '#lock',
+                        'icon': 'lock'
+                    },
+                    {
+                        'label': 'Collaborate',
+                        'href': '#collaborate',
+                        'icon': 'user-plus'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Preview',
+                        'href': '#preview',
+                        'icon': 'eye-open'
+                    },
+                    {
+                        'label': 'View history',
+                        'href': '#history',
+                        'icon': 'history'
+                    }
+                ],
+                [
+                    {
+                        'class': 'link--danger',
+                        'label': 'Delete',
+                        'href': '#delete',
+                        'icon': 'remove'
+                    }
+                ],
+            ]
+        })
+    }}
+{%- endblock -%}
+
+{%- block actions_right -%}
+    {{
+        html.button({
+            'label': 'Save',
+            'class': 'btn--primary',
+            'data-toggle': 'modal',
+            'type': 'link',
+            'href': '#'
+        })
+    }}
+{%- endblock -%}
+
+{% block tab_content %}
+    
+    {{
+        form.create({
+        })
+    }}
+
+    {{
+        form.text({
+            'label': 'Title',
+            'required': true
+        })
+    }}
+
+    {{
+        form.date({
+            'label': 'Date of event',
+			'class': 'form__group--medium',
+            'prepend': html.icon('calendar'),
+            'required': true
+        })
+    }}
+
+    {#
+        form.compound({
+            'label': 'Duration of event',
+            'id': 'duration',
+            'required': true,
+            'inputs': [
+                {
+                    'class': 'form__control-col--1',
+                    'label': 'From',
+                    'id': 'duration-from',
+                    'show-label': false,
+                    'required': true,
+                    'type': 'time',
+                    'prepend': html.icon('clock-o')
+                },
+                {
+                    'class': 'form__control-col--1',
+                    'label': 'To',
+                    'id': 'duration-to',
+                    'show-label': false,
+                    'required': true,
+                    'type': 'time',
+                    'prepend': html.icon('clock-o')
+                }
+            ]
+        })
+    #}
+	<style>
+		#duration label {
+			margin-left: 0;
+			padding-top: 11px;
+			padding-right: 10px;
+		}
+	</style>
+	<fieldset id="duration" class="form__group form__group--compound"><legend class="control__label" id="duration[label]">Duration of event <span class="required-indicator" rel="tooltip" data-toggle="tooltips" title="" data-original-title="required">*</span></legend>
+	<div class="controls">
+		<label for="duration-from" id="duration-from[label]" class="control__label ">From</label><input id="duration-from" type="time" class="form__control form__control-col--1"><label for="duration-to" id="duration-to[label]" class="control__label">To</label><input id="duration-to" type="time" class="form__control form__control-col--1"></div></fieldset>
+
+    {{
+        form.select2({
+            'label': 'Repeat',
+            'id': 'repeat',
+            'options': {
+                '': "Doesn\'t repeat",
+                'daily': 'Daily',
+                'weekly': 'Weekly on Monday',
+                'two-weekly': 'Every two weeks, on Monday',
+                'three-weekly': 'Three Weekly',
+                'four-weekly': 'Four Weekly',
+                'monthly': 'Monthly on the 23rd',
+                'annually': 'Annually'
+            },
+			'selected': 'two-weekly'
+        })
+    }}
+
+	{{
+		html.button({
+			'label': 'Add Another',
+			'style': 'margin-left: 24.5%; margin-bottom: 24px;'
+		})
+	}}
+
+    <div class="form__group">
+        <label for="recurrences" class="control__label">Recurrences</label>
+        <div class="controls">
+
+            <div class="calendar-container">
+                <a class="button button--small float--left" href="" data-year="2018" data-month="9">Previous<span class="visually-hidden-small"> month</span></a>
+                
+				<a class="button button--small float--right" href="" data-year="2018" data-month="11">Next<span class="visually-hidden-small"> month</span></a>
+
+                <h3 class="calendar__heading">October 2018</h3>
+                
+                <table class="calendar">
+					<thead>
+						<tr>
+							<th>Monday</th>
+							<th>Tuesday</th>
+							<th>Wednesday</th>
+							<th>Thursday</th>
+							<th>Friday</th>
+							<th>Saturday</th>
+							<th>Sunday</th>
+                        </tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="is-active">
+								<span class="calendar__date">1</span>
+								<button class="calendar-remove" data-toggle="tooltips" title="Remove this recurrence" data-placement="right">{{ html.icon('times') }}</button>
+							</td>
+							<td>
+								<span class="calendar__date">2</span>
+							</td>
+							<td>
+								<span class="calendar__date">3</span>
+							</td>
+							<td>
+								<span class="calendar__date">4</span>
+							</td>
+							<td>
+								<span class="calendar__date">5</span>
+							</td>
+							<td>
+								<span class="calendar__date">6</span>
+							</td>
+							<td>
+								<span class="calendar__date">7</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="calendar__date">8</span>
+							</td>
+							<td>
+								<span class="calendar__date">9</span>
+							</td>
+							<td>
+								<span class="calendar__date">10</span>
+							</td>
+							<td>
+								<span class="calendar__date">11</span>
+							</td>
+							<td>
+								<span class="calendar__date">12</span>
+							</td>
+							<td>
+								<span class="calendar__date">13</span>
+							</td>
+							<td>
+								<span class="calendar__date">14</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="is-active">
+								<span class="calendar__date">15</span>
+								<button class="calendar-remove" data-toggle="tooltips" title="Remove this recurrence" data-placement="right">{{ html.icon('times') }}</button>
+							</td>
+							<td>
+								<span class="calendar__date">16</span>
+							</td>
+							<td>
+								<span class="calendar__date">17</span>
+							</td>
+							<td>
+								<span class="calendar__date">18</span>
+							</td>
+							<td>
+								<span class="calendar__date">19</span>
+							</td>
+							<td>
+								<span class="calendar__date">20</span>
+							</td>
+							<td>
+								<span class="calendar__date">7</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="calendar__date">21</span>
+							</td>
+							<td>
+								<span class="calendar__date">22</span>
+							</td>
+							<td  class="is-today">
+								<span class="calendar__date">23</span>
+							</td>
+							<td>
+								<span class="calendar__date">24</span>
+							</td>
+							<td>
+								<span class="calendar__date">25</span>
+							</td>
+							<td>
+								<span class="calendar__date">26</span>
+							</td>
+							<td>
+								<span class="calendar__date">27</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="is-active">
+								<span class="calendar__date">28</span>
+								<button class="calendar-remove" data-toggle="tooltips" title="Remove this recurrence" data-placement="right">{{ html.icon('times') }}</button>
+							</td>
+							<td>
+								<span class="calendar__date">29</span>
+							</td>
+							<td>
+								<span class="calendar__date">30</span>
+							</td>
+							<td>
+								<span class="calendar__date">31</span>
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+            </div>
+        </div>
+    </div>
+
+	{{
+        form.content({
+            'label': 'Categories',
+			'id': 'categories',
+			'name': 'categories',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Categories'
+			})
+        })
+    }}
+
+	{{
+        form.content({
+            'label': 'Metadata',
+			'id': 'metadata',
+			'name': 'metadata',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Metadata'
+			})
+        })
+    }}
+
+	{{
+        form.content({
+            'label': 'Location',
+			'id': 'location',
+			'name': 'location',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Location'
+			})
+        })
+    }}
+
+	{{
+        form.text({
+            'label': 'Cost',
+			'class': 'form__group--medium',
+			'id': 'cost',
+			'name': 'cost',
+			'prepend': '£'
+        })
+    }}
+
+	{{
+        form.textarea({
+            'label': 'Summary',
+			'id': 'summary',
+			'name': 'summary',
+			'rows': 5
+        })
+    }}
+
+	{{
+        form.textarea({
+            'label': 'Description',
+			'id': 'description',
+			'name': 'description',
+			'rows': 10
+        })
+    }}
+
+	{{
+        form.checkbox({
+            'label': 'Pick of the week',
+			'id': 'potw',
+			'name': 'potw'
+        })
+    }}
+
+    {{
+        form.end({
+            'actions': [
+                form.submit({
+                    'class': 'btn--primary',
+                    'label': 'Save'
+                }),
+                html.button({
+                    'class': 'btn--naked',
+                    'type': 'link',
+                    'label': 'Cancel',
+                    'href': '#'
+                })
+            ]
+        })
+    }}
+
+{% endblock %}

@@ -1,0 +1,498 @@
+{% extends "@pulsar/pulsar/components/tab.html.twig" %}
+{% set i = 1 %}
+
+
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Date' }
+        ],
+        'data': [
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            },
+            {
+                'Title': 'Monday 1st october, 2018'
+            }
+        ]
+    }
+%}
+
+{%- block actions_left -%}
+    {{
+        html.actions_menu({
+            'items': [
+                [
+                    {
+                        'label': 'Create New Page',
+                        'href': '#one',
+                        'icon': 'file-text-o'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Save',
+                        'href': '#save',
+                        'icon': 'save'
+                    },
+                    {
+                        'label': 'Send for approval',
+                        'href': '#workflow-submit',
+                        'data-toggle': 'modal',
+                        'icon': 'hand-o-right'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Lock',
+                        'href': '#lock',
+                        'icon': 'lock'
+                    },
+                    {
+                        'label': 'Collaborate',
+                        'href': '#collaborate',
+                        'icon': 'user-plus'
+                    }
+                ],
+                [
+                    {
+                        'label': 'Preview',
+                        'href': '#preview',
+                        'icon': 'eye-open'
+                    },
+                    {
+                        'label': 'View history',
+                        'href': '#history',
+                        'icon': 'history'
+                    }
+                ],
+                [
+                    {
+                        'class': 'link--danger',
+                        'label': 'Delete',
+                        'href': '#delete',
+                        'icon': 'remove'
+                    }
+                ],
+            ]
+        })
+    }}
+{%- endblock -%}
+
+{%- block actions_right -%}
+    {{
+        html.button({
+            'label': 'Save',
+            'class': 'btn--primary',
+            'data-toggle': 'modal',
+            'type': 'link',
+            'href': '#'
+        })
+    }}
+{%- endblock -%}
+
+{% block tab_content %}
+    
+    {{
+        form.create({
+        })
+    }}
+
+    {{
+        form.text({
+            'label': 'Title',
+            'class': 'form__group--xxlarge',
+            'required': true
+        })
+    }}
+
+    {{
+        form.date({
+            'label': 'Date of event',
+			'class': 'form__group--medium',
+            'prepend': html.icon('calendar'),
+            'required': true
+        })
+    }}
+
+    {#
+        form.compound({
+            'label': 'Duration of event',
+            'id': 'duration',
+            'required': true,
+            'inputs': [
+                {
+                    'class': 'form__control-col--1',
+                    'label': 'From',
+                    'id': 'duration-from',
+                    'show-label': false,
+                    'required': true,
+                    'type': 'time',
+                    'prepend': html.icon('clock-o')
+                },
+                {
+                    'class': 'form__control-col--1',
+                    'label': 'To',
+                    'id': 'duration-to',
+                    'show-label': false,
+                    'required': true,
+                    'type': 'time',
+                    'prepend': html.icon('clock-o')
+                }
+            ]
+        })
+    #}
+	<style>
+		#duration label {
+			margin-left: 0;
+			padding-top: 11px;
+			padding-right: 10px;
+		}
+	</style>
+	<fieldset id="duration" class="form__group form__group--compound"><legend class="control__label" id="duration[label]">Duration of event <span class="required-indicator" rel="tooltip" data-toggle="tooltips" title="" data-original-title="required">*</span></legend>
+	<div class="controls">
+		<label for="duration-from" id="duration-from[label]" class="control__label hide ">From</label><input id="duration-from" type="time" class="form__control form__control-col--1"><label for="duration-to" id="duration-to[label]" class="control__label">To</label><input id="duration-to" type="time" class="form__control form__control-col--1"></div></fieldset>
+
+    {{ 
+        form.fieldset_start({
+            'legend': 'Event details'
+        })
+    }}
+
+    {{
+        form.content({
+            'label': 'Categories',
+			'id': 'categories',
+			'name': 'categories',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Categories'
+			})
+        })
+    }}
+
+	{{
+        form.content({
+            'label': 'Metadata',
+			'id': 'metadata',
+			'name': 'metadata',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Metadata'
+			})
+        })
+    }}
+
+	{{
+        form.content({
+            'label': 'Location',
+			'id': 'location',
+			'name': 'location',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Location'
+			})
+        })
+    }}
+
+	{{
+        form.text({
+            'label': 'Cost',
+			'class': 'form__group--medium',
+			'id': 'cost',
+			'name': 'cost',
+			'prepend': '£'
+        })
+    }}
+
+	{{
+        form.textarea({
+            'label': 'Summary',
+			'id': 'summary',
+			'name': 'summary',
+			'rows': 5
+        })
+    }}
+
+	{{
+        form.textarea({
+            'label': 'Description',
+			'id': 'description',
+			'name': 'description',
+			'rows': 10
+        })
+    }}
+
+	{{
+        form.checkbox({
+            'label': 'Pick of the week',
+			'id': 'potw',
+			'name': 'potw'
+        })
+    }}
+
+    {{ form.fieldset_end() }}
+
+    {{ 
+        form.fieldset_start({
+            'legend': 'Event repeat'
+        })
+    }}
+
+    <p>Make this event recur on a defined schedule, you can add more than one repeat pattern for this single event.</p>
+
+    {{ form.repeater_start({
+        'label': 'Repeat event',
+        'empty': 'This event will not repeat',
+        'style': 'position: relative;',
+        'max-entries': 10,
+        'headings': [
+            { name: 'repeat', label: 'Repeat pattern' }
+        ],
+        'add-new-group-text': 'Add',
+        'add-another-group-text': 'Add Another'
+    }) }}
+    
+        {{
+            form.fieldset_start({
+                'legend': 'Repeat'
+            })
+        }}
+
+        {{
+            form.select2({
+                'label': 'Repeat',
+                'id': 'repeat',
+                'name': 'repeat',
+                'options': {
+                    '': "Choose pattern",
+                    'daily': 'Daily',
+                    'weekly': 'Weekly on Monday',
+                    'two-weekly': 'Every two weeks, on Monday',
+                    'three-weekly': 'Three Weekly',
+                    'four-weekly': 'Four Weekly',
+                    'monthly': 'Monthly on the 23rd',
+                    'annually': 'Annually'
+                }
+            })
+        }}
+    
+    {{ form.repeater_end() }}
+    {{
+        html.button({
+            'label': 'View Upcoming Occurrences',
+            'style': 'left: 28%; margin-top: -57px;'
+        })
+    }}
+
+    <div class="modal show" style="min-width: 600px;">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1 class="modal__title">Upcoming Occurrences</h1>
+                </div>
+                <div class="modal__body">
+                    {{
+                        html.button({
+                            'label': 'Remove Selected',
+                            'class': 'is-disabled u-margin-bottom'
+                        })
+                    }}
+                    {{ 
+                        html.datatable({
+                            'data-order': '[[ 3, "desc" ]]',
+                            'class': 'table--full',
+                            'data-rows': 10,
+                            'data': data
+                        }) 
+                    }}
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--primary">Save Changes</button>
+                    <button type="button" class="btn btn--naked" data-dismiss="modal">Cancel</button>
+                </div>
+            </div><!-- /.modal__content -->
+        </div><!-- /.modal__dialog -->
+    </div><!-- /.modal -->
+
+    {{ form.fieldset_end() }}
+	
+
+    {{
+        form.end({
+            'actions': [
+                form.submit({
+                    'class': 'btn--primary',
+                    'label': 'Save'
+                }),
+                html.button({
+                    'class': 'btn--naked',
+                    'type': 'link',
+                    'label': 'Cancel',
+                    'href': '#'
+                })
+            ]
+        })
+    }}
+
+{% endblock %}

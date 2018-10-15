@@ -181,3 +181,56 @@
         width: 50px;
     }
 }
+
+.calendar-container {
+    margin-bottom: $line-height-base;
+    width: 44%; // this needs to match the form widths;
+}
+
+.calendar__heading {
+    text-align: center;
+    font-family: $font-family-regular;
+}
+
+.calendar {
+    table-layout: fixed;
+    width: 100%;
+
+    td {
+        border: 1px solid color(border);
+        height: 3rem;
+        line-height: 1rem;
+        position: relative;
+        text-align: center;
+    }
+
+    .is-active {
+        background-color: color(primary);
+        color: color(primary, alt);
+        font-family: $font-family-regular;
+
+        .calendar__date {
+            border: 2px solid color(primary, alt);
+            border-radius: 1rem;
+            display: block;
+            height: 2rem;
+            margin: 0 auto;
+            width: 2rem;
+            line-height: 1.9rem;
+        }
+    }
+
+    .is-today {
+        background-color: color(background);
+        font-family: $font-family-regular;
+    }
+}
+
+.calendar-remove {
+    background: none;
+    border: 0;
+    color: color(white);
+    position: absolute;
+    top: 3px;
+    right: 0;
+}

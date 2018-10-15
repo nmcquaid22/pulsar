@@ -21,15 +21,23 @@
 %}
 
 {% set tab_one %}
-    {% include 'playground/event-recurrence/tab_one.html.twig' %}
+    {% include 'playground/event-recurrence/one.html.twig' %}
+{% endset %}
+{% set tab_two %}
+    {% include 'playground/event-recurrence/two.html.twig' %}
 {% endset %}
 
 {%
     set tabs_content = [
         {
           "id"    : "one",
-          "label" : "Details",
-          "src"   : tab_one,
+          "label" : "Version One",
+          "src"   : tab_one
+        },
+        {
+          "id"    : "two",
+          "label" : "Version Two",
+          "src"   : tab_two,
           "active": true
         }
     ]
