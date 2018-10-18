@@ -27,12 +27,21 @@
     }
 }
 
-.dt-disable-selection .table-selection {
-    min-width: 0;
-    padding: 0;
-    width: 0;
+.dt-disable-selection {
 
-    .table-row-select {
+    .table-container {
+        margin: 0;
+        width: 100%;
+    }
+
+    .table-selection {
+        display: none;
+        min-width: 0;
+        padding: 0;
+        width: 0;
+    }
+
+    .table-row-select, {
         display: none;
     }
 }

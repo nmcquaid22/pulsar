@@ -253,7 +253,8 @@ var $ = require('jquery');
 
   // Focus the first input in a modal when the modal has been opened
   $(document).on('shown.bs.modal', '.modal', function() {
-    $(':input:not(input[type=button], input[type=submit], button):visible:first', $(this)).focus();
+    console.log($('button.close', $(this)));
+    $('button.close', $(this)).focus();
   });
   
 module.exports = Modal;
