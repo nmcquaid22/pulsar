@@ -257,7 +257,8 @@ fieldset {
 
     // hidden labels need to maintain their position and not break the flow of
     // the form elements
-    &.hide {
+    &.hide,
+    &.hide--soft {
         position: relative;
     }
 }

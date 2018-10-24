@@ -106,7 +106,7 @@ name    | string | The name of this control
 
     {% set labelVisibilityClass = '' %}
     {% if options['show-label'] is defined and options['show-label'] is not null and options['show-label'] == false %}
-        {% set labelVisibilityClass = ' hide' %}
+        {% set labelVisibilityClass = ' hide--soft' %}
     {% endif %}
 
     {% set tag = 'label' %}

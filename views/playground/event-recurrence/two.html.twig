@@ -360,17 +360,32 @@
 
     {{ 
         form.fieldset_start({
-            'legend': 'Event repeat'
+            'legend': 'Repeat event'
         })
     }}
 
-    <p>Make this event recur on a defined schedule, you can add more than one repeat pattern for this single event.</p>
+    <p>Make this event recur on a defined schedule, you can add a repeat pattern and add/remove specific dates to fine tune when your event will run</p>
+
+    <script>
+        (function ($) {
+            $(window).load(function() {
+                $('#repeat-pattern').change(function() {
+                    if ($(this).val() == 'custom') {
+                        $('.js-custom-recurrence').removeClass('hide');
+                    } else {
+                        $('.js-custom-recurrence').addClass('hide');
+                    }
+                });
+            });
+        }(jQuery));
+    </script>
 
     {{
-        form.select2({
+        form.select({
             'label': 'Repeat',
-            'id': 'repeat',
-            'name': 'repeat',
+            'class': 'form__group--large',
+            'id': 'repeat-pattern',
+            'name': 'repeat-pattern',
             'options': {
                 '': "Please choose...",
                 'daily': 'Daily',
@@ -382,26 +397,74 @@
                 'annually': 'Annually',
                 'custom': 'Custom pattern'
             },
-            'selected': 'two-weekly',
-            'append': html.button({
-                'label': 'Manage Upcoming Occurrences',
-                'data-toggle': 'modal',
-                'href': '#upcoming',
-                'type': 'link'
-            }),
-            'append_type': 'button'
+            'selected': 'two-weekly'
         })
     }}
 
-    {{
-        form.text({
-            'label': 'Repeat every',
-            'class': 'form__group--medium',
-            'id': 'repeat-every',
-            'name': 'repeat-every',
-            'append': 'weeks'
-        })
-    }}
+    {{ form.fieldset_start({'class': 'js-custom-recurrence hide u-padding-top-none u-padding-bottom-none'}) }}
+
+        {{
+            form.text({
+                'label': 'Repeat every',
+                'class': 'form__group--medium',
+                'id': 'repeat-every',
+                'name': 'repeat-every',
+                'append': 'weeks',
+                'required': true,
+                'value': '1',
+                'help': 'The number of weeks which should pass before the event reoccurs'
+            })
+        }}
+
+        {{
+            form.choice({
+                'label': 'Repeat on',
+                'class': 'choice--bubbles choice--bubbles-inline',
+                'multiple': true,
+                'optimize': 'few',
+                'required': true,
+                'help': 'You must choose at least one day for the event to occur on',
+                'options': [
+                    {
+                        'label': 'MO',
+                        'value': 'mon',
+                        'name': 'days'
+                    },
+                    {
+                        'label': 'TU',
+                        'value': 'tue',
+                        'name': 'days'
+                    },
+                    {
+                        'label': 'WE',
+                        'value': 'wed',
+                        'name': 'days'
+                    },
+                    {
+                        'label': 'TH',
+                        'value': 'thu',
+                        'name': 'days'
+                    },
+                    {
+                        'label': 'FR',
+                        'value': 'fri',
+                        'name': 'days'
+                    },
+                    {
+                        'label': 'SA',
+                        'value': 'sat',
+                        'name': 'days'
+                    },
+                    {
+                        'label': 'SU',
+                        'value': 'sun',
+                        'name': 'days'
+                    }
+                ]
+            })
+        }}
+
+        {{ form.fieldset_end() }}
 
 
 
@@ -412,11 +475,15 @@
                 $('[data-show="js-end-repeat"]').on('change', function() {
                     if ($(this).is(':checked')) {
                         $('.js-end-repeat').removeClass('hide');
+                        $('#end-date').removeAttr('disabled').removeClass('is-disabled');
                     }
                 });
 
                 $('[data-hide="js-end-repeat"]').on('change', function() {
                     if ($(this).is(':checked')) {
+                        $('#end-date')
+                            .addClass('is-disabled')
+                            .attr('disabled', 'disabled');
                         $('.js-end-repeat').addClass('hide');
                     }
                 });
@@ -452,7 +519,21 @@
             'prepend': html.icon('calendar'),
             'id': 'end-date',
             'name': 'end-date',
-            'help': 'Events will stop repeating <strong>after</strong> this date'
+            'help': 'Events will stop repeating <strong>after</strong> this date',
+            'disabled': true
+        })
+    }}
+
+    {{
+        form.content({
+            'label': 'Manage upcoming occurences',
+            'show-label': false,
+            'value': html.button({
+                'label': html.icon('calendar') ~ '&nbsp;&nbsp;Manage Upcoming Occurrences',
+                'data-toggle': 'modal',
+                'href': '#upcoming',
+                'type': 'link'
+            })
         })
     }}
 
