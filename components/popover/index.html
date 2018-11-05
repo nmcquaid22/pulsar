@@ -528,6 +528,12 @@
             <td>apply a CSS fade transition to the tooltip</td>
         </tr>
         <tr>
+            <td>autoclose</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>If <code>true</code>, will close the popover when the user clicks anywhere in the UI</td>
+        </tr>
+        <tr>
             <td>html</td>
             <td>boolean</td>
             <td>false</td>
@@ -583,21 +589,6 @@
         </tr>
     </tbody>
 </table>
-
-<h2 id="clickovers">Clickovers</h2>
-
-<p>Clickover is a variation of popovers where the popover will be closed when the user clicks anywhere else on the page (popovers require the same toggle to be clicked). To use a popover instead of a clickover, use the <code class="highlighter-rouge">rel="clickover"</code> attribute instead of <code class="highlighter-rouge">data-toggle="popover"</code>.</p>
-
-<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
-    <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'href'</span><span class="err">:</span> <span class="s1">'#'</span><span class="p">,</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Click to toggle clickover'</span><span class="p">,</span>
-        <span class="s1">'rel'</span><span class="err">:</span> <span class="s1">'clickover'</span><span class="p">,</span>
-        <span class="s1">'data-content'</span><span class="err">:</span> <span class="s1">'I am a clickover'</span>
-    <span class="err">}</span><span class="p">)</span>
-<span class="cp">}}</span>
-</code></pre>
-</div>
 
 
 

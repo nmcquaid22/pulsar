@@ -467,10 +467,9 @@
 <h2 id="toolbar-indicator">Toolbar indicator</h2>
 
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{{</span>
-    <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span>
-        <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'notifications-toggle'</span><span class="p">,</span>
-        <span class="s1">'href'</span><span class="err">:</span> <span class="s1">'#'</span><span class="p">,</span>
-        <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'bell'</span><span class="p">),</span>
+    <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span>
+        <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'notifications-toggle btn--naked'</span><span class="p">,</span>
+        <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'bell-o'</span><span class="p">,</span> <span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Show notifications'</span> <span class="err">}</span><span class="p">),</span>
         <span class="s1">'data-toggle'</span><span class="err">:</span> <span class="s1">'dropdown'</span>
     <span class="err">}</span><span class="p">)</span>
 <span class="cp">}}</span>
@@ -478,9 +477,9 @@
 </div>
 
 <div class="pulsar-example">
-    <a href="#" class="notifications-toggle is-active has-new" data-toggle="dropdown"><i class="icon-bell-o"></i></a>
-    <a href="#" class="notifications-toggle is-active" data-toggle="dropdown"><i class="icon-bell-o"></i></a>
-    <a href="#" class="notifications-toggle" data-toggle="dropdown"><i class="icon-bell-o"></i></a>
+    <button class="notifications-toggle btn--naked is-active has-new" data-toggle="dropdown"><i class="icon-bell-o"><span class="hide">Show notifications</span></i></button>
+    <button class="notifications-toggle btn--naked is-active" data-toggle="dropdown"><i class="icon-bell-o"><span class="hide">Show notifications</span></i></button>
+    <button class="notifications-toggle btn--naked" data-toggle="dropdown"><i class="icon-bell-o"><span class="hide">Show notifications</span></i></button>
 </div>
 
 <p>Toggle the states with common state classes</p>
@@ -516,17 +515,16 @@
 
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown notifications"</span><span class="nt">&gt;</span>
     <span class="cp">{{</span>
-        <span class="nv">html.link</span><span class="p">(</span><span class="err">{</span>
-            <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'notifications-toggle is-active'</span><span class="p">,</span>
-            <span class="s1">'href'</span><span class="err">:</span> <span class="s1">'#'</span><span class="p">,</span>
-            <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'bell'</span><span class="p">),</span>
+        <span class="nv">html.button</span><span class="p">(</span><span class="err">{</span>
+            <span class="s1">'class'</span><span class="err">:</span> <span class="s1">'notifications-toggle btn--naked is-active'</span><span class="p">,</span>
+            <span class="s1">'label'</span><span class="err">:</span> <span class="nv">html.icon</span><span class="p">(</span><span class="s1">'bell-o'</span><span class="p">,</span> <span class="err">{</span> <span class="s1">'label'</span><span class="err">:</span> <span class="s1">'Show notifications'</span> <span class="err">}</span><span class="p">),</span>
             <span class="s1">'data-toggle'</span><span class="err">:</span> <span class="s1">'dropdown'</span>
         <span class="err">}</span><span class="p">)</span>
     <span class="cp">}}</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"notifications-list dropdown__menu"</span><span class="nt">&gt;</span><span class="c">&lt;!--
         --&gt;</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"notifications__header"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"notifications-title"</span><span class="nt">&gt;</span>Notifications<span class="nt">&lt;/h1&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"notifications-dismiss"</span><span class="nt">&gt;</span>dismiss all<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"notifications-dismiss btn--naked"</span><span class="nt">&gt;</span>dismiss all<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!--
         --&gt;</span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"notification is-new"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
@@ -551,7 +549,7 @@
 
                     <span class="nt">&lt;p&gt;</span>We've updated our user manual to feature our new and improved user interface. If you need a copy, drop us a message and we'll be happy to send one over.<span class="nt">&lt;/p&gt;</span>
 
-                    <span class="nt">&lt;p&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-file-text-alt"</span><span class="nt">&gt;&lt;/i&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>View detailed release notes<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+                    <span class="nt">&lt;p&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-file-text-alt"</span><span class="nt">&gt;&lt;/i&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#path-to-release-notes"</span><span class="nt">&gt;</span>View detailed release notes<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
@@ -579,13 +577,13 @@
 
                     <span class="nt">&lt;p&gt;</span>We've updated our user manual to feature our new and improved user interface. If you need a copy, drop us a message and we'll be happy to send one over.<span class="nt">&lt;/p&gt;</span>
 
-                    <span class="nt">&lt;p&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-file-text-alt"</span><span class="nt">&gt;&lt;/i&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>View detailed release notes<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+                    <span class="nt">&lt;p&gt;&lt;i</span> <span class="na">class=</span><span class="s">"icon-file-text-alt"</span><span class="nt">&gt;&lt;/i&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#path-to-release-notes"</span><span class="nt">&gt;</span>View detailed release notes<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
                 <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"notifications__footer"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"notifications-all"</span><span class="nt">&gt;</span>View all<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn--naked notifications-all"</span><span class="nt">&gt;</span>View all<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>

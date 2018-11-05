@@ -483,7 +483,7 @@
 <p>To see a list of known working versions of the development dependencies, and a list of known issues, see <a href="https://github.com/jadu/pulsar/wiki/Make">this wiki page on GitHub</a>.</p>
 
 <p class="message">
-You should know that the makefile will attempt to install everything required for Pulsar, including things like Ruby, Vagrant, Virtualbox and Node. If you're going to start swearing if Puslar updates your node version, you should probably just read through the makefile and do this yourself.
+You should know that the makefile will attempt to install everything required for Pulsar, including things like Ruby, Virtualbox and Node. If you're going to start swearing if Puslar updates your node version, you should probably just read through the makefile and do this yourself.
 </p>
 
 <p>If you’re on OSX, you’ll need to <a href="https://itunes.apple.com/gb/app/xcode/id497799835?mt=12">install xCode from the App Store</a> and then install the command line tools with <code class="highlighter-rouge">xcode-select --install</code></p>
@@ -494,15 +494,11 @@ You should know that the makefile will attempt to install everything required fo
 </code></pre>
 </div>
 
-<p>This may take a while if it’s your first time, once that’s ready you should be ready to fire up the vagrant virtual machine with:</p>
+<p>This may take a while if it’s your first time, once that’s ready you should be ready to fire up the docker container.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vagrant up
-</code></pre>
-</div>
+<p>Install <a href="https://store.docker.com/editions/community/docker-ce-desktop-mac">Docker</a>, then run:</p>
 
-<p>or alternatively, using docker</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>docker-compose up -d
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>docker-compose up -d
 </code></pre>
 </div>
 
@@ -516,35 +512,23 @@ You should know that the makefile will attempt to install everything required fo
 
 <h2 id="day-to-day-development">Day-to-Day Development</h2>
 
-<p>Once you’ve installed the Pulsar development environment to your machine you’ll only need to start the Vagrant machine and Grunt, you can do this together with the following command:</p>
+<p>Once you’ve installed the Pulsar development environment to your machine you’ll only need to start the Docker container and Grunt, you can do this together with the following command:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vagrant up; grunt;
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>docker-compose up -d; grunt;
 </code></pre>
 </div>
 
 <p>Pulsar should then be available in your favourite browser at <a href="http://localhost:3000">http://localhost:3000</a></p>
 
-<h2 id="reinstalling">Reinstalling</h2>
-
-<p>If something goes awry, you can reinstall the vagrant box with:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vagrant provision
-</code></pre>
-</div>
-
 <p>You may also wish to try re-running <code class="highlighter-rouge">make</code> to make sure no dependencies were missed.</p>
 
-<h2 id="uninstalling">Uninstalling</h2>
+<p>We made the decision not to write any commands to uninstall the dependencies installed during the <code class="highlighter-rouge">make</code> process as we’ve made the assumption that if you’re using Pulsar you probably already have/need many of the same packages, and removing these would be a BadThing™.</p>
 
-<p>Remove the vagrant machine with the rather spectacular command:</p>
+<h2 id="stopping-the-docker-container">Stopping the docker container</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vagrant destroy
+<div class="highlighter-rouge"><pre class="highlight"><code>docker-compose down -d
 </code></pre>
 </div>
-
-<p>Then simply delete the <code class="highlighter-rouge">pulsar</code> directory from your machine.</p>
-
-<p>We made the decision not to write any commands to uninstall the dependencies installed during the <code class="highlighter-rouge">make</code> process as we’ve made the assumption that if you’re using Pulsar you probably already have/need many of the same packages, and removing these would be a BadThing™.</p>
 
 
 
