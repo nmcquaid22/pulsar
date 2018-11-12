@@ -227,6 +227,7 @@
         form.text({
             'label': 'Title',
             'class': 'form__group--xxlarge',
+            'value': 'My awesome event and you’re all invited',
             'required': true
         })
     }}
@@ -236,6 +237,7 @@
             'label': 'Date of event',
 			'class': 'form__group--medium',
             'prepend': html.icon('calendar'),
+            'value': '01/10/2018',
             'required': true
         })
     }}
@@ -326,7 +328,8 @@
 			'class': 'form__group--medium',
 			'id': 'cost',
 			'name': 'cost',
-			'prepend': '£'
+			'prepend': '£',
+            'value': '100.00'
         })
     }}
 
@@ -369,14 +372,136 @@
     <script>
         (function ($) {
             $(window).load(function() {
+                var $repeatEnds = $('.proto-ends'),
+                    $repeatCalendar = $('.proto-calendar');
+
                 $('#repeat-pattern-two').change(function() {
-                    if ($(this).val() == 'custom') {
+                    if ($(this).val() == '') {
+                        $repeatEnds.addClass('hide');
+                        $repeatCalendar.addClass('hide');
+                    } else {
+                        $repeatEnds.removeClass('hide');
+                        $repeatCalendar.removeClass('hide');
+                    }
+
+                    $('.js-repeat-day').prop('checked', false);
+
+                    if ($(this).val() == 'daily') {
+                        $('.js-repeat-day').prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else if ($(this).val() == 'weekly') {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [0, 7, 14, 21, 28]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else if ($(this).val() == 'two-weekly') {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [0, 14, 28]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else if ($(this).val() == 'three-weekly') {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [0, 21]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else if ($(this).val() == 'four-weekly') {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [0, 28]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else if ($(this).val() == 'monthly-day' || $(this).val() == 'monthly-date' || $(this).val() == 'annually') {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [0]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else if ($(this).val() == 'custom') {
                         $('.js-custom-recurrence-two').removeClass('hide');
                     } else {
                         $('.js-custom-recurrence-two').addClass('hide');
                     }
                 });
+
+                $('[value="mon"]').change(function() {
+                    if (this.checked) {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [0, 7, 14, 21, 28]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [0, 7, 14, 21, 28]) > -1;
+                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
+                    }
+                });
+
+                $('[value="tue"]').change(function() {
+                    if (this.checked) {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [1, 8, 15, 22, 29]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [1, 8, 15, 22, 29]) > -1;
+                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
+                    }
+                });
+
+                $('[value="wed"]').change(function() {
+                    if (this.checked) {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [2, 9, 16, 23, 30]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [2, 9, 16, 23, 30]) > -1;
+                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
+                    }
+                });
+
+                $('[value="thu"]').change(function() {
+                    if (this.checked) {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [3, 10, 17, 24, 31]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [3, 10, 17, 24, 31]) > -1;
+                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
+                    }
+                });
+
+                $('[value="fri"]').change(function() {
+                    if (this.checked) {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [4, 11, 18, 25, 32]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [4, 11, 18, 25, 32]) > -1;
+                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
+                    }
+                });
+
+                $('[value="sat"]').change(function() {
+                    if (this.checked) {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [5, 12, 19, 26, 33]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [5, 12, 19, 26, 33]) > -1;
+                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
+                    }
+                });
+
+                $('[value="sun"]').change(function() {
+                    if (this.checked) {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [6, 13, 20, 27, 34]) > -1;
+                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
+                    } else {
+                        $('.js-repeat-day').filter(function(index, el) {
+                            return $.inArray(index, [6, 13, 20, 27, 34]) > -1;
+                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
+                    }
+                });
+
+            
             });
+
         }(jQuery));
     </script>
 
@@ -387,23 +512,23 @@
             'id': 'repeat-pattern-two',
             'name': 'repeat-pattern-two',
             'options': {
-                '': "Please choose...",
+                '': "No repeat",
                 'daily': 'Daily',
                 'weekly': 'Weekly on Monday',
                 'two-weekly': 'Every two weeks, on Monday',
                 'three-weekly': 'Three Weekly',
                 'four-weekly': 'Four Weekly',
-                'monthly': 'Monthly on the 23rd',
+                'monthly-day': 'Monthly, on this day (first Monday)',
+                'monthly-date': 'Monthly, on this date (1st)',
                 'annually': 'Annually',
-                'custom': 'Custom pattern'
-            },
-            'selected': 'two-weekly'
+                'custom': 'Custom weekday pattern'
+            }
         })
     }}
-
+    
     {{ form.fieldset_start({'class': 'js-custom-recurrence-two hide u-padding-top-none u-padding-bottom-none'}) }}
 
-        {{
+        {#
             form.text({
                 'label': 'Repeat every',
                 'class': 'form__group--medium',
@@ -414,11 +539,11 @@
                 'value': '1',
                 'help': 'The number of weeks which should pass before the event reoccurs'
             })
-        }}
+        #}
 
         {{
             form.choice({
-                'label': 'Repeat on',
+                'label': 'Repeat every',
                 'class': 'choice--bubbles choice--bubbles-inline',
                 'multiple': true,
                 'optimize': 'few',
@@ -493,6 +618,7 @@
 
     {{
         form.choice({
+            'class': 'proto-ends hide',
             'label': 'Repeat ends',
             'options': [
                 {
@@ -517,8 +643,8 @@
             'label': 'End repeat after',
             'class': 'form__group--medium hide js-end-repeat-2',
             'prepend': html.icon('calendar'),
-            'id': 'end-date',
-            'name': 'end-date',
+            'id': 'end-date-2',
+            'name': 'end-date-2',
             'help': 'Events will stop repeating <strong>after</strong> this date',
             'disabled': true
         })
@@ -724,7 +850,7 @@
         }(jQuery));
     </script>
 
-    <div class="form__group">
+    <div class="form__group hide proto-calendar">
         <label for="recurrences" class="control__label">Recurrences</label>
         
         <div class="controls">
@@ -895,7 +1021,7 @@
 							<td class="form-choice choice--bubbles">
                                 <div class="controls">
                                     <label class="control__label">
-                                        <input value="15/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
+                                        <input value="15/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
                                         <span class="form-choice__label">15</span>
                                     </label>
                                 </div>
@@ -1011,7 +1137,7 @@
 							<td class="form-choice choice--bubbles">
 								<div class="controls">
                                     <label class="control__label">
-                                        <input value="29/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
+                                        <input value="29/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
                                         <span class="form-choice__label">29</span>
                                     </label>
                                 </div>
