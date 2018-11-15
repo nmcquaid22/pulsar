@@ -227,7 +227,6 @@
         form.text({
             'label': 'Title',
             'class': 'form__group--xxlarge',
-            'value': 'My awesome event and you’re all invited',
             'required': true
         })
     }}
@@ -237,7 +236,6 @@
             'label': 'Date of event',
 			'class': 'form__group--medium',
             'prepend': html.icon('calendar'),
-            'value': '01/10/2018',
             'required': true
         })
     }}
@@ -276,90 +274,9 @@
 			padding-right: 10px;
 		}
 	</style>
-	<fieldset id="duration" class="form__group form__group--compound"><legend class="control__label" id="duration[label]">Duration of event <span class="required-indicator" rel="tooltip" data-toggle="tooltips" title="" data-original-title="required">*</span></legend>
+	<fieldset id="duration" class="form__group form__group--compound"><legend class="control__label" id="duration[label]">Time of event <span class="required-indicator" rel="tooltip" data-toggle="tooltips" title="" data-original-title="required">*</span></legend>
 	<div class="controls">
 		<label for="duration-from" id="duration-from[label]" class="control__label hide ">From</label><input id="duration-from" type="time" class="form__control form__control-col--1"><label for="duration-to" id="duration-to[label]" class="control__label">To</label><input id="duration-to" type="time" class="form__control form__control-col--1"></div></fieldset>
-
-    {{ 
-        form.fieldset_start({
-            'legend': 'Event details'
-        })
-    }}
-
-    {{
-        form.content({
-            'label': 'Categories',
-			'id': 'categories',
-			'name': 'categories',
-            'required': true,
-			'value': html.button({
-				'label': 'Assign Categories'
-			})
-        })
-    }}
-
-	{{
-        form.content({
-            'label': 'Metadata',
-			'id': 'metadata',
-			'name': 'metadata',
-            'required': true,
-			'value': html.button({
-				'label': 'Assign Metadata'
-			})
-        })
-    }}
-
-	{{
-        form.content({
-            'label': 'Location',
-			'id': 'location',
-			'name': 'location',
-            'required': true,
-			'value': html.button({
-				'label': 'Assign Location'
-			})
-        })
-    }}
-
-	{{
-        form.text({
-            'label': 'Cost',
-			'class': 'form__group--medium',
-			'id': 'cost',
-			'name': 'cost',
-			'prepend': '£',
-            'value': '100.00'
-        })
-    }}
-
-	{{
-        form.textarea({
-            'label': 'Summary',
-			'id': 'summary',
-			'name': 'summary',
-			'rows': 5
-        })
-    }}
-
-	{{
-        form.textarea({
-            'label': 'Description',
-			'id': 'description',
-			'name': 'description',
-			'rows': 10
-        })
-    }}
-
-	{{
-        form.checkbox({
-            'label': 'Pick of the week',
-			'id': 'potw',
-			'name': 'potw'
-        })
-    }}
-
-    {{ form.fieldset_end() }}
 
     {{ 
         form.fieldset_start({
@@ -375,7 +292,22 @@
                 var $repeatEnds = $('.proto-ends'),
                     $repeatCalendar = $('.proto-calendar');
 
+                    function checkIfInView(element){
+                        var offset = element.offset().top - $(window).scrollTop();
+
+                        if(offset > window.innerHeight){
+                            // Not in view so scroll to it
+                            $('html,body').animate({scrollTop: offset}, 1000);
+                            return false;
+                        }
+                    return true;
+                }
+
                 $('#repeat-pattern-two').change(function() {
+
+                    checkIfInView($('.proto-calendar'));
+
+
                     if ($(this).val() == '') {
                         $repeatEnds.addClass('hide');
                         $repeatCalendar.addClass('hide');
@@ -513,15 +445,15 @@
             'name': 'repeat-pattern-two',
             'options': {
                 '': "No repeat",
-                'daily': 'Daily',
+                '-': '--------',
+                'custom': 'Create a new repeat',
                 'weekly': 'Weekly on Monday',
                 'two-weekly': 'Every two weeks, on Monday',
                 'three-weekly': 'Three Weekly',
                 'four-weekly': 'Four Weekly',
                 'monthly-day': 'Monthly, on this day (first Monday)',
                 'monthly-date': 'Monthly, on this date (1st)',
-                'annually': 'Annually',
-                'custom': 'Custom weekday pattern'
+                'annually': 'Annually'
             }
         })
     }}
@@ -646,7 +578,8 @@
             'id': 'end-date-2',
             'name': 'end-date-2',
             'help': 'Events will stop repeating <strong>after</strong> this date',
-            'disabled': true
+            'disabled': true,
+            'value': '01/10/2018'
         })
     }}
 
@@ -761,9 +694,10 @@
 
                     delArray.push(value);
                 }
-                else if (action === 'un-add') {
+                else if (action === 'un-add' && addBadgeVal > 0) {
                     $addReview.removeClass('hide').addClass('has-changed');
                     $addBadge.removeClass('hide');
+                    
                     $addBadge.html(addBadgeVal - 1);
 
                     addArray.splice(addArray.indexOf(value), 1);
@@ -979,7 +913,7 @@
 							<td class="form-choice choice--bubbles">
 								<div class="controls">
                                     <label class="control__label">
-                                        <input value="10/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                        <input value="10/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
                                         <span class="form-choice__label">10</span>
                                     </label>
                                 </div>
@@ -1213,6 +1147,106 @@
     </div>
 
     {{ form.fieldset_end() }}
+
+    {{ 
+        form.fieldset_start({
+            'legend': 'Event details'
+        })
+    }}
+
+    {{
+        form.content({
+            'label': 'Categories',
+			'id': 'categories',
+			'name': 'categories',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Categories'
+			})
+        })
+    }}
+
+	{{
+        form.content({
+            'label': 'Metadata',
+			'id': 'metadata',
+			'name': 'metadata',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Metadata'
+			})
+        })
+    }}
+
+	{{
+        form.content({
+            'label': 'Location',
+			'id': 'location',
+			'name': 'location',
+            'required': true,
+			'value': html.button({
+				'label': 'Assign Location'
+			})
+        })
+    }}
+
+	{{
+        form.text({
+            'label': 'Cost',
+			'class': 'form__group--medium',
+			'id': 'cost',
+			'name': 'cost',
+			'prepend': '£',
+            'value': '100.00'
+        })
+    }}
+
+	{{
+        form.textarea({
+            'label': 'Summary',
+			'id': 'summary',
+			'name': 'summary',
+			'rows': 3,
+            'value': 'This is my summary, there are many like it but this one is mine.'
+        })
+    }}
+
+	{{
+        form.textarea({
+            'label': 'Description',
+			'id': 'description',
+			'name': 'description',
+			'rows': 10,
+            'value': 'Uh, wickey wild wild
+Wicky wicky wild
+Wickey wild, wicky wicky wild wild wild west,
+Jim West, desperado, rough rider
+No you don’t want nada
+None of this, six gun in this, brotha runnin’ this,
+Buffalo soldier, look it’s like I told ya
+Any damsel that’s in distress
+Be out of that dress when she meet Jim West
+Rough neck so go check the law and abide
+Watch your step , we’ll flex and get a hole in your side
+Swallow your pride, don’t let your lip react,
+You don’t wanna see my hand where my hip be at,
+With all of this, from the start of this,
+Runnin’ the game, James West tamin’ the west so remember the name
+Now who ya gonna call?'
+        })
+    }}
+
+	{{
+        form.checkbox({
+            'label': 'Pick of the week',
+			'id': 'potw',
+			'name': 'potw'
+        })
+    }}
+
+    {{ form.fieldset_end() }}
+
+    
 	
 
     {{

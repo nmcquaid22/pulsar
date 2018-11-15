@@ -35,6 +35,13 @@
 
     <div>
 
+        <div class="dropdown">
+		<button class="btn action dropdown-toggle">Actions <span class="caret"></span></button>
+		<ul class="dropdown-menu">
+			<li><a href="#" id="lockText" onclick="return loadLightbox('content_lock', 'lb', 'contentLockDateTarget=newlockTimeoutDate&amp;contentLockTimeTarget=newlockTimeoutTime&amp;existingLockDate='+$('newlockTimeoutDate').value+'&amp;existingLockTime='+$('newlockTimeoutTime').value); return false;"><i aria-hidden="true" class="icon-lock"></i>Unlock</a></li>
+		</ul>
+	</div>
+
         <!-- The normal type of button you should use -->
         {{ html.button({ label: 'Default' }) }}
 
