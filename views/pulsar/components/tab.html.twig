@@ -21,7 +21,7 @@
 {% set _tab_javascript = block('tab_js') %}
 {% if _tab_javascript is not empty %}
     {% block tab_javascript %}
-        {{ _tab_javascript }}
+        {{ _tab_javascript|raw }}
     {% endblock %}
 {% endif %}
 

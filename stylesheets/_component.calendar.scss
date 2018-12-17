@@ -188,7 +188,7 @@
     // width: 44%; // this needs to match the form widths;
 
     .calendar {
-        width: auto;
+        width: 100%;
 
         th {
             padding-right: 16px;
@@ -314,4 +314,27 @@
 .calendar-review li.has-changed {
     background-color: color(info);
     -webkit-transition: background-color 0s ease-in-out;
+}
+
+.calendar-nav-prev {
+    float: left;
+}
+
+.calendar-nav-next {
+    float: right;
+    margin-right: $gutter-width !important;
+}
+
+.form__control.calendar-nav-month,
+.form__control.calendar-nav-year {
+    height: 35px;
+    line-height: 35px;
+}
+
+.form__control.calendar-nav-month {
+    width: 30%;
+}
+
+.form__control.calendar-nav-year {
+    width: 16%;
 }

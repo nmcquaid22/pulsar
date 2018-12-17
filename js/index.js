@@ -13,6 +13,7 @@ require('babel-polyfill');
 
 // Global UI components
 var $                     = require('jquery'),
+    _                     = require('underscore'),
     dropdown              = require('./libs/dropdown'),
     modal                 = require('./libs/modal'),
     tab                   = require('./libs/tab'),
@@ -28,7 +29,8 @@ var $                     = require('jquery'),
     svgeezy   = require('../libs/svgeezy/svgeezy.min'),
     select2   = require('../libs/select2/dist/js/select2.min'),
     tinycon   = require('../libs/tinyicon/tinycon.min'),
-
+    
+    clndr         = require('clndr'),
     dt            = require('datatables.net')(window, $),
     dt_buttons    = require('datatables.net-buttons')(window, $),
     dt_responsive = require('datatables.net-responsive')(window, $),

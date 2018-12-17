@@ -134,6 +134,16 @@
     }}
     {% set i = i + 1 %}
 
+    <div class="form__group  form__group--toggle">
+        
+            <label class="control__label">Toggle switch</label>
+            <span class="controls">
+                <input  type="checkbox" class="form__control toggle-switch">
+                <span class="toggle-switch-label"></span>
+            </span>
+        
+    </div>
+
     {{
         form.toggle_switch({
             'label': 'Toggle switch',

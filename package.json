@@ -105,8 +105,10 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "clndr": "^1.4.7",
     "jstree": "^3.3.3",
     "lodash": "^4.6.1",
-    "moment": "^2.15.2"
+    "moment": "^2.15.2",
+    "underscore": "^1.9.1"
   }
 }

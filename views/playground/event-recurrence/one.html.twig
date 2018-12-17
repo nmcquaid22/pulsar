@@ -305,8 +305,7 @@
 
                 $('#repeat-pattern-two').change(function() {
 
-                    checkIfInView($('.proto-calendar'));
-
+                    //checkIfInView($('.proto-calendar'));
 
                     if ($(this).val() == '') {
                         $repeatEnds.addClass('hide');
@@ -317,6 +316,9 @@
                     }
 
                     $('.js-repeat-day').prop('checked', false);
+
+                    $('.js-end-repeat-2').removeClass('hide');
+                    $('#end-date-2').removeAttr('disabled').removeClass('is-disabled');
 
                     if ($(this).val() == 'daily') {
                         $('.js-repeat-day').prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
@@ -344,6 +346,8 @@
                         $('.js-custom-recurrence-two').removeClass('hide');
                     } else {
                         $('.js-custom-recurrence-two').addClass('hide');
+                        $('.js-end-repeat-2').addClass('hide');
+                        $('#end-date-2').prop('disabled', true).addClass('is-disabled');
                     }
                 });
 
@@ -445,15 +449,14 @@
             'name': 'repeat-pattern-two',
             'options': {
                 '': "No repeat",
-                '-': '--------',
-                'custom': 'Create a new repeat',
-                'weekly': 'Weekly on Monday',
-                'two-weekly': 'Every two weeks, on Monday',
-                'three-weekly': 'Three Weekly',
-                'four-weekly': 'Four Weekly',
-                'monthly-day': 'Monthly, on this day (first Monday)',
-                'monthly-date': 'Monthly, on this date (1st)',
-                'annually': 'Annually'
+                'custom': 'Daily',
+                'weekly': 'Weekly',
+                'two-weekly': 'Every two weeks',
+                'three-weekly': 'Every three weeks',
+                'four-weekly': 'Every four weeks',
+                'monthly-day': 'Monthly, on this day of the month',
+                'monthly-date': 'Monthly, on this date',
+                'annually': 'Every year'
             }
         })
     }}
@@ -548,7 +551,7 @@
         }(jQuery));
     </script>
 
-    {{
+    {#
         form.choice({
             'class': 'proto-ends hide',
             'label': 'Repeat ends',
@@ -568,7 +571,7 @@
                 }
             ]
         })
-    }}
+    #}
 
     {{
         form.date({
@@ -582,6 +585,17 @@
             'value': '01/10/2018'
         })
     }}
+
+    <div class="form__indent">
+    {{
+        html.button({
+            'label': html.icon('calendar-check-o') ~ ' View / Edit Upcoming Occurences',
+            'class': 'form__indent',
+            'data-toggle': 'modal',
+            'href': '#upcoming'
+        })
+    }}
+    </div>
 
     <!-- NOT PRODUCTION QUALITY!!!!!!!! DO NOT SHIP THIS JAVASCRIPT!!!!! -->
     <script>
@@ -598,7 +612,7 @@
                     .popover({ 
                         html: true,
                         container: 'body',
-                        placement: 'left',
+                        placement: 'right',
                         content: function() {
                             console.log('popover');
                             return $('.js-review-changes-content').html();
@@ -784,368 +798,6 @@
         }(jQuery));
     </script>
 
-    <div class="form__group hide proto-calendar">
-        <label for="recurrences" class="control__label">Recurrences</label>
-        
-        <div class="controls">
-            <p class="help-block u-margin-top-none">Click on a day to add or remove a recurrence</p>
-
-            <div class="calendar-container">
-                <button class="btn--naked float--left" href="" data-year="2018" data-month="9">{{ html.icon('chevron-circle-left') }}</button>
-                
-				<button class="btn btn--naked float--right" href="" data-year="2018" data-month="11">{{ html.icon('chevron-circle-right') }}</button>
-
-                <h3 class="calendar__heading">
-                    <select>
-                        <option>January</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>September</option>
-                        <option selected>October</option>
-                        <option>November</option>
-                        <option>December</option>
-                    </select>
-                    <select>
-                        <option>2018</option>
-                        <option>2019</option>
-                        <option>2020</option>
-                        <option>2021</option>
-                        <option>2022</option>
-                        <option>2023</option>
-                        <option>2024</option>
-                        <option>2025</option>
-                    </select>
-                </h3>
-                
-                <table class="calendar">
-					<thead>
-						<tr>
-							<th>Mon</th>
-							<th>Tue</th>
-							<th>Wed</th>
-							<th>Thu</th>
-							<th>Fri</th>
-							<th>Sat</th>
-							<th>Sun</th>
-                        </tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="form-choice choice--bubbles">
-                                <div class="controls">
-                                    <label class="control__label">
-                                        <input value="01/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
-                                        <span class="form-choice__label">1</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="02/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">2</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="03/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">3</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="04/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">4</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="05/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">5</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="06/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">6</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="07/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">7</span>
-                                    </label>
-                                </div>
-							</td>
-						</tr>
-						<tr>
-							<td class="form-choice choice--bubbles">
-                                <div class="controls">
-                                    <label class="control__label">
-                                        <input value="08/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">8</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="09/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">9</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="10/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
-                                        <span class="form-choice__label">10</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="11/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">11</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="12/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">12</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="13/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">13</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="14/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">14</span>
-                                    </label>
-                                </div>
-							</td>
-						</tr>
-                        <tr>
-							<td class="form-choice choice--bubbles">
-                                <div class="controls">
-                                    <label class="control__label">
-                                        <input value="15/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">15</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="16/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">16</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="17/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">17</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="18/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">18</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="19/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">19</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="20/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">20</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="21/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">21</span>
-                                    </label>
-                                </div>
-							</td>
-						</tr>
-                        <tr>
-							<td class="form-choice choice--bubbles">
-                                <div class="controls">
-                                    <label class="control__label">
-                                        <input value="22/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">22</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="23/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">23</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="24/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">24</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="25/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">25</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="26/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">26</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="27/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">27</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="28/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">28</span>
-                                    </label>
-                                </div>
-							</td>
-						</tr>
-						<tr>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="29/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">29</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="30/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">30</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-								<div class="controls">
-                                    <label class="control__label">
-                                        <input value="31/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                        <span class="form-choice__label">31</span>
-                                    </label>
-                                </div>
-							</td>
-							<td class="form-choice choice--bubbles">
-							</td>
-							<td class="form-choice choice--bubbles">
-								
-							</td>
-							<td class="form-choice choice--bubbles">
-								
-							</td>
-							<td class="form-choice choice--bubbles">
-								
-							</td>
-						</tr>
-					</tbody>
-				</table>
-            </div>
-
-            <div class="calendar-review js-calendar-review hide">
-                <ul class="list--naked list--inline">
-                    <li class="js-add-review hide margin-right"><i class="icon icon-plus-sign icon--success"></i> <span class="js-add-badge">0</span> <span class="js-add-label">day</span> will be <strong>added</strong></li>
-                    <li class="js-del-review hide"><i class="icon icon-remove-sign icon--danger"></i> <span class="js-del-badge">0</span> <span class="js-del-label">day</span> will be <strong>removed</strong></li>
-                </ul>
-
-                {{
-                    html.button({
-                        'label': 'Review Changes',
-                        'class': 'btn--outline btn--small btn--inverse js-review-changes',
-                        'data-autoclose': 'true'
-                    })
-                }}
-                {{
-                    html.button({
-                        'label': 'Reset Calendar',
-                        'class': 'btn--outline btn--small btn--naked js-calendar-reset'
-                    })
-                }}
-
-                <div class="calendar-review js-review-changes-content hide">
-                    <div class="calendar-review__list js-add-list hide">
-                        <span class="list-heading"><i class="icon icon-plus-sign icon--success"></i> To be added</span>
-                        <ol>
-                            
-                        </ol>
-                    </div>
-                    <div class="calendar-review__list js-del-list hide">
-                        <span class="list-heading"><i class="icon icon-remove-sign icon--danger"></i> To be removed</span>
-                        <ol>
-                            
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     {{ form.fieldset_end() }}
 
     {{ 
@@ -1280,8 +932,7 @@ Now who ya gonna call?'
         }(jQuery));
     </script>
 
-
-    <div class="modal" id="upcoming" style="min-width: 600px;">
+    <div class="modal modal--large" id="upcoming">
         <div class="modal__dialog">
             <div class="modal__content">
                 <div class="modal__header">
@@ -1292,46 +943,376 @@ Now who ya gonna call?'
                     }}
                 </div>
                 <div class="modal__body">
-                    <p>This is a list of the dates this event will repeat on, based on your repeat patterns. Dates in the past are not displayed.</p>
-                    <p>You may add one-off occurences to this list, or deactivate occurences to stop the event repeating on specific dates.</p>
-                    {{
-                        html.button({
-                            'label': 'Add Occurence',
-                            'class': 'u-margin-bottom u-margin-top',
-                            'data-show': 'js-set-occurence'
-                        })
-                    }}
-                    {{
-                        html.button({
-                            'label': 'Disable Selected',
-                            'class': 'is-disabled u-margin-bottom'
-                        })
-                    }}
+                    <div class="calendar-container g-col g-col--8">
+                        {{
+                            html.button({
+                                'label': html.icon('chevron-left'),
+                                'class': 'calendar-nav-prev',
+                                'data-year': '2018',
+                                'data-month': '9'
+                            })
+                        }}
+                        {{
+                            html.button({
+                                'label': html.icon('chevron-right'),
+                                'class': 'calendar-nav-next',
+                                'data-year': '2018',
+                                'data-month': '11'
+                            })
+                        }}
 
-                    {{
-                        form.date({
-                            'label': 'Add occurence',
-                            'class': 'form__group--large u-margin-top hide js-set-occurence',
-                            'prepend': html.icon('calendar'),
-                            'id': 'new-occurence',
-                            'name': 'new-occurence',
-                            'append': html.button({
-                                'label': 'Add',
-                                'class': 'btn--primary'
-                            }),
-                            'append_type': 'button'
-                        })
-                    }}
+                        <h3 class="calendar__heading">
+                            <select class="form__control select calendar-nav-month">
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option selected>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>
+                            <select class="form__control select calendar-nav-year">
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                                <option>2025</option>
+                            </select>
+                        </h3>
+                        
+                        <table class="calendar">
+                            <thead>
+                                <tr>
+                                    <th>Mon</th>
+                                    <th>Tue</th>
+                                    <th>Wed</th>
+                                    <th>Thu</th>
+                                    <th>Fri</th>
+                                    <th>Sat</th>
+                                    <th>Sun</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="01/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
+                                                <span class="form-choice__label">1</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="02/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">2</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="03/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">3</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="04/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">4</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="05/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">5</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="06/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">6</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="07/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">7</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="08/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">8</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="09/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">9</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="10/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
+                                                <span class="form-choice__label">10</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="11/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">11</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="12/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">12</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="13/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">13</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="14/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">14</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="15/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">15</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="16/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">16</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="17/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">17</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="18/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">18</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="19/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">19</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="20/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">20</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="21/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">21</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="22/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">22</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="23/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">23</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="24/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">24</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="25/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">25</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="26/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">26</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="27/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">27</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="28/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">28</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="29/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">29</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="30/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">30</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        <div class="controls">
+                                            <label class="control__label">
+                                                <input value="31/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
+                                                <span class="form-choice__label">31</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        
+                                    </td>
+                                    <td class="form-choice choice--bubbles">
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    {{ 
-                        html.datatable({
-                            'data-order': '[[ 1, "asc" ]]',
-                            'data-select': 'false',
-                            'class': 'table--full',
-                            'data-page-length': '10',
-                            'data': data
-                        }) 
-                    }}
+                    <div class="g-col g-col--4">
+                        <p>Click a day to add or remove it from the repeat schedule.</p>
+
+                        <div class="calendar-review js-calendar-review hide">
+                            <ul class="list--naked list--inline">
+                                <li class="js-add-review hide u-margin-bottom"><i class="icon icon-plus-sign icon--success"></i> <span class="js-add-badge">0</span> <span class="js-add-label">day</span> will be <strong>added</strong></li>
+                                <li class="js-del-review hide"><i class="icon icon-remove-sign icon--danger"></i> <span class="js-del-badge">0</span> <span class="js-del-label">day</span> will be <strong>removed</strong></li>
+                            </ul>
+
+                            {{
+                                html.button({
+                                    'label': 'Review Changes',
+                                    'class': 'btn--outline btn--small btn--inverse js-review-changes',
+                                    'data-autoclose': 'true'
+                                })
+                            }}
+                            {{
+                                html.button({
+                                    'label': 'Reset Calendar',
+                                    'class': 'btn--outline btn--small btn--naked js-calendar-reset'
+                                })
+                            }}
+
+                            <div class="calendar-review js-review-changes-content hide">
+                                <div class="calendar-review__list js-add-list hide">
+                                    <span class="list-heading"><i class="icon icon-plus-sign icon--success"></i> To be added</span>
+                                    <ol>
+                                        
+                                    </ol>
+                                </div>
+                                <div class="calendar-review__list js-del-list hide">
+                                    <span class="list-heading"><i class="icon icon-remove-sign icon--danger"></i> To be removed</span>
+                                    <ol>
+                                        
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal__footer">
                     {{
