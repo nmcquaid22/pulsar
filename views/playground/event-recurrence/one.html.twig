@@ -286,200 +286,32 @@
 
     <p>Make this event recur on a defined schedule, you can add a repeat pattern and add/remove specific dates to fine tune when your event will run</p>
 
-    <script>
-        (function ($) {
-            $(window).load(function() {
-                var $repeatEnds = $('.proto-ends'),
-                    $repeatCalendar = $('.proto-calendar');
 
-                    function checkIfInView(element){
-                        var offset = element.offset().top - $(window).scrollTop();
+    <div class="form__group form__group--large">
+        <label for="repeat-pattern-two" class="control__label">Repeat</label><!--
+        --><div class="controls">
+            <select id="repeat" class="form__control select js-ercal-repeat">
+                <option value="no-repeat">No repeat</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="two-weekly">Every two weeks</option>
+                <option value="monthly-day">Monthly, on this day of the month</option>
+                <option value="monthly-date">Monthly, on this date</option>
+                <option value="annually">Every year</option>
+            </select>    
+        </div>
+    </div>
 
-                        if(offset > window.innerHeight){
-                            // Not in view so scroll to it
-                            $('html,body').animate({scrollTop: offset}, 1000);
-                            return false;
-                        }
-                    return true;
-                }
-
-                $('#repeat-pattern-two').change(function() {
-
-                    //checkIfInView($('.proto-calendar'));
-
-                    if ($(this).val() == '') {
-                        $repeatEnds.addClass('hide');
-                        $repeatCalendar.addClass('hide');
-                    } else {
-                        $repeatEnds.removeClass('hide');
-                        $repeatCalendar.removeClass('hide');
-                    }
-
-                    $('.js-repeat-day').prop('checked', false);
-
-                    $('.js-end-repeat-2').removeClass('hide');
-                    $('#end-date-2').removeAttr('disabled').removeClass('is-disabled');
-
-                    if ($(this).val() == 'daily') {
-                        $('.js-repeat-day').prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else if ($(this).val() == 'weekly') {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [0, 7, 14, 21, 28]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else if ($(this).val() == 'two-weekly') {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [0, 14, 28]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else if ($(this).val() == 'three-weekly') {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [0, 21]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else if ($(this).val() == 'four-weekly') {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [0, 28]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else if ($(this).val() == 'monthly-day' || $(this).val() == 'monthly-date' || $(this).val() == 'annually') {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [0]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else if ($(this).val() == 'custom') {
-                        $('.js-custom-recurrence-two').removeClass('hide');
-                    } else {
-                        $('.js-custom-recurrence-two').addClass('hide');
-                        $('.js-end-repeat-2').addClass('hide');
-                        $('#end-date-2').prop('disabled', true).addClass('is-disabled');
-                    }
-                });
-
-                $('[value="mon"]').change(function() {
-                    if (this.checked) {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [0, 7, 14, 21, 28]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [0, 7, 14, 21, 28]) > -1;
-                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
-                    }
-                });
-
-                $('[value="tue"]').change(function() {
-                    if (this.checked) {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [1, 8, 15, 22, 29]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [1, 8, 15, 22, 29]) > -1;
-                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
-                    }
-                });
-
-                $('[value="wed"]').change(function() {
-                    if (this.checked) {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [2, 9, 16, 23, 30]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [2, 9, 16, 23, 30]) > -1;
-                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
-                    }
-                });
-
-                $('[value="thu"]').change(function() {
-                    if (this.checked) {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [3, 10, 17, 24, 31]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [3, 10, 17, 24, 31]) > -1;
-                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
-                    }
-                });
-
-                $('[value="fri"]').change(function() {
-                    if (this.checked) {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [4, 11, 18, 25, 32]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [4, 11, 18, 25, 32]) > -1;
-                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
-                    }
-                });
-
-                $('[value="sat"]').change(function() {
-                    if (this.checked) {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [5, 12, 19, 26, 33]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [5, 12, 19, 26, 33]) > -1;
-                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
-                    }
-                });
-
-                $('[value="sun"]').change(function() {
-                    if (this.checked) {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [6, 13, 20, 27, 34]) > -1;
-                        }).prop('checked', true).closest('.form-choice').addClass('choice--to-add has-changed');
-                    } else {
-                        $('.js-repeat-day').filter(function(index, el) {
-                            return $.inArray(index, [6, 13, 20, 27, 34]) > -1;
-                        }).prop('checked', false).closest('.form-choice').removeClass('choice--to-add has-changed');
-                    }
-                });
-
-            
-            });
-
-        }(jQuery));
-    </script>
-
-    {{
-        form.select({
-            'label': 'Repeat',
-            'class': 'form__group--large',
-            'id': 'repeat-pattern-two',
-            'name': 'repeat-pattern-two',
-            'options': {
-                '': "No repeat",
-                'custom': 'Daily',
-                'weekly': 'Weekly',
-                'two-weekly': 'Every two weeks',
-                'three-weekly': 'Every three weeks',
-                'four-weekly': 'Every four weeks',
-                'monthly-day': 'Monthly, on this day of the month',
-                'monthly-date': 'Monthly, on this date',
-                'annually': 'Every year'
-            }
-        })
-    }}
     
-    {{ form.fieldset_start({'class': 'js-custom-recurrence-two hide u-padding-top-none u-padding-bottom-none'}) }}
-
-        {#
-            form.text({
-                'label': 'Repeat every',
-                'class': 'form__group--medium',
-                'id': 'repeat-every',
-                'name': 'repeat-every',
-                'append': 'weeks',
-                'required': true,
-                'value': '1',
-                'help': 'The number of weeks which should pass before the event reoccurs'
-            })
-        #}
+    
+    
+    
 
         {{
             form.choice({
                 'label': 'Repeat every',
-                'class': 'choice--bubbles choice--bubbles-inline',
+                'class': 'choice--bubbles choice--bubbles-inline js-ercal-weekdays',
+                'style': 'display: none;',
                 'multiple': true,
                 'optimize': 'few',
                 'required': true,
@@ -487,96 +319,50 @@
                 'options': [
                     {
                         'label': 'MO',
-                        'value': 'mon',
-                        'name': 'days'
+                        'value': '1',
+                        'name': 'ercal-weekdays'
                     },
                     {
                         'label': 'TU',
-                        'value': 'tue',
-                        'name': 'days'
+                        'value': '2',
+                        'name': 'ercal-weekdays'
                     },
                     {
                         'label': 'WE',
-                        'value': 'wed',
-                        'name': 'days'
+                        'value': '3',
+                        'name': 'ercal-weekdays'
                     },
                     {
                         'label': 'TH',
-                        'value': 'thu',
-                        'name': 'days'
+                        'value': '4',
+                        'name': 'ercal-weekdays'
                     },
                     {
                         'label': 'FR',
-                        'value': 'fri',
-                        'name': 'days'
+                        'value': '5',
+                        'name': 'ercal-weekdays'
                     },
                     {
                         'label': 'SA',
-                        'value': 'sat',
-                        'name': 'days'
+                        'value': '6',
+                        'name': 'ercal-weekdays'
                     },
                     {
                         'label': 'SU',
-                        'value': 'sun',
-                        'name': 'days'
+                        'value': '7',
+                        'name': 'ercal-weekdays'
                     }
                 ]
             })
         }}
 
-        {{ form.fieldset_end() }}
+        
 
-
-
-    <!-- NOT PRODUCTION QUALITY!!!!!!!! DO NOT SHIP THIS JAVASCRIPT!!!!! -->
-    <script>
-        (function ($) {
-            $(window).load(function(){
-                $('[data-show="js-end-repeat-2"]').on('change', function() {
-                    if ($(this).is(':checked')) {
-                        $('.js-end-repeat-2').removeClass('hide');
-                        $('#end-date-2').removeAttr('disabled').removeClass('is-disabled');
-                    }
-                });
-
-                $('[data-hide="js-end-repeat-2"]').on('change', function() {
-                    if ($(this).is(':checked')) {
-                        $('#end-date')
-                            .addClass('is-disabled')
-                            .attr('disabled', 'disabled');
-                        $('.js-end-repeat-2').addClass('hide');
-                    }
-                });
-            });
-        }(jQuery));
-    </script>
-
-    {#
-        form.choice({
-            'class': 'proto-ends hide',
-            'label': 'Repeat ends',
-            'options': [
-                {
-                    'label': 'Never',
-                    'value': 'never',
-                    'name': 'ends',
-                    'data-hide': 'js-end-repeat-2',
-                    'checked': true
-                },
-                {
-                    'label': 'On date',
-                    'value': 'date',
-                    'data-show': 'js-end-repeat-2',
-                    'name': 'ends'
-                }
-            ]
-        })
-    #}
 
     {{
         form.date({
             'label': 'End repeat after',
-            'class': 'form__group--medium hide js-end-repeat-2',
+            'class': 'form__group--medium js-end-repeat-2',
             'prepend': html.icon('calendar'),
             'id': 'end-date-2',
             'name': 'end-date-2',
@@ -596,207 +382,6 @@
         })
     }}
     </div>
-
-    <!-- NOT PRODUCTION QUALITY!!!!!!!! DO NOT SHIP THIS JAVASCRIPT!!!!! -->
-    <script>
-        (function ($) {
-            $(window).load(function(){
-
-                addArray = [];
-                delArray = [];
-
-                $('.js-review-changes')
-                    .on('click', function(e) {
-                        e.preventDefault();
-                    })
-                    .popover({ 
-                        html: true,
-                        container: 'body',
-                        placement: 'right',
-                        content: function() {
-                            console.log('popover');
-                            return $('.js-review-changes-content').html();
-                        }
-                    });
-
-                $('.js-repeat-day').on('change', function() {
-                    var $this = $(this),
-                        $choice = $this.closest('.form-choice');
-
-                    if ($choice.hasClass('has-changed')) {
-                        if ($this.is(':checked')) {
-                            console.log('1');
-                            $choice
-                                .removeClass('choice--to-remove has-changed');
-                            updateCalendarReview('un-del', $this.val());
-                        }
-                        else {
-                            console.log('2');
-                            $choice
-                                .removeClass('choice--to-add has-changed');
-                            $this.blur();
-                            updateCalendarReview('un-add', $this.val());
-                        }
-                    } 
-                    else {
-                        if ($this.is(':checked')) {
-                            console.log('3');
-                            $choice
-                                .removeClass('choice--to-remove')
-                                .addClass('choice--to-add has-changed');
-                            updateCalendarReview('add', $this.val());
-                        }
-                        else {
-                            console.log('4 blur');
-                            $choice
-                                .removeClass('choice--to-add')
-                                .addClass('choice--to-remove has-changed')
-                            $this.blur();
-                            updateCalendarReview('del', $this.val());
-                        }
-                    }
-                });
-
-                $('.js-calendar-reset').on('click', function(e) {
-                    console.log('reset');
-                    e.preventDefault();
-
-                    var $toRemove = $('.has-changed.choice--to-remove'),
-                        $toAdd = $('.has-changed.choice--to-add')
-                    
-                    $('.has-changed.choice--to-remove').each(function() {
-                        $(this).removeClass('choice--to-remove has-changed').find('.checkbox').prop('checked', true);
-                    });
-
-                    $('.has-changed.choice--to-add').each(function() {
-                        $(this).removeClass('choice--to-add has-changed').find('.checkbox').prop('checked', false);
-                    });
-
-                    updateCalendarReview('reset');
-                    
-                });
-            });
-
-            function updateCalendarReview(action, value) {
-                var $reviewContainer = $('.js-calendar-review'),
-                    $addReview = $('.js-add-review'),
-                    $addBadge = $('.js-add-badge'),
-                    $addLabel = $('.js-add-label'),
-                    addBadgeVal = parseInt($addBadge.html()),
-                    $delReview = $('.js-del-review'),
-                    $delBadge = $('.js-del-badge'),
-                    $delLabel = $('.js-del-label'),
-                    delBadgeVal = parseInt($delBadge.html())
-                    $addList = $('.js-add-list'),
-                    $delList = $('.js-del-list');
-
-                if (action === 'reset') {
-                    $addBadge.addClass('hide').html('0');
-                    $delBadge.addClass('hide').html('0');
-                } else if (action === 'add') {
-                    $addReview.removeClass('hide').addClass('has-changed');
-                    $addBadge.removeClass('hide');
-                    $addBadge.html(addBadgeVal + 1);
-
-                    //$addList.removeClass('hide').find('ol').append('<li>' + value + '</li>');
-                    addArray.push(value);
-                }
-                else if (action === 'del') {
-                    $delReview.removeClass('hide').addClass('has-changed');
-                    $delBadge.removeClass('hide');
-                    $delBadge.html(delBadgeVal + 1);
-
-                    delArray.push(value);
-                }
-                else if (action === 'un-add' && addBadgeVal > 0) {
-                    $addReview.removeClass('hide').addClass('has-changed');
-                    $addBadge.removeClass('hide');
-                    
-                    $addBadge.html(addBadgeVal - 1);
-
-                    addArray.splice(addArray.indexOf(value), 1);
-                }
-                else if (action === 'un-del') {
-                    $delReview.removeClass('hide').addClass('has-changed');
-                    $delBadge.removeClass('hide');
-                    $delBadge.html(delBadgeVal - 1);
-
-                    delArray.splice(delArray.indexOf(value), 1);
-                }
-
-                if (parseInt($addBadge.html()) === 0) {
-                    $addReview.addClass('hide');
-                    $addLabel.html('day');
-                }
-                else if (parseInt($addBadge.html()) === 1) {
-                    $addLabel.html('day');
-                } else {
-                    $addLabel.html('days');
-                }
-
-                if (parseInt($delBadge.html()) === 0) {
-                    $delReview.addClass('hide');
-                    $delLabel.html('day');
-                }
-                else if (parseInt($delBadge.html()) === 1) {
-                    $delLabel.html('day');
-                }
-                else {
-                    $delLabel.html('days');
-                }
-
-                if (parseInt($addBadge.html()) === 0 && parseInt($delBadge.html()) === 0) {
-                    $reviewContainer.addClass('hide');
-                } else {
-                    $reviewContainer.removeClass('hide');
-                }
-
-                addArray.sort(function(a,b) {
-                    a = a.split('/').reverse().join('');
-                    b = b.split('/').reverse().join('');
-                    return a.localeCompare(b);
-                });
-
-                delArray.sort(function(a,b) {
-                    a = a.split('/').reverse().join('');
-                    b = b.split('/').reverse().join('');
-                    return a.localeCompare(b);
-                });
-
-                if (addArray.length && (action === 'add' || action == 'un-add')) {
-                    var addDates = '';
-                    
-                    $.each(addArray, function(i) {
-                        addDates += '<li>' + addArray[i] + '</li>';
-                    });
-
-                    $addList.removeClass('hide').find('ol').empty().append(addDates);
-                }
-                else if (delArray.length && (action === 'del' || action == 'un-del')) {
-                    var delDates = '';
-                    
-                    $.each(delArray, function(i) {
-                        delDates += '<li>' + delArray[i] + '</li>';
-                    });
-
-                    $delList.removeClass('hide').find('ol').empty().append(delDates);
-                } 
-                else if (!delArray.length) {
-                    $delList.addClass('hide');
-                }
-                else if (!addArray.length) {
-                    $addList.addClass('hide');
-                }
-
-                setTimeout(function() {
-                    $addReview.removeClass('has-changed');
-                    $delReview.removeClass('has-changed');
-                }, 250);
-                
-            };
-
-        }(jQuery));
-    </script>
 
     {{ form.fieldset_end() }}
 
@@ -918,20 +503,6 @@ Now who ya gonna call?'
         })
     }}
 
-    <!-- NOT PRODUCTION QUALITY!!!!!!!! DO NOT SHIP THIS JAVASCRIPT!!!!! -->
-    <script>
-        (function ($) {
-            $(window).load(function(){
-
-                $('[data-show="js-set-occurence"]').on('click', function(e) {
-                    e.preventDefault();
-                    $('.js-set-occurence').removeClass('hide');
-
-                });
-            });
-        }(jQuery));
-    </script>
-
     <div class="modal modal--large" id="upcoming">
         <div class="modal__dialog">
             <div class="modal__content">
@@ -944,374 +515,7 @@ Now who ya gonna call?'
                 </div>
                 <div class="modal__body">
                     <div class="calendar-container g-col g-col--8">
-                        {{
-                            html.button({
-                                'label': html.icon('chevron-left'),
-                                'class': 'calendar-nav-prev',
-                                'data-year': '2018',
-                                'data-month': '9'
-                            })
-                        }}
-                        {{
-                            html.button({
-                                'label': html.icon('chevron-right'),
-                                'class': 'calendar-nav-next',
-                                'data-year': '2018',
-                                'data-month': '11'
-                            })
-                        }}
-
-                        <h3 class="calendar__heading">
-                            <select class="form__control select calendar-nav-month">
-                                <option>January</option>
-                                <option>February</option>
-                                <option>March</option>
-                                <option>April</option>
-                                <option>May</option>
-                                <option>June</option>
-                                <option>July</option>
-                                <option>August</option>
-                                <option>September</option>
-                                <option selected>October</option>
-                                <option>November</option>
-                                <option>December</option>
-                            </select>
-                            <select class="form__control select calendar-nav-year">
-                                <option>2018</option>
-                                <option>2019</option>
-                                <option>2020</option>
-                                <option>2021</option>
-                                <option>2022</option>
-                                <option>2023</option>
-                                <option>2024</option>
-                                <option>2025</option>
-                            </select>
-                        </h3>
-                        
-                        <table class="calendar">
-                            <thead>
-                                <tr>
-                                    <th>Mon</th>
-                                    <th>Tue</th>
-                                    <th>Wed</th>
-                                    <th>Thu</th>
-                                    <th>Fri</th>
-                                    <th>Sat</th>
-                                    <th>Sun</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="01/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
-                                                <span class="form-choice__label">1</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="02/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">2</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="03/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">3</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="04/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">4</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="05/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">5</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="06/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">6</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="07/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">7</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="08/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">8</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="09/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">9</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="10/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day" checked>
-                                                <span class="form-choice__label">10</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="11/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">11</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="12/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">12</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="13/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">13</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="14/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">14</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="15/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">15</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="16/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">16</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="17/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">17</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="18/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">18</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="19/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">19</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="20/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">20</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="21/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">21</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="22/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">22</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="23/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">23</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="24/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">24</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="25/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">25</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="26/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">26</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="27/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">27</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="28/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">28</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="29/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">29</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="30/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">30</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        <div class="controls">
-                                            <label class="control__label">
-                                                <input value="31/10/2018" name="cal-dd" type="checkbox" class="form__control checkbox js-repeat-day">
-                                                <span class="form-choice__label">31</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        
-                                    </td>
-                                    <td class="form-choice choice--bubbles">
-                                        
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="g-col g-col--4">
-                        <p>Click a day to add or remove it from the repeat schedule.</p>
-
-                        <div class="calendar-review js-calendar-review hide">
-                            <ul class="list--naked list--inline">
-                                <li class="js-add-review hide u-margin-bottom"><i class="icon icon-plus-sign icon--success"></i> <span class="js-add-badge">0</span> <span class="js-add-label">day</span> will be <strong>added</strong></li>
-                                <li class="js-del-review hide"><i class="icon icon-remove-sign icon--danger"></i> <span class="js-del-badge">0</span> <span class="js-del-label">day</span> will be <strong>removed</strong></li>
-                            </ul>
-
-                            {{
-                                html.button({
-                                    'label': 'Review Changes',
-                                    'class': 'btn--outline btn--small btn--inverse js-review-changes',
-                                    'data-autoclose': 'true'
-                                })
-                            }}
-                            {{
-                                html.button({
-                                    'label': 'Reset Calendar',
-                                    'class': 'btn--outline btn--small btn--naked js-calendar-reset'
-                                })
-                            }}
-
-                            <div class="calendar-review js-review-changes-content hide">
-                                <div class="calendar-review__list js-add-list hide">
-                                    <span class="list-heading"><i class="icon icon-plus-sign icon--success"></i> To be added</span>
-                                    <ol>
-                                        
-                                    </ol>
-                                </div>
-                                <div class="calendar-review__list js-del-list hide">
-                                    <span class="list-heading"><i class="icon icon-remove-sign icon--danger"></i> To be removed</span>
-                                    <ol>
-                                        
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="js-event-calendar"></div>
                     </div>
                 </div>
                 <div class="modal__footer">

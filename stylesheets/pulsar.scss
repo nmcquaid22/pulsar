@@ -160,6 +160,8 @@ $fa-css-prefix: 'icon';
  	you should @import them here.
 \* -------------------------------------------------------------------------- */
 
+@import '../node_modules/pulsar-event-calendar/src/scss/event-calendar';
+
 // Utilities
 @import 'utility.baseline';
 @import 'utility.highlight';

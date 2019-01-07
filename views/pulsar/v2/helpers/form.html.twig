@@ -494,7 +494,7 @@ show-label | bool   | Control visibility of the `<label>` element without affect
     {{
         form.group({
             'parent': options
-                |only('bare class error error_ids guidance guidance-container help help_id id label required show-label')
+                |only('bare class error error_ids guidance guidance-container help help_id id label required show-label style')
                 |exclude('multiple')
                 |defaults({'class': 'form-choice'}),
             'inputs': inputs
@@ -1252,7 +1252,7 @@ controls.class    | string | A space separated list of class names
     {% if options.parent.bare is not defined or options.parent.bare != true %}
     <div{{
         attributes(options.parent
-                |only('class aria-describedby')
+                |only('class aria-describedby style')
                 |defaults({
                     'class': groupClass
                 })

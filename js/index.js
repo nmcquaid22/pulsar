@@ -21,7 +21,7 @@ var $                     = require('jquery'),
     tooltip               = require('./libs/tooltip'),
     matchMedia            = require('./polyfills/matchMedia'),
     matchMediaAddListener = require('./polyfills/matchMedia.addListener'),
-
+    
     jqueryui  = require('../libs/jquery-ui/jquery-ui.min'),
     countdown = require('../libs/jquery.countdown/dist/jquery.countdown.min'),
     pikaday   = require('../libs/pikaday/plugins/pikaday.jquery'),
@@ -29,12 +29,11 @@ var $                     = require('jquery'),
     select2   = require('../libs/select2/dist/js/select2.min'),
     tinycon   = require('../libs/tinyicon/tinycon.min'),
     
-    clndr         = require('clndr'),
     dt            = require('datatables.net')(window, $),
     dt_buttons    = require('datatables.net-buttons')(window, $),
     dt_responsive = require('datatables.net-responsive')(window, $),
     dt_select     = require('datatables.net-select')(window, $),
-
+    
     ButtonComponent = require('./ButtonComponent'),
     DisableUiComponent = require('./DisableUiComponent'),
     HelpTextComponent = require('./HelpTextComponent'),
@@ -51,15 +50,18 @@ var $                     = require('jquery'),
     DropZoneComponentFactory = require('./DropZone/DropZoneComponentFactory'),
     RepeaterManagerComponent = require('./Repeater/RepeaterManagerComponent'),
     repeaterComponentFactory = require('./Repeater/repeaterComponentFactory'),
-    FaviconEditor = require('./Notifications/FaviconEditor');
-
-require('jstree');
-require('../libs/history.js/scripts/bundled/html5/jquery.history');
-
+    FaviconEditor = require('./Notifications/FaviconEditor'),
+    
+    EventCalendar = require('pulsar-event-calendar');
+    
+    require('jstree');
+    require('../libs/history.js/scripts/bundled/html5/jquery.history');
+    
 module.exports = {
     ButtonComponent,
     DropZoneComponentFactory,
     DisableUiComponent,
+    EventCalendar,
     HelpTextComponent,
     FilterBarComponent,
     FlashMessageComponent,
